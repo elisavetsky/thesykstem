@@ -1,0 +1,124 @@
+
+	
+	{{ range .Params.size_collection }}
+		
+		
+		{{ range .xxxs }}
+			{{ if gt .stock "0" }}
+			<button class="button fit-content is-flex is-flex-direction-column">
+				<p></p>
+			
+			</button>	
+			{{ else }}
+			<button disabled class="button fit-content is-flex is-flex-direction-column">
+				<p>(2-4)</p>
+				xxxs
+			</button>
+			{{ end }}
+		{{ end }}
+	{{ end }}
+	
+	{{ with .Params.size_collection }}
+		
+		{{ if in . "xxxs" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(2-4)</p>
+			xxxs
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(2-4)</p>
+			xxxs
+		</button>
+		{{ end }}
+		{{ if in . "xxs" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(6-8)</p>
+			xxs
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(6-8)</p>
+			xxs
+		</button>
+		{{ end }}
+		{{ if in . "xs" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(10-12)</p>
+			xs
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(10-12)</p>
+			xs
+		</button>
+		{{ end }}
+		{{ if in . "s" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(14-16)</p>
+			s
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(14-16)</p>
+			s
+		</button>
+		{{ end }}
+		{{ if in . "m" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(18-20)</p>
+			m
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(18-20)</p>
+			m
+		</button>
+		{{ end }}
+		{{ if in . "l" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(22-24)</p>
+			l
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(22-24)</p>
+			l
+		</button>
+		{{ end }}
+		{{ if in . "xl" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(26-28)</p>
+			xl
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(26-28)</p>
+			xl
+		</button>
+		{{ end }}
+		{{ if in . "xxl" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(30-32)</p>
+			xxl
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(30-32)</p>
+			xxl
+		</button>
+		{{ end }}
+		{{ if in . "xxxl" }}
+		<button class="button fit-content is-flex is-flex-direction-column">
+			<p>(34-36)</p>
+			xxxl
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<p>(34-36)</p>
+			xxxl
+		</button>
+		{{ end }}
+	{{ end }}
+
+</div>

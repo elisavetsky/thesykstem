@@ -1,0 +1,46 @@
+<h6>color:</h6>
+<div class="buttons">
+{{ $title := .Title }}
+
+{{ if eq .Params.color "white" }}
+	<button class="button box is-white">{{ .Params.color }}</button>
+	{{ $variants := where (where .Site.RegularPages "Params.is_variant" "=" true ) "Title" "=" $title }}
+	{{ range $variants }}
+	{{ $color := replace .Params.color "-fill" "" }}
+	<a href="{{ .Permalink }}"class="button box {{ .Params.color }}">{{ $color }}</a>
+	{{ end }}
+{{ end }}
+
+{{ if eq .Params.color "black" }}
+	<button class="button box is-black">{{ .Params.color }}</button>
+	{{ $variants := where (where .Site.RegularPages "Params.is_variant" "=" true ) "Title" "=" $title }}
+	{{ range $variants }}
+	{{ $color := replace .Params.color "-fill" "" }}
+	<a href="{{ .Permalink }}"class="button box {{ .Params.color }}">{{ $color }}</a>
+	{{ end }}
+{{ end }}
+
+{{ if eq .Params.color "galaxy" }}
+	{{ $variants := where (where .Site.RegularPages "Params.is_variant" "!=" true ) "Title" "=" $title }}
+	{{ range $variants }}
+	<a href="{{ .Permalink }}"class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+	{{ end }}
+	<button class="button box galaxy">{{ .Params.color }}</button>
+{{ end }}
+
+{{ if eq .Params.color "galaxy-fill" }}
+	{{ $variants := where (where .Site.RegularPages "Params.is_variant" "!=" true ) "Title" "=" $title }}
+	{{ range $variants }}
+	<a href="{{ .Permalink }}"class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+	{{ end }}
+	<button class="button box {{ .Params.color }}">galaxy</button>
+{{ end }}
+
+{{ if eq .Params.color "starlight" }}
+	{{ $variants := where (where .Site.RegularPages "Params.is_variant" "!=" true ) "Title" "=" $title }}
+	{{ range $variants }}
+	<a href="{{ .Permalink }}"class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+	{{ end }}
+	<button class="button box {{ .Params.color }}">{{ .Params.color }}</button>
+{{ end }}
+</div>

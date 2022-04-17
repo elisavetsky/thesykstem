@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+	<title>{{ .Site.Title }}</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+<!-- Snipcart -->
+	<link rel="preconnect" href="https://app.snipcart.com" />
+	<link rel="preconnect" href="https://cdn.snipcart.com" />
+	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+
+<!-- Bulma Stylesheet -->
+	<link rel="stylesheet" href="/css/bulma.min.css">
+	
+	{{ if .IsHome }}
+	<!-- <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
+	{{ end }}
+	
+<!-- Font Awesome  -->
+	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
+	<link href="/fontawesome/free/css/brands.min.css" rel="stylesheet">
+	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
+
+
+	<!--SCSS converted to CSS for website-->
+	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true) | resources.ExecuteAsTemplate "sass/main.css" . }}
+	<link rel="stylesheet" href="{{ ($style | minify).Permalink }}">
+	
+  </head> 
+</html>

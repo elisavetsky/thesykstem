@@ -1,0 +1,146 @@
+
+
+<h6>size:</h6>
+<div class="buttons">
+{{ if eq .Params.product_type "hat" }}
+{{ range $.Params.sizes }}
+		{{ $size := .size }}
+		{{ $stock := .stock }}
+		{{ if gt $stock 0 }}
+		<button class="button box fit-content is-flex is-flex-direction-column">
+			{{ $size }}
+		</button>
+		{{ else }}
+		<button disabled class="button fit-content is-flex is-flex-direction-column">
+			{{ $size }}
+		</button>
+		{{ end }}
+{{ end }}
+{{ else if or (eq .Params.product_type "shirt") (eq .Params.product_type "hoodie") }}
+
+	{{ with $size_catalog := dict "xxxs" "2-4" "xxs" "6-8" "xs" "10-12" "s" "14-16" "m" "18-20" "l" "22-24" "xl" "26-28" "xxl" "30-32" "xxxl" "34-36" }}
+
+		{{ range $.Params.sizes }}
+			{{ $size := .size }}
+			{{ $stock := .stock }}
+			{{ if gt $stock 0 }}
+			
+			<button
+			 id="{{ $size }}"
+			 type="{{ $size }}"
+			 class="button box fit-content is-flex is-flex-direction-column">
+				{{ if eq "xxxs" $size }}
+				<p>{{ index $size_catalog "xxxs" }}</p>
+				{{ $size }}
+				{{ else if eq "xxs" $size }}
+				<p>{{ index $size_catalog "xxs" }}</p>
+				{{ $size }}
+				{{ else if eq "xxs" $size }}
+				<p>{{ index $size_catalog "xxs" }}</p>
+				{{ $size }}
+				{{ else if eq "xs" $size }}
+				<p>{{ index $size_catalog "xs" }}</p>
+				{{ $size }}
+				{{ else if eq "s" $size }}
+				<p>{{ index $size_catalog "s" }}</p>
+				{{ $size }}
+				{{ else if eq "m" $size }}
+				<p>{{ index $size_catalog "m" }}</p>
+				{{ $size }}
+				{{ else if eq "l" $size }}
+				<p>{{ index $size_catalog "l" }}</p>
+				{{ $size }}
+				{{ else if eq "xl" $size }}
+				<p>{{ index $size_catalog "xl" }}</p>
+				{{ $size }}
+				{{ else if eq "xxl" $size }}
+				<p>{{ index $size_catalog "xxl" }}</p>
+				{{ $size }}
+				{{ else if eq "xxxl" $size }}
+				<p>{{ index $size_catalog "xxxl" }}</p>
+				{{ $size }}
+				{{ end }}
+			</button>
+			{{ else }}
+			<button disabled class="button fit-content is-flex is-flex-direction-column">
+				{{ if eq "xxxs" $size }}
+				<p>{{ index $size_catalog "xxxs" }}</p>
+				{{ $size }}
+				{{ else if eq "xxs" $size }}
+				<p>{{ index $size_catalog "xxs" }}</p>
+				{{ $size }}
+				{{ else if eq "xxs" $size }}
+				<p>{{ index $size_catalog "xxs" }}</p>
+				{{ $size }}
+				{{ else if eq "xs" $size }}
+				<p>{{ index $size_catalog "xs" }}</p>
+				{{ $size }}
+				{{ else if eq "s" $size }}
+				<p>{{ index $size_catalog "s" }}</p>
+				{{ $size }}
+				{{ else if eq "m" $size }}
+				<p>{{ index $size_catalog "m" }}</p>
+				{{ $size }}
+				{{ else if eq "l" $size }}
+				<p>{{ index $size_catalog "l" }}</p>
+				{{ $size }}
+				{{ else if eq "xl" $size }}
+				<p>{{ index $size_catalog "xl" }}</p>
+				{{ $size }}
+				{{ else if eq "xxl" $size }}
+				<p>{{ index $size_catalog "xxl" }}</p>
+				{{ $size }}
+				{{ else if eq "xxxl" $size }}
+				<p>{{ index $size_catalog "xxxl" }}</p>
+				{{ $size }}
+				{{ end }}
+			</button>
+			{{ end }}
+		{{ end }}
+		
+	{{ end }}
+{{ end }}
+</div>
+	<script>
+	{{ range $.Params.sizes }} 
+	document.addEventListener("click", function (event) {
+	  // Checking if the button was clicked
+	 
+	  {{ $size := .size }}
+	  if (!event.target.matches("#{{ $size }}")) return;
+	  
+	  
+	  
+    fetch('https://app.snipcart.com/api/products/system-1776-hoodie-starlight', {
+		  method: 'PUT',
+		  headers: { 
+		  	'Authorization': `Basic $btoa{U1RfTldZM04yRmpNRE10TWpKbVlpMDBNemd4TFdKbE5qY3RNalkxTTJZM05XWTNaV0V6TmpNM09EVTNOVFkyTlRJd01URXdNRGcwOgo=}`,
+			'Accept': 'application/json',
+			'Content-type': 'application/json',
+		  	'Access-Control-Allow-Origin': "172.250.7.64",
+			'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+	  	  },
+		  body: JSON.stringify({
+				  customFields: [
+					  {
+						  "value": '{{ $size }}'
+					  }
+				  ]
+			  })
+			  
+	  })
+	
+	  .then(response => response.text())
+	  .then((response) => updateResponse(response))
+	  .catch(error => console.error(error));
+	  
+	console.log("{{ $size }} Button was clicked!");
+	
+	function renderError() {
+	  const error = document.getElementById("error");
+	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
+	}
+	  
+	});
+	{{ end }}
+	</script>

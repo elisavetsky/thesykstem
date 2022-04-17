@@ -1,0 +1,60 @@
+{{ define "main" }}
+<body class="is-blue-white-grad">
+	
+{{ partial "navbar" . }}
+
+<section class="container section is-small">
+	<div class="content is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+		{{ .Content }}
+	</div>
+</section>
+<section class="container section">
+	<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+		{{ $counter := 0 }}
+		{{ .Scratch.Set "counter" $counter}}
+		{{ $is_men := where .Site.RegularPages "Params.is_men" true }}
+		{{ range $is_men }}
+		{{ $counter = add $counter 1 }}
+		{{ .Scratch.Set "counter" $counter }}
+	
+		<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
+			<div class="tile is-ancestor">
+				<div class="tile is-parent">
+					<div class="box tile is-child is-article">
+						<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+							
+								<div class="product-in-list">
+									{{ partial "type-love-button" . }}
+									<a href="{{ .Permalink }}">
+									<h1>{{ .Title }}</h1>
+								
+									{{ $img := .Params.img }}
+									
+									{{ $article := .Resources.GetMatch $img }}
+									{{ $main_alt := .Params.main_alt }}
+									{{ $.Scratch.Set "alt" $main_alt }}
+									{{ with $article }}
+									{{ $resized := $article.Resize "500x center q75" }}
+									<figure>
+										<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}"></img>
+									</figure>
+									{{ end }}
+									</a>
+								</div>
+							
+							<div>
+								{{ partial "price" . }}
+								{{ partial "colors-sizes-available" . }}
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		{{ end }}
+	</div>
+</section>
+{{ partial "footer" . }}
+</body>
+{{ end }}
+

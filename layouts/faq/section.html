@@ -1,0 +1,41 @@
+{{ define "main" }}
+<body class="is-blue-white-grad">
+	
+{{ partial "navbar" . }}
+
+<section class="section is-medium">
+	<div class="container content">
+		<div class="mb-5 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			<h1>{{ .Title }}</h1>
+			<p>{{ .Params.subtitle }}</p>
+		</div>
+		{{ $counter := 0 }}
+		{{ range (where .Site.RegularPages.ByWeight "Section" "faq") }}
+		{{ $counter = add $counter 1 }}
+		{{ .Scratch.Set "counter" $counter }}
+		<div class="tile">
+			<div class="tile is-child box is-faq">
+				<div class="is-collapsable full-width">
+					<input type="checkbox" name="dropdown" id="faq-{{ $counter }}">
+					<label for="faq-{{ $counter }}">
+						<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
+							<span class="w-96">
+								<h4 id="{{ .File.BaseFileName }}">{{ .Title }}</h4>
+							</span>
+							<span class="icon">
+								<span class="fa-solid fa-chevron-down"></span>
+							</span>
+						</span>
+					</label>
+					<div class="tags">
+						{{ .Content }}
+					</div>
+				</div>
+			</div>
+		</div>
+		{{ end }}
+	</div>
+</section>
+{{ partial "footer" . }}
+</body>
+{{ end }}

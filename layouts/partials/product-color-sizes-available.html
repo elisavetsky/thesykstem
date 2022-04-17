@@ -1,0 +1,50 @@
+{{ $size_var := .Params.sizes }}
+{{ $color := .Params.color }}
+{{ $counter := .Scratch.Get "counter" }}
+{{ $title := .Title }}
+
+{{ if or (where (where $size_var "size" "eq" "adjustable") "stock" "eq" 0 )
+(and (where (where $size_var "size" "eq" "xxxs") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xxs") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xs") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "s") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "m") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "l") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xl") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xxl") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xxxl") "stock" "eq" 0 ) ) }}
+	<a href="" alt="{{ $color }} variant">
+		<span class="icon mb-4">
+			<span class="fa-solid fa-ban icon-{{ $color }}"></span>
+		</span>
+	</a>
+	<div class="buttons mb-1">
+		<button disabled class="button is-small">out of stock</button>
+	</div>
+{{ else }}
+	<div class="buttons circle-color-buttons mb-0 mt-4">
+		<a href="{{ .Permalink }}" alt="{{ .Params.color }} variant">
+			<span class="icon is-medium">
+				<span class="fa-solid fa-circle icon-{{ .Params.color }} fa-2x"></span>
+			</span>
+		</a>
+	</div>
+	{{/*<div class="is-collapsable">
+	<input type="checkbox" name="dropdown" id="dropdown-{{ $counter }}">
+	<label for="dropdown-{{ $counter }}">
+		<span class="icon-text">
+			<span>
+				<h6>sizes available:</h6>
+			</span>
+			<span class="icon">
+				<span class="fa-solid fa-chevron-down"></span>
+			</span>
+		</span>
+	</label>
+		<div class="buttons">
+		{{ range (where $size_var "stock" "gt" 0) }}
+			<button class="button">{{ .size }}</button>
+		{{ end }}
+		</div>
+	</div>*/}}
+{{ end }}

@@ -1,0 +1,52 @@
+{{ $is_unisex := where .Site.RegularPages "Params.is_unisex" "eq" true }}
+
+<div class="container absolute-title-1-black is-flex is-flex-direction-column is-ancestor">
+	<div class="is-flex is-flex-direction-column">
+		{{ range $is_unisex }}
+		{{ $color := replace .Params.color "-fill" "" }}
+		{{ $PagePermalink := .RelPermalink }}
+				<div class="columns is-mobile">
+					<div class="column is-two-fifths is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center">
+					{{ $img := .Params.img }}
+					
+					{{ $article := .Resources.GetMatch $img }}
+					{{ $main_alt := .Params.main_alt }}
+					{{ $.Scratch.Set "alt" $main_alt }}
+					{{ with $article }}
+					{{ $resized := $article.Resize "500x center q75" }}
+						<a href="{{ $PagePermalink }}">
+							<figure class="image">
+								<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							</figure>
+						</a>
+					{{ end }}
+						<button class="remove-button button is-small m-0">
+							<span>remove</span>
+						</button>
+					</div>
+					<div class="column is-three-fifths is-flex is-flex-direction-column content is-justify-content-space-between has-text-right">	
+						<div>
+							<a href="{{ $PagePermalink }}">
+								<h4>{{ .Title }}</h4>
+							</a>
+							<h6>{{ .Params.product_type }} - {{ $color }}</h6>
+							<div class="product-quantity-select buttons are-small mb-1">
+								<button class="button">-</button>
+								<span class="tag is-medium">
+									{{ range first 1 .Params.sizes }}{{ .stock }}{{ end }}
+								</span>
+								<button class="button">+</button>
+							</div>
+							<div>
+								<p>qty.</p>
+							</div>
+						</div>
+						<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
+							{{ partial "price" . }}
+						</div>
+					</div>
+				</div>
+			<hr>
+		{{ end }}
+	</div>
+</div>

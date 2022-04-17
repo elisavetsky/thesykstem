@@ -1,0 +1,30 @@
+## Left Column (mobile top) ###
+contact_us: "/contact/"
+exchanges_returns: "/exchanges-and-returns/"
+
+### Center Column (mobile center) ###
+mission: "/our-mission/"
+careers: "/careers/"
+worker_resources: "/pro-worker-resources/"
+faq: "/faq/"
+
+### Bottom Left Icons Column (mobile bottom left) ###
+payment_icons:
+- vendor: Apple Pay
+  icon: "/svg/Apple_Pay_Mark.svg"
+  alt: Apple Pay logo
+- vendor: Visa
+  icon:
+  alt: Visa logo
+- vendor: Mastercard
+  icon:
+  alt: Mastercard logo
+- vendor: American Express
+  icon:
+  alt: American Express logo
+
+### Bottom Right Column (mobile bottom right) ###
+privacy_policy: "/privacy-policy/"
+tos: "/terms/"
+copyright: "©2022 system-1776"
+powered_by: "Powered by Hugo"

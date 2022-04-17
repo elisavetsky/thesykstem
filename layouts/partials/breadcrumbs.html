@@ -1,0 +1,48 @@
+<nav class="breadcrumb is-small has-arrow-separator" aria-label="breadcrumbs">
+	{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+	{{ $.Scratch.Add "path" .Site.BaseURL }}
+	{{ $.Scratch.Add "currentURL" .Permalink }}
+	{{ $color := replace .Params.color "-fill" "" }}
+	<ul class="mb-0">
+		<li>
+			<a href="{{ .Site.BaseURL }}">home</a>
+		</li>
+		<li>
+			{{ if eq .Params.is_unisex true }}
+			<a href="/unisex/">unisex</a>
+			{{ else if eq .Params.is_men true}}
+			<a href="/men/">men</a>
+			{{ else if eq .Params.is_women true}}
+			<a href="/women/">women</a>
+			{{ end }}
+		</li>
+		{{/*
+		
+		{{ if (lt .Params.sale_price .Params.original_price) }}
+		<li>
+			<a href="/sale/">sale</a>
+		</li>
+		{{ end }}
+		
+		
+		{{ range $index, $element := split $url "/" }}
+			{{ $.Scratch.Add "path" $element }}
+			{{ $.Scratch.Add "path" "/" }}
+			<!-- Check if the current list item is the last one -->
+			{{ $isLast := eq ($.Scratch.Get "path") $.Permalink }}
+			
+			{{ if ne $element "" }}
+				{{ if and (not $isLast) }}
+				<li><a href="{{ $.Scratch.Get "path" }}">{{ . }}</a></li>
+				{{ else }}
+				  
+				{{ end }}
+			{{ end }}
+		{{ end }}
+		
+		*/}}
+		<li class="is-active">
+			<a href="#" aria-current="page">{{ .Title }} - {{ .Params.product_type }} - {{ $color }}</a>
+		</li>
+	</ul>
+</nav>

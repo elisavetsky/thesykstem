@@ -1,0 +1,62 @@
+// Background Colors
+
+// Red
+$red: rgba(253, 109, 138, 1);
+$red2: rgba(222, 79, 108, 1);
+$red3: rgba(196, 46, 77, 1);
+$red4: rgba(167, 30, 58, 1);
+$red-gradient: linear-gradient(45deg, rgba(253, 109, 138, 1), rgba(222, 79, 108, 1));
+
+// Light Red
+$light-red: rgba(251, 172, 188, 1);
+
+// Blue
+$almostblue: rgba(249, 249, 255, 1);
+$blue2: rgba(124, 124, 188, 1);
+$blue3: rgba(102, 102, 171, 1);
+$blue4: rgba(86, 86, 155, 1);
+$blue:  rgba(22, 54, 89, 1);
+$white-blue-gradient: linear-gradient( rgba(245, 245, 245, 1), $blue);
+$blue-white-gradient: linear-gradient(white 10vh, 60vh, $blue 75vh);
+
+// Galaxy 
+$galaxy1: #F16DE2;
+$galaxy2: #F89A7E;
+$galaxy3: #4B78EF;
+$galaxy4: #39363B;
+$galaxy-fill: linear-gradient(125deg, #F16DE2, #F89A7E, #4B78EF, #39363B);
+$galaxy-border: linear-gradient(#fff, #fff) padding-box, linear-gradient(125deg, #F16DE2, #F89A7E, #4B78EF, #39363B) border-box;
+
+// Starlight
+$starlight: rgba(241, 235, 211, 1);
+$starlight2: rgba(211, 203, 185, 1);
+$starlight3: rgba(205, 192, 166, 1);
+$starlight4: rgba(186, 171, 142, 1);
+
+// Grayscale
+$almostblack: rgba(54, 54, 54, 1);
+$almostwhite: rgba(245, 245, 245, 1);
+$gray1: rgba(234, 234, 234, 1);
+$gray2: rgba(220, 220, 220, 1);
+$gray6: rgba(138, 138, 138, 1);
+
+// Border
+$border-radius: 10px;
+$classic-border: #dbdbdb solid 1px;
+
+// Transitions 
+$transition: 280ms all 120ms ease-out;
+$transition-main-navbar: opacity 0.2s ease-in-out;
+$transition-bag-menu: opacity 120ms ease-in-out;
+$transition-img: 0.2s ease-in-out;
+$transition-dropdown: all 0.8s ease-in-out;
+
+// Box Shadow 
+$b-box-shadow: 0px 10px 11px -10px rgba(88, 88, 88, 0.558);
+$box-box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
+$text-shadow: 10px 10px 5px 10px rgba(0, 122, 255, 1);
+
+// Snipcart
+.snipcart, .snipcart__font--secondary, .snipcart__font--primary, .snipcart__font--std {
+	font-family: BlinkMacSystemFont,-apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif;
+}

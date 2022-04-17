@@ -1,0 +1,13 @@
+{{ $counter := .Scratch.Get "counter" }}
+
+<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+	<h5>{{ .Params.product_type }}</h5>
+	<div class="love-container">
+		<input type="checkbox" name="love" id="love-button-{{ $counter }}">
+		<label for="love-button-{{ $counter }}">
+			<a class="p-3 button love-button icon">
+				<span class="fa-solid fa-heart"></span>
+			</a>
+		</label>
+	</div>
+</div>

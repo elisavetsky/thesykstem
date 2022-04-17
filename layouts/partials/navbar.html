@@ -1,0 +1,40 @@
+{{ $logo := resources.Get "image/logo.png" }}
+{{ $resized_logo := $logo.Resize "500x q90" }}
+
+<body tabindex="-1">
+	<nav tabindex="-1" class="navbar {{ if .IsHome }} b-box-shadow {{ end }}" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<div class="navbar-item">
+				<a class="is-flex" href="/">
+					<img class="logo" src="{{ $resized_logo.Permalink }}" alt="">
+				</a>
+			</div>
+			<nav class="menu">
+				<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+					<span aria-hidden="true"></span>
+				</button>
+				<div id="res-main-menu" class="navbar-menu">
+					<div class="navbar-start">
+						{{ range .Site.Menus.main }}
+						<div class="navbar-item is-justify-content-flex-end">
+							<a href="{{ .URL | safeURL }}">{{ .Name }}</a>
+						</div>
+						{{ end }}
+					</div>
+					<div class="navbar-end">
+						<div class="navbar-item">
+							<div class="buttons is-flex is-align-items-center is-justify-content-center">
+								{{ partial "search-drawer" . }}
+								{{ partial "account-drawer" . }}
+								{{ partial "shopping-bag-menu" . }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</nav>
+		</div>
+	</nav>
+</body>

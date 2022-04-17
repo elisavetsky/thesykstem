@@ -1,0 +1,29 @@
+{{ $original := replace .Params.original_price "$" "" }}
+{{ $sale := replace .Params.sale_price "$" "" }}
+{{ $color := .Params.color }}
+{{ .Scratch.Set "original" $original }}
+{{ .Scratch.Set "sale" $sale }}
+{{ .Scratch.Set "color" $color }}
+
+{{ $color := replace .Params.color "-fill" "" }}
+{{ with not $sale }}
+<div class="tags is-justify-content-space-between">
+	<h4 class="m-0">${{ $original }}</h4>
+	<span class="product-page-color">{{ $color }}</span>
+</div>
+{{ else }}
+<div class="tags is-justify-content-flex-start">
+	<span class="tag mb-0 is-red">
+		<strong>{{ math.Round (mul 100 (div (sub (float $original) (float $sale) ) (float $original) ) ) }}% off</strong>
+	</span>
+</div>
+<div class="sale-price is-flex is-justify-content-space-between fit-content-h">
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4><s>${{ $original }}</s></h4>
+		</div>
+		<h4>${{ $sale }}</h4>
+	</div>
+	<span class="product-page-color">{{ $color }}</span>
+</div>
+{{ end }}

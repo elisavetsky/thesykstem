@@ -1,0 +1,76 @@
+{{ $size_var := .Params.sizes }}
+{{ $resized_main := $.Scratch.Get "resized_main"}}
+
+{{ if or (where (where $size_var "size" "eq" "adjustable") "stock" "eq" 0 )
+(and (where (where $size_var "size" "eq" "xxxs") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xxs") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xs") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "s") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "m") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "l") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xl") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xxl") "stock" "eq" 0 ) 
+(where (where $size_var "size" "eq" "xxxl") "stock" "eq" 0 ) ) }}
+<div class="columns">
+	<div class="column is-full">
+		<button disabled class="button mb-4 is-medium full-width is-red">
+			out of stock
+		</button>
+		<a href="">
+			<button class="button full-width">
+				<span class="icon">
+					<span class="fa-solid fa-bell"></span>
+				</span>
+				<span>notify me</span>
+			</button>
+		</a>
+	</div>
+</div>	
+{{ else }}
+<div class="buttons safari-reverse-only">
+	<div class="pb-0 full-width safari-only is-full">
+		<button class="button box is-apple-pay is-medium full-width">
+		<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
+			<span class="text">Buy with</span>
+			<span class="logo"></span>
+		</div>
+		</button>
+	</div>
+	<div class="pb-0 full-width is-full">
+		<button class="snipcart-add-item button box is-medium full-width is-red"
+		data-item-id="{{ .File.ContentBaseName }}"
+		data-item-price="
+		{{ if .Params.sale_price }}
+		{{ replace .Params.sale_price "$" "" }}
+		{{ else }}
+		{{ replace .Params.original_price "$" "" }}
+		{{ end }}"
+		data-item-url="{{ .RelPermalink }}"
+		data-item-description="{{ .Description }}"
+		data-item-image="{{ $resized_main.Permalink }}"
+		data-item-name="{{ .Title }}"	
+		data-item-custom1-name="size"
+		data-item-custom1-options="
+		{{ range (where $size_var "stock" "gt" 0) }}
+		{{ $.Scratch.Add "s" (slice .size) }}
+		{{ if eq .size "adjustable" }}
+			{{ .size }}
+		{{ else }}
+		{{ end }}
+		{{ end }}
+		{{ $s := $.Scratch.Get "s" }}
+		{{ delimit $s "|" }}"
+		data-item-custom1-required="true"
+		>
+		
+			<span class="icon-text is-inline-block">
+				<span class="icon">
+					<span class="fa-solid fa-bag-shopping"></span>
+				</span>
+				<span>add to bag</span>
+			</span>
+		</button>
+	</div>
+</div>
+
+{{ end }}

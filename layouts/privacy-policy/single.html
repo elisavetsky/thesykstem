@@ -1,0 +1,13 @@
+{{ define "main" }}
+<body class="is-blue-white-grad">
+	
+{{ partial "navbar" . }}
+
+<section class="container section is-small">
+	<div class="content is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+		{{ .Content }}
+	</div>
+</section>
+</body>
+{{ partial "footer" . }}
+{{ end }}

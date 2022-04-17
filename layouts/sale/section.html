@@ -1,0 +1,75 @@
+{{ define "main" }}
+
+{{ $herobackground := resources.Get "image/product-background-hero.jpg" }}
+{{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
+
+<body>
+
+{{ partial "navbar" . }}
+<section class="wrapper-hero">
+<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
+	<div class="container section is-small">
+		<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
+		{{ .Content }}
+		</div>
+		<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+			{{ $counter := 0 }}
+			{{ .Scratch.Set "counter" $counter }}
+			{{ $on_sale :=  (where .Site.RegularPages "Params.sale_price" "lt" "Params.original_price") }}
+			{{ range $on_sale }}
+			{{ $counter = add $counter 1 }}
+			{{ .Scratch.Set "counter" $counter }}
+			
+			<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+							
+								<div class="product-in-list">
+									<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+										<h5>{{ .Params.product_type }}</h5>
+										
+										<div class="love-container">
+											<input type="checkbox" name="love" id="love-button-{{ $counter }}">
+											<label for="love-button-{{ $counter }}">
+												<a class="button love-button icon">
+													<span class="fa-solid fa-heart"></span>
+												</a>
+											</label>
+										</div>
+										
+									</div>
+									<a href="{{ .Permalink }}">
+									<h1>{{ .Title }}</h1>
+									{{ $img := .Params.img }}
+									
+									{{ $article := .Resources.GetMatch $img }}
+									{{ $main_alt := .Params.main_alt }}
+									{{ $.Scratch.Set "alt" $main_alt }}
+									{{ with $article }}
+									{{ $resized := $article.Resize "500x center q75" }}
+									<figure>
+										<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}"></img>
+									</figure>
+									{{ end }}
+									</a>
+								</div>
+							
+								<div>
+								{{ partial "price" . }}
+								{{ partial "product-color-sizes-available" . }}
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{ end }}
+		</div>
+	</div>
+</section>
+{{ partial "footer" . }}
+</body>
+{{ end }}
+

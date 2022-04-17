@@ -1,0 +1,65 @@
+{{ with .Site.Data.footer }}
+<footer class="footer">
+	<div class="mt-5 mb-5">
+		<div class="columns content">
+			<div class="column is-flex is-flex-direction-column">
+				<h3>customer support</h3>
+				<div>
+					<a href="{{ .contact_us }}">contact us</a>
+				</div>
+				<div>
+					<a href="{{ .exchanges_returns }}">exchange or return</a>
+				</div>
+			</div>
+			<div class="column is-flex is-flex-direction-column">
+				<h3>about us</h3>
+				<div>
+					<a href="{{ .mission }}">our mission</a>
+				</div>
+				<div>
+					<a href="{{ .careers }}">careers</a>
+				</div>
+				<div>
+					<a href="{{ .worker_resources }}">pro-worker resources</a>
+				</div>
+				<div>
+					<a href="{{ .faq }}">faq</a>
+				</div>
+			</div>
+			<div class="column is-flex is-flex-direction-column">
+			</div>
+		</div>
+	</div>
+	<div>
+	<div class="columns">
+		<div class="column is-flex is-flex-direction-row is-justify-content-space-between">	
+			<div class="tags is-align-items-flex-start">
+				{{ range .payment_icons }}
+				<div class="payment-icon">
+					<figure>
+						{{ if .icon }}
+						<img src="{{ .icon }}" alt="{{ .alt }}">
+						{{ end }}
+					</figure>
+				</div>
+				{{ end }}
+			</div>
+			<div class="content is-flex is-flex-direction-column is-align-items-flex-end">
+				<div>
+					<a href="{{ .privacy_policy }}">privacy policy</a>
+				</div>
+				<div>
+					<a href="{{ .tos }}">terms of service</a>
+				</div>
+				<p class="mb-0">{{ .copyright }}</p>
+				<p>{{ .powered_by }}</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Snipcart -->
+
+<script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script>
+</footer>
+{{ end }}

@@ -1,0 +1,117 @@
+<div class="is-collapsable">
+	<input type="checkbox" name="dropdown" id="dropdown-1">
+	<label for="dropdown-1">
+		<span class="icon-text">
+			<span>
+				<h6>fabric & care:</h6>
+			</span>
+			<span class="icon">
+				<span class="fa-solid fa-chevron-down"></span>
+			</span>
+		</span>
+	</label>
+	<div class="tags">
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				{{ if strings.Contains .Params.material "100% bamboo" }}
+				<span class="icon">
+					<span class="fa-solid fa-seedling"></span>
+				</span>
+				
+				{{ range .Site.Data.fabriccare.bamboo_100 }}
+				<span class="has-text-centered">{{ .fabric }}</span>
+				{{ end }}
+				{{ else if strings.Contains .Params.material "100% hemp" }}
+				<span class="icon">
+					<span class="fa-solid fa-seedling"></span>
+				</span>
+				{{ range .Site.Data.fabriccare.hemp_100 }}
+				<span class="has-text-centered">{{ .fabric }}</span>
+				{{ end }}
+				{{ else if strings.Contains .Params.material "60% hemp, 40% cotton" }}
+				<span class="icon">
+					<span class="fa-solid fa-seedling"></span>
+				</span>
+				{{ range .Site.Data.fabriccare.hemp_60_cotton_40 }}
+				<span class="has-text-centered">{{ .fabric }}</span>
+				{{ end }}
+				{{ end }}
+			</span>
+		</div>
+		{{ if strings.Contains .Params.material "100% bamboo" }}
+		{{ range .Site.Data.fabriccare.bamboo_100 }}
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center ">
+				<span class="icon">
+					<span class="fa-solid fa-droplet"></span>
+				</span>
+				<span class="has-text-centered">{{ .wash }}</span>
+			</span>
+		</div>
+		{{ with .care }}
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-hand"></span>
+				</span>
+				<span class="has-text-centered">{{ . }}</span>
+			</span>
+		</div>
+		{{ end }}
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-arrows-rotate"></span>
+				</span>
+				<span class="has-text-centered">{{ .dry }}</span>
+			</span>
+		</div>
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-angles-down"></span>
+				</span>
+				<span class="has-text-centered">{{ .iron }}</span>
+			</span>
+		</div>
+		{{ end }}
+		{{ else if strings.Contains .Params.material "100% hemp" }}
+		{{ range .Site.Data.fabriccare.hemp_100 }}
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center ">
+				<span class="icon">
+					<span class="fa-solid fa-droplet"></span>
+				</span>
+				<span class="has-text-centered">{{ .wash }}</span>
+			</span>
+		</div>
+		{{ with .care }}
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-hand"></span>
+				</span>
+				<span class="has-text-centered">{{ . }}</span>
+			</span>
+		</div>
+		{{ end }}
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-arrows-rotate"></span>
+				</span>
+				<span class="has-text-centered">{{ .dry }}</span>
+			</span>
+		</div>
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-angles-down"></span>
+				</span>
+				<span class="has-text-centered">{{ .iron }}</span>
+			</span>
+		</div>
+		{{ end }}
+		{{ end }}
+	</div>
+</div>

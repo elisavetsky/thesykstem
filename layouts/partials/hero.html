@@ -1,0 +1,28 @@
+{{ $hero1 := resources.Get "image/system-1776-shirt.png" }}
+{{ $resized_hero1 := $hero1.Resize "800x q80" }}
+
+{{ $herobackground := resources.Get "image/background-hero.jpg" }}
+{{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
+
+{{ with .Site.GetPage "hero" }}
+<section class="wrapper-hero">
+	<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
+	<div class="section section-header hero-body is-medium">
+		<div class="content columns is-flex">
+			<div class="column is-half-mobile is-half-tablet is-two-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			{{ .Content }}
+				{{/*
+				<button class="button box is-medium is-responsive is-red">
+					{{ with site.Data.hero }}{{ .hero_button }}{{ end }}
+				</button>
+				*/}}
+			</div>
+			<div class="column is-half-mobile is-half-tablet is-two-fifths-desktop is-offset-one-fifth-desktop">
+				<img src="{{ $resized_hero1.Permalink }}" alt="one of our hoodies, in black">
+			</div>
+		</div>
+		
+	</div>
+	
+
+{{ end }}

@@ -1,0 +1,83 @@
+baseURL = ""
+languageCode = "en-us"
+title = "system-1776"
+permalinks = ":slug"
+# enableGitInfo = true
+disableKinds = ["taxonomy", "taxonomyTerm", "term",]
+
+[menu]
+  [[menu.main]]
+    name = "home"
+    url = "/"
+    weight = 1
+  [[menu.main]]
+	name = "women"
+	url = ""
+	weight = 2
+  [[menu.main]]
+	name = "men"
+	url = "/men/"
+	weight = 3
+  [[menu.main]]
+	name = "unisex"
+	url = "/unisex/"
+	weight = 4
+  [[menu.main]]
+	name = "sale"
+	url = "/sale/"
+	weight = 5
+	
+[module]
+  [[module.mounts]]
+	source = "images"
+	target = "assets/images"
+
+[Params]
+  description = "bulmaboutique"
+  logo = "images/banner.jpg"
+  favicon = true
+
+[params.cookies]
+  enable = false
+
+[Params.social]
+  email = ""
+
+[privacy]
+  [privacy.disqus]
+	disable = true
+  [privacy.googleAnalytics]
+	disable = true
+  [privacy.instagram]
+	disable = true
+  [privacy.twitter]
+	disable = true
+  [privacy.vimeo]
+	disable = false
+	enableDNT = false
+	simple = false
+  [privacy.youtube]
+	disable = false
+	privacyEnhanced = true
+	
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+	[markup.goldmark.extensions]
+	  definitionList = true
+	  footnote = true
+	  linkify = true
+	  strikethrough = true
+	  table = true
+	  taskList = true
+	  typographer = true
+	[markup.goldmark.parser]
+	  autoHeadingID = true
+	  autoHeadingIDType = "github"
+	  [markup.goldmark.parser.attribute]
+		block = false
+		title = true
+	[markup.goldmark.renderer]
+	  hardWraps = false
+	  unsafe = true
+	  xhtml = false

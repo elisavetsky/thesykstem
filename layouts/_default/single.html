@@ -1,0 +1,26 @@
+{{ define "main" }}
+{{ partial "navbar" . }}
+
+<section class="container section is-small">
+	<div class="content is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+		{{ .Content }}
+		Default Single Layout
+	</div>
+</section>
+<section class="container section">
+	<div class="tile is-ancestor">
+		{{ range where .Site.RegularPages "Section" "unisex" }}
+		{{ $article := .Resources.ByType "image" }}
+		<div class="tile is-parent">
+			<div class="tile is-child is-article">	
+				<div class="content">
+					{{ .Content }}
+					{{ .Resources.ByType "image" }}
+					<img src="" alt="">
+				</div>
+			</div>
+		</div>
+		{{ end }}
+	</div>
+</section>
+{{ end }}
