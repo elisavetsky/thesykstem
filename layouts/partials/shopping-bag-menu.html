@@ -1,6 +1,6 @@
+
 <nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag">
-		
 		<button class="snipcart-checkout button shopping-bag-button is-red">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
 				<span class="icon-text">
@@ -9,47 +9,33 @@
 					</span>
 					<span>
 						bag
+
 					</span>
 					<span class="snipcart-items-count">
 					</span>
 				</span>
 			</label>
 		</button>
+		
 		<!-- Snipcart -->
 		<div hidden id="snipcart" 
-		{{/*class="shopping-bag-container box columns is-mobile"*/}}
+		{{/* class="shopping-bag-container box columns is-mobile" */}}
 		data-config-modal-style="side"
 		data-api-key="MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3"
 		data-config-add-product-behavior="none">
 			
-			<item-quantity section="snipcart-cart__content"
-			>
-			
-			
-			
-				<button-icon url="/hello/" icon="<string>" label="<string>" styling="fa-solid fa-trash" state="<BaseButtonStates>" isSmall="true"> 
-					
-				</button-icon>
-				
-			</item-quantity>
-			
 			<!-- Custom Fields -->
-			<item-custom-fields> 
-				
-					
 			
-			</item-custom-fields>
 			
 			<!-- Empty Cart -->
 			<empty-cart>
-					<section class="snipcart-empty-cart">
-						<h1 class="snipcart-empty-cart__title snipcart__font--secondary snipcart__font--xlarge snipcart__font--bold">
-							<div class="is-flex p-6">you've got an empty cart, but that's okay.</div>
-						</h1>
+					<section class="snipcart-empty-cart content">
+						<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
+							<h4>{{"{{ $localize(`you've got an empty cart, but that's okay.`) }}"}}</h4>
+						</div>
 						<button-secondary
 							class="is-icon-left fa-solid fa-arrow-left mr-0"
 							label="back to our store"
-							hasIconLeft="true"
 							isFitContent="true"
 							@click="$actions.goBack"
 							>
@@ -62,156 +48,224 @@
 			
 			
 			<!-- Secondary Header -->
-			<cart-summary>
-				<overridable name="cart-summary">
-					<div class="snipcart-cart-summary">
-						<section class="snipcart-cart-summary__content">
-							<div class="snipcart-cart-summary__actions snipcart__box--header">
-								<h1 class="snipcart-cart-summary__title snipcart__font--subtitle">
-									
-								</h1>
-								<button-link label="actions.edit" @click="openSideCart"></button-link>
-							</div>
 			
-							<overridable
-								name="cart-summary"
-								section="items"
-							>
-								<cart-summary-items-list class="snipcart-cart-summary__items"></cart-summary-items-list>
-							</overridable>
-			
-							<hr class="snipcart-cart-summary__separator" />
-			
-							<loading-overlay>
-								<div class="snipcart-cart-summary__totals">
-									<summary-fees :summary-data="summaryFeesProvider"></summary-fees>
-								</div>
-							</loading-overlay>
-						</section>
-			
-						<footer class="snipcart-cart-summary__footer">
-							<featured-payment-methods class="snipcart-featured-payment-methods--no-background" />
-						</footer>
-					</div>
-				</overridable>
-			
-				<transition name="snipcart-cart-summary__overlay-transition">
-					<div
-						class="snipcart-cart-summary__overlay"
-						v-if="editing"
-					></div>
-				</transition>
-			
-				<transition name="snipcart-transition--slide-in">
-					<cart
-						editing-cart="true"
-						class="snipcart-cart-summary--edit"
-						v-if="editing || isSideCart"
-						:is-side-cart="isSideCart"
-					></cart>
-				</transition>
-			
-			</cart-summary>
 			
 			<!-- Item Line  -->
-			<item-line>
-			<li class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
-				<flash-message
-					type="info"
-					icon="box"
-					v-if="stockLimitReached"
-					:title="$localize('errors.quantity_revised')"
-				></flash-message>
-				<flash-message
-					type="error"
-					icon="box"
-					v-if="outOfStock"
-					title="$localize('errors.quantity_out_of_stock')"
-				></flash-message>
-				<div class="snipcart-item-line__container">
-					<figure
-						class="snipcart-item-line__media"
-						v-if="showLargeImage"
-					>
-						<item-image class="snipcart-item-line__image"></item-image>
-					</figure>
-					<div class="snipcart-item-line__product">
-						<div class="snipcart-item-line__header">
-							<figure
-								class="snipcart-item-line__media snipcart-item-line__media--medium"
-								v-if="showSmallImage"
-							>
-								<item-image class="snipcart-item-line__image"></item-image>
-							</figure>
 			
-							<h2 class="snipcart-item-line__title snipcart__font--xlarge snipcart__font--secondary snipcart__font--black">
-								{{ .Title }}
-							</h2>
-			
-							<button-icon
-								icon="fa-solid fa-trash"
-								label="item.remove_item"
-								styling="danger"
-								@click="removeItem"
-							>
-							<span class="icon">
-								<span class="fa-solid fa-trash"></span>
-							</span>
-							</button-icon>
-						</div>
-			
-						<div class="snipcart-item-line__content">
-							<div class="snipcart-item-line__body">
-								<div class="snipcart-item-line__info">
-									<item-description v-if="showDescription"></item-description>
-								</div>
-								<div class="snipcart-item-line__variants">
-									<div>
-										<item-plans
-											:item="item"
-											v-if="!adding && isSubscribable"
-										></item-plans>
-										<item-custom-fields v-if="!adding"></item-custom-fields>
+			<item-line> 
+				<li :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
+					<flash-message
+						type="info"
+						icon="box"
+						v-if="stockLimitReached"
+						:title="$localize('errors.quantity_revised')"
+					></flash-message>
+					<flash-message
+						type="error"
+						icon="box"
+						v-if="outOfStock"
+						:title="$localize('errors.quantity_out_of_stock')"
+					></flash-message>
+					<div class="snipcart-item-line__container">
+						<figure
+							class="snipcart-item-line__media"
+							v-if="showLargeImage"
+						>
+							<item-image class="snipcart-item-line__image"></item-image>
+						</figure>
+						<div class="snipcart-item-line__product">
+							<div class="snipcart-item-line__header">
+								<figure
+									class="snipcart-item-line__media snipcart-item-line__media--small"
+									v-if="showSmallImage"
+								>
+									<item-image class="snipcart-item-line__image--large"></item-image>
+								</figure>
+				
+								<h2 class="snipcart-item-line__title snipcart__font--xlarge snipcart__font--secondary snipcart__font--black">
+									{{"{{ item.name }}"}}
+								</h2>
+				
+								<button-icon
+									icon="trash"
+									label="item.remove_item"
+									styling="danger"
+									@click="removeItem"
+								>
+									<span class="icon">
+										<span class="fa-solid fa-trash"></span>
+									</span>
+								</button-icon>
+							</div>
+				
+							<div class="snipcart-item-line__content">
+								<div class="snipcart-item-line__body">
+									<div class="snipcart-item-line__info">
+										<item-description v-if="showDescription"></item-description>
 									</div>
-									<item-quantity
-										class="snipcart-item-line__quantity"
-										v-if="!adding && !isSubscribable"
-										:disabled="outOfStock || isSubscribable"
-									>
-									
-									
-									
-										<button-icon url="/hello/" icon="<string>" label="<string>" styling="fa-solid fa-trash" state="<BaseButtonStates>" isSmall="true"> 
-											
-										</button-icon>
-										
-										
-										
-										
-										
-									</item-quantity>
-									<div
-										class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
-										v-if="isSubscribable && !adding"
-									>
-										
-										<div class="snipcart-form__field--plan__readonly">
-											<item-price
+									<div class="snipcart-item-line__variants">
+										<div>
+											<item-plans
 												:item="item"
-												:selected-plan="selectedPlan"
-											>
-											</item-price>
+												v-if="!adding && isSubscribable"
+											></item-plans>
+											<item-custom-fields v-if="!adding"></item-custom-fields>
 										</div>
+										<item-quantity
+											class="snipcart-item-line__quantity"
+											v-if="!adding && !isSubscribable"
+											:disabled="outOfStock || isSubscribable"
+										></item-quantity>
+										
+										<div
+											class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
+											v-if="isSubscribable && !adding"
+										>
+											<span class="snipcart-form__label snipcart__font--tiny">
+												{{"{{$localize('subscription.payment_amount')}}"}}
+											</span>
+											<div class="snipcart-form__field--plan__readonly">
+												<item-price
+													:item="item"
+													:selected-plan="selectedPlan"
+												>
+												</item-price>
+											</div>
+										</div>
+				
 									</div>
-			
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</li>
+				</li>
 			</item-line>
+			
+			<!-- Cart -->
+			{{/*<cart>
+				<layout v-click-outside="clickedOutside">
+					<overridable
+						name="cart"
+						section="header"
+					>
+						<cart-header
+							title="header.title_cart_summary"
+							:show-items-count="true"
+							:show-account-menu="true"
+							v-if="!editingCart"
+						></cart-header>
+					</overridable>
+					<loading-screen
+						message="cart.loading"
+						class="snipcart-layout__content"
+						:class="layoutContentCssClasses"
+					>
+						<div
+							class="snipcart-cart__secondary-header"
+							v-if="editingCart"
+						>
+							<h1 class="snipcart__font--secondary snipcart-cart__secondary-header-title snipcart__font--bold snipcart__font--xlarge">
+								{{"{{ $localize(`header.title_cart_summary`) }}"}}
+							</h1>
+							<close-side-cart-action :is-cart-summary="!isSideCart">
+								<icon
+									name="plus"
+									class="snipcart__icon--medium snipcart__icon--angled"
+									alt="item.remove_item"
+								></icon>
+							</close-side-cart-action>
+						</div>
+						<flash-message
+							class="snipcart-cart__flash-message"
+							type="error"
+							v-if="promptItemConfigurationError"
+							:title="$localize(`errors.cart_items.${itemConfigurationErrorLocale}.title`)"
+							:description="$localize(`errors.cart_items.${itemConfigurationErrorLocale}.description`)"
+							icon="box"
+						>
+							<button-link
+								label="actions.clear_cart"
+								@click="clearCart"
+							></button-link>
 				
+							<button-link
+								label="actions.dismiss"
+								@click="dismissItemConfigurationError"  
+							></button-link>
+						</flash-message>
+						<overridable
+							name="cart"
+							v-if="hasItems"
+						>
+							<section class="snipcart-cart__content">
+								<item-list
+									item-template="item-line"
+									class="snipcart-item-list--no-shadow"
+									:show-description="!isSideCart"
+								>
+									<template
+										v-slot:footer
+										v-if="isSideCart && hasActiveDiscountsTriggerableByCode"
+									>
+										<li class="snipcart-item-line snipcart-item-line--cart-edit">
+											<div class="snipcart-item-line__container">
+												<discount-box class="snipcart-cart__discount-box"></discount-box>
+											</div>
+										</li>
+									</template>
+								</item-list>
+								<div class="snipcart-cart__footer">
+									<div class="snipcart-cart__footer-col cart__footer-discount-box snipcart-cart__actions">
+										<discount-box
+											v-if="!isSideCart && hasActiveDiscountsTriggerableByCode"
+											class="snipcart-cart__discount-box"
+										></discount-box>
+									</div>
+				
+									<div class="snipcart-cart__footer-col">
+										<summary-fees
+											class="snipcart-cart-summary-fees--reverse"
+											:summary-data="summaryFeesProvider"
+										>
+											{{"{{ $localize('cart.shipping_taxes_calculated_at_checkout')}}"}}
+										</summary-fees>
+				
+										<footer v-if="!editingCart || isSideCart" class="snipcart-cart__footer-buttons">
+											<flash-message
+												type="error"
+												v-if="errors != null"
+												title="$localize('errors.order_validation.custom_fields_validation.title')"
+											>
+												{{"{{ $localize('errors.order_validation.custom_fields_validation.description') }}"}}
+											</flash-message>
+											<!-- BUTTON: checkout -->
+											<button-primary
+												label="actions.checkout"
+												icon="continue-arrow"
+												:state="checkoutDisabled ? 'disabled' : undefined"
+												@click="checkout"
+											></button-primary>
+											<button-link
+												v-if="isSideCart"
+												label="cart.view_detailed_cart"
+												@click="viewDetailedCart"
+											></button-link>
+										</footer>
+				
+										<div class="snipcart-cart__featured-payment-methods-container">
+											<featured-payment-methods v-if="!editingCart"></featured-payment-methods>
+										</div>
+									</div>
+								</div>
+							</section>
+						</overridable>
+						<empty-cart v-else></empty-cart>
+					</loading-screen>
+					<transition name="snipcart-transition--slide-in">
+						<router-view />
+					</transition>
+				</layout>
+			</cart>*/}}
 			
 			{{/*<div class="bag-controls">
 				<input checked type="checkbox" name="shopping-bag" id="shopping-bag-menu">

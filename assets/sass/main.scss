@@ -391,6 +391,16 @@ input#account-drawer {
 .snipcart-button-primary {
 	background: $red-gradient;
 	color: white;
+	width: 100%;
+}
+
+.snipcart-button-secondary {
+	background: $light-red;
+	color: $almostblack;
+	&:hover {
+		background: $red;
+		color: $almostblack;
+	}
 }
 
 .snipcart-button-icon.is-secondary {
@@ -411,6 +421,7 @@ input#account-drawer {
 
 .snipcart-base-button {
 	border-radius: $border-radius;
+	width: unset;
 }
 
 .circle-color-buttons {
@@ -526,6 +537,12 @@ input#account-drawer {
 
 .snipcart-cart__content, .snipcart-item-list {
 	background-color: $almostwhite;
+}
+
+.snipcart-item-line--cart-edit {
+	.snipcart-item-line__title {
+		padding-right: 8px;
+	}
 }
 
 .snipcart-summary-fees {
@@ -747,6 +764,10 @@ input#account-drawer {
 	fieldset {
 		min-width: 100%;
 	}
+}
+
+.snipcart-item-custom-fields {
+	min-width: fit-content;
 }
 
 .snipcart-item-quantity__quantity {
@@ -1286,8 +1307,8 @@ input#dropdown-6 {
 
 // Images
 
-.snipcart-item-line__media--medium {
-	width: 50%;
+.snipcart-item-line__media--small {
+	height: unset;
 }
 
 .gallery {

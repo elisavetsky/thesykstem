@@ -58,11 +58,12 @@
 		{{ else }}
 		{{ end }}
 		{{ end }}
-		{{ $s := $.Scratch.Get "s" }}
-		{{ delimit $s "|" }}"
+		{{ if where $size_var "size" "!=" "adjustable" }}
+			{{ $s := $.Scratch.Get "s" }}
+			{{ delimit $s "|" }}
+		{{ end }}"
 		data-item-custom1-required="true"
 		>
-		
 			<span class="icon-text is-inline-block">
 				<span class="icon">
 					<span class="fa-solid fa-bag-shopping"></span>

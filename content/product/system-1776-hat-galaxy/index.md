@@ -17,3 +17,5 @@ main_alt: "our v1 company hat"
 description: "This is our v1 of our company hat. In a striking 'galaxy' colorway."
 material: "100% hemp"
 ---
+
+{{ item.name }}
