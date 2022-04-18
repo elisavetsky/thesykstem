@@ -37,7 +37,10 @@
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<button class="snipcart-add-item button box is-medium full-width is-red"
+		<input 
+		type="submit" 
+		value="add to bag"
+		class="snipcart-add-item button box is-medium full-width is-red"
 		data-item-id="{{ .File.ContentBaseName }}"
 		data-item-price="
 		{{ if .Params.sale_price }}
@@ -63,14 +66,7 @@
 			{{ delimit $s "|" }}
 		{{ end }}"
 		data-item-custom1-required="true"
-		>
-			<span class="icon-text is-inline-block">
-				<span class="icon">
-					<span class="fa-solid fa-bag-shopping"></span>
-				</span>
-				<span>add to bag</span>
-			</span>
-		</button>
+		/>
 	</div>
 </div>
 

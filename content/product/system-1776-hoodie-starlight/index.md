@@ -14,7 +14,7 @@ sizes:
 - size: "xxs"
   stock: 6
 - size: "xs"
-  stock: 0
+  stock: 10
 - size: "s"
   stock: 4
 - size: "m"

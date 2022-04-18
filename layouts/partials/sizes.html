@@ -1,3 +1,4 @@
+{{ $.Scratch.Set "product-id" .File.ContentBaseName }}
 
 
 <h6>size:</h6>
@@ -26,8 +27,9 @@
 			{{ if gt $stock 0 }}
 			
 			<button
+			
+			 
 			 id="{{ $size }}"
-			 type="{{ $size }}"
 			 class="button box fit-content is-flex is-flex-direction-column">
 				{{ if eq "xxxs" $size }}
 				<p>{{ index $size_catalog "xxxs" }}</p>
@@ -100,37 +102,48 @@
 		
 	{{ end }}
 {{ end }}
+
 </div>
+<script>
+{{ range $.Params.sizes }} 
+  {{ $size := .size }}
+	document.querySelector('#{{ $size }}').addEventListener('click', () => {
+	document.querySelector('#{{ $size }}').classList.add('is-active');
+});
+{{ end }}
+</script>
 	<script>
+	
+	
 	{{ range $.Params.sizes }} 
 	document.addEventListener("click", function (event) {
 	  // Checking if the button was clicked
 	 
 	  {{ $size := .size }}
+	  
 	  if (!event.target.matches("#{{ $size }}")) return;
 	  
+	  // const secret = "ST_NWY3N2FjMDMtMjJmYi00MzgxLWJlNjctMjY1M2Y3NWY3ZWEzNjM3ODU3NTY2NTIwMTEwMDg0" + ":"
 	  
-	  
-    fetch('https://app.snipcart.com/api/products/system-1776-hoodie-starlight', {
-		  method: 'PUT',
-		  headers: { 
-		  	'Authorization': `U1RfWlRFMlpURmpNalF0TURZNE9DMDBPRFpsTFdFMlptSXRPV1V4T0RNMU0ySTRZV1JpTmpNM09EVTNOVE0yTURZME16QTROREEwOgo=`,
-			'Accept': 'application/json',
-			'Content-type': 'application/json',
-		  	'Access-Control-Allow-Origin': "https://dapper-swan-239418.netlify.app/",
-			'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-			'Access-Control-Allow-Credentials': 'true',
-	  	  },
-		  body: JSON.stringify({
-				  'inventoryManagementMethod': 'Single',
-				  'stock': 20,
-			  })
-			  
-	  })
+// 	  fetch('https://app.snipcart.com/api/products/{{ $.File.ContentBaseName }}', {
+// 		  method: 'PUT',
+// 		  headers: {
+// 			  'Authorization': `Basic ${btoa(secret)}`,
+// 			  'Accept': 'application/json',
+// 			  'Content-Type': 'application/json',
+// 		  },
+// 		  body: JSON.stringify({
+// 				'customFields': [{
+// 					
+// 					'name': 'size',
+// 					'value': '{{ $size }}',
+// 				}],
+// 			})
+// 
+// 	  })
 	
-	  .then(response => response.text())
-	  .then((response) => updateResponse(response))
-	  .catch(error => console.error(error));
+    
+	
 	  
 	console.log("{{ $size }} Button was clicked!");
 	
@@ -141,4 +154,15 @@
 	  
 	});
 	{{ end }}
+	</script>
+	
+	<script>
+	document.addEventListener('snipcart.ready', () => {
+	  
+	  Snipcart.events.on("item.updated", (cartItem) => {
+		  console.debug("item updated", cartItem)
+		  this.addingItem = true;
+		  setTimeout(() => (this.addingItem = false), 2000);
+	  })
+	});
 	</script>

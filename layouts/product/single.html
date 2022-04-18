@@ -37,13 +37,16 @@
 				{{ partial "price" . }}
 				<hr>
 				{{ partial "colors" . }}
-				{{ partial "sizes" . }}
+				
+					{{ partial "sizes" . }}
+					{{ partial "stock" . }}
+				
 				<div class="mb-5">
 					<h6>description:</h6>
 					<p>{{ .Params.description }}</p>
 				</div>
 				{{ partial "fabriccare" . }}
-				{{ partial "stock" . }}
+				
 			</div>
 		</div>
 	</section>
