@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 05 Apr 2022 00:00:00 +0000</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>you guys are commie!</title>
+      <link>/faq/you-guys-are-commie/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/you-guys-are-commie/</guid>
+      <description>This isn&amp;rsquo;t a question, but we get this one a lot and while it may seem that we are&amp;hellip;we aren&amp;rsquo;t.
+We operate as a pro-worker shop because we simply believe that they are the backbone of this company and we want to reward them more than fairly for being so. Just because we are unionized does not mean that everyone earns the exact same. We would just like to see more companies follow suit in the pursuit of great working conditions and happy employees.</description>
+    </item>
+    
+    <item>
       <title>cookies policy</title>
       <link>/privacy-policy/cookies/</link>
       <pubDate>Tue, 05 Apr 2022 00:00:00 +0000</pubDate>
@@ -35,7 +45,7 @@ Our business is not some sort of charity case&amp;hellip;we take great pride in 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/hero/</guid>
-      <description>your anti-capitalist boutique. Our high-quality products are union-made in sunny Los Angeles, California. We have a sustainable business practice that lets us put our workers first.</description>
+      <description>your pro-worker boutique. Our high-quality products are union-made in sunny Los Angeles, California. We have a sustainable business practice that lets us put our workers first.</description>
     </item>
     
     <item>
@@ -45,6 +55,15 @@ Our business is not some sort of charity case&amp;hellip;we take great pride in 
       
       <guid>/oldproducts/slice-hat/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>can I work here?</title>
+      <link>/faq/can-i-work-here/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/can-i-work-here/</guid>
+      <description>Yes, you most certainly may! Check out our careers page here. We are expanding!</description>
     </item>
     
     <item>
@@ -67,29 +86,74 @@ Our business is not some sort of charity case&amp;hellip;we take great pride in 
     
     <item>
       <title>the classic system</title>
-      <link>/product/system-1776-hat/</link>
+      <link>/product/system-1776-hat-galaxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/system-1776-hat/</guid>
+      <guid>/product/system-1776-hat-galaxy/</guid>
+      <description>{{ item.name }}</description>
+    </item>
+    
+    <item>
+      <title>the classic system</title>
+      <link>/product/system-1776-hat-white/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/product/system-1776-hat-white/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the system</title>
-      <link>/product/system-1776-hoodie/</link>
+      <link>/product/system-1776-shirt-galaxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/system-1776-hoodie/</guid>
+      <guid>/product/system-1776-shirt-galaxy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the system</title>
-      <link>/product/system-1776-shirt/</link>
+      <link>/product/system-1776-shirt-white/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/system-1776-shirt/</guid>
+      <guid>/product/system-1776-shirt-white/</guid>
       <description></description>
+    </item>
+    
+    <item>
+      <title>the warming system</title>
+      <link>/product/system-1776-hoodie-black/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/product/system-1776-hoodie-black/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>the warming system</title>
+      <link>/product/system-1776-hoodie-starlight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/product/system-1776-hoodie-starlight/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>what is your return / exchange process?</title>
+      <link>/faq/what-is-your-return-exchange-process/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/what-is-your-return-exchange-process/</guid>
+      <description>We have to fill this one out!!</description>
+    </item>
+    
+    <item>
+      <title>why do you use hemp and bamboo for your clothing?</title>
+      <link>/faq/why-do-you-use-hemp-and-bamboo-for-your-clothing/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/why-do-you-use-hemp-and-bamboo-for-your-clothing/</guid>
+      <description>We care a great deal for our planet&amp;rsquo;s sustainability and we think our vision aligns with our products&amp;rsquo; materials. (No you cannot smoke your shirt. Don&amp;rsquo;t even try.)</description>
     </item>
     
   </channel>

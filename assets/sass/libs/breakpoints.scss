@@ -41,6 +41,10 @@
 }
 
 @media only screen and (min-width: 568px) {
+	.logo-cart {
+		min-width: 200px;
+		height: 2rem !important;
+	}
 	.hide-on-mobile {
 		display: inline-block;
 	}

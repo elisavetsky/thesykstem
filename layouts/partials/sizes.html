@@ -1,20 +1,36 @@
 {{ $.Scratch.Set "product-id" .File.ContentBaseName }}
-
+{{ $.Scratch.Set "product-name" .Title }}
+{{ $.Scratch.Set "product-url" .Permalink }}
 
 <h6>size:</h6>
-<div class="buttons">
+<div id="select-size" class="buttons">
 {{ if eq .Params.product_type "hat" }}
 {{ range $.Params.sizes }}
 		{{ $size := .size }}
 		{{ $stock := .stock }}
+		
 		{{ if gt $stock 0 }}
-		<button class="button box fit-content is-flex is-flex-direction-column">
+		<input
+		required
+		onclick="display()"
+		autocomplete="off"
+		type="radio"
+		value="{{ $size }}"
+		name="select-size"
+		id="{{ $size }}"
+		class="is-hidden">
+			<label class="button box fit-content is-flex is-flex-direction-column" value="{{ $size }}" for="{{ $size }}">
 			{{ $size }}
-		</button>
+			</label>
 		{{ else }}
-		<button disabled class="button fit-content is-flex is-flex-direction-column">
+		<input
+		id="size-unavailable"
+		type="radio"
+		disabled
+		class="is-hidden">
+		<label disabled class="button box fit-content is-flex is-flex-direction-column" for="size-unavailable">
 			{{ $size }}
-		</button>
+		</label>
 		{{ end }}
 {{ end }}
 {{ else if or (eq .Params.product_type "shirt") (eq .Params.product_type "hoodie") }}
@@ -25,14 +41,18 @@
 			{{ $size := .size }}
 			{{ $stock := .stock }}
 			{{ if gt $stock 0 }}
-			
-			<button
-			
-			 
-			 id="{{ $size }}"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="{{ $size }}"
+			name="select-size"
+			id="{{ $size }}"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="{{ $size }}" for="{{ $size }}">
 				{{ if eq "xxxs" $size }}
-				<p>{{ index $size_catalog "xxxs" }}</p>
+					<p>{{ index $size_catalog "xxxs" }}</p>
 				{{ $size }}
 				{{ else if eq "xxs" $size }}
 				<p>{{ index $size_catalog "xxs" }}</p>
@@ -62,9 +82,14 @@
 				<p>{{ index $size_catalog "xxxl" }}</p>
 				{{ $size }}
 				{{ end }}
-			</button>
+				</label>
 			{{ else }}
-			<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<input
+			id="size-unavailable"
+			type="radio"
+			disabled
+			class="is-hidden">
+				<label disabled class="button box fit-content is-flex is-flex-direction-column" for="size-unavailable">
 				{{ if eq "xxxs" $size }}
 				<p>{{ index $size_catalog "xxxs" }}</p>
 				{{ $size }}
@@ -96,73 +121,88 @@
 				<p>{{ index $size_catalog "xxxl" }}</p>
 				{{ $size }}
 				{{ end }}
-			</button>
+				
+				</label>
 			{{ end }}
 		{{ end }}
-		
 	{{ end }}
 {{ end }}
 
 </div>
+<div id="disp" style=
+		"color:green; font-size:18px; font-weight:bold;">
+</div> 
 <script>
-{{ range $.Params.sizes }} 
-  {{ $size := .size }}
-	document.querySelector('#{{ $size }}').addEventListener('click', () => {
-	document.querySelector('#{{ $size }}').classList.add('is-active');
-});
+{{ range where $.Params.sizes "stock" "gt" 0 }}
+{{ $size := .size }}
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			// document.getElementById("disp").innerHTML
+			// 	= checkRadio.value
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
 {{ end }}
 </script>
-	<script>
-	
-	
-	{{ range $.Params.sizes }} 
-	document.addEventListener("click", function (event) {
-	  // Checking if the button was clicked
-	 
-	  {{ $size := .size }}
-	  
-	  if (!event.target.matches("#{{ $size }}")) return;
-	  
-	  // const secret = "ST_NWY3N2FjMDMtMjJmYi00MzgxLWJlNjctMjY1M2Y3NWY3ZWEzNjM3ODU3NTY2NTIwMTEwMDg0" + ":"
-	  
-// 	  fetch('https://app.snipcart.com/api/products/{{ $.File.ContentBaseName }}', {
-// 		  method: 'PUT',
-// 		  headers: {
-// 			  'Authorization': `Basic ${btoa(secret)}`,
-// 			  'Accept': 'application/json',
-// 			  'Content-Type': 'application/json',
-// 		  },
-// 		  body: JSON.stringify({
-// 				'customFields': [{
-// 					
-// 					'name': 'size',
-// 					'value': '{{ $size }}',
-// 				}],
-// 			})
-// 
-// 	  })
-	
-    
-	
-	  
-	console.log("{{ $size }} Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	{{ end }}
-	</script>
-	
-	<script>
+<script>
 	document.addEventListener('snipcart.ready', () => {
-	  
-	  Snipcart.events.on("item.updated", (cartItem) => {
-		  console.debug("item updated", cartItem)
-		  this.addingItem = true;
-		  setTimeout(() => (this.addingItem = false), 2000);
-	  })
+		
+		const addToBag = document.querySelector('#add-to-bag');
+		
+		Snipcart.events.on('item.adding', (parsedCartItem) => {
+			addToBag.classList.add('is-loading');
+		});
+		Snipcart.events.on("item.added", (cartItem) => {
+			console.debug("item added", cartItem);
+			addToBag.classList.remove('is-loading');
+			addToBag.innerHTML = "added to bag";
+			setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+		});
 	});
-	</script>
+</script>
+
+{{/*<!-- <script>
+
+	// 	document.addEventListener('snipcart.ready', () => {
+	// 	document.querySelector('#{{ $.Scratch.Get "product-id" }}-{{ $size }}').addEventListener('click', () => {
+	// 	
+	// 	
+	// 		if (document.querySelector('#{{ $.Scratch.Get "product-id" }}-{{ $size }}').classList.contains("is-active")) {
+	// 			document.querySelector('#{{ $.Scratch.Get "product-id" }}-{{ $size }}').classList.remove("is-active")
+	// 			console.log("{{ $size }} Button is ACTIVE!");
+	// 			
+	// 		
+	// 		// async function start() {
+	// 		// 	console.log("{{ $size }} Function start!");
+	// 		// 	try {
+	// 		// 		await Snipcart.api.cart.items.add({
+	// 		// 			'id': '{{ $.Scratch.Get "product-id" }}',
+	// 		// 			'name': '{{ $.Scratch.Get "product-name" }}',
+	// 		// 			'url': '{{ $.Scratch.Get "product-url" }}',
+	// 		// 			'customFields': [{	
+	// 		// 				'name': 'size',
+	// 		// 				'value': '{{ $size }}',
+	// 		// 			}],
+	// 		// 		});
+	// 		// 	} catch (error) {
+	// 		// 		console.log(error)
+	// 		// 	}
+	// 		// }
+	// 		// start();
+	// 		}
+	// 		
+	// 	});
+	// 	
+	// });
+</script> -->*/}}

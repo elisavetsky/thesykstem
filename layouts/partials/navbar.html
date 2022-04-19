@@ -1,6 +1,6 @@
 {{ $logo := resources.Get "image/logo.png" }}
 {{ $resized_logo := $logo.Resize "500x q90" }}
-
+{{ $.Scratch.Set "resized_logo" $resized_logo }}
 <body tabindex="-1">
 	<nav tabindex="-1" class="navbar {{ if .IsHome }} b-box-shadow {{ end }}" role="navigation" aria-label="main navigation">
 		<div class="navbar-brand">

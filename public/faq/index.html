@@ -10,6 +10,14 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 
+	<link rel="preconnect" href="https://app.snipcart.com" />
+	<link rel="preconnect" href="https://cdn.snipcart.com" />
+	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+
+
+	<script src="https://unpkg.com/vue@3"></script>
+
+
 	<link rel="stylesheet" href="/css/bulma.min.css">
 	
 	
@@ -213,254 +221,160 @@
 		</div>
 	</div>
 </nav>
-								<nav class="shopping-bag">
+								
+<nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag">
-		<input type="checkbox" name="shopping-bag" id="shopping-bag-menu">
-		<button class="button shopping-bag-button is-red">
+		<button class="snipcart-checkout button shopping-bag-button is-red">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
-				<span class="icon-text ">
+				<span class="icon-text">
 					<span class="icon">
 						<span class="fa-solid fa-bag-shopping"></span>
 					</span>
 					<span>
 						bag
+
+					</span>
+					<span class="snipcart-items-count">
 					</span>
 				</span>
 			</label>
 		</button>
-		<div class="shopping-bag-container box columns is-mobile">
-			<div class="bag-controls">
-				<input checked type="checkbox" name="shopping-bag" id="shopping-bag-menu">
-				<label class="button box" for="shopping-bag-menu">
-					<span class="icon">
-						<span class="fa-solid fa-xmark"></span>
-					</span>
-				</label>
-			</div>
-			<div class="bag-items column box">	
+		
+		
+		<div hidden id="snipcart" 
+		
+		data-config-modal-style="side"
+		data-api-key="MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3"
+		data-config-add-product-behavior="none">
+			
+			
+			
+			
+			
+			<empty-cart>
+					<section class="snipcart-empty-cart content">
+						<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
+							<h4>{{ $localize(`you&#39;ve got an empty cart, but that&#39;s okay.`) }}</h4>
+						</div>
+						<button-secondary
+							class="is-icon-left fa-solid fa-arrow-left mr-0"
+							label="back to our store"
+							isFitContent="true"
+							@click="$actions.goBack"
+							>
+						</button-secondary>
+						
+					</section>
+			</empty-cart>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			<item-line> 
+				<li :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
+					<flash-message
+						type="info"
+						icon="box"
+						v-if="stockLimitReached"
+						:title="$localize('errors.quantity_revised')"
+					></flash-message>
+					<flash-message
+						type="error"
+						icon="box"
+						v-if="outOfStock"
+						:title="$localize('errors.quantity_out_of_stock')"
+					></flash-message>
+					<div class="snipcart-item-line__container">
+						<figure
+							class="snipcart-item-line__media"
+							v-if="showLargeImage"
+						>
+							<item-image class="snipcart-item-line__image"></item-image>
+						</figure>
+						<div class="snipcart-item-line__product">
+							<div class="snipcart-item-line__header">
+								<figure
+									class="snipcart-item-line__media snipcart-item-line__media--small"
+									v-if="showSmallImage"
+								>
+									<item-image class="snipcart-item-line__image--large"></item-image>
+								</figure>
 				
-
-<div class="container absolute-title-1-black is-flex is-flex-direction-column is-ancestor">
-	<div class="is-flex is-flex-direction-column">
-		
-		
-				<div class="columns is-mobile">
-					<div class="column is-two-fifths is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center">
-					
-					
-					
-					
-					
-					
-					
-						<a href="/product/system-1776-hat/">
-							<figure class="image">
-								<img src="/product/system-1776-hat/1-system-1776-hat_hu05e4d1142a1272de3e2a37649aa46418_177091_500x0_resize_q75_box_3.png" alt="our v1 company hat">
-							</figure>
-						</a>
-					
-						<button class="remove-button button is-small m-0">
-							<span>remove</span>
-						</button>
-					</div>
-					<div class="column is-three-fifths is-flex is-flex-direction-column content is-justify-content-space-between has-text-right">	
-						<div>
-							<a href="/product/system-1776-hat/">
-								<h4>the classic system</h4>
-							</a>
-							<h6>hat - white</h6>
-							<div class="product-quantity-select buttons are-small mb-1">
-								<button class="button">-</button>
-								<span class="tag is-medium">
-									10
-								</span>
-								<button class="button">+</button>
+								<h2 class="snipcart-item-line__title snipcart__font--xlarge snipcart__font--secondary snipcart__font--black">
+									{{ item.name }}
+								</h2>
+				
+								<button-icon
+									icon="trash"
+									label="item.remove_item"
+									styling="danger"
+									@click="removeItem"
+								>
+									<span class="icon">
+										<span class="fa-solid fa-trash"></span>
+									</span>
+								</button-icon>
 							</div>
-							<div>
-								<p>qty.</p>
-							</div>
-						</div>
-						<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
-							
-
-
-
-
-
-<div class="tags">
-	<span class="tag mb-0 is-red">
-		<strong>33% off</strong>
-	</span>
-</div>
-<div class="sale-price is-flex is-flex-direction-row fit-content-h">
-	<div class="mr-2">
-		<h4><s>$15</s></h4>
-	</div>
-	<h4>$10</h4>
-</div>
-
-						</div>
-					</div>
-				</div>
-			<hr>
-		
-		
-				<div class="columns is-mobile">
-					<div class="column is-two-fifths is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center">
-					
-					
-					
-					
-					
-					
-					
-						<a href="/product/system-1776-hoodie/">
-							<figure class="image">
-								<img src="/product/system-1776-hoodie/1-system-1776-hoodie_hu2f1ad9b7689af1161a688232c944516e_710657_500x0_resize_q75_box_3.png" alt="the classic system-1776 hoodie with our logo turned on its side">
-							</figure>
-						</a>
-					
-						<button class="remove-button button is-small m-0">
-							<span>remove</span>
-						</button>
-					</div>
-					<div class="column is-three-fifths is-flex is-flex-direction-column content is-justify-content-space-between has-text-right">	
-						<div>
-							<a href="/product/system-1776-hoodie/">
-								<h4>the system</h4>
-							</a>
-							<h6>hoodie - black</h6>
-							<div class="product-quantity-select buttons are-small mb-1">
-								<button class="button">-</button>
-								<span class="tag is-medium">
-									7
-								</span>
-								<button class="button">+</button>
-							</div>
-							<div>
-								<p>qty.</p>
+				
+							<div class="snipcart-item-line__content">
+								<div class="snipcart-item-line__body">
+									<div class="snipcart-item-line__info">
+										<item-description v-if="showDescription"></item-description>
+									</div>
+									<div class="snipcart-item-line__variants">
+										<div>
+											<item-plans
+												:item="item"
+												v-if="!adding && isSubscribable"
+											></item-plans>
+											<item-custom-fields v-if="!adding"></item-custom-fields>
+										</div>
+										<item-quantity
+											class="snipcart-item-line__quantity"
+											v-if="!adding && !isSubscribable"
+											:disabled="outOfStock || isSubscribable"
+										></item-quantity>
+										
+										<div
+											class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
+											v-if="isSubscribable && !adding"
+										>
+											<span class="snipcart-form__label snipcart__font--tiny">
+												{{$localize(&#39;subscription.payment_amount&#39;)}}
+											</span>
+											<div class="snipcart-form__field--plan__readonly">
+												<item-price
+													:item="item"
+													:selected-plan="selectedPlan"
+												>
+												</item-price>
+											</div>
+										</div>
+				
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
-							
-
-
-
-
-
-<h4 class="m-0">$35</h4>
-
-						</div>
 					</div>
-				</div>
-			<hr>
-		
-		
-				<div class="columns is-mobile">
-					<div class="column is-two-fifths is-flex is-flex-direction-column is-justify-content-space-between is-align-items-center">
-					
-					
-					
-					
-					
-					
-					
-						<a href="/product/system-1776-shirt/">
-							<figure class="image">
-								<img src="/product/system-1776-shirt/1-system-1776-shirt_hu1da01d9ff8a6844dc90ff32bd82fc31e_1460090_500x0_resize_q75_box_3.png" alt="the classic system-1776 shirt with &#34;the system&#34; written on the bottom">
-							</figure>
-						</a>
-					
-						<button class="remove-button button is-small m-0">
-							<span>remove</span>
-						</button>
-					</div>
-					<div class="column is-three-fifths is-flex is-flex-direction-column content is-justify-content-space-between has-text-right">	
-						<div>
-							<a href="/product/system-1776-shirt/">
-								<h4>the system</h4>
-							</a>
-							<h6>shirt - white</h6>
-							<div class="product-quantity-select buttons are-small mb-1">
-								<button class="button">-</button>
-								<span class="tag is-medium">
-									10
-								</span>
-								<button class="button">+</button>
-							</div>
-							<div>
-								<p>qty.</p>
-							</div>
-						</div>
-						<div class="is-flex is-flex-direction-row is-justify-content-flex-end">
-							
-
-
-
-
-
-<div class="tags">
-	<span class="tag mb-0 is-red">
-		<strong>20% off</strong>
-	</span>
-</div>
-<div class="sale-price is-flex is-flex-direction-row fit-content-h">
-	<div class="mr-2">
-		<h4><s>$25</s></h4>
-	</div>
-	<h4>$20</h4>
-</div>
-
-						</div>
-					</div>
-				</div>
-			<hr>
-		
-	</div>
-</div>
-			</div>
-			<div class="column continue-checkout is-flex is-flex-direction-column is-align-items-flex-end">
-				<div class="total-summary column has-text-right is-flex is-flex-direction-column is-align-items-flex-end is-justify-content-flex-end content">
-					<div class="is-flex full-width is-justify-content-space-between">
-	<h6>Shipping:</h6>
-	<h6>$10.20</h6>
-</div>
-<div class="is-flex full-width is-justify-content-space-between">
-	<h6>Tax:</h6>
-	<h6>$326.47</h6>
-</div>
-<div class="is-flex full-width is-justify-content-space-between">
-	<h4>Total:</h4>
-	<h4>$12,345.99</h4>
-</div>
-
-
-
-				</div>
-				<div class="buttons full-width safari-reverse-only">
-	<div class="full-width safari-only">
-		<button class="button box full-width is-apple-pay is-medium">
-			<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
-				<span class="text">Buy with</span>
-				<span class="logo"></span>
-			</div>
-		</button>
-	</div>
-	<div class="full-width mr-0">
-		<button class="button box full-width is-medium mr-0">
-			<span class="icon-text is-inline-block">
-				<span class="icon">
-					<span class="fa-solid fa-cart-shopping"></span>
-				</span>
-				<span>continue to checkout</span>
-			</span>
-		</button>
-	</div>
-</div>
-			</div>
+				</li>
+			</item-line>
+			
+			
+			
+			
+			
+			
+			
+			
 		</div>
 	</div>
 </nav>
+
 								</div>
 							</div>
 						</div>
@@ -471,24 +385,105 @@
 	</nav>
 </body>
 
-<section class="container section is-small">
-	<div class="content">
-		<div class="mb-6 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+<section class="section is-medium">
+	<div class="container content">
+		<div class="mb-5 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 			<h1>frequently asked questions</h1>
 			<p>and their answers!</p>
 		</div>
 		
-		<div class="tile is-ancestor">
-			<div class="tile is-parent">
-				<div class="box tile is-child is-privacy">
-					<div class="is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-						<h1 id="you-guys-are-commie">&ldquo;you guys are commie!&rdquo;</h1>
-<p>This isn&rsquo;t a question, but we get this one <strong>a lot</strong> and while it may seem that we are&hellip;<strong>we aren&rsquo;t</strong>.</p>
+		
+		
+		
+		<div class="tile">
+			<div class="tile is-child box is-faq">
+				<div class="is-collapsable full-width">
+					<input type="checkbox" name="dropdown" id="faq-1">
+					<label for="faq-1">
+						<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
+							<span class="w-96">
+								<h4 id="you-guys-are-commie">you guys are commie!</h4>
+							</span>
+							<span class="icon">
+								<span class="fa-solid fa-chevron-down"></span>
+							</span>
+						</span>
+					</label>
+					<div class="tags">
+						<p>This isn&rsquo;t a question, but we get this one <strong>a lot</strong> and while it may seem that we are&hellip;<strong>we aren&rsquo;t</strong>.</p>
 <p>We operate as a pro-worker shop because we simply believe that they are the backbone of this company and we want to reward them more than fairly for being so. Just because we are unionized does not mean that everyone earns the exact same. We would just like to see more companies follow suit in the pursuit of great working conditions and happy employees. Our employees&rsquo; happiness matters a great deal to us.</p>
-<h1 id="can-i-work-here">can I work here?</h1>
-<p>Yes, you most certainly may! Check out our careers page <a href="/careers/"><em>here</em></a>. We are expanding!</p>
-<h1 id="why-do-you-use-hemp-and-bamboo-for-your-clothing">why do you use hemp and bamboo for your clothing?</h1>
-<p>We care a great deal for our planet&rsquo;s sustainability and we think our vision aligns with our products&rsquo; materials. (No you cannot smoke your shirt. Don&rsquo;t even try.)</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="tile">
+			<div class="tile is-child box is-faq">
+				<div class="is-collapsable full-width">
+					<input type="checkbox" name="dropdown" id="faq-2">
+					<label for="faq-2">
+						<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
+							<span class="w-96">
+								<h4 id="can-i-work-here">can I work here?</h4>
+							</span>
+							<span class="icon">
+								<span class="fa-solid fa-chevron-down"></span>
+							</span>
+						</span>
+					</label>
+					<div class="tags">
+						<p>Yes, you most certainly may! Check out our careers page <a href="/careers/"><em>here</em></a>. We are expanding!</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="tile">
+			<div class="tile is-child box is-faq">
+				<div class="is-collapsable full-width">
+					<input type="checkbox" name="dropdown" id="faq-3">
+					<label for="faq-3">
+						<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
+							<span class="w-96">
+								<h4 id="what-is-your-return-exchange-process">what is your return / exchange process?</h4>
+							</span>
+							<span class="icon">
+								<span class="fa-solid fa-chevron-down"></span>
+							</span>
+						</span>
+					</label>
+					<div class="tags">
+						<p>We have to fill this one out!!</p>
+
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		
+		
+		<div class="tile">
+			<div class="tile is-child box is-faq">
+				<div class="is-collapsable full-width">
+					<input type="checkbox" name="dropdown" id="faq-4">
+					<label for="faq-4">
+						<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
+							<span class="w-96">
+								<h4 id="why-do-you-use-hemp-and-bamboo-for-your-clothing">why do you use hemp and bamboo for your clothing?</h4>
+							</span>
+							<span class="icon">
+								<span class="fa-solid fa-chevron-down"></span>
+							</span>
+						</span>
+					</label>
+					<div class="tags">
+						<p>We care a great deal for our planet&rsquo;s sustainability and we think our vision aligns with our products&rsquo; materials. (No you cannot smoke your shirt. Don&rsquo;t even try.)</p>
 
 					</div>
 				</div>
@@ -573,7 +568,12 @@
 			</div>
 		</div>
 	</div>
-</div></footer>
+</div>
+
+
+
+<script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script>
+</footer>
 
 
 </body>

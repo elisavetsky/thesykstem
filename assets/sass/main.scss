@@ -404,7 +404,12 @@ input#account-drawer {
 }
 
 .snipcart-button-icon.is-secondary {
-	background-color: $light-red;
+	background-color: $danger-bg;
+	color: $danger;
+	&:hover {
+		background-color: $danger-bg-hover;
+		color: $danger-hover;
+	}
 }
 
 .snipcart-button-icon {
@@ -414,6 +419,8 @@ input#account-drawer {
 .snipcart-button-link {
 	color: $almostblack;
 }
+
+.snipcart
 
 .snipcart-modal__close {
 	color: white;
@@ -518,8 +525,8 @@ input#account-drawer {
 .snipcart-cart-header {
 	min-height: 4.5rem;
 	padding: 1rem 16px;
-	color: white;
-	background: $red-gradient;
+	color: $blue;
+	background: none;
 }
 
 .snipcart-cart__secondary-header {
@@ -537,6 +544,15 @@ input#account-drawer {
 
 .snipcart-cart__content, .snipcart-item-list {
 	background-color: $almostwhite;
+}
+
+.snipcart-cart-header__close-button {
+	color: $blue !important;
+}
+
+.snipcart-item-line__container {
+	padding: 3rem 1.5rem;
+	margin: 1%;
 }
 
 .snipcart-item-line--cart-edit {
@@ -774,13 +790,54 @@ input#account-drawer {
 	height: 40px;
 }
 
+.snipcart-item-quantity__quantity {
+	&:hover {
+		border-color: $red;
+	}
+	&:focus-within {
+		box-shadow: $box-box-shadow;
+	}
+}
+
 .snipcart-form__select {
 	height: 40px;
 	padding: 0 35px 0 0;
+	&:hover, &:focus {
+		border-color: $red;
+	}
+	&:focus-within {
+		box-shadow: $box-box-shadow;
+	}
+}
+
+.snipcart-form__select-wrapper .snipcart__icon {
+	color: $danger !important;
+}
+
+#select-size {
+	input:checked {
+		+label {
+			border-color: #4a4a4a;
+			color: #363636
+		}
+	}
 }
 
 
 // Icons 
+
+.snipcart-cart-header__icon {
+	color: $blue;
+}
+
+.snipcart-modal__close {
+	content: none;
+	color: $blue;
+}
+
+.snipcart-cart-header .snipcart-modal__close-icon {
+	color: $blue;
+}
 
 .payment-icon {
 	img, figure {
@@ -1120,6 +1177,11 @@ input#account-drawer {
 }
 
 // Images & Graphics
+
+.logo-cart {
+	width: 150px;
+	height: 30px !important;
+}
 
 .background-cover {
 	position: absolute;

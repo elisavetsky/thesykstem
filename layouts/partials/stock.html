@@ -37,9 +37,12 @@
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<input 
-		type="submit" 
-		value="add to bag"
+		<button 
+		disabled
+		autocomplete="off"
+		onclick="display()"
+		type="submit"
+		id="add-to-bag"
 		class="snipcart-add-item button box is-medium full-width is-red"
 		data-item-id="{{ .File.ContentBaseName }}"
 		data-item-price="
@@ -65,8 +68,9 @@
 			{{ $s := $.Scratch.Get "s" }}
 			{{ delimit $s "|" }}
 		{{ end }}"
+		data-item-custom1-value=""
 		data-item-custom1-required="true"
-		/>
+		>add to bag</button>
 	</div>
 </div>
 

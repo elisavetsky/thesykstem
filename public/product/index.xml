@@ -8,28 +8,55 @@
     <language>en-us</language><atom:link href="/product/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>the classic system</title>
-      <link>/product/system-1776-hat/</link>
+      <link>/product/system-1776-hat-galaxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/system-1776-hat/</guid>
+      <guid>/product/system-1776-hat-galaxy/</guid>
+      <description>{{ item.name }}</description>
+    </item>
+    
+    <item>
+      <title>the classic system</title>
+      <link>/product/system-1776-hat-white/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/product/system-1776-hat-white/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the system</title>
-      <link>/product/system-1776-hoodie/</link>
+      <link>/product/system-1776-shirt-galaxy/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/system-1776-hoodie/</guid>
+      <guid>/product/system-1776-shirt-galaxy/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the system</title>
-      <link>/product/system-1776-shirt/</link>
+      <link>/product/system-1776-shirt-white/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/system-1776-shirt/</guid>
+      <guid>/product/system-1776-shirt-white/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>the warming system</title>
+      <link>/product/system-1776-hoodie-black/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/product/system-1776-hoodie-black/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>the warming system</title>
+      <link>/product/system-1776-hoodie-starlight/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/product/system-1776-hoodie-starlight/</guid>
       <description></description>
     </item>
     
