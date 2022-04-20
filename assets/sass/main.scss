@@ -4,7 +4,7 @@
 @import 'libs/supports.scss';
 
 :root, body {
-	font-family: BlinkMacSystemFont,-apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif;
+	font-family: BlinkMacSystemFont, -apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif !important;
 	font-size: 14px;
 }
 
@@ -207,7 +207,9 @@ a {
 	transition: $transition-bag-menu;
 }
 
-
+.shopping-bag {
+	display: flex;
+}
 
 .is-collapsable-shopping-bag {
 	width: 100%;
@@ -291,21 +293,25 @@ input#account-drawer {
 
 .snipcart-items-count {
 	position: absolute;
+	z-index: 9;
 	transform: translateY(-1.1rem);
 	background: white;
 	border: $classic-border;
 	color: $almostblack;
 	min-width: 1.6rem;
 	border-radius: 2rem;
-	right: -12px;
+	right: -10px;
 }
 
+.menu-switch-pos {
+	display: flex;
+}
 
 .menu {
 	flex-direction: column;
 	align-items: flex-end;
 	position: relative;
-	z-index: 9998;
+	z-index: 10;
 	flex-wrap: wrap;
 	padding: 0 5px;
 	border-width: 0;
@@ -354,7 +360,10 @@ input#account-drawer {
 }
 
 .navbar-burger {
+	height: 2.5rem;
+	width: 2.5rem;
 	background: $red;
+	border: $classic-border;
 	border-radius: $border-radius;
 	span {
 		background: white;
@@ -391,7 +400,7 @@ input#account-drawer {
 .snipcart-button-primary {
 	background: $red-gradient;
 	color: white;
-	width: 100%;
+	width: 100% !important;
 }
 
 .snipcart-button-secondary {
@@ -414,13 +423,15 @@ input#account-drawer {
 
 .snipcart-button-icon {
 	border-radius: $border-radius;
+	.icon {
+		height: 20px;
+		width: 20px;
+	}
 }
 
 .snipcart-button-link {
 	color: $almostblack;
 }
-
-.snipcart
 
 .snipcart-modal__close {
 	color: white;
@@ -428,7 +439,7 @@ input#account-drawer {
 
 .snipcart-base-button {
 	border-radius: $border-radius;
-	width: unset;
+	
 }
 
 .circle-color-buttons {
@@ -529,10 +540,17 @@ input#account-drawer {
 	background: none;
 }
 
+.snipcart-cart-summary-side .snipcart-cart__secondary-header {
+	padding: 1rem;
+}
+
 .snipcart-cart__secondary-header {
+	min-height: 5rem;
 	max-height: 50px;
 	background: $red-gradient;
 	color: white;
+	flex-direction: row-reverse;
+	padding: 0 1.5rem;
 }
 
 .snipcart-cart--edit {
@@ -556,11 +574,21 @@ input#account-drawer {
 }
 
 .snipcart-item-line--cart-edit {
-	.snipcart-item-line__title {
-		padding-right: 8px;
-	}
+	margin: 0;
 }
 
+.snipcart-item-line__title {
+	padding: 0 20px 0 0 !important;
+	margin-right: auto;
+}
+
+.snipcart-cart-summary--small {
+	margin-top: 70px;
+}
+
+.bag-total-dropdown {
+	min-width: 78px;
+}
 .snipcart-summary-fees {
 	
 }
@@ -782,6 +810,10 @@ input#account-drawer {
 	}
 }
 
+.snipcart-custom-field-wrapper__input {
+	width: fit-content;
+}
+
 .snipcart-item-custom-fields {
 	min-width: fit-content;
 }
@@ -796,18 +828,27 @@ input#account-drawer {
 	}
 	&:focus-within {
 		box-shadow: $box-box-shadow;
+		border-color: $red;
 	}
+}
+
+.snipcart-form__address-autocomplete > .snipcart-textbox {
+	min-height: 40px;
 }
 
 .snipcart-form__select {
 	height: 40px;
-	padding: 0 35px 0 0;
+	padding: 0 35px 0 16px;
 	&:hover, &:focus {
 		border-color: $red;
 	}
 	&:focus-within {
 		box-shadow: $box-box-shadow;
 	}
+}
+
+.snipcart-input, .snipcart-textbox {
+	height: 40px;
 }
 
 .snipcart-form__select-wrapper .snipcart__icon {
@@ -828,6 +869,7 @@ input#account-drawer {
 
 .snipcart-cart-header__icon {
 	color: $blue;
+	margin-right: 0;
 }
 
 .snipcart-modal__close {
@@ -837,6 +879,11 @@ input#account-drawer {
 
 .snipcart-cart-header .snipcart-modal__close-icon {
 	color: $blue;
+}
+
+.snipcart__box--badge-highlight {
+	background-color: $danger-bg;
+	color: $danger;
 }
 
 .payment-icon {
@@ -1179,8 +1226,8 @@ input#account-drawer {
 // Images & Graphics
 
 .logo-cart {
-	width: 150px;
-	height: 30px !important;
+	width: 100px !important;
+	height: 25px !important;
 }
 
 .background-cover {
@@ -1371,6 +1418,7 @@ input#dropdown-6 {
 
 .snipcart-item-line__media--small {
 	height: unset;
+	margin-right: 16px;
 }
 
 .gallery {

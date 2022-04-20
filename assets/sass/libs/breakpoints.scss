@@ -42,7 +42,7 @@
 
 @media only screen and (min-width: 568px) {
 	.logo-cart {
-		min-width: 200px;
+		min-width: 150px;
 		height: 2rem !important;
 	}
 	.hide-on-mobile {
@@ -113,6 +113,9 @@
 			left: 0;
 			bottom: 0;
 			
+		}
+		.is-collapsable-shopping-bag .shopping-bag-label {
+			padding-right: 0.2em;
 		}
 	}
 	.is-collapsable-search > input:checked ~ .search-container {
@@ -237,6 +240,17 @@
 }
 
 @media only screen and (max-width: 1023px) {
+	.navbar-item {
+		.logo {
+			max-width: 8rem;
+			max-height: 3rem;
+		}
+	}
+	.menu-switch-pos {
+		display: flex;
+		flex-direction: row-reverse;
+		margin-left: auto;
+	}
 	.menu {
 		margin-left: auto;
 	}
@@ -265,23 +279,38 @@
 			}
 		}
 	}	
-	
+	.is-collapsable-shopping-bag {
+		padding: 0.5rem 5px 0.5rem 0;
+	}
 }
 
 @media only screen and (min-width: 1024px) {
+	.navbar-item {
+		.logo {
+			max-height: 3rem;
+			margin-right: 20px;
+			align-items: center;
+		}
+	}
 	.navbar {
+		width: 100%;
+	}
+	.menu-switch-pos {
 		width: 100%;
 	}
 	.menu {
 		display: flex;
 		width: inherit;
+		padding-right: 0 !important;
 	}
 	.navbar-brand {
 		width: 100%;
 	}
+	.navbar-item {
+		padding-right: 0;
+	}
 	.navbar-menu {
 		width: 100%;
-		margin-left: auto;
 		flex-direction: row;
 		position: relative;
 		visibility: visible;
@@ -294,6 +323,9 @@
 	.navbar-end {
 		flex-direction: row;
 	}
+	.is-collapsable-shopping-bag {
+		padding: 0.5rem .75rem 0.5rem 0;
+	}
 	.snipcart-cart-summary-side {
 		.snipcart-cart__secondary-header {
 			min-height: 5rem;
@@ -304,16 +336,6 @@
 	
 }
 @media only screen and (min-width: 1025px) {
-	.navbar-item {
-		.logo {
-			max-height: 3rem;
-			margin-right: 20px;
-			align-items: center;
-		}
-	}
-	.menu {
-		
-	}
 	.is-float-left {
 		float: left;
 		max-width: 35%;

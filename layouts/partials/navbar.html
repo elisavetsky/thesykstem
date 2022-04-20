@@ -2,39 +2,84 @@
 {{ $resized_logo := $logo.Resize "500x q90" }}
 {{ $.Scratch.Set "resized_logo" $resized_logo }}
 <body tabindex="-1">
-	<nav tabindex="-1" class="navbar {{ if .IsHome }} b-box-shadow {{ end }}" role="navigation" aria-label="main navigation">
-		<div class="navbar-brand">
+	<nav tabindex="-1" class="navbar {{ if .IsHome }} b-box-shadow {{ else }} has-shadow {{ end }}" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand is-flex is-flex-direction-row">
 			<div class="navbar-item">
 				<a class="is-flex" href="/">
 					<img class="logo" src="{{ $resized_logo.Permalink }}" alt="">
 				</a>
 			</div>
-			<nav class="menu">
-				<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</button>
-				<div id="res-main-menu" class="navbar-menu">
-					<div class="navbar-start">
+			<div class="menu-switch-pos">
+				<nav class="menu is-flex is-align-items-center">
+					<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</button>
+					<div id="res-main-menu" class="navbar-menu">
+						<div class="navbar-start">
 						{{ range .Site.Menus.main }}
-						<div class="navbar-item is-justify-content-flex-end">
-							<a href="{{ .URL | safeURL }}">{{ .Name }}</a>
-						</div>
+							<div class="navbar-item pr-3 is-justify-content-flex-end">
+								<a href="{{ .URL | safeURL }}">{{ .Name }}</a>
+							</div>
 						{{ end }}
-					</div>
-					<div class="navbar-end">
-						<div class="navbar-item">
-							<div class="buttons is-flex is-align-items-center is-justify-content-center">
+						</div>
+						<div class="navbar-end">
+							<div class="navbar-item">
+								<div class="buttons is-flex is-align-items-center is-justify-content-center">
 								{{ partial "search-drawer" . }}
 								{{ partial "account-drawer" . }}
-								{{ partial "shopping-bag-menu" . }}
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-			</nav>
+				</nav>
+			{{ partial "shopping-bag-menu" . }}
+			</div>
 		</div>
 	</nav>
+	<script>
+		function delay(milliseconds){
+				return new Promise(resolve => {
+					setTimeout(resolve, milliseconds);
+				});
+		}
+		
+		
+		document.addEventListener('snipcart.ready', () => {
+			const bagCount = document.querySelector('#bag-count');
+			const addToBag = document.querySelector('#add-to-bag');
+			Snipcart.events.on('item.removed', (cartItem) => {
+				
+				if (bagCount.innerHTML == 0) {
+					bagCount.hidden = true;
+				}
+				else {
+					bagCount.hidden = false;
+				} 
+			});
+			Snipcart.events.on('item.adding', (parsedCartItem) => {
+				bagCount.hidden = false;
+				addToBag.classList.add('is-loading');
+			});
+			Snipcart.events.on("item.added", (cartItem) => {
+				bagCount.hidden = false;
+				addToBag.classList.remove('is-loading');
+				addToBag.innerHTML = "added to bag";
+				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+			});
+			
+		});
+		async function start() {
+			const bagCount = document.getElementById('bag-count');
+			await delay(2000);
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			}
+			else {
+				bagCount.hidden = false;
+			} 
+		}
+		start();
+	</script>
 </body>

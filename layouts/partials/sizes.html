@@ -131,7 +131,8 @@
 </div>
 <div id="disp" style=
 		"color:green; font-size:18px; font-weight:bold;">
-</div> 
+</div>
+
 <script>
 {{ range where $.Params.sizes "stock" "gt" 0 }}
 {{ $size := .size }}
@@ -156,11 +157,30 @@ function display() {
 {{ end }}
 </script>
 <script>
+	
+	
+	function delay(milliseconds){
+			return new Promise(resolve => {
+				setTimeout(resolve, milliseconds);
+			});
+	}
+	
+	const bagCount = document.querySelector('#bag-count');
+	start();
 	document.addEventListener('snipcart.ready', () => {
 		
 		const addToBag = document.querySelector('#add-to-bag');
-		
+		Snipcart.events.on('item.removed', (cartItem) => {
+			console.log(cartItem);
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			}
+			else {
+				bagCount.hidden = false;
+			} 
+		});
 		Snipcart.events.on('item.adding', (parsedCartItem) => {
+			bagCount.hidden = false;
 			addToBag.classList.add('is-loading');
 		});
 		Snipcart.events.on("item.added", (cartItem) => {
@@ -169,7 +189,18 @@ function display() {
 			addToBag.innerHTML = "added to bag";
 			setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
 		});
+		
 	});
+	
+	async function start() {
+		await delay(800);
+		if (bagCount.innerHTML == 0) {
+			bagCount.hidden = true;
+		}
+		else {
+			bagCount.hidden = false;
+		} 
+	}
 </script>
 
 {{/*<!-- <script>

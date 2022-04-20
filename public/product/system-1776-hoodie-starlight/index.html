@@ -40,46 +40,47 @@
 
 
 <body tabindex="-1">
-	<nav tabindex="-1" class="navbar " role="navigation" aria-label="main navigation">
-		<div class="navbar-brand">
+	<nav tabindex="-1" class="navbar  has-shadow " role="navigation" aria-label="main navigation">
+		<div class="navbar-brand is-flex is-flex-direction-row">
 			<div class="navbar-item">
 				<a class="is-flex" href="/">
 					<img class="logo" src="/image/logo_huc8d01b08bdd5a9c1e536591c46bb1299_432724_500x0_resize_q90_box_3.png" alt="">
 				</a>
 			</div>
-			<nav class="menu">
-				<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-					<span aria-hidden="true"></span>
-				</button>
-				<div id="res-main-menu" class="navbar-menu">
-					<div class="navbar-start">
+			<div class="menu-switch-pos">
+				<nav class="menu is-flex is-align-items-center">
+					<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+						<span aria-hidden="true"></span>
+					</button>
+					<div id="res-main-menu" class="navbar-menu">
+						<div class="navbar-start">
 						
-						<div class="navbar-item is-justify-content-flex-end">
-							<a href="/">home</a>
+							<div class="navbar-item pr-3 is-justify-content-flex-end">
+								<a href="/">home</a>
+							</div>
+						
+							<div class="navbar-item pr-3 is-justify-content-flex-end">
+								<a href="">women</a>
+							</div>
+						
+							<div class="navbar-item pr-3 is-justify-content-flex-end">
+								<a href="/men/">men</a>
+							</div>
+						
+							<div class="navbar-item pr-3 is-justify-content-flex-end">
+								<a href="/unisex/">unisex</a>
+							</div>
+						
+							<div class="navbar-item pr-3 is-justify-content-flex-end">
+								<a href="/sale/">sale</a>
+							</div>
+						
 						</div>
-						
-						<div class="navbar-item is-justify-content-flex-end">
-							<a href="">women</a>
-						</div>
-						
-						<div class="navbar-item is-justify-content-flex-end">
-							<a href="/men/">men</a>
-						</div>
-						
-						<div class="navbar-item is-justify-content-flex-end">
-							<a href="/unisex/">unisex</a>
-						</div>
-						
-						<div class="navbar-item is-justify-content-flex-end">
-							<a href="/sale/">sale</a>
-						</div>
-						
-					</div>
-					<div class="navbar-end">
-						<div class="navbar-item">
-							<div class="buttons is-flex is-align-items-center is-justify-content-center">
+						<div class="navbar-end">
+							<div class="navbar-item">
+								<div class="buttons is-flex is-align-items-center is-justify-content-center">
 								<nav class="search-drawer">
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
@@ -203,13 +204,10 @@
 											<input type="submit" value="sign in" class="button box level-item is-small is-red">
 										</p>
 									</div>
-									
-									
-									
 								</div>
 							</div>
 						</div>	
-						<a id="sign-up-button" href="/sign-up/" class="button box sign-up-button is-fullwidth is-medium mr-0 mb-2">
+						<a id="sign-up-button" href="/sign-up/" class="snipcart-customer-signin button box sign-up-button is-fullwidth is-medium mr-0 mb-2">
 							<span>sign up</span>
 						</a>
 					</div>
@@ -219,21 +217,22 @@
 		</div>
 	</div>
 </nav>
-								
+								</div>
+							</div>
+						</div>
+					</div>
+				</nav>
+			
 <nav class="shopping-bag">
-	<div class="is-collapsable-shopping-bag">
+	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
 		<button class="snipcart-checkout button shopping-bag-button is-red">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
-				<span class="icon-text">
+				<span class="icon-text is-inline-block">
 					<span class="icon">
 						<span class="fa-solid fa-bag-shopping"></span>
 					</span>
-					<span>
-						bag
-
-					</span>
-					<span class="snipcart-items-count">
-					</span>
+					<span class="is-hidden-mobile">bag</span>
+					<span id="bag-count" class="snipcart-items-count"></span>
 				</span>
 			</label>
 		</button>
@@ -246,34 +245,262 @@
 		data-config-add-product-behavior="none">
 			
 			
+			<register-form>
+				<div class="root">
+					<authentication-view>
+						<overridable name="register">
+							<div class="snipcart__box snipcart-register__box snipcart-register">
+								<h2 class="snipcart__font--subtitle snipcart-register__title">{{ $localize(&#39;register_form.register&#39;)}}</h2>
+								<p class="snipcart__font snipcart-register__register">
+									{{ $localize(&#39;register_form.already_have_an_account&#39;)}}
+									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
+										{{ $localize(&#39;signin_form.signin&#39;)}}
+									</router-link>
+								</p>
+					
+								<snipcart-form @submit="save" class="snipcart-register__form">
+									<flash-message v-if="requiresConfirmation"
+										type="info"
+										:title="$localize('register_form.requires_action.title')"
+										:description="$localize('register_form.requires_action.description')">
+									</flash-message>
+					
+									<snipcart-form-error></snipcart-form-error>
+					
+									<overridable name="register" section="top"></overridable>
+									<div class="snipcart-form__field">
+										<snipcart-label for="email">{{ $localize(&#39;register_form.email&#39;)}}</snipcart-label>
+										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
+										<snipcart-field-error name="email"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="password">{{ $localize(&#39;register_form.password&#39;)}}</snipcart-label>
+										<snipcart-password name="password" icon="password"></snipcart-password>
+										<snipcart-field-error name="password"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="passwordConfirmation">{{ $localize(&#39;register_form.confirm_password&#39;)}}</snipcart-label>
+										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
+										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
+									</div>
+					
+									<overridable name="register" section="bottom"></overridable>
+					
+									<snipcart-submit
+										label="register_form.register"
+										icon="continue-arrow"
+									></snipcart-submit>
+								</snipcart-form>
+							</div>
+						</overridable>
+					</authentication-view>
+				</div>
+			</register-form>
 			
+			
+			<signin-form section="bottom">
+				<div class="root">
+					wow
+				</div>
+				
+			</signin-form>
+			
+			
+			
+			<loading-screen>
+				<div>
+					<component :is="tag">
+						<slot v-if="!loading"></slot>
+						<div class="snipcart__loading__screen">
+							<div :class="[
+								'snipcart__loading__screen__content',
+								displaySpinner ? 'is-visible' : null,
+							]">
+								<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
+								<span class="snipcart__loading__screen__content__message ">
+									<h4>{{ localizedLoadingMessage }}</h4>
+								</span>
+							</div>
+						</div>
+					</component>
+				</div>
+			</loading-screen>
+			
+			
+			<cart section="snipcart-cart__secondary-header">
+				<div class="root">
+					<icon
+					alt="item.remove_item"
+					class="fa-solid fa-xmark"
+					></icon>
+				</div>
+			</cart>
 			
 			
 			<empty-cart>
+				<div>
 					<section class="snipcart-empty-cart content">
 						<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
-							<h4>{{ $localize(`you&#39;ve got an empty cart, but that&#39;s okay.`) }}</h4>
+							<h6>{{ $localize(`you&#39;ve got an empty cart, but that&#39;s okay.`) }}</h6>
 						</div>
 						<button-secondary
-							class="is-icon-left fa-solid fa-arrow-left mr-0"
-							label="back to our store"
-							isFitContent="true"
-							@click="$actions.goBack"
-							>
+						isFitContent="true"
+						class="fit-content-w"
+						@click="$actions.goBack">
+							<span class="icon-text is-inline-flex is-align-items-center">
+								<span class="icon">
+									<span class="fa-solid fa-arrow-left-long"></span>
+								</span>
+								<span>{{ $localize(`back to our store`) }}</span>
+							</span>
 						</button-secondary>
-						
+
 					</section>
+				</div>
 			</empty-cart>
 			
 			
+			<cart-header>
+				<div class="">
+					<header class="snipcart-cart-header is-mobile" v-if="!loading">
+						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
+							<span class="icon">
+								<span class="fa-solid fa-arrow-left-long"></span>
+							</span>
+							<span class="snipcart-modal__close-title snipcart__font--std">
+								{{ backButtonTitle || $localize(&#39;actions.continue_shopping&#39;) }}
+							</span>
+						</close-cart-action>
+					
+						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-4-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
+							<div class="logo-cart image is-128x128">
+							<figure class="m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+								<a class="is-flex" href="/">
+									
+								<img class="logo" src="/image/logo_huc8d01b08bdd5a9c1e536591c46bb1299_432724_500x0_resize_q90_box_3.png" alt="">
+								</a>
+							</figure>
+							</div>
+						</media>
+					
+						<div class="column is-flex is-7-mobile snipcart-cart-header__options">
+							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
+								<span class="icon-text is-inline-flex is-align-items-center">
+									
+									<span>{{ $localize(&#39;signin_form.signin&#39;)}}</span>
+								</span>
+								
+							</sign-in-action>
+					
+							<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
+								<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
+								{{ $localize(&#39;customer_dashboard.sign_out&#39;)}}
+							</sign-out-action>
+					
+							<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
+								<icon name="user" class="snipcart-cart-header__icon"></icon>
+								{{ $localize(&#39;customer_dashboard.my_account&#39;) }}
+							</customer-account-link>
+					
+							<show-detailed-cart-action class="snipcart-cart-header__option snipcart-cart-header__count snipcart__font--secondary snipcart__font--bold" v-if="showItemsCount">
+								<span class="icon-text is-inline-flex is-align-items-center">
+									<span class="icon">
+										<span class="fa-solid fa-bag-shopping"></span>
+									</span>
+									<span>
+										<template v-if="!hasSubscription">
+											{{ itemsCount }}
+										</template>
+									</span>
+								</span>
+								
+							</show-detailed-cart-action>
+						</div>
+					
+						<media name="mobile, tablet" class="snipcart-modal__header-summary column is-flex pr-0 is-4-mobile is-justify-content-right" v-if="showSummary && !loading">
+							<div class="snipcart-modal__header-summary-title snipcart__font--large snipcart__font--secondary snipcart__font--bold" @click.prevent="toggleSummary">
+								<span class="bag-total-dropdown icon-text is-inline-flex is-align-items-center">
+									<span class="icon">
+										<span class="fa-solid fa-user"></span>
+									</span>
+									<span>{{ cart.total | money(cart.currency) }}</span>
+								</span>
+								<icon :name="summaryIcon" class="snipcart-cart-header__icon snipcart__icon--medium"></icon>
+							</div>
+					
+							<cart-summary class="snipcart-cart-summary--small" v-if="summaryVisible" @close="closeSummary">
+							</cart-summary>
+						</media>
+					</header>
+					<header class="snipcart-cart-header" v-else>
+						<close-cart-action class="snipcart-modal__close">
+							<icon class="snipcart-modal__close-icon" name="back-arrow" />
+							<span class="snipcart-modal__close-title snipcart__font--std">
+								{{ $localize(&#39;actions.continue_shopping&#39;) }}
+							</span>
+						</close-cart-action>
+					</header>
+				</div>
+			</cart-header>
 			
 			
 			
-			
+			<cart-summary>
+				<div>
+					<div name="cart-summary">
+						<div class="snipcart-cart-summary">
+							<section class="snipcart-cart-summary__content">
+								<div class="snipcart-cart-summary__actions snipcart__box--header">
+									<h1 class="snipcart-cart-summary__title snipcart__font--subtitle">
+										{{ $localize(&#39;cart.summary&#39;) }}
+									</h1>
+									<button-link label="actions.edit" @click="openSideCart"></button-link>
+								</div>
+				
+								<overridable
+									name="cart-summary"
+									section="items"
+								>
+									<cart-summary-items-list class="snipcart-cart-summary__items"></cart-summary-items-list>
+								</overridable>
+				
+								<hr class="snipcart-cart-summary__separator" />
+				
+								<loading-overlay>
+									<div class="snipcart-cart-summary__totals">
+										<summary-fees :summary-data="summaryFeesProvider"></summary-fees>
+									</div>
+								</loading-overlay>
+							</section>
+				
+							<footer class="snipcart-cart-summary__footer">
+								<featured-payment-methods class="snipcart-featured-payment-methods--no-background" />
+							</footer>
+						</div>
+					</div>
+				
+					<transition name="snipcart-cart-summary__overlay-transition">
+						<div
+							class="snipcart-cart-summary__overlay"
+							v-if="editing"
+						></div>
+					</transition>
+				
+					<transition name="snipcart-transition--slide-in">
+						<cart
+							:editing-cart="true"
+							class="snipcart-cart-summary--edit"
+							v-if="editing || isSideCart"
+							:is-side-cart="isSideCart"
+						></cart>
+					</transition>
+				</div>
+			</cart-summary>
 			
 			
 			
 			<item-line> 
+				
 				<li :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
 					<flash-message
 						type="info"
@@ -330,13 +557,16 @@
 												:item="item"
 												v-if="!adding && isSubscribable"
 											></item-plans>
-											<item-custom-fields v-if="!adding"></item-custom-fields>
+											<item-custom-fields v-if="!adding">
+											</item-custom-fields>
 										</div>
+										
 										<item-quantity
 											class="snipcart-item-line__quantity"
 											v-if="!adding && !isSubscribable"
 											:disabled="outOfStock || isSubscribable"
-										></item-quantity>
+										>
+										</item-quantity>
 										
 										<div
 											class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
@@ -369,18 +599,59 @@
 			
 			
 			
+			
+			
 		</div>
 	</div>
 </nav>
 
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</nav>
+			</div>
 		</div>
 	</nav>
+	<script>
+		function delay(milliseconds){
+				return new Promise(resolve => {
+					setTimeout(resolve, milliseconds);
+				});
+		}
+		
+		
+		document.addEventListener('snipcart.ready', () => {
+			const bagCount = document.querySelector('#bag-count');
+			const addToBag = document.querySelector('#add-to-bag');
+			Snipcart.events.on('item.removed', (cartItem) => {
+				
+				if (bagCount.innerHTML == 0) {
+					bagCount.hidden = true;
+				}
+				else {
+					bagCount.hidden = false;
+				} 
+			});
+			Snipcart.events.on('item.adding', (parsedCartItem) => {
+				bagCount.hidden = false;
+				addToBag.classList.add('is-loading');
+			});
+			Snipcart.events.on("item.added", (cartItem) => {
+				bagCount.hidden = false;
+				addToBag.classList.remove('is-loading');
+				addToBag.innerHTML = "added to bag";
+				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+			});
+			
+		});
+		async function start() {
+			const bagCount = document.getElementById('bag-count');
+			await delay(2000);
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			}
+			else {
+				bagCount.hidden = false;
+			} 
+		}
+		start();
+	</script>
 </body>
 <body class="is-almost-blue-back">
 	<section class="container section is-small">
@@ -420,7 +691,7 @@
 				<div class="product-on-page box is-white-blue-grad">
 					<input type="radio" id="/product/system-1776-hoodie-starlight/" name="gallery"  class="gallery__selector" checked/>
 					<figure class="gallery__img">
-						<img src="/product/system-1776-hoodie-starlight/1-system-1776-hoodie-starlight_hu0074fb67b42054c9ac6f355d5ccbaac6_13786839_768x0_resize_q75_box_3.png" alt="the classic system-1776 hoodie with our logo turned on its side. In &#39;starlight&#39;">
+						<img src="/product/system-1776-hoodie-starlight/1-system-1776-hoodie-starlight_hu0074fb67b42054c9ac6f355d5ccbaac6_13786839_768x0_resize_q65_box_3.png" alt="the classic system-1776 hoodie with our logo turned on its side. In &#39;starlight&#39;">
 					</figure>
 					
 					
@@ -527,12 +798,13 @@ product-title-effect">
 
 </div>
 
-				
+				<form class="mb-5">
 					
 
 
+
 <h6>size:</h6>
-<div class="buttons">
+<div id="select-size" class="buttons">
 
 
 	
@@ -541,548 +813,376 @@ product-title-effect">
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="xxxs"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="xxxs"
+			name="select-size"
+			id="xxxs"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="xxxs" for="xxxs">
 				
-				<p>2-4</p>
+					<p>2-4</p>
 				xxxs
 				
-			</button>
+				</label>
 			
 		
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="xxs"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="xxs"
+			name="select-size"
+			id="xxs"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="xxs" for="xxs">
 				
 				<p>6-8</p>
 				xxs
 				
-			</button>
+				</label>
 			
 		
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="xs"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="xs"
+			name="select-size"
+			id="xs"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="xs" for="xs">
 				
 				<p>10-12</p>
 				xs
 				
-			</button>
+				</label>
 			
 		
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="s"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="s"
+			name="select-size"
+			id="s"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="s" for="s">
 				
 				<p>14-16</p>
 				s
 				
-			</button>
+				</label>
 			
 		
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="m"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="m"
+			name="select-size"
+			id="m"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="m" for="m">
 				
 				<p>18-20</p>
 				m
 				
-			</button>
+				</label>
 			
 		
 			
 			
 			
-			<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<input
+			id="size-unavailable"
+			type="radio"
+			disabled
+			class="is-hidden">
+				<label disabled class="button box fit-content is-flex is-flex-direction-column" for="size-unavailable">
 				
 				<p>22-24</p>
 				l
 				
-			</button>
+				
+				</label>
 			
 		
 			
 			
 			
-			<button disabled class="button fit-content is-flex is-flex-direction-column">
+			<input
+			id="size-unavailable"
+			type="radio"
+			disabled
+			class="is-hidden">
+				<label disabled class="button box fit-content is-flex is-flex-direction-column" for="size-unavailable">
 				
 				<p>26-28</p>
 				xl
 				
-			</button>
+				
+				</label>
 			
 		
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="xxl"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="xxl"
+			name="select-size"
+			id="xxl"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="xxl" for="xxl">
 				
 				<p>30-32</p>
 				xxl
 				
-			</button>
+				</label>
 			
 		
 			
 			
 			
-			
-			<button
-			
-			 
-			 id="xxxl"
-			 class="button box fit-content is-flex is-flex-direction-column">
+			<input
+			required
+			onclick="display()"
+			autocomplete="off"
+			type="radio"
+			value="xxxl"
+			name="select-size"
+			id="xxxl"
+			class="is-hidden">
+				<label class="button box fit-content is-flex is-flex-direction-column" value="xxxl" for="xxxl">
 				
 				<p>34-36</p>
 				xxxl
 				
-			</button>
+				</label>
 			
-		
 		
 	
 
 
 </div>
+<div id="disp" style=
+		"color:green; font-size:18px; font-weight:bold;">
+</div>
+
 <script>
- 
-  
-	document.querySelector('#xxxs').addEventListener('click', () => {
-	document.querySelector('#xxxs').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#xxs').addEventListener('click', () => {
-	document.querySelector('#xxs').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#xs').addEventListener('click', () => {
-	document.querySelector('#xs').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#s').addEventListener('click', () => {
-	document.querySelector('#s').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#m').addEventListener('click', () => {
-	document.querySelector('#m').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#l').addEventListener('click', () => {
-	document.querySelector('#l').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#xl').addEventListener('click', () => {
-	document.querySelector('#xl').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#xxl').addEventListener('click', () => {
-	document.querySelector('#xxl').classList.add('is-active');
-});
- 
-  
-	document.querySelector('#xxxl').addEventListener('click', () => {
-	document.querySelector('#xxxl').classList.add('is-active');
-});
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
 
 </script>
-	<script>
+<script>
 	
 	
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#xxxs")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("xxxs Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
+	function delay(milliseconds){
+			return new Promise(resolve => {
+				setTimeout(resolve, milliseconds);
+			});
 	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#xxs")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	
-    
-	
-	  
-	console.log("xxs Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#xs")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("xs Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#s")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("s Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#m")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("m Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#l")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("l Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#xl")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("xl Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#xxl")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("xxl Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	 
-	document.addEventListener("click", function (event) {
-	  
-	 
-	  
-	  
-	  if (!event.target.matches("#xxxl")) return;
-	  
-	  
-	  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	
-    
-	
-	  
-	console.log("xxxl Button was clicked!");
-	
-	function renderError() {
-	  const error = document.getElementById("error");
-	  error.innerHTML = "Whoops, something went wrong. Please try again later!";
-	}
-	  
-	});
-	
-	</script>
-	
-	<script>
+	const bagCount = document.querySelector('#bag-count');
+	start();
 	document.addEventListener('snipcart.ready', () => {
-	  
-	  Snipcart.events.on("item.updated", (cartItem) => {
-		  console.debug("item updated", cartItem)
-		  this.addingItem = true;
-		  setTimeout(() => (this.addingItem = false), 2000);
-	  })
+		
+		const addToBag = document.querySelector('#add-to-bag');
+		Snipcart.events.on('item.removed', (cartItem) => {
+			console.log(cartItem);
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			}
+			else {
+				bagCount.hidden = false;
+			} 
+		});
+		Snipcart.events.on('item.adding', (parsedCartItem) => {
+			bagCount.hidden = false;
+			addToBag.classList.add('is-loading');
+		});
+		Snipcart.events.on("item.added", (cartItem) => {
+			console.debug("item added", cartItem);
+			addToBag.classList.remove('is-loading');
+			addToBag.innerHTML = "added to bag";
+			setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+		});
+		
 	});
-	</script>
+	
+	async function start() {
+		await delay(800);
+		if (bagCount.innerHTML == 0) {
+			bagCount.hidden = true;
+		}
+		else {
+			bagCount.hidden = false;
+		} 
+	}
+</script>
+
+
 					
 
 
@@ -1097,9 +1197,12 @@ product-title-effect">
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<input 
-		type="submit" 
-		value="add to bag"
+		<button 
+		disabled
+		autocomplete="off"
+		onclick="display()"
+		type="submit"
+		id="add-to-bag"
 		class="snipcart-add-item button box is-medium full-width is-red"
 		data-item-id="system-1776-hoodie-starlight"
 		data-item-price="
@@ -1108,7 +1211,7 @@ product-title-effect">
 		"
 		data-item-url="/product/system-1776-hoodie-starlight/"
 		data-item-description="This is the classic company hoodie, now in a cosmic &#39;starlight&#39;"
-		data-item-image="/product/system-1776-hoodie-starlight/1-system-1776-hoodie-starlight_hu0074fb67b42054c9ac6f355d5ccbaac6_13786839_768x0_resize_q75_box_3.png"
+		data-item-image="/product/system-1776-hoodie-starlight/1-system-1776-hoodie-starlight_hu0074fb67b42054c9ac6f355d5ccbaac6_13786839_768x0_resize_q65_box_3.png"
 		data-item-name="the warming system"	
 		data-item-custom1-name="size"
 		data-item-custom1-options="
@@ -1145,13 +1248,14 @@ product-title-effect">
 			
 			xxxs|xxs|xs|s|m|xxl|xxxl
 		"
+		data-item-custom1-value=""
 		data-item-custom1-required="true"
-		/>
+		>add to bag</button>
 	</div>
 </div>
 
 
-				
+				</form>
 				<div class="mb-5">
 					<h6>description:</h6>
 					<p>This is the classic company hoodie, now in a cosmic &#39;starlight&#39;</p>

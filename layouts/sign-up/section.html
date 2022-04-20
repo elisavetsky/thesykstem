@@ -14,6 +14,7 @@
 				<h1>{{ .Title }}</h1>
 			
 			</div>
+			
 			{{ range sort (where .Site.Pages.ByWeight "Section" "sign-up") }}
 				<div class="sign-up box is-flex is-flex-direction-column">
 					<fieldset disabled>

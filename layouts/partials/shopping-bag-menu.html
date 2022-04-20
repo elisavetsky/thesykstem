@@ -1,18 +1,14 @@
 
 <nav class="shopping-bag">
-	<div class="is-collapsable-shopping-bag">
+	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
 		<button class="snipcart-checkout button shopping-bag-button is-red">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
-				<span class="icon-text">
+				<span class="icon-text is-inline-block">
 					<span class="icon">
 						<span class="fa-solid fa-bag-shopping"></span>
 					</span>
-					<span>
-						bag
-
-					</span>
-					<span class="snipcart-items-count">
-					</span>
+					<span class="is-hidden-mobile">bag</span>
+					<span id="bag-count" class="snipcart-items-count"></span>
 				</span>
 			</label>
 		</button>
@@ -24,31 +20,126 @@
 		data-api-key="MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3"
 		data-config-add-product-behavior="none">
 			
-			<!-- Item Quantity -->
+			<!-- Sign Up Form -->
+			<register-form>
+				<div class="root">
+					<authentication-view>
+						<overridable name="register">
+							<div class="snipcart__box snipcart-register__box snipcart-register">
+								<h2 class="snipcart__font--subtitle snipcart-register__title">{{"{{ $localize('register_form.register')}}"}}</h2>
+								<p class="snipcart__font snipcart-register__register">
+									{{"{{ $localize('register_form.already_have_an_account')}}"}}
+									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
+										{{"{{ $localize('signin_form.signin')}}"}}
+									</router-link>
+								</p>
+					
+								<snipcart-form @submit="save" class="snipcart-register__form">
+									<flash-message v-if="requiresConfirmation"
+										type="info"
+										:title="$localize('register_form.requires_action.title')"
+										:description="$localize('register_form.requires_action.description')">
+									</flash-message>
+					
+									<snipcart-form-error></snipcart-form-error>
+					
+									<overridable name="register" section="top"></overridable>
+									<div class="snipcart-form__field">
+										<snipcart-label for="email">{{"{{ $localize('register_form.email')}}"}}</snipcart-label>
+										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
+										<snipcart-field-error name="email"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="password">{{"{{ $localize('register_form.password')}}"}}</snipcart-label>
+										<snipcart-password name="password" icon="password"></snipcart-password>
+										<snipcart-field-error name="password"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="passwordConfirmation">{{"{{ $localize('register_form.confirm_password')}}"}}</snipcart-label>
+										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
+										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
+									</div>
+					
+									<overridable name="register" section="bottom"></overridable>
+					
+									<snipcart-submit
+										label="register_form.register"
+										icon="continue-arrow"
+									></snipcart-submit>
+								</snipcart-form>
+							</div>
+						</overridable>
+					</authentication-view>
+				</div>
+			</register-form>
 			
+			<!-- Sign In Form -->
+			<signin-form section="bottom">
+				<div class="root">
+					wow
+				</div>
+				
+			</signin-form>
+			
+			
+			<!-- Loading Screen -->
+			<loading-screen>
+				<div>
+					<component :is="tag">
+						<slot v-if="!loading"></slot>
+						<div class="snipcart__loading__screen">
+							<div :class="[
+								'snipcart__loading__screen__content',
+								displaySpinner ? 'is-visible' : null,
+							]">
+								<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
+								<span class="snipcart__loading__screen__content__message ">
+									<h4>{{"{{ localizedLoadingMessage }}"}}</h4>
+								</span>
+							</div>
+						</div>
+					</component>
+				</div>
+			</loading-screen>
+			
+			<!-- Close Side Cart Action -->
+			<cart section="snipcart-cart__secondary-header">
+				<div class="root">
+					<icon
+					alt="item.remove_item"
+					class="fa-solid fa-xmark"
+					></icon>
+				</div>
+			</cart>
 			
 			<!-- Empty Cart -->
 			<empty-cart>
+				<div>
 					<section class="snipcart-empty-cart content">
 						<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
-							<h4>{{"{{ $localize(`you've got an empty cart, but that's okay.`) }}"}}</h4>
+							<h6>{{"{{ $localize(`you've got an empty cart, but that's okay.`) }}"}}</h6>
 						</div>
 						<button-secondary
-							class="is-icon-left fa-solid fa-arrow-left mr-0"
-							label="back to our store"
-							isFitContent="true"
-							@click="$actions.goBack"
-							>
+						isFitContent="true"
+						class="fit-content-w"
+						@click="$actions.goBack">
+							<span class="icon-text is-inline-flex is-align-items-center">
+								<span class="icon">
+									<span class="fa-solid fa-arrow-left-long"></span>
+								</span>
+								<span>{{"{{ $localize(`back to our store`) }}"}}</span>
+							</span>
 						</button-secondary>
-						
+
 					</section>
+				</div>
 			</empty-cart>
 			
 			<!-- Cart Header -->
 			<cart-header>
-				<div class="content">
-					<header class="snipcart-cart-header" v-if="!loading">
-						<close-cart-action class="snipcart-cart-header__close-button snipcart-modal__close">
+				<div class="">
+					<header class="snipcart-cart-header is-mobile" v-if="!loading">
+						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
 							<span class="icon">
 								<span class="fa-solid fa-arrow-left-long"></span>
 							</span>
@@ -57,7 +148,7 @@
 							</span>
 						</close-cart-action>
 					
-						<media name="mobile, tablet, large" v-if="title">
+						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-4-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
 							<div class="logo-cart image is-128x128">
 							<figure class="m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
 								<a class="is-flex" href="/">
@@ -66,11 +157,9 @@
 								</a>
 							</figure>
 							</div>
-								
-							
 						</media>
 					
-						<div class="snipcart-cart-header__options">
+						<div class="column is-flex is-7-mobile snipcart-cart-header__options">
 							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
 								<span class="icon-text is-inline-flex is-align-items-center">
 									{{/*<span class="icon">
@@ -106,9 +195,9 @@
 							</show-detailed-cart-action>
 						</div>
 					
-						<media name="mobile, tablet" class="snipcart-modal__header-summary" v-if="showSummary && !loading">
+						<media name="mobile, tablet" class="snipcart-modal__header-summary column is-flex pr-0 is-4-mobile is-justify-content-right" v-if="showSummary && !loading">
 							<div class="snipcart-modal__header-summary-title snipcart__font--large snipcart__font--secondary snipcart__font--bold" @click.prevent="toggleSummary">
-								<span class="icon-text is-inline-flex is-align-items-center">
+								<span class="bag-total-dropdown icon-text is-inline-flex is-align-items-center">
 									<span class="icon">
 										<span class="fa-solid fa-user"></span>
 									</span>
@@ -133,8 +222,58 @@
 			</cart-header>
 			
 			
-			<!-- Secondary Header -->
-			
+			<!-- Cart Summary -->
+			<cart-summary>
+				<div>
+					<div name="cart-summary">
+						<div class="snipcart-cart-summary">
+							<section class="snipcart-cart-summary__content">
+								<div class="snipcart-cart-summary__actions snipcart__box--header">
+									<h1 class="snipcart-cart-summary__title snipcart__font--subtitle">
+										{{"{{ $localize('cart.summary') }}"}}
+									</h1>
+									<button-link label="actions.edit" @click="openSideCart"></button-link>
+								</div>
+				
+								<overridable
+									name="cart-summary"
+									section="items"
+								>
+									<cart-summary-items-list class="snipcart-cart-summary__items"></cart-summary-items-list>
+								</overridable>
+				
+								<hr class="snipcart-cart-summary__separator" />
+				
+								<loading-overlay>
+									<div class="snipcart-cart-summary__totals">
+										<summary-fees :summary-data="summaryFeesProvider"></summary-fees>
+									</div>
+								</loading-overlay>
+							</section>
+				
+							<footer class="snipcart-cart-summary__footer">
+								<featured-payment-methods class="snipcart-featured-payment-methods--no-background" />
+							</footer>
+						</div>
+					</div>
+				
+					<transition name="snipcart-cart-summary__overlay-transition">
+						<div
+							class="snipcart-cart-summary__overlay"
+							v-if="editing"
+						></div>
+					</transition>
+				
+					<transition name="snipcart-transition--slide-in">
+						<cart
+							:editing-cart="true"
+							class="snipcart-cart-summary--edit"
+							v-if="editing || isSideCart"
+							:is-side-cart="isSideCart"
+						></cart>
+					</transition>
+				</div>
+			</cart-summary>
 			
 			<!-- Item Line  -->
 			
@@ -230,6 +369,8 @@
 					</div>
 				</li>
 			</item-line>
+			
+			
 			
 			<!-- Cart -->
 			{{/*<cart>
