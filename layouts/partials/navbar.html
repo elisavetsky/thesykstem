@@ -45,10 +45,17 @@
 				});
 		}
 		
-		
 		document.addEventListener('snipcart.ready', () => {
 			const bagCount = document.querySelector('#bag-count');
 			const addToBag = document.querySelector('#add-to-bag');
+			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
+				if (bagCount.innerHTML == 0) {
+					bagCount.hidden = true;
+				}
+				else {
+					bagCount.hidden = false;
+				} 
+			});
 			Snipcart.events.on('item.removed', (cartItem) => {
 				
 				if (bagCount.innerHTML == 0) {
@@ -68,18 +75,6 @@
 				addToBag.innerHTML = "added to bag";
 				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
 			});
-			
 		});
-		async function start() {
-			const bagCount = document.getElementById('bag-count');
-			await delay(2000);
-			if (bagCount.innerHTML == 0) {
-				bagCount.hidden = true;
-			}
-			else {
-				bagCount.hidden = false;
-			} 
-		}
-		start();
 	</script>
 </body>

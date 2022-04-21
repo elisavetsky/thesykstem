@@ -227,19 +227,26 @@
 				<div>
 					<div name="cart-summary">
 						<div class="snipcart-cart-summary">
-							<section class="snipcart-cart-summary__content">
-								<div class="snipcart-cart-summary__actions snipcart__box--header">
-									<h1 class="snipcart-cart-summary__title snipcart__font--subtitle">
+							<section class="snipcart-cart-summary__content content">
+								<div class="snipcart-cart-summary-items-list mb-5"><div class="snipcart-cart-summary__actions snipcart-cart-summary-item">
+									<span><h4 class="mb-0 snipcart-cart-summary__title">
 										{{"{{ $localize('cart.summary') }}"}}
-									</h1>
-									<button-link label="actions.edit" @click="openSideCart"></button-link>
-								</div>
+									</h4></span>
+									<span class="snipcart-cart-summary-item__quantity">
+										<h6 class="mb-0">qty.</h6>
+									</span>
+									<button-link 
+									class="button is-small justify-self-flex-end"
+									label="actions.edit"
+									@click="openSideCart">
+									</button-link>
+								</div></div>
 				
 								<overridable
 									name="cart-summary"
 									section="items"
 								>
-									<cart-summary-items-list class="snipcart-cart-summary__items"></cart-summary-items-list>
+									<cart-summary-items-list class="snipcart-cart-summary__items ml-0"></cart-summary-items-list>
 								</overridable>
 				
 								<hr class="snipcart-cart-summary__separator" />
@@ -252,7 +259,7 @@
 							</section>
 				
 							<footer class="snipcart-cart-summary__footer">
-								<featured-payment-methods class="snipcart-featured-payment-methods--no-background" />
+								<featured-payment-methods class="snipcart-featured-payment-methods--no-background  is-size-7" />
 							</footer>
 						</div>
 					</div>
@@ -281,11 +288,12 @@
 				
 				<li :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
 					<flash-message
-						type="info"
-						icon="box"
+						class="is-justify-content-center"
 						v-if="stockLimitReached"
-						:title="$localize('errors.quantity_revised')"
-					></flash-message>
+					>
+						<span>{{"{{ $localize('errors.quantity_revised')}}"}}</span>
+						
+					</flash-message>
 					<flash-message
 						type="error"
 						icon="box"

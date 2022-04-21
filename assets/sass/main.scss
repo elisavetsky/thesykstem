@@ -3,8 +3,11 @@
 @import 'libs/keyframes.scss';
 @import 'libs/supports.scss';
 
-:root, body {
+:root, body, .content {
 	font-family: BlinkMacSystemFont, -apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif !important;
+}
+
+:root, body {
 	font-size: 14px;
 }
 
@@ -45,6 +48,10 @@ a {
 
 .full-height {
 	height: 100%;
+}
+
+.justify-self-flex-end {
+	justify-self: flex-end;
 }
 
 .min-intrinsic {
@@ -586,6 +593,22 @@ input#account-drawer {
 	margin-top: 70px;
 }
 
+.snipcart-summary-fees__notice {
+	margin-bottom: 1.5rem;
+}
+
+.snipcart-flash-message {
+	padding: 1.5rem;
+}
+
+.snipcart-flash-message__action-container {
+	margin-top: 0;
+}
+
+.snipcart-flash-message--info {
+	background-color: $danger-bg;
+}
+
 .bag-total-dropdown {
 	min-width: 78px;
 }
@@ -844,11 +867,27 @@ input#account-drawer {
 	}
 	&:focus-within {
 		box-shadow: $box-box-shadow;
+		border-color: $red;
+	}
+}
+
+.snipcart-input {
+	&:focus-within {
+		border-color: $red;
+		box-shadow: $box-box-shadow;
 	}
 }
 
 .snipcart-input, .snipcart-textbox {
 	height: 40px;
+}
+
+.snipcart-typeahead__suggestions {
+	border-color: $red;
+}
+
+.snipcart-typeahead__suggestion--active {
+	background-color: $danger-bg;
 }
 
 .snipcart-form__select-wrapper .snipcart__icon {
