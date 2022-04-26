@@ -304,24 +304,6 @@
 			
 			
 			
-			<loading-screen>
-				<div>
-					<component :is="tag">
-						<slot v-if="!loading"></slot>
-						<div class="snipcart__loading__screen">
-							<div :class="[
-								'snipcart__loading__screen__content',
-								displaySpinner ? 'is-visible' : null,
-							]">
-								<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
-								<span class="snipcart__loading__screen__content__message ">
-									<h4>{{ localizedLoadingMessage }}</h4>
-								</span>
-							</div>
-						</div>
-					</component>
-				</div>
-			</loading-screen>
 			
 			
 			<cart section="snipcart-cart__secondary-header">
@@ -473,6 +455,12 @@
 		document.addEventListener('snipcart.ready', () => {
 			const bagCount = document.querySelector('#bag-count');
 			const addToBag = document.querySelector('#add-to-bag');
+			let isCustomerSignedIn = false;
+			
+			Snipcart.store.subscribe(() => {
+				const customer = Snipcart.store.getState().customer;
+				isCustomerSignedIn = customer.status === 'SignedIn';
+			});
 			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
 				if (bagCount.innerHTML == 0) {
 					bagCount.hidden = true;

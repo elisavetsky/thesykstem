@@ -5,6 +5,29 @@
 	<body>
 		
 		<div id="snipcart-templates">
+			
+			<!-- Loading Screen -->
+			<loading-screen>
+				<div>
+					<component :is="tag">
+						<slot v-if="!loading"></slot>
+						<div name="loading-screen" v-else>
+							<div class="snipcart__loading__screen">
+								<div :class="[
+									'snipcart__loading__screen__content',
+									displaySpinner ? 'is-visible' : null,
+								]">
+									<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
+									<span class="snipcart__loading__screen__content__message ">
+										<h4>{{ localizedLoadingMessage }}</h4>
+									</span>
+								</div>
+							</div>
+						</div>
+					</component>
+				</div>
+			</loading-screen>
+			
 			<!-- Register Form -->
 			<signin-form>
 				<div>
@@ -38,6 +61,9 @@
 				</section>
 			</empty-cart>
 			
+			<!-- Cart Layout -->
+			
+			
 			<!-- Cart Header -->
 			<cart-header>
 				<div>
@@ -47,7 +73,7 @@
 								<span class="fa-solid fa-arrow-left-long"></span>
 							</span>
 							<span class="snipcart-modal__close-title snipcart__font--std">
-								{{ backButtonTitle || $localize('actions.continue_shopping') }}
+								{{ backButtonTitle || $localize('back to browsing') }}
 							</span>
 						</close-cart-action>
 					
@@ -131,11 +157,8 @@
 								<div class="snipcart-cart-summary__actions snipcart__box--header">
 									<span>
 										<h4 class="mb-0 snipcart-cart-summary__title">
-										{{ $localize('cart.summary') }}
+										{{ $localize('your order') }}
 										</h4>
-									</span>
-									<span class="snipcart-cart-summary-item__quantity">
-										<h6 class="mb-0">qty.</h6>
 									</span>
 									<button-link
 									class="button is-small justify-self-flex-end"
@@ -278,6 +301,17 @@
 			</item-line>
 			
 			<!-- Cart -->
+			<cart-header
+				name="cart"
+				section="header"
+			>
+				<cart-header
+					title="bag summary"
+					:show-items-count="true"
+					:show-account-menu="true"
+					v-if="!editingCart"
+				></cart-header>
+			</cart-header>
 			<!-- <cart>
 				<div>
 					<layout v-click-outside="clickedOutside">
@@ -286,7 +320,7 @@
 							section="header"
 						>
 							<cart-header
-								title="header.title_cart_summary"
+								title="bag summary"
 								:show-items-count="true"
 								:show-account-menu="true"
 								v-if="!editingCart"
