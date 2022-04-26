@@ -1,14 +1,15 @@
 {{ define "main" }}
 {{ partial "navbar" . }}
 <body class="is-almost-blue-back">
-	<section class="container section is-small">
-		<div class="columns is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-			<div class="column is-offset-1 is-full">
-				{{ partial "breadcrumbs" . }}
+	<section class="section is-small">
+		<div class="container">
+			<div class="columns is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+				<div class="column is-offset-1 is-full">
+					{{ partial "breadcrumbs" . }}
+				</div>
 			</div>
-		</div>
-		<div class="content columns is-variable is-4 is-justify-content-center is-size-6-mobile is-size-5-tablet is-size-5-desktop">
-			<div class="column is-full-mobile is-half-tablet is-half-desktop">
+			<div class="content columns is-variable is-4 is-justify-content-center is-size-6-mobile is-size-5-tablet is-size-5-desktop">
+				<div class="column is-full-mobile is-half-tablet is-half-desktop">
 					{{ $img := .Params.img }}
 					{{ $article := .Resources.GetMatch $img }}
 					{{ $main_alt := .Params.main_alt }}
@@ -16,37 +17,37 @@
 					{{ $more_photos := .Resources.ByType "image" }}
 					{{ $resized_main := $article.Resize "768x center q65" }}
 					{{ .Scratch.Set "resized_main" $resized_main }}
-				<div class="product-on-page box is-white-blue-grad">
-					<input type="radio" id="{{ .RelPermalink }}" name="gallery"  class="gallery__selector" checked/>
-					<figure class="gallery__img">
-						<img src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
-					</figure>
-					{{ range $more_photos }}
-					{{ $resized := .Resize "768x center q75" }}
-					<input type="radio" id="{{ .RelPermalink }}" name="gallery"  class="gallery__selector"/>
-					<figure class="gallery__img">
-						<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
-					</figure>
-					{{ end }}
+					<div class="product-on-page box is-white-blue-grad">
+						<input type="radio" id="{{ .RelPermalink }}" name="gallery"  class="gallery__selector" checked/>
+						<figure class="gallery__img">
+							<img src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+						</figure>
+						{{ range $more_photos }}
+						{{ $resized := .Resize "768x center q75" }}
+						<input type="radio" id="{{ .RelPermalink }}" name="gallery"  class="gallery__selector"/>
+						<figure class="gallery__img">
+							<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+						</figure>
+						{{ end }}
+					</div>
+					{{ partial "gallery-nav" . }}
 				</div>
-				{{ partial "gallery-nav" . }}
-			</div>
-			<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-				{{ partial "type-love-button" . }}
-				{{ partial "product-title" . }}
-				{{ partial "price" . }}
-				<hr>
-				{{ partial "colors" . }}
-				<form class="mb-5">
-					{{ partial "sizes" . }}
-					{{ partial "stock" . }}
-				</form>
-				<div class="mb-5">
-					<h6>description:</h6>
-					<p>{{ .Params.description }}</p>
+				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+					{{ partial "type-love-button" . }}
+					{{ partial "product-title" . }}
+					{{ partial "price" . }}
+					<hr>
+					{{ partial "colors" . }}
+					<form class="mb-5">
+						{{ partial "sizes" . }}
+						{{ partial "stock" . }}
+					</form>
+					<div class="mb-5">
+						<h6>description:</h6>
+						<p>{{ .Params.description }}</p>
+					</div>
+					{{ partial "fabriccare" . }}
 				</div>
-				{{ partial "fabriccare" . }}
-				
 			</div>
 		</div>
 	</section>

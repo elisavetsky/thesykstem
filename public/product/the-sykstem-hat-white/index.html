@@ -1,0 +1,932 @@
+<!DOCTYPE HTML>
+<html>
+	
+	<!DOCTYPE html>
+<html lang="en" class="no-js">
+  <head>
+	<title>the-sykstem</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+
+	
+
+
+	<script src="https://unpkg.com/vue@3"></script>
+
+
+	<link rel="stylesheet" href="/css/bulma.min.css">
+	
+	
+	
+
+	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
+	<link href="/fontawesome/free/css/brands.min.css" rel="stylesheet">
+	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
+
+
+	
+	
+	<link rel="stylesheet" href="/sass/main.min.css">
+	
+	
+  </head>
+  
+</html>
+
+	
+
+
+
+<body tabindex="-1">
+	<nav tabindex="-1" class="navbar  has-shadow " role="navigation" aria-label="main navigation">
+		<div class="container">
+			<div class="navbar-brand is-flex is-flex-direction-row">
+				<div class="navbar-item">
+					<a class="is-flex" href="/">
+						<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+					</a>
+				</div>
+				<div class="menu-switch-pos">
+					<nav class="menu is-flex is-align-items-center">
+						<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+						</button>
+						<div id="res-main-menu" class="navbar-menu">
+							<div class="navbar-start">
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/">women</a>
+								</div>
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/men/">men</a>
+								</div>
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/unisex/">unisex</a>
+								</div>
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/sale/">sale</a>
+								</div>
+							
+							</div>
+							<div class="navbar-end">
+								<div class="navbar-item">
+									<div class="buttons is-flex is-align-items-center is-justify-content-center">
+									<nav class="search-drawer">
+	<div class="is-collapsable-search">
+		<input type="checkbox" name="site-search" id="site-search">
+		<label class="search-label" for="site-search">
+			<a class="button">
+				<span class="icon">
+					<span class="fa-solid fa-search"></span>
+				</span>
+			</a>
+		</label>
+		<div class="search-container">
+			<div class="account-controls">
+				<input checked type="checkbox" name="site-search" id="site-search">
+				<label class="button box" for="site-search">
+					<span class="icon">
+						<span class="fa-solid fa-xmark"></span>
+					</span>
+				</label>
+			</div>
+			<div class="search-items box">
+				<div class="columns search-columns content">
+					<div class="column is-flex is-flex-direction-column is-align-items-center">
+						<h1 class="mb-5">popular searches</h1>
+						
+						<a href="/search=Revolution/"><h4 class="lowercase">Revolution</h4></a>
+						
+						<a href="/search=rich/"><h4 class="lowercase">rich</h4></a>
+						
+						<a href="/search=tote%20bag/"><h4 class="lowercase">tote bag</h4></a>
+						
+						<a href="/search=resist/"><h4 class="lowercase">resist</h4></a>
+						
+					</div>
+					<div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+						<div class="field has-addons">
+							<p class="control is-expanded">
+								<input class="input is-large" type="text" name="search-input" placeholder="search whatever">
+								
+							</p>
+							<p class="control">
+								<a class="button is-large">
+									<span class="icon is-small is-right">
+										<span class="fa-solid fa-search"></span>
+									</span>
+								</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+									<nav class="account-drawer">
+	<div class="is-collapsable-account-drawer">
+		<input type="checkbox" name="account-drawer" id="account-drawer">
+		<button class="button account-button is-fullwidth is-blue-back">
+			<label class="account-label" for="account-drawer">
+				<span class="icon-text is-inline-block">
+					<span class="icon">
+						<span class="fa-solid fa-user"></span>
+					</span>
+					<span>account</span>
+				</span>
+			</label>
+		</button>
+		<div class="account-container">
+			<div class="account-controls">
+				<input checked type="checkbox" name="shopping-bag" id="account-drawer">
+				<label class="button box" for="account-drawer">
+					<span class="icon">
+						<span class="fa-solid fa-xmark"></span>
+					</span>
+				</label>
+			</div>
+			<div class="account-items box">
+				
+					<div class="columns account-columns content">
+						<div class="column mt-6 is-flex is-flex-direction-column is-align-items-center">
+							<a class="button fit-content-w is-large is-rounded mb-5 mr-0 p-5">
+								<span class="icon is-medium">
+									<span class="fa-solid fa-user fa-lg"></span>
+								</span>
+							</a>
+						<div class="is-flex is-flex-direction-column is-align-items-center">
+							<a href="/account/"><h3>my account</h3></a>
+							<a href="/account/order-history/"><h3>order history</h3></a>
+							<a href="/account/order-history/"><h3>notification settings</h3></a>
+						</div>
+						</div>
+						<div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
+						<div class="is-collapsable full-width">
+							<input type="radio" class="" name="" id="login-signup-dropdown">
+							<label class="login-label button box mb-4 mt-4 mr-0 full-width is-medium" for="login-signup-dropdown">
+								<span>log in</span>
+							</label>
+							<div class="tags">
+								<div class="container is-medium is-flex is-flex-direction-column">
+									<div class="field mb-3">
+										<p class="control has-icons-left">
+											<input class="input" type="email" name="username" placeholder="username">
+											<span class="icon is-small is-left">
+												<span class="fa-solid fa-envelope"></span>
+											</span>
+										</p>
+									</div>
+									<div class="field">
+										<p class="control has-icons-left">
+											<input class="input" type="password" name="password" placeholder="password">
+											<span class="icon is-small is-left">
+												<span class="fa-solid fa-lock"></span>
+											</span>
+										</p>
+										
+									</div>
+									<div class="field is-grouped mb-4">
+										<p class="help control is-expanded">
+											forgot password?
+										</p>
+										<p class="control">
+											<input type="submit" value="sign in" class="button box level-item is-small is-red">
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>	
+						<a id="sign-up-button" href="/sign-up/" class="snipcart-customer-signin button box sign-up-button is-fullwidth is-medium mr-0 mb-2">
+							<span>sign up</span>
+						</a>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+	</div>
+</nav>
+									</div>
+								</div>
+							</div>
+						</div>
+					</nav>
+				
+<nav class="shopping-bag">
+	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
+		<button class="snipcart-checkout button shopping-bag-button is-red">
+			<label class="shopping-bag-label" for="shopping-bag-menu">
+				<span class="icon-text is-inline-block">
+					<span class="icon">
+						<span class="fa-solid fa-bag-shopping"></span>
+					</span>
+					<span class="is-hidden-mobile">bag</span>
+					<span id="bag-count" class="snipcart-items-count"></span>
+				</span>
+			</label>
+		</button>
+		
+		
+		<div hidden id="snipcart" 
+		
+		data-config-modal-style="side"
+		data-api-key="MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3"
+		data-config-add-product-behavior="none">
+			
+			
+			<register-form>
+				<div class="root">
+					<authentication-view>
+						<overridable name="register">
+							<div class="snipcart__box snipcart-register__box snipcart-register">
+								<h2 class="snipcart__font--subtitle snipcart-register__title">{{ $localize(&#39;register_form.register&#39;)}}</h2>
+								<p class="snipcart__font snipcart-register__register">
+									{{ $localize(&#39;register_form.already_have_an_account&#39;)}}
+									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
+										{{ $localize(&#39;signin_form.signin&#39;)}}
+									</router-link>
+								</p>
+					
+								<snipcart-form @submit="save" class="snipcart-register__form">
+									<flash-message v-if="requiresConfirmation"
+										type="info"
+										:title="$localize('register_form.requires_action.title')"
+										:description="$localize('register_form.requires_action.description')">
+									</flash-message>
+					
+									<snipcart-form-error></snipcart-form-error>
+					
+									<overridable name="register" section="top"></overridable>
+									<div class="snipcart-form__field">
+										<snipcart-label for="email">{{ $localize(&#39;register_form.email&#39;)}}</snipcart-label>
+										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
+										<snipcart-field-error name="email"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="password">{{ $localize(&#39;register_form.password&#39;)}}</snipcart-label>
+										<snipcart-password name="password" icon="password"></snipcart-password>
+										<snipcart-field-error name="password"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="passwordConfirmation">{{ $localize(&#39;register_form.confirm_password&#39;)}}</snipcart-label>
+										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
+										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
+									</div>
+					
+									<overridable name="register" section="bottom"></overridable>
+					
+									<snipcart-submit
+										label="register_form.register"
+										icon="continue-arrow"
+									></snipcart-submit>
+								</snipcart-form>
+							</div>
+						</overridable>
+					</authentication-view>
+				</div>
+			</register-form>
+			
+			
+			<signin-form section="bottom">
+				<div class="root">
+					wow
+				</div>
+				
+			</signin-form>
+			
+			
+			
+			<loading-screen>
+				<div>
+					<component :is="tag">
+						<slot v-if="!loading"></slot>
+						<div class="snipcart__loading__screen">
+							<div :class="[
+								'snipcart__loading__screen__content',
+								displaySpinner ? 'is-visible' : null,
+							]">
+								<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
+								<span class="snipcart__loading__screen__content__message ">
+									<h4>{{ localizedLoadingMessage }}</h4>
+								</span>
+							</div>
+						</div>
+					</component>
+				</div>
+			</loading-screen>
+			
+			
+			<cart section="snipcart-cart__secondary-header">
+				<div class="root">
+					<icon
+					alt="item.remove_item"
+					class="fa-solid fa-xmark"
+					></icon>
+				</div>
+			</cart>
+			
+			
+			
+			
+			
+			<wow>
+				<div class="">
+					<header class="snipcart-cart-header is-mobile" v-if="!loading">
+						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
+							<span class="icon">
+								<span class="fa-solid fa-arrow-left-long"></span>
+							</span>
+							<span class="snipcart-modal__close-title snipcart__font--std">
+								{{ backButtonTitle || $localize(&#39;actions.continue_shopping&#39;) }}
+							</span>
+						</close-cart-action>
+					
+						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-5-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
+							<div class="logo-cart image is-128x128">
+								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+									<a class="is-flex" href="/">
+										
+									<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+									</a>
+								</figure>
+							</div>
+						</media>
+					
+						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
+							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
+								<span class="icon-text is-inline-flex is-align-items-center">
+									
+									<span>{{ $localize(&#39;signin_form.signin&#39;)}}</span>
+								</span>
+								
+							</sign-in-action>
+					
+							<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
+								<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
+								{{ $localize(&#39;customer_dashboard.sign_out&#39;)}}
+							</sign-out-action>
+					
+							<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
+								<icon name="user" class="snipcart-cart-header__icon"></icon>
+								{{ $localize(&#39;customer_dashboard.my_account&#39;) }}
+							</customer-account-link>
+					
+							<show-detailed-cart-action class="snipcart-cart-header__option snipcart-cart-header__count snipcart__font--secondary snipcart__font--bold" v-if="showItemsCount">
+								<span class="icon-text is-inline-flex is-align-items-center">
+									<span class="icon">
+										<span class="fa-solid fa-bag-shopping"></span>
+									</span>
+									<span>
+										<template v-if="!hasSubscription">
+											{{ itemsCount }}
+										</template>
+									</span>
+								</span>
+								
+							</show-detailed-cart-action>
+						</div>
+					
+						<media name="mobile, tablet" class="snipcart-modal__header-summary column is-flex pr-0 is-4-mobile is-justify-content-right" v-if="showSummary && !loading">
+							<div class="snipcart-modal__header-summary-title snipcart__font--large snipcart__font--secondary snipcart__font--bold" @click.prevent="toggleSummary">
+								<span class="bag-total-dropdown icon-text is-inline-flex is-align-items-center">
+									<span class="icon">
+										<span class="fa-solid fa-user"></span>
+									</span>
+									<span>{{ cart.total | money(cart.currency) }}</span>
+								</span>
+								<icon :name="summaryIcon" class="snipcart-cart-header__icon snipcart__icon--medium"></icon>
+							</div>
+					
+							<cart-summary class="snipcart-cart-summary--small" v-if="summaryVisible" @close="closeSummary">
+							</cart-summary>
+						</media>
+					</header>
+					<header class="snipcart-cart-header" v-else>
+						<close-cart-action class="snipcart-modal__close">
+							<icon class="snipcart-modal__close-icon" name="back-arrow" />
+							<span class="snipcart-modal__close-title snipcart__font--std">
+								{{ $localize(&#39;actions.continue_shopping&#39;) }}
+							</span>
+						</close-cart-action>
+					</header>
+				</div>
+			</wow>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+		</div>
+	</div>
+</nav>
+
+				</div>
+			</div>
+		</div>
+	</nav>
+	<script>
+			;
+			window.cartLogo = "/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png";
+			
+			
+			window.SnipcartSettings = {
+			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
+			  loadStrategy: "on-user-interaction",
+			  addProductBehavior: "none",
+			  version: "3.4.0",
+			  modalStyle: "side",
+			  templatesUrl: "/snipcart-templates/snipcart-templates.html",
+			};
+			
+			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+			
+			
+	</script>
+	<script>
+		function delay(milliseconds){
+				return new Promise(resolve => {
+					setTimeout(resolve, milliseconds);
+				});
+		}
+		
+		document.addEventListener('snipcart.ready', () => {
+			const bagCount = document.querySelector('#bag-count');
+			const addToBag = document.querySelector('#add-to-bag');
+			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
+				if (bagCount.innerHTML == 0) {
+					bagCount.hidden = true;
+				}
+				else {
+					bagCount.hidden = false;
+				} 
+			});
+			Snipcart.events.on('item.removed', (cartItem) => {
+				
+				if (bagCount.innerHTML == 0) {
+					bagCount.hidden = true;
+				}
+				else {
+					bagCount.hidden = false;
+				} 
+			});
+			Snipcart.events.on('item.adding', (parsedCartItem) => {
+				bagCount.hidden = false;
+				addToBag.classList.add('is-loading');
+			});
+			Snipcart.events.on("item.added", (cartItem) => {
+				bagCount.hidden = false;
+				addToBag.classList.remove('is-loading');
+				addToBag.innerHTML = "added to bag";
+				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+			});
+		});
+		
+	</script>
+</body>
+
+<body class="is-almost-blue-back">
+	<section class="section is-small">
+		<div class="container">
+			<div class="columns is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+				<div class="column is-offset-1 is-full">
+					<nav class="breadcrumb is-small has-arrow-separator" aria-label="breadcrumbs">
+	
+	
+	
+	
+	<ul class="mb-0">
+		<li>
+			<a href="">home</a>
+		</li>
+		<li>
+			
+			<a href="/unisex/">unisex</a>
+			
+		</li>
+		
+		<li class="is-active">
+			<a href="#" aria-current="page">the classic system - hat - white</a>
+		</li>
+	</ul>
+</nav>
+				</div>
+			</div>
+			<div class="content columns is-variable is-4 is-justify-content-center is-size-6-mobile is-size-5-tablet is-size-5-desktop">
+				<div class="column is-full-mobile is-half-tablet is-half-desktop">
+					
+					
+					
+					
+					
+					
+					
+					<div class="product-on-page box is-white-blue-grad">
+						<input type="radio" id="/product/the-sykstem-hat-white/" name="gallery"  class="gallery__selector" checked/>
+						<figure class="gallery__img">
+							<img src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_768x0_resize_q65_box_3.png" alt="our v1 company hat">
+						</figure>
+						
+						
+						<input type="radio" id="/product/the-sykstem-hat-white/1-the-sykstem-hat-white.png" name="gallery"  class="gallery__selector"/>
+						<figure class="gallery__img">
+							<img src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_768x0_resize_q75_box_3.png" alt="our v1 company hat">
+						</figure>
+						
+						
+						<input type="radio" id="/product/the-sykstem-hat-white/blank-white-hat-1.png" name="gallery"  class="gallery__selector"/>
+						<figure class="gallery__img">
+							<img src="/product/the-sykstem-hat-white/blank-white-hat-1_hu9b28f40dbbb96810fef78b6b84261064_140516_768x0_resize_q75_box_3.png" alt="our v1 company hat">
+						</figure>
+						
+					</div>
+					<div class="gallery">
+	
+	
+	
+	<input type="radio" id="/product/the-sykstem-hat-white/1-the-sykstem-hat-white.png" name="gallery" class="gallery__selector"/>
+	
+		<div class="gallery__thumb">
+			<figure class="box image is-64x64">
+				<label for="/product/the-sykstem-hat-white/1-the-sykstem-hat-white.png">
+					<img src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_200x0_resize_q75_box_3.png" alt="our v1 company hat">
+				</label>
+			</figure>
+		</div>
+	
+	
+	
+	<input type="radio" id="/product/the-sykstem-hat-white/blank-white-hat-1.png" name="gallery" class="gallery__selector"/>
+	
+		<div class="gallery__thumb">
+			<figure class="box image is-64x64">
+				<label for="/product/the-sykstem-hat-white/blank-white-hat-1.png">
+					<img src="/product/the-sykstem-hat-white/blank-white-hat-1_hu9b28f40dbbb96810fef78b6b84261064_140516_200x0_resize_q75_box_3.png" alt="our v1 company hat">
+				</label>
+			</figure>
+		</div>
+	
+	
+</div>
+				</div>
+				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
+					
+
+<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+	<h5>hat</h5>
+	<div class="love-container">
+		<input type="checkbox" name="love" id="love-button-">
+		<label for="love-button-">
+			<a class="p-3 button love-button icon">
+				<span class="fa-solid fa-heart"></span>
+			</a>
+		</label>
+	</div>
+</div>
+					
+
+<div class="box 
+product-white
+
+product-title-effect">
+	<div class="absolute-title-4-white"><h1>the classic system</h1></div>
+	<div class="absolute-title-3-white"><h1>the classic system</h1></div>
+	<div class="absolute-title-2-white"><h1>the classic system</h1></div>
+	<div class="absolute-title-1-white"><h1>the classic system</h1></div>
+	<div class="relative-title-white"><h1>the classic system</h1></div>
+</div>
+					
+
+
+
+
+
+
+
+
+<div class="tags is-justify-content-flex-start">
+	<span class="tag mb-0 is-red">
+		<strong>33% off</strong>
+	</span>
+</div>
+<div class="sale-price is-flex is-justify-content-space-between fit-content-h">
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4><s>$15</s></h4>
+		</div>
+		<h4>$10</h4>
+	</div>
+	<span class="product-page-color">white</span>
+</div>
+
+					<hr>
+					<h6>color:</h6>
+<div class="buttons">
+
+
+
+	<button class="button box is-white">white</button>
+	
+	
+	
+	<a href="/product/the-sykstem-hat-galaxy/"class="button box galaxy-fill">galaxy</a>
+	
+
+
+
+
+
+
+
+
+
+</div>
+
+					<form class="mb-5">
+						
+
+
+
+<h6>size:</h6>
+<div id="select-size" class="buttons">
+
+
+		
+		
+		
+		
+		<input
+		required
+		onclick="display()"
+		autocomplete="off"
+		type="radio"
+		value="adjustable"
+		name="select-size"
+		id="adjustable"
+		class="is-hidden">
+			<label class="button box fit-content is-flex is-flex-direction-column" value="adjustable" for="adjustable">
+			adjustable
+			</label>
+		
+
+
+
+</div>
+<div id="disp" style=
+		"color:green; font-size:18px; font-weight:bold;">
+</div>
+
+<script>
+	
+function display() {
+		var checkRadio = document.querySelector(
+			'input[name="select-size"]:checked');
+		
+		if(checkRadio != null) {
+			
+			
+			document.querySelector('#add-to-bag').disabled = false;
+			const user = document.querySelector("[data-item-custom1-value]");
+			user.setAttribute('data-item-custom1-value', checkRadio.value);
+			console.log(user.dataset.itemCustom1Value);	
+		}
+		else {
+			document.getElementById("disp").innerHTML
+				= "No one selected";
+		}
+}
+
+</script>
+
+
+
+						
+
+
+
+<div class="buttons safari-reverse-only">
+	<div class="pb-0 full-width safari-only is-full">
+		<button class="button box is-apple-pay is-medium full-width">
+		<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
+			<span class="text">Buy with</span>
+			<span class="logo"></span>
+		</div>
+		</button>
+	</div>
+	<div class="pb-0 full-width is-full">
+		<button 
+		disabled
+		autocomplete="off"
+		onclick="display()"
+		type="submit"
+		id="add-to-bag"
+		class="snipcart-add-item button box is-medium full-width is-red"
+		data-item-id="the-sykstem-hat-white"
+		data-item-price="
+		
+		10
+		"
+		data-item-url="/product/the-sykstem-hat-white/"
+		data-item-description="This is our v1 of our company hat."
+		data-item-image="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_768x0_resize_q65_box_3.png"
+		data-item-name="the classic system"	
+		data-item-custom1-name="size"
+		data-item-custom1-options="
+		
+		
+		
+			adjustable
+		
+		
+		"
+		data-item-custom1-value=""
+		data-item-custom1-required="true"
+		data-item-custom2-name="color"
+		data-item-custom2-value="white"
+		data-item-custom2-type="hidden"
+		>add to bag</button>
+	</div>
+</div>
+
+
+					</form>
+					<div class="mb-5">
+						<h6>description:</h6>
+						<p>This is our v1 of our company hat.</p>
+					</div>
+					<div class="is-collapsable">
+	<input type="checkbox" name="dropdown" id="dropdown-1">
+	<label for="dropdown-1">
+		<span class="icon-text">
+			<span>
+				<h6>fabric & care:</h6>
+			</span>
+			<span class="icon">
+				<span class="fa-solid fa-chevron-down"></span>
+			</span>
+		</span>
+	</label>
+	<div class="tags">
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				
+				<span class="icon">
+					<span class="fa-solid fa-seedling"></span>
+				</span>
+				
+				<span class="has-text-centered">100% hemp.</span>
+				
+				
+			</span>
+		</div>
+		
+		
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center ">
+				<span class="icon">
+					<span class="fa-solid fa-droplet"></span>
+				</span>
+				<span class="has-text-centered">Machine / hand wash cold, gentle with like colors. Do not use chlorine bleach.</span>
+			</span>
+		</div>
+		
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-hand"></span>
+				</span>
+				<span class="has-text-centered">Use detergent directly / presoak in warm water for stains. Don&#39;t expose to heat until stains are gone.</span>
+			</span>
+		</div>
+		
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-arrows-rotate"></span>
+				</span>
+				<span class="has-text-centered">Consider air drying, though drying on the low heat / gentle cycle setting will also work.</span>
+			</span>
+		</div>
+		<div class="tag is-fabric-care is-size-7">
+			<span class="icon-text is-flex is-flex-direction-column is-align-items-center">
+				<span class="icon">
+					<span class="fa-solid fa-angles-down"></span>
+				</span>
+				<span class="has-text-centered">If you must, dampen article first and iron on higher heat. Test on the wrong side for shine prevention, especially on darker shades.</span>
+			</span>
+		</div>
+		
+		
+	</div>
+</div>
+
+				</div>
+			</div>
+		</div>
+	</section>
+	
+<footer class="footer">
+	<div class="container"><div class="mt-5 mb-5">
+		<div class="columns content">
+			<div class="column is-flex is-flex-direction-column">
+				<h3>customer support</h3>
+				<div>
+					<a href="/contact/">contact us</a>
+				</div>
+				<div>
+					<a href="/exchanges-and-returns/">exchange or return</a>
+				</div>
+			</div>
+			<div class="column is-flex is-flex-direction-column">
+				<h3>about us</h3>
+				<div>
+					<a href="/our-mission/">our mission</a>
+				</div>
+				<div>
+					<a href="/careers/">careers</a>
+				</div>
+				<div>
+					<a href="/pro-worker-resources/">pro-worker resources</a>
+				</div>
+				<div>
+					<a href="/faq/">faq</a>
+				</div>
+			</div>
+			<div class="column is-flex is-flex-direction-column">
+			</div>
+		</div>
+	</div>
+	<div class="columns">
+		<div class="column is-flex is-flex-direction-row is-justify-content-space-between">	
+			<div class="tags is-align-items-flex-start">
+				
+				<div class="payment-icon">
+					<figure>
+						
+						<img src="/svg/Apple_Pay_Mark.svg" alt="Apple Pay logo">
+						
+					</figure>
+				</div>
+				
+				<div class="payment-icon">
+					<figure>
+						
+					</figure>
+				</div>
+				
+				<div class="payment-icon">
+					<figure>
+						
+					</figure>
+				</div>
+				
+				<div class="payment-icon">
+					<figure>
+						
+					</figure>
+				</div>
+				
+			</div>
+			<div class="content is-flex is-flex-direction-column has-text-right is-align-items-flex-end">
+				<div>
+					<a href="/privacy-policy/">privacy policy</a>
+				</div>
+				<div>
+					<a href="/terms/">terms of service</a>
+				</div>
+				<p class="mb-0">©2022 the sykstem</p>
+				<p>Powered by Hugo</p>
+			</div>
+		</div>
+	</div></div>
+
+
+
+
+
+</footer>
+
+
+</body>
+
+</html>

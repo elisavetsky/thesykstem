@@ -1,13 +1,13 @@
 ---
 draft: false
 title: "our privacy policy"
-company_name: "system-1776"
+company_name: "the-sykstem"
 date: 2022-04-05
 weight: -1
 ---
 
 ## Our Privacy Standards
-1. This Privacy Policy sets out how system-1776 ("system-1776", "we", "our" or "us") collects, stores, processes, transfers, shares and uses your information, our use of cookies and similar technologies, and your rights and choices with respect to our data practices.
+1. This Privacy Policy sets out how the-sykstem ("the-sykstem", "we", "our" or "us") collects, stores, processes, transfers, shares and uses your information, our use of cookies and similar technologies, and your rights and choices with respect to our data practices.
 
 ## Information We Collect
 

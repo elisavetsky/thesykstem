@@ -41,10 +41,6 @@
 }
 
 @media only screen and (min-width: 568px) {
-	.logo-cart {
-		min-width: 150px;
-		height: 2rem !important;
-	}
 	.hide-on-mobile {
 		display: inline-block;
 	}
@@ -95,8 +91,8 @@
 		left: 0;
 	}
 }
-
-@media only screen and (max-width: 767px) {
+@media only screen and (max-width: 768px) {
+	
 	.is-offset-1 {
 		margin-left: 0 !important;
 	}
@@ -146,14 +142,13 @@
 	.bag-items {
 		padding: 4.2rem 1.5rem;
 	}
-	
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 769px) {
+	
 	.is-offset-1 {
 		margin-left: 0 !important;
 	}
-	
 	.account-drawer, .search-drawer {
 		.account-items, .search-items {
 			width: 500px;
@@ -229,17 +224,12 @@
 		width: unset;
 		max-width: 500px;
 	}
-	
-}
-
-@media only screen and (min-width: 1023px) {
-	
-	.is-offset-1 {
-		margin-left: 8.33333% !important;
-	}
 }
 
 @media only screen and (max-width: 1023px) {
+	.navbar-brand {
+		padding: 0.5rem 0.75rem;
+	}
 	.navbar-item {
 		.logo {
 			max-width: 8rem;
@@ -283,8 +273,18 @@
 		padding: 0.5rem 5px 0.5rem 0;
 	}
 }
+@media only screen and (min-width: 1024px) {
+		
+		
+
 
 @media only screen and (min-width: 1024px) {
+	.navbar {
+		width: 100%;
+	}
+	.navbar-brand {
+		padding: 0.5rem 0;
+	}
 	.navbar-item {
 		.logo {
 			max-height: 3rem;
@@ -292,16 +292,13 @@
 			align-items: center;
 		}
 	}
-	.navbar {
-		width: 100%;
-	}
 	.menu-switch-pos {
 		width: 100%;
 	}
 	.menu {
 		display: flex;
 		width: inherit;
-		padding-right: 0 !important;
+		
 	}
 	.navbar-brand {
 		width: 100%;
@@ -332,10 +329,10 @@
 			padding: 1rem 32px;
 		}
 	}
-	
-	
-}
-@media only screen and (min-width: 1025px) {
+	.is-offset-1 {
+		margin-left: 8.33333% !important;
+		}
+	}
 	.is-float-left {
 		float: left;
 		max-width: 35%;

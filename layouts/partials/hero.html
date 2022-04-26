@@ -1,4 +1,4 @@
-{{ $hero1 := resources.Get "image/system-1776-shirt.png" }}
+{{ $hero1 := resources.Get "image/hoodie-hat-shirt.png" }}
 {{ $resized_hero1 := $hero1.Resize "800x q80" }}
 
 {{ $herobackground := resources.Get "image/background-hero.jpg" }}
@@ -7,22 +7,23 @@
 {{ with .Site.GetPage "hero" }}
 <section class="wrapper-hero">
 	<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
-	<div class="section section-header hero-body is-medium">
-		<div class="content columns is-flex">
-			<div class="column is-half-mobile is-half-tablet is-two-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-			{{ .Content }}
-				{{/*
-				<button class="button box is-medium is-responsive is-red">
-					{{ with site.Data.hero }}{{ .hero_button }}{{ end }}
-				</button>
-				*/}}
-			</div>
-			<div class="column is-half-mobile is-half-tablet is-two-fifths-desktop is-offset-one-fifth-desktop">
-				<img src="{{ $resized_hero1.Permalink }}" alt="one of our hoodies, in black">
+	<div class="hero is-medium">
+		<div class="hero-body">
+			<div class="container">
+				<div class="content columns is-flex">
+					<div class="column is-flex is-flex-direction-column is-half-mobile is-half-tablet is-two-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop is-justify-content-center">
+					{{ .Content }}
+						{{/*
+						<button class="button box is-medium is-responsive is-red">
+							{{ with site.Data.hero }}{{ .hero_button }}{{ end }}
+						</button>
+						*/}}
+					</div>
+					<div class="column is-half-mobile is-half-tablet is-three-fifths-desktop">
+						<img src="{{ $resized_hero1.Permalink }}" alt="one of our hoodies, in black">
+					</div>
+				</div>
 			</div>
 		</div>
-		
 	</div>
-	
-
 {{ end }}

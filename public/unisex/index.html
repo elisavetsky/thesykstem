@@ -4,15 +4,13 @@
 	<!DOCTYPE html>
 <html lang="en" class="no-js">
   <head>
-	<title>system-1776</title>
+	<title>the-sykstem</title>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 
-	<link rel="preconnect" href="https://app.snipcart.com" />
-	<link rel="preconnect" href="https://cdn.snipcart.com" />
-	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+	
 
 
 	<script src="https://unpkg.com/vue@3"></script>
@@ -32,7 +30,9 @@
 	
 	<link rel="stylesheet" href="/sass/main.min.css">
 	
-  </head> 
+	
+  </head>
+  
 </html>
 
 	
@@ -47,47 +47,44 @@
 
 <body tabindex="-1">
 	<nav tabindex="-1" class="navbar  has-shadow " role="navigation" aria-label="main navigation">
-		<div class="navbar-brand is-flex is-flex-direction-row">
-			<div class="navbar-item">
-				<a class="is-flex" href="/">
-					<img class="logo" src="/image/logo_huc8d01b08bdd5a9c1e536591c46bb1299_432724_500x0_resize_q90_box_3.png" alt="">
-				</a>
-			</div>
-			<div class="menu-switch-pos">
-				<nav class="menu is-flex is-align-items-center">
-					<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-						<span aria-hidden="true"></span>
-					</button>
-					<div id="res-main-menu" class="navbar-menu">
-						<div class="navbar-start">
-						
-							<div class="navbar-item pr-3 is-justify-content-flex-end">
-								<a href="/">home</a>
+		<div class="container">
+			<div class="navbar-brand is-flex is-flex-direction-row">
+				<div class="navbar-item">
+					<a class="is-flex" href="/">
+						<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+					</a>
+				</div>
+				<div class="menu-switch-pos">
+					<nav class="menu is-flex is-align-items-center">
+						<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+							<span aria-hidden="true"></span>
+						</button>
+						<div id="res-main-menu" class="navbar-menu">
+							<div class="navbar-start">
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/">women</a>
+								</div>
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/men/">men</a>
+								</div>
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/unisex/">unisex</a>
+								</div>
+							
+								<div class="navbar-item pr-3 is-justify-content-flex-end">
+									<a href="/sale/">sale</a>
+								</div>
+							
 							</div>
-						
-							<div class="navbar-item pr-3 is-justify-content-flex-end">
-								<a href="">women</a>
-							</div>
-						
-							<div class="navbar-item pr-3 is-justify-content-flex-end">
-								<a href="/men/">men</a>
-							</div>
-						
-							<div class="navbar-item pr-3 is-justify-content-flex-end">
-								<a href="/unisex/">unisex</a>
-							</div>
-						
-							<div class="navbar-item pr-3 is-justify-content-flex-end">
-								<a href="/sale/">sale</a>
-							</div>
-						
-						</div>
-						<div class="navbar-end">
-							<div class="navbar-item">
-								<div class="buttons is-flex is-align-items-center is-justify-content-center">
-								<nav class="search-drawer">
+							<div class="navbar-end">
+								<div class="navbar-item">
+									<div class="buttons is-flex is-align-items-center is-justify-content-center">
+									<nav class="search-drawer">
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
 		<label class="search-label" for="site-search">
@@ -140,7 +137,7 @@
 		</div>
 	</div>
 </nav>
-								<nav class="account-drawer">
+									<nav class="account-drawer">
 	<div class="is-collapsable-account-drawer">
 		<input type="checkbox" name="account-drawer" id="account-drawer">
 		<button class="button account-button is-fullwidth is-blue-back">
@@ -223,12 +220,12 @@
 		</div>
 	</div>
 </nav>
+									</div>
 								</div>
 							</div>
 						</div>
-					</div>
-				</nav>
-			
+					</nav>
+				
 <nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
 		<button class="snipcart-checkout button shopping-bag-button is-red">
@@ -343,30 +340,10 @@
 			</cart>
 			
 			
-			<empty-cart>
-				<div>
-					<section class="snipcart-empty-cart content">
-						<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
-							<h6>{{ $localize(`you&#39;ve got an empty cart, but that&#39;s okay.`) }}</h6>
-						</div>
-						<button-secondary
-						isFitContent="true"
-						class="fit-content-w"
-						@click="$actions.goBack">
-							<span class="icon-text is-inline-flex is-align-items-center">
-								<span class="icon">
-									<span class="fa-solid fa-arrow-left-long"></span>
-								</span>
-								<span>{{ $localize(`back to our store`) }}</span>
-							</span>
-						</button-secondary>
-
-					</section>
-				</div>
-			</empty-cart>
 			
 			
-			<cart-header>
+			
+			<wow>
 				<div class="">
 					<header class="snipcart-cart-header is-mobile" v-if="!loading">
 						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
@@ -378,18 +355,18 @@
 							</span>
 						</close-cart-action>
 					
-						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-4-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
+						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-5-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
 							<div class="logo-cart image is-128x128">
-							<figure class="m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
-								<a class="is-flex" href="/">
-									
-								<img class="logo" src="/image/logo_huc8d01b08bdd5a9c1e536591c46bb1299_432724_500x0_resize_q90_box_3.png" alt="">
-								</a>
-							</figure>
+								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+									<a class="is-flex" href="/">
+										
+									<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+									</a>
+								</figure>
 							</div>
 						</media>
 					
-						<div class="column is-flex is-7-mobile snipcart-cart-header__options">
+						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
 							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
 								<span class="icon-text is-inline-flex is-align-items-center">
 									
@@ -447,156 +424,15 @@
 						</close-cart-action>
 					</header>
 				</div>
-			</cart-header>
+			</wow>
 			
 			
 			
-			<cart-summary>
-				<div>
-					<div name="cart-summary">
-						<div class="snipcart-cart-summary">
-							<section class="snipcart-cart-summary__content">
-								<div class="snipcart-cart-summary__actions snipcart__box--header">
-									<h1 class="snipcart-cart-summary__title snipcart__font--subtitle">
-										{{ $localize(&#39;cart.summary&#39;) }}
-									</h1>
-									<button-link label="actions.edit" @click="openSideCart"></button-link>
-								</div>
-				
-								<overridable
-									name="cart-summary"
-									section="items"
-								>
-									<cart-summary-items-list class="snipcart-cart-summary__items"></cart-summary-items-list>
-								</overridable>
-				
-								<hr class="snipcart-cart-summary__separator" />
-				
-								<loading-overlay>
-									<div class="snipcart-cart-summary__totals">
-										<summary-fees :summary-data="summaryFeesProvider"></summary-fees>
-									</div>
-								</loading-overlay>
-							</section>
-				
-							<footer class="snipcart-cart-summary__footer">
-								<featured-payment-methods class="snipcart-featured-payment-methods--no-background" />
-							</footer>
-						</div>
-					</div>
-				
-					<transition name="snipcart-cart-summary__overlay-transition">
-						<div
-							class="snipcart-cart-summary__overlay"
-							v-if="editing"
-						></div>
-					</transition>
-				
-					<transition name="snipcart-transition--slide-in">
-						<cart
-							:editing-cart="true"
-							class="snipcart-cart-summary--edit"
-							v-if="editing || isSideCart"
-							:is-side-cart="isSideCart"
-						></cart>
-					</transition>
-				</div>
-			</cart-summary>
 			
 			
 			
-			<item-line> 
-				
-				<li :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
-					<flash-message
-						type="info"
-						icon="box"
-						v-if="stockLimitReached"
-						:title="$localize('errors.quantity_revised')"
-					></flash-message>
-					<flash-message
-						type="error"
-						icon="box"
-						v-if="outOfStock"
-						:title="$localize('errors.quantity_out_of_stock')"
-					></flash-message>
-					<div class="snipcart-item-line__container">
-						<figure
-							class="snipcart-item-line__media"
-							v-if="showLargeImage"
-						>
-							<item-image class="snipcart-item-line__image"></item-image>
-						</figure>
-						<div class="snipcart-item-line__product">
-							<div class="snipcart-item-line__header">
-								<figure
-									class="snipcart-item-line__media snipcart-item-line__media--small"
-									v-if="showSmallImage"
-								>
-									<item-image class="snipcart-item-line__image--large"></item-image>
-								</figure>
-				
-								<h2 class="snipcart-item-line__title snipcart__font--xlarge snipcart__font--secondary snipcart__font--black">
-									{{ item.name }}
-								</h2>
-				
-								<button-icon
-									icon="trash"
-									label="item.remove_item"
-									styling="danger"
-									@click="removeItem"
-								>
-									<span class="icon">
-										<span class="fa-solid fa-trash"></span>
-									</span>
-								</button-icon>
-							</div>
-				
-							<div class="snipcart-item-line__content">
-								<div class="snipcart-item-line__body">
-									<div class="snipcart-item-line__info">
-										<item-description v-if="showDescription"></item-description>
-									</div>
-									<div class="snipcart-item-line__variants">
-										<div>
-											<item-plans
-												:item="item"
-												v-if="!adding && isSubscribable"
-											></item-plans>
-											<item-custom-fields v-if="!adding">
-											</item-custom-fields>
-										</div>
-										
-										<item-quantity
-											class="snipcart-item-line__quantity"
-											v-if="!adding && !isSubscribable"
-											:disabled="outOfStock || isSubscribable"
-										>
-										</item-quantity>
-										
-										<div
-											class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
-											v-if="isSubscribable && !adding"
-										>
-											<span class="snipcart-form__label snipcart__font--tiny">
-												{{$localize(&#39;subscription.payment_amount&#39;)}}
-											</span>
-											<div class="snipcart-form__field--plan__readonly">
-												<item-price
-													:item="item"
-													:selected-plan="selectedPlan"
-												>
-												</item-price>
-											</div>
-										</div>
-				
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-			</item-line>
+			
+			
 			
 			
 			
@@ -611,9 +447,28 @@
 	</div>
 </nav>
 
+				</div>
 			</div>
 		</div>
 	</nav>
+	<script>
+			;
+			window.cartLogo = "/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png";
+			
+			
+			window.SnipcartSettings = {
+			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
+			  loadStrategy: "on-user-interaction",
+			  addProductBehavior: "none",
+			  version: "3.4.0",
+			  modalStyle: "side",
+			  templatesUrl: "/snipcart-templates/snipcart-templates.html",
+			};
+			
+			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+			
+			
+	</script>
 	<script>
 		function delay(milliseconds){
 				return new Promise(resolve => {
@@ -621,10 +476,17 @@
 				});
 		}
 		
-		
 		document.addEventListener('snipcart.ready', () => {
 			const bagCount = document.querySelector('#bag-count');
 			const addToBag = document.querySelector('#add-to-bag');
+			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
+				if (bagCount.innerHTML == 0) {
+					bagCount.hidden = true;
+				}
+				else {
+					bagCount.hidden = false;
+				} 
+			});
 			Snipcart.events.on('item.removed', (cartItem) => {
 				
 				if (bagCount.innerHTML == 0) {
@@ -644,45 +506,36 @@
 				addToBag.innerHTML = "added to bag";
 				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
 			});
-			
 		});
-		async function start() {
-			const bagCount = document.getElementById('bag-count');
-			await delay(2000);
-			if (bagCount.innerHTML == 0) {
-				bagCount.hidden = true;
-			}
-			else {
-				bagCount.hidden = false;
-			} 
-		}
-		start();
+		
 	</script>
 </body>
-<section class="wrapper-hero">
+
+<section class="wrapper-section">
 <img class="background-cover" src="/image/product-background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_2431340_2000x0_resize_q75_box.jpg" alt="">
-	<div class="section container is-small">
-		<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
-		<h1 id="unisex">unisex</h1>
+	<div class="section is-small">
+		<div class="container">
+			<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
+			<h1 id="unisex">unisex</h1>
 <p><em>Our</em> selection has styles that fits anyone&rsquo;s gender or identity.</p>
 
-		</div>
-		<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+			</div>
+			<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+			
+			
+			
+			
+			
+			
 		
-		
-		
-		
-		
-		
-	
-			<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
-				<div class="tile is-ancestor">
-					<div class="tile is-parent">
-						<div class="box tile is-child is-article">
-							<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-							
-								<div class="product-in-list">
-									
+				<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
+					<div class="tile is-ancestor">
+						<div class="tile is-parent">
+							<div class="box tile is-child is-article">
+								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+								
+									<div class="product-in-list">
+										
 
 <div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 	<h5>hat</h5>
@@ -695,26 +548,26 @@
 		</label>
 	</div>
 </div>
-									<a href="/product/system-1776-hat-white/">
-									<h1>the classic system</h1>
+										<a href="/product/the-sykstem-hat-white/">
+										<h1>the classic system</h1>
+									
+										
+										
+										
+										
+										
+										
+										
+										<figure>
+											<img src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_500x0_resize_q75_box_3.png" alt="our v1 company hat"></img>
+										</figure>
+										
+										
+										</a>
+									</div>
 								
+									<div>
 									
-									
-									
-									
-									
-									
-									
-									<figure>
-										<img src="/product/system-1776-hat-white/1-system-1776-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_2114734_500x0_resize_q75_box_3.png" alt="our v1 company hat"></img>
-									</figure>
-									
-									
-									</a>
-								</div>
-							
-								<div>
-								
 
 
 
@@ -738,7 +591,7 @@
 	<span class="product-page-color">white</span>
 </div>
 
-								
+									
 
 
 
@@ -748,7 +601,7 @@
 		
 		
 		
-		<a href="/product/system-1776-hat-white/" alt="white variant">
+		<a href="/product/the-sykstem-hat-white/" alt="white variant">
 			<span class="icon is-medium">
 				<span class="fa-solid fa-circle icon-white fa-2x"></span>
 			</span>
@@ -757,7 +610,7 @@
 		
 		
 		
-		<a href="/product/system-1776-hat-galaxy/" alt="galaxy variant">
+		<a href="/product/the-sykstem-hat-galaxy/" alt="galaxy variant">
 			<span class="icon is-medium">
 				<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
 			</span>
@@ -766,24 +619,24 @@
 	</div>
 	
 
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			
+			
+			
 		
-		
-		
-	
-			<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
-				<div class="tile is-ancestor">
-					<div class="tile is-parent">
-						<div class="box tile is-child is-article">
-							<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-							
-								<div class="product-in-list">
-									
+				<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
+					<div class="tile is-ancestor">
+						<div class="tile is-parent">
+							<div class="box tile is-child is-article">
+								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+								
+									<div class="product-in-list">
+										
 
 <div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 	<h5>shirt</h5>
@@ -796,26 +649,26 @@
 		</label>
 	</div>
 </div>
-									<a href="/product/system-1776-shirt-white/">
-									<h1>the system</h1>
+										<a href="/product/the-sykstem-shirt-white/">
+										<h1>the system</h1>
+									
+										
+										
+										
+										
+										
+										
+										
+										<figure>
+											<img src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_12114239_500x0_resize_q75_box_3.png" alt="the classic the-sykstem shirt with &#34;the system&#34; written on the bottom"></img>
+										</figure>
+										
+										
+										</a>
+									</div>
 								
+									<div>
 									
-									
-									
-									
-									
-									
-									
-									<figure>
-										<img src="/product/system-1776-shirt-white/1-system-1776-shirt-white_hu1da01d9ff8a6844dc90ff32bd82fc31e_1460090_500x0_resize_q75_box_3.png" alt="the classic system-1776 shirt with &#34;the system&#34; written on the bottom"></img>
-									</figure>
-									
-									
-									</a>
-								</div>
-							
-								<div>
-								
 
 
 
@@ -839,7 +692,7 @@
 	<span class="product-page-color">white</span>
 </div>
 
-								
+									
 
 
 
@@ -849,7 +702,7 @@
 		
 		
 		
-		<a href="/product/system-1776-shirt-white/" alt="white variant">
+		<a href="/product/the-sykstem-shirt-white/" alt="white variant">
 			<span class="icon is-medium">
 				<span class="fa-solid fa-circle icon-white fa-2x"></span>
 			</span>
@@ -858,7 +711,7 @@
 		
 		
 		
-		<a href="/product/system-1776-shirt-galaxy/" alt="galaxy variant">
+		<a href="/product/the-sykstem-shirt-galaxy/" alt="galaxy variant">
 			<span class="icon is-medium">
 				<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
 			</span>
@@ -867,24 +720,24 @@
 	</div>
 	
 
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			
+			
+			
 		
-		
-		
-	
-			<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
-				<div class="tile is-ancestor">
-					<div class="tile is-parent">
-						<div class="box tile is-child is-article">
-							<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-							
-								<div class="product-in-list">
-									
+				<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
+					<div class="tile is-ancestor">
+						<div class="tile is-parent">
+							<div class="box tile is-child is-article">
+								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+								
+									<div class="product-in-list">
+										
 
 <div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 	<h5>hoodie</h5>
@@ -897,26 +750,26 @@
 		</label>
 	</div>
 </div>
-									<a href="/product/system-1776-hoodie-black/">
-									<h1>the warming system</h1>
+										<a href="/product/the-sykstem-hoodie-black/">
+										<h1>the warming system</h1>
+									
+										
+										
+										
+										
+										
+										
+										
+										<figure>
+											<img src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4832162_500x0_resize_q75_box_3.png" alt="the classic the-sykstem hoodie with our logo turned on its side"></img>
+										</figure>
+										
+										
+										</a>
+									</div>
 								
+									<div>
 									
-									
-									
-									
-									
-									
-									
-									<figure>
-										<img src="/product/system-1776-hoodie-black/1-system-1776-hoodie-black_hu2f1ad9b7689af1161a688232c944516e_710657_500x0_resize_q75_box_3.png" alt="the classic system-1776 hoodie with our logo turned on its side"></img>
-									</figure>
-									
-									
-									</a>
-								</div>
-							
-								<div>
-								
 
 
 
@@ -930,7 +783,7 @@
 	<span class="product-page-color">black</span>
 </div>
 
-								
+									
 
 
 
@@ -940,7 +793,7 @@
 		
 		
 		
-		<a href="/product/system-1776-hoodie-black/" alt="black variant">
+		<a href="/product/the-sykstem-hoodie-black/" alt="black variant">
 			<span class="icon is-medium">
 				<span class="fa-solid fa-circle icon-black fa-2x"></span>
 			</span>
@@ -949,7 +802,7 @@
 		
 		
 		
-		<a href="/product/system-1776-hoodie-starlight/" alt="starlight variant">
+		<a href="/product/the-sykstem-hoodie-starlight/" alt="starlight variant">
 			<span class="icon is-medium">
 				<span class="fa-solid fa-circle icon-starlight fa-2x"></span>
 			</span>
@@ -958,19 +811,20 @@
 	</div>
 	
 
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+			
 			</div>
-		
 		</div>
 	</div>
 </section>
 
 <footer class="footer">
-	<div class="mt-5 mb-5">
+	<div class="container"><div class="mt-5 mb-5">
 		<div class="columns content">
 			<div class="column is-flex is-flex-direction-column">
 				<h3>customer support</h3>
@@ -1000,7 +854,6 @@
 			</div>
 		</div>
 	</div>
-	<div>
 	<div class="columns">
 		<div class="column is-flex is-flex-direction-row is-justify-content-space-between">	
 			<div class="tags is-align-items-flex-start">
@@ -1032,23 +885,23 @@
 				</div>
 				
 			</div>
-			<div class="content is-flex is-flex-direction-column is-align-items-flex-end">
+			<div class="content is-flex is-flex-direction-column has-text-right is-align-items-flex-end">
 				<div>
 					<a href="/privacy-policy/">privacy policy</a>
 				</div>
 				<div>
 					<a href="/terms/">terms of service</a>
 				</div>
-				<p class="mb-0">©2022 system-1776</p>
+				<p class="mb-0">©2022 the sykstem</p>
 				<p>Powered by Hugo</p>
 			</div>
 		</div>
-	</div>
-</div>
+	</div></div>
 
 
 
-<script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script>
+
+
 </footer>
 
 

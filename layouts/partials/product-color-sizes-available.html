@@ -25,7 +25,7 @@
 	<div class="buttons circle-color-buttons mb-0 mt-4">
 		<a href="{{ .Permalink }}" alt="{{ .Params.color }} variant">
 			<span class="icon is-medium">
-				<span class="fa-solid fa-circle icon-{{ .Params.color }} fa-2x"></span>
+				<span class="fa-solid fa-circle icon-{{ replace .Params.color "-fill" "" }} fa-2x"></span>
 			</span>
 		</a>
 	</div>

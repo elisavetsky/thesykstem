@@ -7,9 +7,9 @@
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
 <!-- Snipcart -->
-	<link rel="preconnect" href="https://app.snipcart.com" />
+	<!-- <link rel="preconnect" href="https://app.snipcart.com" />
 	<link rel="preconnect" href="https://cdn.snipcart.com" />
-	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+	<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css" /> -->
 
 <!-- Vue -->
 	<script src="https://unpkg.com/vue@3"></script>
@@ -31,5 +31,7 @@
 	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true) | resources.ExecuteAsTemplate "sass/main.css" . }}
 	<link rel="stylesheet" href="{{ ($style | minify).Permalink }}">
 	
-  </head> 
+	
+  </head>
+  
 </html>

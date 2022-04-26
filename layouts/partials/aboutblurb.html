@@ -1,13 +1,14 @@
-{{ $hat := resources.Get "image/system-1776-hat.png" }}
+{{ $hat := resources.Get "image/the-sykstem-hat.png" }}
 {{ $resized_hat := $hat.Resize "500x q80" }}
 
 {{ with .Site.GetPage "aboutblurb" }}
 	<section class="section is-medium">
-		<div class="section-header content columns is-flex">
-			
-			<div class="column is-mobile is-offset-one-fifth is-four-fifths-tablet is-four-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-				<img class="is-float-left" src="{{ $resized_hat.Permalink }}" alt="one of our hats, in white">
-			{{ .Content }}
+		<div class="container">
+			<div class="section-header content columns is-flex">
+				<div class="column is-mobile is-offset-one-fifth is-four-fifths-tablet is-four-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<img class="is-float-left" src="{{ $resized_hat.Permalink }}" alt="one of our hats, in white">
+					{{ .Content }}
+				</div>
 			</div>
 		</div>
 	</section>

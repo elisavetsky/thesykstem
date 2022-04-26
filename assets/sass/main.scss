@@ -298,6 +298,10 @@ input#account-drawer {
 
 // Snipcart 
 
+.snipcart {
+	font: unset;
+}
+
 .snipcart-items-count {
 	position: absolute;
 	z-index: 9;
@@ -355,7 +359,6 @@ input#account-drawer {
 }
 
 .navbar-brand {
-	padding: 0.5rem 0.75rem;
 	.title {
 		color: $red;
 	}
@@ -411,19 +414,19 @@ input#account-drawer {
 }
 
 .snipcart-button-secondary {
-	background: $light-red;
-	color: $almostblack;
+	background: $red;
+	color: white;
 	&:hover {
-		background: $red;
-		color: $almostblack;
+		background: $red-gradient;
+		color: white;
 	}
 }
 
 .snipcart-button-icon.is-secondary {
-	background-color: $danger-bg;
+	background-color: unset;
 	color: $danger;
 	&:hover {
-		background-color: $danger-bg-hover;
+		background-color: unset;
 		color: $danger-hover;
 	}
 }
@@ -434,6 +437,10 @@ input#account-drawer {
 		height: 20px;
 		width: 20px;
 	}
+}
+
+.snipcart-button-icon.is-danger {
+	background-color: unset;
 }
 
 .snipcart-button-link {
@@ -527,13 +534,20 @@ input#account-drawer {
 }
 
 // Bag 
+.snipcart-test-banner {
+	display: none;
+}
 
 .snipcart-modal {
-	background-color: $almostwhite;
+	// height: unset;
+}
+
+.snipcart-modal {
+	background: $blue-white-gradient;
 }
 
 .snipcart-modal__container {
-	background-color: $almostwhite;
+	background-color: $blue;
 }
 
 .snipcart-cart-summary--edit.snipcart-modal__container {
@@ -544,31 +558,42 @@ input#account-drawer {
 	min-height: 4.5rem;
 	padding: 1rem 16px;
 	color: $blue;
-	background: none;
+	background: white;
+	justify-content: space-between;
 }
 
 .snipcart-cart-summary-side .snipcart-cart__secondary-header {
 	padding: 1rem;
 }
 
+.snipcart-cart__secondary-header-title {
+	display: flex;
+	justify-content: center;
+	margin-right: 42px;
+}
+
 .snipcart-cart__secondary-header {
 	min-height: 5rem;
 	max-height: 50px;
-	background: $red-gradient;
-	color: white;
+	background: none;
+	color: $almostblack;
 	flex-direction: row-reverse;
 	padding: 0 1.5rem;
 }
 
 .snipcart-cart--edit {
-	background-color: $almostwhite;
+	background-color: $almostblue;
 	.snipcart-cart__content, .snipcart-item-list {
-		background-color: $almostwhite;
+		background-color: $almostblue;
 	}
 }
 
 .snipcart-cart__content, .snipcart-item-list {
-	background-color: $almostwhite;
+	background-color: transparent;
+}
+
+.snipcart-cart__content {
+	padding: 1.25rem 1.5rem;
 }
 
 .snipcart-cart-header__close-button {
@@ -576,12 +601,16 @@ input#account-drawer {
 }
 
 .snipcart-item-line__container {
-	padding: 3rem 1.5rem;
-	margin: 1%;
+	padding: 1.25rem 1.5rem !important;
+	margin: 0 0 1rem 0;
 }
 
 .snipcart-item-line--cart-edit {
 	margin: 0;
+}
+
+.snipcart-item-line {
+	background-color: $gray2;
 }
 
 .snipcart-item-line__title {
@@ -589,8 +618,21 @@ input#account-drawer {
 	margin-right: auto;
 }
 
+.snipcart-item-line__header {
+	align-items: flex-start;
+}
+
+.snipcart-cart-summary-item {
+	grid-template-columns: 60% 30px auto;
+	margin-right: 0;
+}
+
 .snipcart-cart-summary--small {
 	margin-top: 70px;
+}
+
+.snipcart-cart-summary-side .snipcart-cart__content .snipcart-item-list .snipcart-item-line {
+	margin-bottom: 1rem;
 }
 
 .snipcart-summary-fees__notice {
@@ -621,8 +663,18 @@ input#account-drawer {
 }
 
 .snipcart-cart__footer {
-	
+	padding: 0 !important;
+	background-color: $blue !important;
+	.snipcart-cart__footer-col {
+		background-color: $almostblue;
+		padding: 1.25rem 1.5rem;
+	}
+	.snipcart-cart__footer-col.cart__footer-discount-box {
+		background-color: unset !important;
+	}
 }
+
+
 
 .bag-controls, .account-controls {
 	position: fixed;
@@ -833,6 +885,10 @@ input#account-drawer {
 	}
 }
 
+.snipcart__box {
+	
+}
+
 .snipcart-custom-field-wrapper__input {
 	width: fit-content;
 }
@@ -876,6 +932,9 @@ input#account-drawer {
 		border-color: $red;
 		box-shadow: $box-box-shadow;
 	}
+	&:hover, &:focus {
+		border-color: $red;
+	}
 }
 
 .snipcart-input, .snipcart-textbox {
@@ -892,6 +951,10 @@ input#account-drawer {
 
 .snipcart-form__select-wrapper .snipcart__icon {
 	color: $danger !important;
+}
+
+.snipcart-featured-payment-methods__title {
+	background: $almostblue !important;
 }
 
 #select-size {
@@ -942,11 +1005,21 @@ input#account-drawer {
 
 .wrapper-hero {
 	position: relative;
-	color: white;
-	.section-header {
-		h1, h2, strong {
-			color: white;
-		}
+	h6, h5, h4, h3, h2, h1, p, strong {
+		color: white;
+	}
+}
+
+.wrapper-section {
+	position: relative;
+	h6, h5, h4, h3, h2, h1, strong {
+		color: $almostblack;
+	}
+}
+
+.section-header {
+	h1, h2, p, strong {
+		color: white;
 	}
 }
 
@@ -1265,8 +1338,8 @@ input#account-drawer {
 // Images & Graphics
 
 .logo-cart {
-	width: 100px !important;
-	height: 25px !important;
+	min-width: 150px;
+	height: 2rem !important;
 }
 
 .background-cover {

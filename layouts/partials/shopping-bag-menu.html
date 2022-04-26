@@ -113,30 +113,10 @@
 			</cart>
 			
 			<!-- Empty Cart -->
-			<empty-cart>
-				<div>
-					<section class="snipcart-empty-cart content">
-						<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
-							<h6>{{"{{ $localize(`you've got an empty cart, but that's okay.`) }}"}}</h6>
-						</div>
-						<button-secondary
-						isFitContent="true"
-						class="fit-content-w"
-						@click="$actions.goBack">
-							<span class="icon-text is-inline-flex is-align-items-center">
-								<span class="icon">
-									<span class="fa-solid fa-arrow-left-long"></span>
-								</span>
-								<span>{{"{{ $localize(`back to our store`) }}"}}</span>
-							</span>
-						</button-secondary>
-
-					</section>
-				</div>
-			</empty-cart>
+			
 			
 			<!-- Cart Header -->
-			<cart-header>
+			<wow>
 				<div class="">
 					<header class="snipcart-cart-header is-mobile" v-if="!loading">
 						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
@@ -148,18 +128,18 @@
 							</span>
 						</close-cart-action>
 					
-						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-4-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
+						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-5-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
 							<div class="logo-cart image is-128x128">
-							<figure class="m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
-								<a class="is-flex" href="/">
-									{{ $resized_logo := $.Scratch.Get "resized_logo" }}
-								<img class="logo" src="{{ $resized_logo.Permalink }}" alt="">
-								</a>
-							</figure>
+								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+									<a class="is-flex" href="/">
+										{{ $resized_logo := $.Scratch.Get "resized_logo" }}
+									<img class="logo" src="{{ $resized_logo.Permalink }}" alt="">
+									</a>
+								</figure>
 							</div>
 						</media>
 					
-						<div class="column is-flex is-7-mobile snipcart-cart-header__options">
+						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
 							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
 								<span class="icon-text is-inline-flex is-align-items-center">
 									{{/*<span class="icon">
@@ -219,164 +199,15 @@
 						</close-cart-action>
 					</header>
 				</div>
-			</cart-header>
+			</wow>
 			
 			
 			<!-- Cart Summary -->
-			<cart-summary>
-				<div>
-					<div name="cart-summary">
-						<div class="snipcart-cart-summary">
-							<section class="snipcart-cart-summary__content content">
-								<div class="snipcart-cart-summary-items-list mb-5"><div class="snipcart-cart-summary__actions snipcart-cart-summary-item">
-									<span><h4 class="mb-0 snipcart-cart-summary__title">
-										{{"{{ $localize('cart.summary') }}"}}
-									</h4></span>
-									<span class="snipcart-cart-summary-item__quantity">
-										<h6 class="mb-0">qty.</h6>
-									</span>
-									<button-link 
-									class="button is-small justify-self-flex-end"
-									label="actions.edit"
-									@click="openSideCart">
-									</button-link>
-								</div></div>
-				
-								<overridable
-									name="cart-summary"
-									section="items"
-								>
-									<cart-summary-items-list class="snipcart-cart-summary__items ml-0"></cart-summary-items-list>
-								</overridable>
-				
-								<hr class="snipcart-cart-summary__separator" />
-				
-								<loading-overlay>
-									<div class="snipcart-cart-summary__totals">
-										<summary-fees :summary-data="summaryFeesProvider"></summary-fees>
-									</div>
-								</loading-overlay>
-							</section>
-				
-							<footer class="snipcart-cart-summary__footer">
-								<featured-payment-methods class="snipcart-featured-payment-methods--no-background  is-size-7" />
-							</footer>
-						</div>
-					</div>
-				
-					<transition name="snipcart-cart-summary__overlay-transition">
-						<div
-							class="snipcart-cart-summary__overlay"
-							v-if="editing"
-						></div>
-					</transition>
-				
-					<transition name="snipcart-transition--slide-in">
-						<cart
-							:editing-cart="true"
-							class="snipcart-cart-summary--edit"
-							v-if="editing || isSideCart"
-							:is-side-cart="isSideCart"
-						></cart>
-					</transition>
-				</div>
-			</cart-summary>
+			
 			
 			<!-- Item Line  -->
 			
-			<item-line> 
-				
-				<li :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
-					<flash-message
-						class="is-justify-content-center"
-						v-if="stockLimitReached"
-					>
-						<span>{{"{{ $localize('errors.quantity_revised')}}"}}</span>
-						
-					</flash-message>
-					<flash-message
-						type="error"
-						icon="box"
-						v-if="outOfStock"
-						:title="$localize('errors.quantity_out_of_stock')"
-					></flash-message>
-					<div class="snipcart-item-line__container">
-						<figure
-							class="snipcart-item-line__media"
-							v-if="showLargeImage"
-						>
-							<item-image class="snipcart-item-line__image"></item-image>
-						</figure>
-						<div class="snipcart-item-line__product">
-							<div class="snipcart-item-line__header">
-								<figure
-									class="snipcart-item-line__media snipcart-item-line__media--small"
-									v-if="showSmallImage"
-								>
-									<item-image class="snipcart-item-line__image--large"></item-image>
-								</figure>
-				
-								<h2 class="snipcart-item-line__title snipcart__font--xlarge snipcart__font--secondary snipcart__font--black">
-									{{"{{ item.name }}"}}
-								</h2>
-				
-								<button-icon
-									icon="trash"
-									label="item.remove_item"
-									styling="danger"
-									@click="removeItem"
-								>
-									<span class="icon">
-										<span class="fa-solid fa-trash"></span>
-									</span>
-								</button-icon>
-							</div>
-				
-							<div class="snipcart-item-line__content">
-								<div class="snipcart-item-line__body">
-									<div class="snipcart-item-line__info">
-										<item-description v-if="showDescription"></item-description>
-									</div>
-									<div class="snipcart-item-line__variants">
-										<div>
-											<item-plans
-												:item="item"
-												v-if="!adding && isSubscribable"
-											></item-plans>
-											<item-custom-fields v-if="!adding">
-											</item-custom-fields>
-										</div>
-										
-										<item-quantity
-											class="snipcart-item-line__quantity"
-											v-if="!adding && !isSubscribable"
-											:disabled="outOfStock || isSubscribable"
-										>
-										</item-quantity>
-										
-										<div
-											class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
-											v-if="isSubscribable && !adding"
-										>
-											<span class="snipcart-form__label snipcart__font--tiny">
-												{{"{{$localize('subscription.payment_amount')}}"}}
-											</span>
-											<div class="snipcart-form__field--plan__readonly">
-												<item-price
-													:item="item"
-													:selected-plan="selectedPlan"
-												>
-												</item-price>
-											</div>
-										</div>
-				
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</li>
-			</item-line>
+			
 			
 			
 			

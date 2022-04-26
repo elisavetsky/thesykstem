@@ -12,6 +12,6 @@ available mon-fri, 10am-5pm.
 ***
 
 # by email: 
-#### system-1776@thesystem.com
+#### the-sykstem@thesystem.com
 
 available mon-fri, 10am-5pm.
