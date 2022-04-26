@@ -666,11 +666,13 @@ input#account-drawer {
 	padding: 0 !important;
 	background-color: $blue !important;
 	.snipcart-cart__footer-col {
+		border-top: 1px solid $red;
 		background-color: $almostblue;
 		padding: 1.25rem 1.5rem;
 	}
 	.snipcart-cart__footer-col.cart__footer-discount-box {
 		background-color: unset !important;
+		display: none;
 	}
 }
 

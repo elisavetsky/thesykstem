@@ -6,3 +6,15 @@
 		filter: saturate(1.6);
 	}
 }
+
+@keyframes slideIn {
+	0% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 1;
+	}
+}

@@ -82,25 +82,7 @@
 			</signin-form>
 			
 			
-			<!-- Loading Screen -->
-			<loading-screen>
-				<div>
-					<component :is="tag">
-						<slot v-if="!loading"></slot>
-						<div class="snipcart__loading__screen">
-							<div :class="[
-								'snipcart__loading__screen__content',
-								displaySpinner ? 'is-visible' : null,
-							]">
-								<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
-								<span class="snipcart__loading__screen__content__message ">
-									<h4>{{"{{ localizedLoadingMessage }}"}}</h4>
-								</span>
-							</div>
-						</div>
-					</component>
-				</div>
-			</loading-screen>
+			
 			
 			<!-- Close Side Cart Action -->
 			<cart section="snipcart-cart__secondary-header">

@@ -68,6 +68,12 @@
 		document.addEventListener('snipcart.ready', () => {
 			const bagCount = document.querySelector('#bag-count');
 			const addToBag = document.querySelector('#add-to-bag');
+			let isCustomerSignedIn = false;
+			
+			Snipcart.store.subscribe(() => {
+				const customer = Snipcart.store.getState().customer;
+				isCustomerSignedIn = customer.status === 'SignedIn';
+			});
 			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
 				if (bagCount.innerHTML == 0) {
 					bagCount.hidden = true;
