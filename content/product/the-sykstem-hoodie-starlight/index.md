@@ -2,7 +2,7 @@
 title: the warming system
 product_type: hoodie
 is_women: 
-is_men: a
+is_men: 
 is_unisex: true
 is_variant: true
 original_price: $35

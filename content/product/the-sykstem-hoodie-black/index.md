@@ -4,6 +4,7 @@ product_type: hoodie
 is_women: 
 is_men: 
 is_unisex: true
+is_variant:
 original_price: $35
 sale_price:
 color: black

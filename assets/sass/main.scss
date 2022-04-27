@@ -899,6 +899,10 @@ input#account-drawer {
 	min-width: fit-content;
 }
 
+.snipcart-item-quantity__label {
+	text-transform: lowercase;
+}
+
 .snipcart-item-quantity__quantity {
 	height: 40px;
 }
@@ -1353,6 +1357,7 @@ input#account-drawer {
 	border: none;
 	animation: saturate 10s infinite alternate ease-in-out;
 }
+
 
 .is-float-left {
 	padding: 0 10px 10px 0;
