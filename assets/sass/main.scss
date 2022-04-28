@@ -603,6 +603,7 @@ input#account-drawer {
 .snipcart-item-line__container {
 	padding: 1.25rem 1.5rem !important;
 	margin: 0 0 1rem 0;
+	background-color: $gray2 !important;
 }
 
 .snipcart-item-line--cart-edit {
@@ -610,7 +611,7 @@ input#account-drawer {
 }
 
 .snipcart-item-line {
-	background-color: $gray2;
+	background-color: $gray2 !important;
 }
 
 .snipcart-item-line__title {
