@@ -155,6 +155,11 @@
 	.is-offset-1 {
 		margin-left: 0 !important;
 	}
+	.circle-color-buttons {
+		a {
+			margin-right: 10px;
+		}
+	}
 	.account-drawer, .search-drawer {
 		.account-items, .search-items {
 			width: 500px;
@@ -285,11 +290,10 @@
 	.is-collapsable-shopping-bag {
 		padding: 0.5rem 5px 0.5rem 0;
 	}
+	.snipcart__box--slim {
+		padding: 32px 16px !important;
+	}
 }
-@media only screen and (min-width: 1024px) {
-		
-		
-
 
 @media only screen and (min-width: 1024px) {
 	.navbar {
@@ -344,10 +348,12 @@
 	}
 	.is-offset-1 {
 		margin-left: 8.33333% !important;
-		}
 	}
 	.is-float-left {
 		float: left;
 		max-width: 35%;
+	}
+	.snipcart__box--slim {
+		padding: 16px 32px !important;
 	}
 }

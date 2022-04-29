@@ -3,7 +3,7 @@
 @import 'libs/keyframes.scss';
 @import 'libs/supports.scss';
 
-:root, body, .content {
+:root, body, .content, .snipcart, .snipcart-base-button__label, .snipcart-form__label, .snipcart__font--subtitle {
 	font-family: BlinkMacSystemFont, -apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif !important;
 }
 
@@ -78,7 +78,7 @@ a {
 // Text Helpers
 
 .lowercase {
-	text-transform: lowercase;
+	text-transform: lowercase !important;
 }
 
 // Navbar
@@ -453,8 +453,9 @@ input#account-drawer {
 
 .snipcart-base-button {
 	border-radius: $border-radius;
-	
 }
+
+.snipcart
 
 .circle-color-buttons {
 	a {
@@ -539,15 +540,11 @@ input#account-drawer {
 }
 
 .snipcart-modal {
-	// height: unset;
-}
-
-.snipcart-modal {
 	background: $blue-white-gradient;
 }
 
 .snipcart-modal__container {
-	background-color: $blue;
+	background: $blue;
 }
 
 .snipcart-cart-summary--edit.snipcart-modal__container {
@@ -560,6 +557,7 @@ input#account-drawer {
 	color: $blue;
 	background: white;
 	justify-content: space-between;
+	margin: 0 auto 16px;
 }
 
 .snipcart-cart-summary-side .snipcart-cart__secondary-header {
@@ -601,9 +599,9 @@ input#account-drawer {
 }
 
 .snipcart-item-line__container {
-	padding: 1.25rem 1.5rem !important;
-	margin: 0 0 1rem 0;
-	background-color: $gray2 !important;
+	padding: 0;
+	margin: 0;
+	
 }
 
 .snipcart-item-line--cart-edit {
@@ -611,6 +609,7 @@ input#account-drawer {
 }
 
 .snipcart-item-line {
+	margin: 1.2rem !important;
 	background-color: $gray2 !important;
 }
 
@@ -623,13 +622,17 @@ input#account-drawer {
 	align-items: flex-start;
 }
 
+.snipcart-cart-summary__actions {
+	min-height: 40px;
+}
+
 .snipcart-cart-summary-item {
 	grid-template-columns: 60% 30px auto;
 	margin-right: 0;
 }
 
 .snipcart-cart-summary--small {
-	margin-top: 70px;
+	margin-top: 34px;
 }
 
 .snipcart-cart-summary-side .snipcart-cart__content .snipcart-item-list .snipcart-item-line {
@@ -663,11 +666,14 @@ input#account-drawer {
 	
 }
 
+{{ $signinBackground := resources.Get "image/sign-up-hero.jpg" }};
+{{ $resized_signinBackground := $signinBackground.Resize "2000x q60" }};
+
 .snipcart-cart__footer {
 	padding: 0 !important;
-	background-color: $blue !important;
+	background: url({{ $resized_signinBackground.Permalink }}) center;
+	border-top: 1px solid $red;
 	.snipcart-cart__footer-col {
-		border-top: 1px solid $red;
 		background-color: $almostblue;
 		padding: 1.25rem 1.5rem;
 	}
@@ -892,6 +898,14 @@ input#account-drawer {
 	
 }
 
+.snipcart__box--slim {
+	padding: unset;
+}
+
+.snipcart__box--gray {
+	background-color: $almostwhite;
+}
+
 .snipcart-custom-field-wrapper__input {
 	width: fit-content;
 }
@@ -994,6 +1008,23 @@ input#account-drawer {
 	background-color: $danger-bg;
 	color: $danger;
 }
+
+.snipcart__box--badge {
+	color: $almostblack;
+	
+	border-color: 1px solid $gray2;
+}
+
+.snipcart__box--badge-disabled {
+	background-color: $almostwhite;
+}
+
+.snipcart-billing-completed {
+	.snipcart-checkout-step__icon {
+		color: $blue;
+	}
+}
+
 
 .payment-icon {
 	img, figure {
@@ -1577,6 +1608,11 @@ input#dropdown-6 {
 			}
 		}
 	}
+}
+
+// Typography 
+.snipcart__font--subtitle {
+	font-size: 1.25em;
 }
 	
 // Footer

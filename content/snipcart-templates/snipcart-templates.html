@@ -28,6 +28,25 @@
 				</div>
 			</loading-screen>
 			
+			<!-- Loading Component -->
+			<loading-component>
+				<div>
+					<slot v-if="!isLoading"></slot>
+					<overridable name="loading-component" v-else>
+						<div class="snipcart-loading-component">
+							<div class="snipcart-loading-component__content">
+								<span class="icon">
+									<span class="fa-solid fa-circle-notch"></span>
+								</span>
+								<span class="snipcart-loading-component__content__message">
+									{{ localizedLoadingMessage }}
+								</span>
+							</div>
+						</div>
+					</overridable>
+				</div>
+			</loading-component>
+			
 			<!-- Register Form -->
 			<signin-form>
 				<div>
@@ -36,8 +55,54 @@
 			</signin-form>
 			
 			<register-form>
-				<div class="root">
-					whats up
+				<div>
+					<authentication-view>
+						<div name="register">
+							<div class="snipcart__box snipcart-register__box snipcart-register">
+								<h2 class="snipcart__font--subtitle snipcart-register__title">{{ $localize('register_form.register')}}</h2>
+								<p class="snipcart__font snipcart-register__register">
+									{{ $localize('register_form.already_have_an_account')}}
+									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
+										{{ $localize('signin_form.signin')}}
+									</router-link>
+								</p>
+					
+								<snipcart-form @submit="save" class="snipcart-register__form">
+									<flash-message v-if="requiresConfirmation"
+										type="info"
+										:title="$localize('register_form.requires_action.title')"
+										:description="$localize('register_form.requires_action.description')">
+									</flash-message>
+					
+									<snipcart-form-error></snipcart-form-error>
+					
+									<overridable name="register" section="top"></overridable>
+									<div class="snipcart-form__field">
+										<snipcart-label for="email">{{ $localize('register_form.email')}}</snipcart-label>
+										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
+										<snipcart-field-error name="email"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="password">{{ $localize('register_form.password')}}</snipcart-label>
+										<snipcart-password name="password" icon="password"></snipcart-password>
+										<snipcart-field-error name="password"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="passwordConfirmation">{{ $localize('register_form.confirm_password')}}</snipcart-label>
+										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
+										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
+									</div>
+					
+									<overridable name="register" section="bottom"></overridable>
+					
+									<snipcart-submit
+										label="register_form.register"
+										icon="continue-arrow"
+									></snipcart-submit>
+								</snipcart-form>
+							</div>
+						</div>
+					</authentication-view>
 				</div>
 			</register-form>
 			
@@ -67,7 +132,7 @@
 			<!-- Cart Header -->
 			<cart-header>
 				<div>
-					<header class="snipcart-cart-header is-mobile" v-if="!loading">
+					<header class="snipcart-cart-header container is-mobile" v-if="!loading">
 						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
 							<span class="icon">
 								<span class="fa-solid fa-arrow-left-long"></span>
@@ -92,18 +157,18 @@
 						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
 							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
 								<span class="icon-text is-inline-flex is-align-items-center">
-									<span>{{ $localize('signin_form.signin')}}</span>
+									<span>{{ $localize('signin_form.signin').toLowerCase()}}</span>
 								</span>
 							</sign-in-action>
 					
 							<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
 								<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
-								{{ $localize('customer_dashboard.sign_out')}}
+								{{ $localize('customer_dashboard.sign_out').toLowerCase()}}
 							</sign-out-action>
 					
 							<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
 								<icon name="user" class="snipcart-cart-header__icon"></icon>
-								{{ $localize('customer_dashboard.my_account') }}
+								{{ $localize('customer_dashboard.my_account').toLowerCase() }}
 							</customer-account-link>
 					
 							<show-detailed-cart-action class="snipcart-cart-header__option snipcart-cart-header__count snipcart__font--secondary snipcart__font--bold" v-if="showItemsCount">
@@ -209,7 +274,7 @@
 			
 			<!-- Item Line New -->
 			<item-line>
-				<li class="box mb-3" :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
+				<li class="box" :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
 					<flash-message
 						class="is-justify-content-center"
 						v-if="stockLimitReached"
@@ -300,6 +365,200 @@
 					</div>
 				</li>
 			</item-line>
+			
+			<!-- Billing -->
+			<billing>
+				<snipcart-form @submit="save" id="snipcart-billing-form">
+					<div name="billing">
+						<div class="snipcart__box">
+							<div class="snipcart__box--header">
+								<div class="snipcart__box--title">
+									<div class="snipcart__box--badge snipcart__box--badge snipcart__box--badge-highlight snipcart__font--bold snipcart__font--secondary">{{ number }}</div>
+									<h1 class="snipcart__font--subtitle">
+										{{ $localize('billing.title') }}
+									</h1>
+								</div>
+							</div>
+				
+							<snipcart-form-error></snipcart-form-error>
+				
+							<overridable name="billing" section="top"></overridable>
+							
+							<fieldset class="snipcart-form__set">
+								<div class="snipcart-form__field">
+									<snipcart-label class="snipcart__font--tiny" for="name">
+										{{ $localize('address_form.name') }}
+									</snipcart-label>
+									
+									<snipcart-input name="name"></snipcart-input>
+									<snipcart-field-error name="name"></snipcart-field-error>
+								</div>
+				
+								<div class="snipcart-form__field">
+									<snipcart-label class="snipcart__font--tiny" for="email">
+										{{ $localize('address_form.email' )}}
+									</snipcart-label>
+				
+									<snipcart-input name="email" v-if="!emailIsReadonly"></snipcart-input>
+									<span class="snipcart-input--readonly snipcart__font--secondary snipcart__font--bold" v-else>{{ customer.email }}</span>
+									<snipcart-field-error name="email"></snipcart-field-error>
+								</div>
+							</fieldset>
+				
+							<address-fields type="billing"></address-fields>
+				
+							<hr class="snipcart-form__separator" v-if="shippingEnabled" />
+				
+							<fieldset class="snipcart-form__set snipcart-form__set--different-shipping" v-if="shippingEnabled && !hasOnlyNonShippableGoods">
+								<div class="snipcart-form__field">
+									<div class="snipcart-form__field-checkbox">
+										<snipcart-checkbox name="useDifferentShippingAddress"></snipcart-checkbox>
+				
+										<snipcart-label class="snipcart__font--tiny snipcart-form__label--checkbox" for="useDifferentShippingAddress">
+											{{ $localize('billing.use_different_shipping_address') }}
+										</snipcart-label>
+									</div>
+								</div>
+							</fieldset>
+				
+							<overridable name="billing" section="bottom"></overridable>
+				
+							<div class="snipcart-form__footer lowercase">
+								<snipcart-submit :label="labelSubmit" class="lowercase"></snipcart-submit>
+							</div>
+						</div>
+					</div>
+				</snipcart-form>
+			</billing>
+			
+			<!-- Address Fields -->
+			<address-fields type="billing">
+				<div>
+				<overridable name="address-fields" section="top"></overridable>
+				<fieldset class="snipcart-form__set">
+					<div class="snipcart-form__row">
+					  <div class="snipcart-form__field snipcart-form__cell--large">
+						  <snipcart-label
+							class="snipcart__font--tiny"
+							for="address1"
+						  >{{ $localize('address_form.address1') }}</snipcart-label>
+						  <snipcart-input name="address1"></snipcart-input>
+						  <snipcart-field-error name="address1"></snipcart-field-error>
+					  </div>
+				
+					  <div class="snipcart-form__field snipcart-form__cell--tidy">
+						<snipcart-label
+						  class="snipcart__font--tiny"
+						  for="address2"
+						>{{ $localize('address_form.address2') }}</snipcart-label>
+						<snipcart-input name="address2"></snipcart-input>
+						<snipcart-field-error name="address2"></snipcart-field-error>
+					  </div>
+					</div>
+				
+					<div class="snipcart-form__field">
+					  <snipcart-label
+						class="snipcart__font--tiny"
+						for="city"
+					  >{{ $localize('address_form.city') }}</snipcart-label>
+					  <snipcart-input name="city"></snipcart-input>
+					  <snipcart-field-error name="city"></snipcart-field-error>
+					</div>
+				
+					<div class="snipcart-form__field">
+					  <snipcart-label
+						class="snipcart__font--tiny"
+						for="country"
+					  >{{ $localize('address_form.country') }}</snipcart-label>
+					  <snipcart-typeahead type="dropdown" name="country" autocomplete="country"></snipcart-typeahead>
+					  <snipcart-field-error name="country"></snipcart-field-error>
+					</div>
+				
+					<div class="snipcart-form__row">
+					  <div class="snipcart-form__field snipcart-form__cell--large">
+						<snipcart-label
+						  class="snipcart__font--tiny"
+						  for="province"
+						>{{ $localize('address_form.province') }}</snipcart-label>
+						<snipcart-typeahead type="dropdown" name="province" autocomplete="province state"></snipcart-typeahead>
+						<snipcart-field-error name="province"></snipcart-field-error>
+					  </div>
+				
+					  <div class="snipcart-form__field snipcart-form__cell--tidy">
+						<snipcart-label
+						  class="snipcart__font--tiny"
+						  for="postalCode"
+						>{{ $localize('address_form.postalCode') }}</snipcart-label>
+						<snipcart-input name="postalCode"></snipcart-input>
+						<snipcart-field-error name="postalCode"></snipcart-field-error>
+					  </div>
+					</div>
+				</fieldset>
+				<overridable name="address-fields" section="bottom"></overridable>
+				  </div>
+			</address-fields>
+			
+			<!-- Billing Complete -->
+			<billing-completed>
+				<transition name="snipcart-billing-completed__slide-transition">
+					<div name="billing-completed" :class="cssClasses">
+						<div class="snipcart__box snipcart-billing-completed">
+							<div class="snipcart-billing-completed__header snipcart__box--header">
+								<div class="snipcart__box--title">
+									<div class="snipcart__box--badge snipcart__font--bold snipcart__font--secondary" v-if="checkout">
+										<span class="icon">
+											<span class="fa-solid fa-check"></span>
+										</span>
+									</div>
+									<h1 class="snipcart-billing-completed__title snipcart__font--subtitle">
+										<!-- <span class="icon">
+											<icon name="user" class="fa-solid fa-user" v-if="!checkout">
+											
+											</icon>
+										</span> -->
+										{{ $localize('billing.title') }}
+									</h1>
+								</div>
+				
+								<button-link
+									v-if="checkout"
+									label="actions.edit"
+									@click="edit"
+								></button-link>
+							</div>
+							
+							<div class="snipcart-checkout-step__cols snipcart__font--std">
+								<div class="snipcart-checkout-step__col">
+									<div class="snipcart-checkout-step__icon snipcart-billing-completed__step-icon">
+										<span class="icon">
+											<span class="fa-solid fa-user"></span>
+										</span>
+									</div>
+									<div>
+										<h3 class="snipcart-billing-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('customer.information') }}</h3>
+										<span class="snipcart-billing-completed__information snipcart__font--std">{{ cart.billingAddress.name }}<br />{{ cart.email }}</span>
+									</div>
+								</div>
+				
+								<div class="snipcart-checkout-step__col">
+									<div class="snipcart-checkout-step__icon snipcart-billing-completed__step-icon">
+										<span class="icon">
+											<span class="fa-solid fa-location-dot"></span>
+										</span>
+									</div>
+									<div>
+										<h3 class="snipcart-billing-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('billing.address') }}</h3>
+										<span class="snipcart-billing-completed__information snipcart__font--std">{{ cart.billingAddress | fullAddress }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</transition>
+			</billing-completed>
+			
+			<!-- Payment -->
+			
 			
 			<!-- Cart -->
 			<cart-header

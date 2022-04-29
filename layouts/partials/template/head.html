@@ -28,7 +28,7 @@
 
 
 	<!--SCSS converted to CSS for website-->
-	{{ $style := resources.Get "sass/main.scss" | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true) | resources.ExecuteAsTemplate "sass/main.css" . }}
+	{{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true)}}
 	<link rel="stylesheet" href="{{ ($style | minify).Permalink }}">
 	
 	
