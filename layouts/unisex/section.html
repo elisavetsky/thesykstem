@@ -3,7 +3,7 @@
 {{ $herobackground := resources.Get "image/product-background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
 
-<body class="">
+<body onload="loadLovedProducts()" onpageshow="loadLovedProducts()" class="">
 	
 {{ partial "navbar" . }}
 <section class="wrapper-section">
@@ -62,6 +62,7 @@
 	</div>
 </section>
 {{ partial "footer" . }}
+
 </body>
 {{ end }}
 

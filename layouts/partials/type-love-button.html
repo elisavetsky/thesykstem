@@ -1,29 +1,15 @@
 {{ $counter := .Scratch.Get "counter" }}
-<body onload="loadLovedProducts()">
-<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
-	<h5>{{ .Params.product_type }}</h5>
-	<div class="love-container">
-		<input onclick="loveProduct()" type="checkbox" name="love" id="love-button-{{ $counter }}">
-		<label for="love-button-{{ $counter }}">
-			<a class="p-3 button love-button icon">
-				<span class="fa-solid fa-heart"></span>
-			</a>
-		</label>
+
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>{{ .Params.product_type }}</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct({{ .File.ContentBaseName }})" type="checkbox" name="love" id="love-button-{{ .File.ContentBaseName }}">
+			<label for="love-button-{{ .File.ContentBaseName }}">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
 	</div>
-</div>
-<!-- <script>
-		
-		function loveProduct(){
-			var counter = {{ $counter }};
-			var checkbox = document.getElementById('love-button-' + counter);
-			localStorage.setItem(('love-button-' + counter), checkbox.checked);
-			
-		}
-		function loadLovedProducts(){    
-			var counter = {{ $counter }};
-			var checked = JSON.parse(localStorage.getItem('love-button-' + counter));
-			document.getElementById("love-button-" + counter).checked = checked;
-		}
-		
-	</script> -->
 </body>
