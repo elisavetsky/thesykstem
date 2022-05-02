@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ partial "navbar" . }}
-<body onload="loadLovedProducts()" class="is-almost-blue-back">
-	<section class="section is-small">
+<body onpageshow="loadLovedProducts()" class="is-almost-blue-back">
+	<section id="{{ .File.ContentBaseName }}" class="section is-small grid-product-container">
 		<div class="container">
 			<div class="columns is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 				<div class="column is-offset-1 is-full">

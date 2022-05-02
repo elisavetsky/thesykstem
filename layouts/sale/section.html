@@ -3,7 +3,7 @@
 {{ $herobackground := resources.Get "image/product-background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
 
-<body>
+<body onpageshow="loadLovedProducts()">
 
 {{ partial "navbar" . }}
 <section class="wrapper-section">
@@ -21,26 +21,14 @@
 				{{ $counter = add $counter 1 }}
 				{{ .Scratch.Set "counter" $counter }}
 				
-				<div class="column is-half-mobile is-half-tablet is-one-third-desktop">
+				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent">
 							<div class="box tile is-child is-article">
 								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
 								
 									<div class="product-in-list">
-										<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
-											<h5>{{ .Params.product_type }}</h5>
-											
-											<div class="love-container">
-												<input type="checkbox" name="love" id="love-button-{{ $counter }}">
-												<label for="love-button-{{ $counter }}">
-													<a class="button love-button icon">
-														<span class="fa-solid fa-heart"></span>
-													</a>
-												</label>
-											</div>
-											
-										</div>
+										{{ partial "type-love-button" . }}
 										<a href="{{ .Permalink }}">
 										<h1>{{ .Title }}</h1>
 										{{ $img := .Params.img }}

@@ -3,25 +3,26 @@
 {{ $herobackground := resources.Get "image/product-background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
 
-<body onpageshow="loadLovedProducts()">
+<body onpageshow="loadLovedProducts()" class="">
 	
 {{ partial "navbar" . }}
 <section class="wrapper-section">
 <img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
 	<div class="section is-small">
 		<div class="container">
-			<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
+			<div id="my-love-list" class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
 			{{ .Content }}
+				
 			</div>
 			<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
-				{{ $counter := 0 }}
-				{{ .Scratch.Set "counter" $counter}}
-				{{ $is_unisex := where (where .Site.RegularPages "Params.is_unisex" true) "Params.is_variant" "!=" true }}
-				{{ range $is_unisex }}
-				{{ $counter = add $counter 1 }}
-				{{ .Scratch.Set "counter" $counter }}
+			{{ $counter := 0 }}
+			{{ .Scratch.Set "counter" $counter}}
+			{{ $all_products := where .Site.RegularPages "Section" "product" }}
+			{{ range $all_products }}
+			{{ $counter = add $counter 1 }}
+			{{ .Scratch.Set "counter" $counter }}
 		
-				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
+				<div id="{{ .File.ContentBaseName }}" class="grid-product-container-love-list column is-half-mobile is-half-tablet is-one-third-desktop">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent">
 							<div class="box tile is-child is-article">
@@ -56,7 +57,7 @@
 						</div>
 					</div>
 				</div>
-				{{ end }}
+			{{ end }}
 			</div>
 		</div>
 	</div>
