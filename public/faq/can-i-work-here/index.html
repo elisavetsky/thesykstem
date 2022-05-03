@@ -13,7 +13,7 @@
 	
 
 
-	<script src="https://unpkg.com/vue@3"></script>
+	
 
 
 	<link rel="stylesheet" href="/css/bulma.min.css">
@@ -179,6 +179,7 @@
 							</a>
 						<div class="is-flex is-flex-direction-column is-align-items-center">
 							<a href="/account/"><h3>my account</h3></a>
+							<a href="/account/loved/"><h3>my love list</h3></a>
 							<a href="/account/order-history/"><h3>order history</h3></a>
 							<a href="/account/order-history/"><h3>notification settings</h3></a>
 						</div>
@@ -442,52 +443,6 @@
 			</div>
 		</div>
 	</nav>
-	
-	<script>
-		function delay(milliseconds){
-				return new Promise(resolve => {
-					setTimeout(resolve, milliseconds);
-				});
-		}
-		
-		document.addEventListener('snipcart.ready', () => {
-			const bagCount = document.querySelector('#bag-count');
-			const addToBag = document.querySelector('#add-to-bag');
-			let isCustomerSignedIn = false;
-			
-			Snipcart.store.subscribe(() => {
-				const customer = Snipcart.store.getState().customer;
-				isCustomerSignedIn = customer.status === 'SignedIn';
-			});
-			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
-				if (bagCount.innerHTML == 0) {
-					bagCount.hidden = true;
-				}
-				else {
-					bagCount.hidden = false;
-				} 
-			});
-			Snipcart.events.on('item.removed', (cartItem) => {
-				if (bagCount.innerHTML == 0) {
-					bagCount.hidden = true;
-				}
-				else {
-					bagCount.hidden = false;
-				} 
-			});
-			Snipcart.events.on('item.adding', (parsedCartItem) => {
-				bagCount.hidden = false;
-				addToBag.classList.add('is-loading');
-			});
-			Snipcart.events.on("item.added", (cartItem) => {
-				bagCount.hidden = false;
-				addToBag.classList.remove('is-loading');
-				addToBag.innerHTML = "added to bag";
-				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
-			});
-		});
-		
-	</script>
 </body>
 
 

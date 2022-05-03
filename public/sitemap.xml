@@ -15,6 +15,11 @@
   </url><url>
     <loc>/aboutblurb/</loc>
   </url><url>
+    <loc>/account/</loc>
+    <priority>0</priority>
+  </url><url>
+    <loc>/account/loved/</loc>
+  </url><url>
     <loc>/hero/</loc>
   </url><url>
     <loc>/men/</loc>
