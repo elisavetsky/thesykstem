@@ -7,7 +7,7 @@ is_unisex: true
 is_variant: true
 original_price: $15
 sale_price:
-color: galaxy-fill
+color: galaxy
 sizes:
 - size: "adjustable"
   stock: 10

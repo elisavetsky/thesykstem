@@ -1,6 +1,13 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.RegularPages "Section" "product" -}}
 	{{ $resized_main := .Scratch.Get "resized_main" }}
-	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "description" .Params.description "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
+	{{ $.Scratch.Set "price" .Params.original_price }}
+	{{ with .Param "sale_price" }}
+		{{ $.Scratch.Set "price" . }}
+	{{ end }}
+	
+	{{ $price := $.Scratch.Get "price" }}
+	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "description" .Params.description "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
+	
 {{- end -}}
-{{- $.Scratch.Get "index" | jsonify -}}
+{{- $.Scratch.Get "index" | jsonify -}}  

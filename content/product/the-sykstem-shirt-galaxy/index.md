@@ -7,7 +7,7 @@ is_unisex: true
 is_variant: true
 original_price: $25
 sale_price: $20
-color: galaxy-fill
+color: galaxy
 sizes:
 - size: "xxxs"
   stock: 10

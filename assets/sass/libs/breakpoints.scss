@@ -60,7 +60,7 @@
 		right: 0;
 		top: 0;
 	}
-	.account-items, .search-items {
+	.account-items {
 		width: 100%;
 		right: 0;
 		top: 0;
@@ -149,7 +149,7 @@
 		}
 	}
 	.search-items {
-		padding: 4rem 1.25rem 1.25rem 1.25rem;
+		padding: 1.25rem;
 	}
 }
 
@@ -164,7 +164,7 @@
 		}
 	}
 	.account-drawer, .search-drawer {
-		.account-items, .search-items {
+		.account-items {
 			width: 500px;
 			right: 0;
 			top: 0;
@@ -184,11 +184,15 @@
 			top: 0;
 			left: unset;
 		}
-		#searchInput {
-			
-			width: 415px;
-			right: 1rem;
-			top: 0;
+		.search-items {
+			width: 500px;
+		}
+		#exit-search {
+			left: unset;
+			right: 440px;
+		}
+		#fastSearch {
+			width: 380px;
 		}
 	}
 	.shopping-bag {

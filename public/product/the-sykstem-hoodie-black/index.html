@@ -39,9 +39,10 @@
 
 
 
+
 <body tabindex="-1">
 	<script>
-			;
+	;
 			window.cartLogo = "/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png";
 			window.SnipcartSettings = {
 			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
@@ -52,9 +53,21 @@
 			  modalStyle: "side",
 			  templatesUrl: "/snipcart-templates/snipcart-templates.html",
 			};
-			
+
 			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
 	</script>
+	<noscript>
+		<section class="section white-back is-small pt-1 pb-1">
+			<div class="container has-text-centered blue-text">
+				<span class="icon-text">
+					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
+					<span class="icon">
+						<span class="fa-solid fa-thumbs-up"></span>
+					</span>
+				</span>
+			</div>
+		</section>
+	</noscript>
 	<nav tabindex="-1" class="navbar  has-shadow " role="navigation" aria-label="main navigation">
 		<div class="container">
 			<div class="navbar-brand is-flex is-flex-direction-row">
@@ -72,28 +85,28 @@
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
 							<div class="navbar-start">
-							
+								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a href="/">women</a>
 								</div>
-							
+								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a href="/men/">men</a>
 								</div>
-							
+								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a href="/unisex/">unisex</a>
 								</div>
-							
+								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a href="/sale/">sale</a>
 								</div>
-							
+								
 							</div>
 							<div class="navbar-end">
 								<div class="navbar-item">
 									<div class="buttons is-flex is-align-items-center is-justify-content-center">
-									<nav class="search-drawer">
+										<nav class="search-drawer">
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
 		<label class="search-label" for="site-search">
@@ -104,41 +117,31 @@
 			</a>
 		</label>
 		<div class="search-container">
-			<div class="account-controls">
-				<input checked type="checkbox" name="site-search" id="site-search">
-				<label class="button box" for="site-search">
-					<span class="icon">
-						<span class="fa-solid fa-xmark"></span>
-					</span>
-				</label>
-			</div>
+			
 			<div class="search-items box">
-				<div class="columns search-columns content">
-					<div class="column is-flex is-flex-direction-column is-align-items-center">
-						<h1 class="mb-5">popular searches</h1>
-						
-						<a href="/search=Revolution/"><h4 class="lowercase">Revolution</h4></a>
-						
-						<a href="/search=rich/"><h4 class="lowercase">rich</h4></a>
-						
-						<a href="/search=tote%20bag/"><h4 class="lowercase">tote bag</h4></a>
-						
-						<a href="/search=resist/"><h4 class="lowercase">resist</h4></a>
-						
-					</div>
-					<div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-						<div class="field has-addons">
-							<p class="control is-expanded">
-								<input class="input is-large" type="text" name="search-input" placeholder="search whatever">
-								
-							</p>
+				<div class="columns is-flex content">
+					
+					<div class="column p-0 is-flex is-flex-direction-column">
+						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
+							
+							
 							<p class="control">
-								<a class="button is-large">
-									<span class="icon is-small is-right">
-										<span class="fa-solid fa-search"></span>
+								<input checked type="checkbox" name="site-search" id="site-search">
+								
+								<label id="exit-search" class="button is-medium" for="site-search">
+									<span class="icon is-small is-left">
+										<span class="fa-solid fa-xmark"></span>
 									</span>
-								</a>
+								</label>
 							</p>
+							<p id="fastSearch" class="control is-expanded">
+								<input id="searchInput" class="input is-medium" placeholder="search products" tabindex="0">
+								<ul id="searchResults">
+								</ul>
+							</p>
+							
+
+							
 						</div>
 					</div>
 				</div>
@@ -146,7 +149,10 @@
 		</div>
 	</div>
 </nav>
-									<nav class="account-drawer">
+
+
+
+										<nav class="account-drawer">
 	<div class="is-collapsable-account-drawer">
 		<input type="checkbox" name="account-drawer" id="account-drawer">
 		<button class="button account-button is-fullwidth is-blue-back">
@@ -198,7 +204,7 @@
 							</div>
 						</div>
 					</nav>
-				
+					
 <nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
 		<button class="snipcart-checkout button shopping-bag-button is-red">
@@ -408,7 +414,6 @@
 	</nav>
 </body>
 
-
 <body onpageshow="loadLovedProducts()" class="is-almost-blue-back">
 	<section id="the-sykstem-hoodie-black" class="section is-small grid-product-container">
 		<div class="container">
@@ -446,24 +451,27 @@
 					
 					
 					<div class="product-on-page box is-white-blue-grad">
-						<input type="radio" id="/product/the-sykstem-hoodie-black/" name="gallery" class="gallery__selector" checked />
-						<figure class="gallery__img">
-							<img style="opacity: 1" class="image-normal" onclick="getCoordinates(event)" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4832162_768x0_resize_q65_box_3.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
-							<img style="opacity: 0" class="image-zoomed" onclick="getCoordinates(event)" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
+						<input type="radio" id="/product/the-sykstem-hoodie-black/" name="gallery" autocomplete="off" class="gallery__selector" checked />
+						<figure class="gallery__img active-image">
+							<img style="opacity: 1" class="image-normal" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4832162_768x0_resize_q65_box_3.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
 						</figure>
 						
 						
-						<input type="radio" id="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" name="gallery" class="gallery__selector" />
+						
+						<input type="radio" id="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" name="gallery" autocomplete="off" class="gallery__selector" />
 						<figure class="gallery__img">
-							<img style="opacity: 1" class="image-normal" onclick="getCoordinates(event)" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4832162_768x0_resize_q75_box_3.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
-							<img style="opacity: 0" class="image-zoomed" onclick="getCoordinates(event)" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
+							<img style="opacity: 1" class="image-normal" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4832162_768x0_resize_q75_box_3.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" alt="the classic the-sykstem hoodie with our logo turned on its side">
+
 						</figure>
 						
 						
-						<input type="radio" id="/product/the-sykstem-hoodie-black/system-1776-hoodie.webp" name="gallery" class="gallery__selector" />
+						<input type="radio" id="/product/the-sykstem-hoodie-black/system-1776-hoodie.webp" name="gallery" autocomplete="off" class="gallery__selector" />
 						<figure class="gallery__img">
-							<img style="opacity: 1" class="image-normal" onclick="getCoordinates(event)" src="/product/the-sykstem-hoodie-black/system-1776-hoodie_hu00b92822ab459985ad6a2c74b88cf6bc_68706_768x0_resize_q75_h2_box_2.webp" alt="the classic the-sykstem hoodie with our logo turned on its side">
-							<img style="opacity: 0" class="image-zoomed" onclick="getCoordinates(event)" src="/product/the-sykstem-hoodie-black/system-1776-hoodie.webp" alt="the classic the-sykstem hoodie with our logo turned on its side">
+							<img style="opacity: 1" class="image-normal" src="/product/the-sykstem-hoodie-black/system-1776-hoodie_hu00b92822ab459985ad6a2c74b88cf6bc_68706_768x0_resize_q75_h2_box_2.webp" alt="the classic the-sykstem hoodie with our logo turned on its side">
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="/product/the-sykstem-hoodie-black/system-1776-hoodie.webp" alt="the classic the-sykstem hoodie with our logo turned on its side">
+
 						</figure>
 						
 					</div>
@@ -471,7 +479,7 @@
 	
 	
 	
-	<input type="radio" id="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" name="gallery" class="gallery__selector"/>
+	<input type="radio" id="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black.png" name="gallery" autocomplete="off" class="gallery__selector"/>
 	
 		<div class="gallery__thumb">
 			<figure class="box image is-64x64">
@@ -483,7 +491,7 @@
 	
 	
 	
-	<input type="radio" id="/product/the-sykstem-hoodie-black/system-1776-hoodie.webp" name="gallery" class="gallery__selector"/>
+	<input type="radio" id="/product/the-sykstem-hoodie-black/system-1776-hoodie.webp" name="gallery" autocomplete="off" class="gallery__selector"/>
 	
 		<div class="gallery__thumb">
 			<figure class="box image is-64x64">
@@ -1055,6 +1063,8 @@ function display() {
 			});
 		});
 	</script>
+	<script src="/js/fuse.min.js" type="text/javascript"></script>
+	<script src="/js/fastsearch.js" type="text/javascript"></script>
 	<script src="/js/index.js" type="text/javascript"></script>
 </body>
 
