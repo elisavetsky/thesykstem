@@ -2,6 +2,7 @@
 @import 'libs/breakpoints.scss';
 @import 'libs/keyframes.scss';
 @import 'libs/supports.scss';
+@import 'libs/hugofastsearch.scss';
 
 :root, body, .content, .snipcart, .snipcart-base-button__label, .snipcart-form__label, .snipcart__font--subtitle {
 	font-family: BlinkMacSystemFont, -apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif !important;
@@ -415,6 +416,14 @@ input#account-drawer {
 
 // Buttons
 
+.snipcart-customer-signin {
+	background: none;
+	border: none;
+	&:hover h3 {
+		color: $red;
+	}
+}
+
 .snipcart-button-primary {
 	background: $red-gradient;
 	color: white;
@@ -463,7 +472,6 @@ input#account-drawer {
 	border-radius: $border-radius;
 }
 
-.snipcart
 
 .circle-color-buttons {
 	a {
@@ -695,24 +703,18 @@ input#account-drawer {
 
 .bag-controls, .account-controls {
 	position: fixed;
-	z-index: 99999;
+	z-index: 998;
 }
 
 .search-items {
 	position: fixed;
 	height: 100%;
 	background: $almostwhite;
-	overflow: scroll;
 	.search-columns {
 		display: flex;
 	}
-	a {
-		h3 {
-			&:hover {
-				color: $red;
-			}
-		}
-		
+	.field {
+		overflow: scroll;
 	}
 	h1, h2, h3, h4, h5, h6 {
 		color: $almostblack;
@@ -1083,6 +1085,10 @@ input#account-drawer {
 	background: $gray1;
 }
 
+.blue-text {
+	color: $blue;
+}
+
 .is-red {
 	background-color: $red !important;
 	color: white !important;
@@ -1093,6 +1099,11 @@ input#account-drawer {
 
 .is-almost-blue-back {
 	background: $almostblue;
+}
+
+.white-back {
+	background: white;
+	border-bottom: 1px solid $gray1;
 }
 
 .is-blue-back {
@@ -1620,9 +1631,28 @@ input#dropdown-6 {
 		&:checked {
 			+ .gallery__img {
 				opacity: 1;
-				
 			}
 		}
+	}
+}
+
+.product-on-page {
+	overflow: hidden;
+	.gallery__img {
+		.image-normal {
+			cursor: zoom-in;
+		}
+		.image-zoomed {
+			cursor: zoom-out;
+			transform-origin: top left;
+			transform: scale(2);
+			position: absolute;
+			height: auto;
+			width: auto;
+		}
+	}
+	.active-image {
+		z-index: 10;
 	}
 }
 

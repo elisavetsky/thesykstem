@@ -19,10 +19,10 @@
 		width: 100%;
 		right: 0;
 		top: 0;
-		
 	}
-	.account-items, .search-items {
-		.account-columns, .search-columns {
+	
+	.account-items {
+		.account-columns {
 			flex-direction: column;
 		}
 		.column {
@@ -64,7 +64,7 @@
 		width: 100%;
 		right: 0;
 		top: 0;
-		.account-columns, .search-columns {
+		.account-columns {
 			flex-direction: row;
 		}
 		.column {
@@ -148,6 +148,9 @@
 			display: none;
 		}
 	}
+	.search-items {
+		padding: 4rem 1.25rem 1.25rem 1.25rem;
+	}
 }
 
 @media only screen and (min-width: 769px) {
@@ -166,7 +169,7 @@
 			right: 0;
 			top: 0;
 			padding: 0 1.5rem;
-			.account-columns, .search-columns {
+			.account-columns {
 				flex-direction: column;
 			}
 			.column {
@@ -175,12 +178,17 @@
 		}
 		.account-controls, .search-controls {
 			width: 500px;
-			margin-top: 1rem;
+			margin: 1rem 0;
 			padding-left: 1rem;
 			right: 0;
 			top: 0;
 			left: unset;
+		}
+		#searchInput {
 			
+			width: 415px;
+			right: 1rem;
+			top: 0;
 		}
 	}
 	.shopping-bag {

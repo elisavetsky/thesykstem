@@ -2,7 +2,7 @@
 	{{ $more_photos := .Resources.ByType "image" }}
 	{{ range $more_photos }}
 	{{ $resized := .Resize "200x center q75" }}
-	<input type="radio" id="{{ .RelPermalink }}" name="gallery" class="gallery__selector"/>
+	<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector"/>
 	
 		<div class="gallery__thumb">
 			<figure class="box image is-64x64">

@@ -1,5 +1,6 @@
 {{ define "main" }}
 {{ partial "navbar" . }}
+
 <body onpageshow="loadLovedProducts()" class="is-almost-blue-back">
 	<section id="{{ .File.ContentBaseName }}" class="section is-small grid-product-container">
 		<div class="container">
@@ -18,15 +19,19 @@
 					{{ $resized_main := $article.Resize "768x center q65" }}
 					{{ .Scratch.Set "resized_main" $resized_main }}
 					<div class="product-on-page box is-white-blue-grad">
-						<input type="radio" id="{{ .RelPermalink }}" name="gallery"  class="gallery__selector" checked/>
-						<figure class="gallery__img">
-							<img src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
+						<figure class="gallery__img active-image">
+							<img style="opacity: 1" class="image-normal" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="{{ $article.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 						</figure>
+						
 						{{ range $more_photos }}
 						{{ $resized := .Resize "768x center q75" }}
-						<input type="radio" id="{{ .RelPermalink }}" name="gallery"  class="gallery__selector"/>
+						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" />
 						<figure class="gallery__img">
-							<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<img style="opacity: 1" class="image-normal" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="{{ .Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+
 						</figure>
 						{{ end }}
 					</div>
@@ -52,6 +57,6 @@
 		</div>
 	</section>
 	{{ partial "footer" . }}
-	
+
 </body>
 {{ end }}

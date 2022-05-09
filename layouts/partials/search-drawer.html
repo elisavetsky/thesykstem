@@ -19,25 +19,30 @@
 			</div>
 			<div class="search-items box">
 				<div class="columns search-columns content">
-					<div class="column is-flex is-flex-direction-column is-align-items-center">
+					<!-- <div class="column is-flex is-flex-direction-column is-align-items-center">
 						<h1 class="mb-5">popular searches</h1>
-						{{ range first 4 .Site.Data.popular_searches }}
+						{{/* {{ range first 4 .Site.Data.popular_searches }} 
 						<a href="/search={{ . }}/"><h4 class="lowercase">{{ . }}</h4></a>
-						{{ end }}
-					</div>
+						{{ end }}*/}}
+					</div> -->
 					<div class="column is-flex is-flex-direction-column is-justify-content-center is-align-items-center">
-						<div class="field has-addons">
-							<p class="control is-expanded">
-								<input class="input is-large" type="text" name="search-input" placeholder="search whatever">
-								
-							</p>
-							<p class="control">
+						<div class="field">
+							<!-- <p id="productSearchBox" class="control is-expanded"> -->
+							<!-- <input class="input is-large" type="text" name="search-input" placeholder="search whatever"> -->
+								<div id="fastSearch" class="control is-expanded" >
+									<input id="searchInput" class="input is-medium" placeholder="search products" tabindex="0">
+									<ul id="searchResults">
+									</ul>
+								</div>
+							<!-- </p> -->
+
+							<!-- <p class="control">
 								<a class="button is-large">
 									<span class="icon is-small is-right">
 										<span class="fa-solid fa-search"></span>
 									</span>
 								</a>
-							</p>
+							</p> -->
 						</div>
 					</div>
 				</div>
@@ -45,3 +50,5 @@
 		</div>
 	</div>
 </nav>
+
+

@@ -1,0 +1,6 @@
+{{- $.Scratch.Add "index" slice -}}
+{{- range where .Site.RegularPages "Section" "product" -}}
+	{{ $resized_main := .Scratch.Get "resized_main" }}
+	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "description" .Params.description "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
+{{- end -}}
+{{- $.Scratch.Get "index" | jsonify -}}

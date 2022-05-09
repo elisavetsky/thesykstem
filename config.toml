@@ -5,6 +5,17 @@ permalinks = ":slug"
 # enableGitInfo = true
 disableKinds = ["taxonomy", "taxonomyTerm", "term",]
 
+[outputFormats]
+  [outputFormats.JSON]
+    name = "JSON"
+    baseName = "index"
+	isPlainText = true
+	mediaType = "application/json"
+	home = ["HTML", "RSS", "JSON"]
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+
 [menu]
   [[menu.main]]
     name = "women"

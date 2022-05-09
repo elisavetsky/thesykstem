@@ -1,3 +1,34 @@
+// Product Zoom In
+
+
+function getCoordinates(event) {
+	var productImageNormal = document.querySelectorAll(".image-normal")[0];
+	var productImageZoomed = document.querySelectorAll(".image-zoomed")[0];
+	productImageNormal.addEventListener("click", getCoordinates);
+	if (productImageNormal.style.opacity == 1 && productImageZoomed.style.opacity == 0) {
+		productImageNormal.style.opacity = 0;
+		productImageZoomed.style.opacity = 1;
+	} else if (productImageNormal.style.opacity == 0 && productImageZoomed.style.opacity == 1) {
+		productImageNormal.style.opacity = 1;
+		productImageZoomed.style.opacity = 0;
+	}
+	const xOffset = event.offsetX;
+	const yOffset = event.offsetY;
+	const nWidthZoomed = productImageZoomed.naturalWidth;
+	const nHeightZoomed = productImageZoomed.naturalHeight;
+	const nWidthNormal = productImageNormal.naturalWidth;
+	const nHeightNormal = productImageNormal.naturalHeight;
+	const zoomScale = nHeightNormal / nHeightZoomed;
+	var xPos = (event.offsetX);
+	var yPos = (event.offsetY);
+	var calcX = (xPos) * (zoomScale - 1);
+	var calcY = (yPos) * (zoomScale - 1);
+	console.log(xPos, yPos);
+	productImageZoomed.style.left = calcX + "px";
+	productImageZoomed.style.top = calcY + "px";
+}
+
+// Love Component
 var loveArray = [];
 
 function loveUnloveProduct(productID) {
@@ -65,6 +96,6 @@ function loadLovedProducts() {
 					allProductsList.forEach(el => el.remove());
 				}
 			}
-		}	
+		}
 	}
 }
