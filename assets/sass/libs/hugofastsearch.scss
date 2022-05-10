@@ -1,23 +1,21 @@
 #fastSearch {
-	// visibility: visible;
 	position: fixed;
 	z-index: 9999;
 	right: 0;
 	margin: 0 1.25rem 0 5rem;
-	// top: 0px;
-	// max-width: 75%;
-	// min-width: 60%;
 }
 
 #fastSearch input {
-	// z-index: 9999;
+	// padding-bottom: calc(.5em - 1px);
+	// padding-left: 1em;
+	// padding-right: 1em;
+	// padding-top: calc(.5em - 1px);
 	// 	padding: 4px 10px;
 	// margin: 1rem 1.25rem;
 	// position: fixed;
 	// top: 0;
 	// padding-right: 1rem;
 	// width: 70%;
-	
 	// 	height: 31px;
 	// 	font-size: 1.6em;
 	// 	color: #aaa;
@@ -31,7 +29,7 @@
 }
 
 #searchResults {
-	margin: 4.5rem 0 0 0 !important;
+	margin: 4rem 0 0 0 !important;
 	width: 100%;
 }
 
@@ -58,8 +56,8 @@
 	background: $gray1;
 }
 
-#searchResults a:hover,
-a:focus {
+#searchResults a:hover, 
+#searchResults a:focus {
 	outline: 0;
 	background: $gray2;
 	transition: $transition-no-delay;

@@ -7,10 +7,9 @@
 		<div class="gallery__thumb">
 			<figure class="box image is-64x64">
 				<label for="{{ .RelPermalink }}">
-					<img src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+					<img class="lazyload" src="{{ $resized.Permalink }}" data-src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 				</label>
 			</figure>
 		</div>
-	
 	{{ end }}
 </div>

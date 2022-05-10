@@ -113,7 +113,7 @@ function loadSearch() {
 			location: 0,
 			distance: 100,
 			threshold: 0.4,
-			minMatchCharLength: 2,
+			minMatchCharLength: 1,
 			keys: [
 				'title',
 				// 'permalink',
@@ -145,7 +145,7 @@ function executeSearch(term) {
 	} else { // build our html 
 		for (let item in results.slice(0, 6)) { // only show first 5 results
 			// searchitems = searchitems + '<li><a href="' + results[item].permalink + '" tabindex="0">' + '<span class="title">' + results[item].title + '</span><br /> <span class="sc">'+ results[item].section +'</span> — ' + results[item].date + ' — <em>' + results[item].desc + '</em></a></li>';
-			searchitems = searchitems + '<li><a class="is-article" href="' + results[item].item.permalink + '" tabindex="0">' + '<div class="is-flex is-justify-content-space-between is-size-7"><div class="is-flex is-flex-direction-column"><h3 class="mt-0">' + results[item].item.type + '</h3><h1 class="mt-0 search-title">' + results[item].item.title + '</h1><span class="tag p-2 fit-content-w mb-2">' + results[item].item.color + '</span><div class="full-height is-flex is-align-items-end"><h4 class="m-0">' + results[item].item.price + '</h4></div></div><figure class="image is-96x96"><img class="" src="' + results[item].item.img + '"></img></figure></div></a></li>';
+			searchitems = searchitems + '<li><a class="is-article" href="' + results[item].item.permalink + '" tabindex="0">' + '<div class="is-flex is-justify-content-space-between is-size-7"><div class="is-flex is-flex-direction-column"><h3 class="mt-0">' + results[item].item.type + '</h3><h1 class="mt-0 search-title">' + results[item].item.title + '</h1><span class="tag p-2 fit-content-w mb-5">' + results[item].item.color + '</span><div class="full-height is-flex is-align-items-end"><h4 class="m-0">' + results[item].item.price + '</h4></div></div><figure class="image is-96x96"><img class="lazyload" data-src="' + results[item].item.img + '" src="' + results[item].item.img + '"></img></figure></div></a></li>';
 		}
 		resultsAvailable = true;
 	}

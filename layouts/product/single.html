@@ -21,17 +21,21 @@
 					<div class="product-on-page box is-white-blue-grad">
 						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
 						<figure class="gallery__img active-image">
-							<img style="opacity: 1" class="image-normal" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
-							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="{{ $article.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<img style="opacity: 1" class="image-normal lazyload" data-src="{{ $resized_main.Permalink }}" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<noscript>
+								<img style="opacity: 1" class="image-normal" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							</noscript>
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ $article.Permalink }}" src="{{ $article.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 						</figure>
-						
 						{{ range $more_photos }}
 						{{ $resized := .Resize "768x center q75" }}
 						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" />
 						<figure class="gallery__img">
-							<img style="opacity: 1" class="image-normal" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
-							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed" src="{{ .Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
-
+							<img style="opacity: 1" class="image-normal lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<noscript>
+								<img style="opacity: 1" class="image-normal" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							</noscript>
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ .Permalink }}" src="{{ .Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 						</figure>
 						{{ end }}
 					</div>
