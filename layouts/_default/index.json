@@ -7,7 +7,7 @@
 	{{ end }}
 	
 	{{ $price := $.Scratch.Get "price" }}
-	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "description" .Params.description "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
+	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "description" .Params.description "material" .Params.material "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
 	
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}  

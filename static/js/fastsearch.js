@@ -118,6 +118,7 @@ function loadSearch() {
 				'title',
 				// 'permalink',
 				'description',
+				'material',
 				'type',
 				'color',
 				'price',
