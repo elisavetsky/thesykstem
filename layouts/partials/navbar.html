@@ -1,4 +1,5 @@
 {{ $logo := resources.Get "image/logo.png" }}
+{{ $logosvg := resources.Get "image/logo.svg" }}
 {{ $resized_logo := $logo.Resize "500x q90" }}
 {{ $.Scratch.Set "resized_logo" $resized_logo }}
 
@@ -35,7 +36,7 @@
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
 					<a class="is-flex" href="/">
-						<img class="logo" src="{{ $resized_logo.Permalink }}" alt="">
+						<img class="logo" src="{{ $logosvg.Permalink }}" alt="">
 					</a>
 				</div>
 				<div class="menu-switch-pos">
