@@ -1,8 +1,25 @@
+// Product Sort
+var sortArray = [];
+var productContainers = document.querySelectorAll(".grid-product-container");
+var productContainersSale = document.querySelectorAll(".grid-product-container .sale-price");
+var productContainersNotSale = document.querySelectorAll(".grid-product-container .original-price");
+
+for (let i = 0; i < productContainersSale.length; i++) {
+	var salePrice = productContainersSale[i].textContent;
+	sortArray.push(salePrice);
+}
+for (let i = 0; i < productContainersNotSale.length; i++) {
+	var originalPrice = productContainersNotSale[i].textContent;
+	sortArray.push(originalPrice);
+}
+console.log(sortArray);
+
 // Check URL
 var currentURL = window.location.href;
 
 // Product Zoom In
 if (currentURL.includes("product")) {
+	
 	var activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");
 	var activeZoomed = document.querySelector(".active-image .image-zoomed");

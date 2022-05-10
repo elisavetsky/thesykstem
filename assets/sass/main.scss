@@ -1429,7 +1429,7 @@ input#account-drawer {
 	width: 100%;
 	height: 100%;
 	border: none;
-	animation: saturate 10s infinite alternate ease-in-out;
+	animation: transform 60s infinite alternate ease-in-out;
 }
 
 
@@ -1507,7 +1507,7 @@ input#account-drawer {
 
 // Prices
 
-.sale-price {
+.price-group {
 	h4 {
 		margin-bottom: 0;
 	}

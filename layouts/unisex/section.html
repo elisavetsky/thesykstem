@@ -12,8 +12,23 @@
 		<div class="container">
 			<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
 			{{ .Content }}
+			
 			</div>
+			<div class="control has-icons-left mb-5">
+				<div class="select is-normal">
+					<select>
+						<option value="">sort</option>
+						<option value="">low to high</option>
+						<option value="">high to low</option>
+					</select>
+				</div>
+				<span class="icon is-left">
+					<span class="fa-solid fa-sort"></span>
+				</span>
+			</div>
+			
 			<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+				
 				{{ $counter := 0 }}
 				{{ .Scratch.Set "counter" $counter}}
 				{{ $is_unisex := where (where .Site.RegularPages "Params.is_unisex" true) "Params.is_variant" "!=" true }}
