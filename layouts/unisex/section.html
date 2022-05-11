@@ -3,7 +3,7 @@
 {{ $herobackground := resources.Get "image/product-background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
 
-<body onpageshow="loadLovedProducts()">
+<body onpageshow="loadLovedProducts(), handleDropdownValue()">
 	
 {{ partial "navbar" . }}
 <section class="wrapper-section">
@@ -16,10 +16,10 @@
 			</div>
 			<div class="control has-icons-left mb-5">
 				<div class="select is-normal">
-					<select>
+					<select id="sort-products">
 						<option value="">sort</option>
-						<option value="">low to high</option>
-						<option value="">high to low</option>
+						<option value="lowToHigh">low to high</option>
+						<option value="highToLow">high to low</option>
 					</select>
 				</div>
 				<span class="icon is-left">

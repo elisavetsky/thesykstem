@@ -910,6 +910,14 @@ input#account-drawer {
 
 // Forms
 
+.select select, .textarea {
+	border-radius: $border-radius;
+}
+
+.select:not(.is-multiple):not(.is-loading)::after {
+	border-color: $blue;
+}
+
 .sign-up {
 	&.box {
 		max-width: 30rem;

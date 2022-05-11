@@ -1,25 +1,83 @@
-// Product Sort
-var sortArray = [];
-var productContainers = document.querySelectorAll(".grid-product-container");
-var productContainersSale = document.querySelectorAll(".grid-product-container .sale-price");
-var productContainersNotSale = document.querySelectorAll(".grid-product-container .original-price");
-
-for (let i = 0; i < productContainersSale.length; i++) {
-	var salePrice = productContainersSale[i].textContent;
-	sortArray.push(salePrice);
-}
-for (let i = 0; i < productContainersNotSale.length; i++) {
-	var originalPrice = productContainersNotSale[i].textContent;
-	sortArray.push(originalPrice);
-}
-console.log(sortArray);
-
 // Check URL
 var currentURL = window.location.href;
 
+// Product Sort
+var productArray = [];
+const sortDropdown = document.getElementById("sort-products");
+const productGrid = document.querySelector(".product-grid");
+var productContainers = Array.from(document.querySelectorAll(".grid-product-container"));
+if (currentURL.includes("loved") || currentURL.includes("unisex") || currentURL.includes("sale") || currentURL.includes("men") || currentURL.includes("women")) {
+	
+	
+	
+	
+	
+	
+	sortDropdown.addEventListener("change", handleDropdownValue);
+	
+	function handleDropdownValue() {
+		createProductObject();
+		if (sortDropdown.options[sortDropdown.selectedIndex].value === "lowToHigh") {
+			sortLowToHigh();
+		} else if (sortDropdown.options[sortDropdown.selectedIndex].value === "highToLow") {
+			sortHighToLow();
+		}
+	}
+	
+	function createProductObject() {
+		for (let i = 0; i < productContainers.length; i++) {
+			const productPrice = productContainers[i].querySelector(".price").textContent.replace("$", "");
+			const productObject = {
+				container: productContainers[i],
+				price: productPrice
+			}
+			productArray.push(productObject);
+		}
+	}
+	
+	function sortLowToHigh() {
+		productArray = productArray.sort((a, b) => a.price - b.price);
+		for (let i = 0; i < productArray.length; i++) {
+			productGrid.appendChild(productArray[i].container);
+		}
+	}
+	
+	function sortHighToLow() {
+		productArray = productArray.sort((a, b) => b.price - a.price);
+		for (let i = 0; i < productArray.length; i++) {
+			productGrid.appendChild(productArray[i].container);
+		}
+	}
+}
+
+
+// 
+// for (let i = 0; i < productContainersSale.length; i++) {
+// 	var salePrice = productContainersSale[i].textContent.replace("$", "");
+// 	priceArray.push(salePrice);
+// }
+// for (let i = 0; i < productContainersNotSale.length; i++) {
+// 	var originalPrice = productContainersNotSale[i].textContent.replace("$", "");
+// 	priceArray.push(originalPrice);
+// }
+// 
+// console.log(priceArray);
+// console.log(productContainers);
+
+
+
+// for (let i = 0; i < (productContainers.length * 3); i++) {
+// 	var foundValues = productContainers.some(v => sortArray.indexOf(v) !== -1);
+// }
+
+// console.log(sortArray);
+// console.log(productContainers);
+
+
+
 // Product Zoom In
 if (currentURL.includes("product")) {
-	
+
 	var activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");
 	var activeZoomed = document.querySelector(".active-image .image-zoomed");
