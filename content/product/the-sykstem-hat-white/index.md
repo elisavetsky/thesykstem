@@ -4,8 +4,8 @@ product_type: hat
 is_women: 
 is_men: 
 is_unisex: true
-original_price: $15
-sale_price: $10
+original_price: 15
+sale_price: 10
 color: white
 sizes:
 - size: "adjustable"

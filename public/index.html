@@ -44,6 +44,7 @@
 
 
 
+
 <body tabindex="-1">
 	<script>
 	;
@@ -77,7 +78,7 @@
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
 					<a class="is-flex" href="/">
-						<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+						<img class="logo" src="/image/logo.svg" alt="">
 					</a>
 				</div>
 				<div class="menu-switch-pos">
@@ -121,31 +122,24 @@
 			</a>
 		</label>
 		<div class="search-container">
-			
 			<div class="search-items box">
 				<div class="columns is-flex content">
 					
 					<div class="column p-0 is-flex is-flex-direction-column">
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
-							
-							
 							<p class="control">
 								<input checked type="checkbox" name="site-search" id="site-search">
-								
-								<label id="exit-search" class="button is-medium" for="site-search">
+								<label id="exit-search" class="button" for="site-search">
 									<span class="icon is-small is-left">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
 								</label>
 							</p>
 							<p id="fastSearch" class="control is-expanded">
-								<input id="searchInput" class="input is-medium" placeholder="search products" tabindex="0">
+								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
 								<ul id="searchResults">
 								</ul>
 							</p>
-							
-
-							
 						</div>
 					</div>
 				</div>
@@ -153,9 +147,6 @@
 		</div>
 	</div>
 </nav>
-
-
-
 										<nav class="account-drawer">
 	<div class="is-collapsable-account-drawer">
 		<input type="checkbox" name="account-drawer" id="account-drawer">
@@ -165,7 +156,7 @@
 					<span class="icon">
 						<span class="fa-solid fa-user"></span>
 					</span>
-					<span>account</span>
+					<span><strong>account</strong></span>
 				</span>
 			</label>
 		</button>
@@ -193,7 +184,6 @@
 							<a href="/account/loved/">
 								<h3>my love list</h3>
 							</a>
-							
 						</div>
 					</div>
 					
@@ -217,7 +207,7 @@
 					<span class="icon">
 						<span class="fa-solid fa-bag-shopping"></span>
 					</span>
-					<span class="is-hidden-mobile">bag</span>
+					<span class="is-hidden-mobile"><strong>bag</strong></span>
 					<span id="bag-count" class="snipcart-items-count"></span>
 				</span>
 			</label>
@@ -595,8 +585,9 @@
 			});
 		});
 	</script>
-	<script src="/js/fuse.min.js" type="text/javascript"></script>
-	<script src="/js/fastsearch.js" type="text/javascript"></script>
+	<script src="/js/fuse.min.js" type="text/javascript" defer></script>
+	<script src="/js/fastsearch.js" type="text/javascript" defer></script>
+	<script src="/js/lazysizes.min.js" type="text/javascript" async=""></script>
 	<script src="/js/index.js" type="text/javascript"></script>
 </body>
 

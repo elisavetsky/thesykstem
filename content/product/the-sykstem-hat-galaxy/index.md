@@ -5,7 +5,7 @@ is_women:
 is_men: 
 is_unisex: true
 is_variant: true
-original_price: $15
+original_price: 15
 sale_price:
 color: galaxy
 sizes:

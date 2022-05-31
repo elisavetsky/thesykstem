@@ -910,7 +910,11 @@ input#account-drawer {
 
 // Forms
 
-.select select, .textarea {
+.dropdown-content label {
+	width: 100%;
+}
+
+.select select, .textarea, .dropdown-content {
 	border-radius: $border-radius;
 }
 
@@ -1082,6 +1086,7 @@ input#account-drawer {
 }
 
 .wrapper-section {
+	min-height: 100vh;
 	position: relative;
 	h6, h5, h4, h3, h2, h1, strong {
 		color: $almostblack;

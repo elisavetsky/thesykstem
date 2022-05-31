@@ -1,0 +1,23 @@
+{{ define "main" }}
+
+{{ $logo := resources.Get "image/logo.png" }}
+{{ $logosvg := resources.Get "image/logo.svg" }}
+<section class="hero is-fullheight">
+	<div class="hero-body">
+		<div class="container content">
+			<header>
+				<figure class="image is-flex is-justify-content-center m-0 is-96x96">
+					<img class="logo" src="{{ $logosvg.Permalink }}" alt="the sykstem logo">
+				</figure>
+				<h3>404</h3>
+			</header>
+			<div class="block">
+				<h1>The page you were looking for is <strong>not</strong> here.</h1>
+			</div>
+			<div class="block">
+				<p>Try checking again in an alternate reality.</p>
+			</div>
+		</div>
+	</div>
+</section>
+{{ end }}

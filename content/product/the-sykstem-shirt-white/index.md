@@ -5,8 +5,8 @@ is_women:
 is_men: 
 is_unisex: true
 is_variant:
-original_price: $25
-sale_price: $20
+original_price: 25
+sale_price: 20
 color: white
 sizes:
 - size: "xxxs"

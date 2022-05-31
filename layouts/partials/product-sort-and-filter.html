@@ -1,0 +1,82 @@
+<div id="sort-filter-products-container" class="level is-mobile">
+	<div class="level-left">
+		<div class="level-item">
+			<div class="control has-icons-left">
+				<div class="select is-normal">
+					<select id="sort-products">
+						<option value="default">sort</option>
+						<option value="lowToHigh">low to high</option>
+						<option value="highToLow">high to low</option>
+					</select>
+				</div>
+				<span class="icon is-left">
+					<span class="fa-solid fa-sort"></span>
+				</span>
+			</div>
+		</div>
+		<div class="level-item">
+			<div class="dropdown is-hoverable is-right">
+				<div class="dropdown-trigger">
+					<button class="button" aria-haspopup="true" aria-controls="filter-dropdown">
+						<span>filter</span>
+						<span class="icon is-small">
+							<span class="fa-solid fa-filter" aria-hidden="true"></span>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu" id="filter-products" role="menu">
+					<div class="dropdown-content">
+						<div class="dropdown-item">
+							<p><strong>color</strong></p>
+						</div>
+						{{ partial "functions/get-page-range" . }}
+
+						{{ range $.Scratch.Get "page_range" }}
+
+						{{ $size_var := .Params.sizes }}
+						{{ $color := .Params.color }}
+						{{ $stock_exists := or (where (where $size_var "size" "eq" "adjustable") "stock" "gt" 0 )
+						(or (where (where $size_var "size" "eq" "xxxs") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "xxs") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "xs") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "s") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "m") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "l") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "xl") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "xxl") "stock" "gt" 0 ) 
+						(where (where $size_var "size" "eq" "xxxl") "stock" "gt" 0 ) ) }}
+
+						{{ with $stock_exists }}
+						{{ $.Scratch.Add "filter_colors" (slice $color) }}
+						{{ end }}
+						{{ end }}
+
+						{{ range $.Scratch.Get "filter_colors" | uniq }}
+						<div class="dropdown-item">
+							<label class="checkbox">
+								<input class="filter-option-color" type="checkbox" value="{{ . }}">
+								{{ . }}
+							</label>
+						</div>
+						{{ end }}
+						<hr class="dropdown-divider">
+						<div class="dropdown-item">
+							<p><strong>price</strong></p>
+						</div>
+						<div class="dropdown-item">
+							<p>(if I am smart enough this will also be added)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="clear-filters-button" class="level-item is-hidden">
+			<button class="button">
+				<span>reset</span>
+				<span class="icon">
+					<span class="fa fa-xmark"></span>
+				</span>
+			</button>
+		</div>
+	</div>
+</div>
