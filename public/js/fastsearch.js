@@ -113,7 +113,7 @@ function loadSearch() {
 			location: 0,
 			distance: 100,
 			threshold: 0.4,
-			minMatchCharLength: 1,
+			minMatchCharLength: 2,
 			keys: [
 				'title',
 				// 'permalink',

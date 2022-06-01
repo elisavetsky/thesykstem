@@ -11,19 +11,16 @@ var uncheckedColors = [];
 const sortDropdown = document.getElementById("sort-products");
 const filterDropdownValues = document.querySelectorAll(".filter-option-color");
 const clearFiltersButton = document.getElementById("clear-filters-button");
-
 const productGrid = document.querySelector(".product-grid");
-const productContainers = Array.from(document.querySelectorAll(".grid-product-container"));
 
 if (sortDropdown) {
-	
-	createProductObject();
-	
+
 	sortDropdown.addEventListener("change", handleSortDropdownValue);
 	clearFiltersButton.addEventListener("click", clearFilters);
-	
+
 	// Create Product Object
-	function createProductObject() {
+	function createProductObjects() {
+		const productContainers = Array.from(document.querySelectorAll(".grid-product-container"));
 		for (let i = 0; i < productContainers.length; i++) {
 			const productPrice = productContainers[i].querySelector(".price").textContent.replace("$", "");
 			const productColor = productContainers[i].querySelector(".product-page-color").textContent;
@@ -45,11 +42,11 @@ if (sortDropdown) {
 		} else {
 			colorArray.splice(colorArray.indexOf(option.target.value), 1);
 		}
-		console.log(colorArray);
 	}
 
 	filterDropdownValues.forEach((f) => {
 		f.addEventListener("change", (option) => {
+
 			getCheckedValue(option);
 
 			checkedColors = productArray.filter(el => colorArray.indexOf(el.color) >= 0);
@@ -98,17 +95,17 @@ if (sortDropdown) {
 
 	// Sort Products
 	function handleSortDropdownValue() {
-		if (sortDropdown.options[sortDropdown.selectedIndex].value === "lowToHigh") {
+		const sortValue = sortDropdown.options[sortDropdown.selectedIndex].value;
+		if (sortValue === "lowToHigh") {
 			sortLowToHigh();
-		} else if (sortDropdown.options[sortDropdown.selectedIndex].value === "highToLow") {
+		} else if (sortValue === "highToLow") {
 			sortHighToLow();
-		} else if (sortDropdown.options[sortDropdown.selectedIndex].value === "default") {
+		} else if (sortValue === "default") {
 			sortDefault();
 		}
 	}
 
 	function sortLowToHigh() {
-		console.log(checkedColors);
 		if (checkedColors.length > 0) {
 			checkedColors = checkedColors.sort((a, b) => a.price - b.price);
 			for (let i = 0; i < checkedColors.length; i++) {
@@ -138,21 +135,20 @@ if (sortDropdown) {
 
 	function sortDefault() {
 		if (checkedColors.length > 0) {
-			// checkedColors = checkedColors.sort((a, b) => a.price - b.price);
 			for (let i = 0; i < checkedColors.length; i++) {
 				productGrid.appendChild(checkedColors[i].container);
 			}
 		} else {
-			// productArray = productArray.sort((a, b) => a.price - b.price);
 			for (let i = 0; i < initialProductArray.length; i++) {
 				productGrid.appendChild(initialProductArray[i].container);
 			}
 		}
 	}
+
 }
 
 // Product Zoom In
-if (currentURL.includes("product")) {
+if (currentURL.indexOf("product") >= 0) {
 
 	const activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");
@@ -208,15 +204,21 @@ function zoomProduct(xOffset, yOffset, event) {
 
 // Love Component
 let loveArray = [];
+let currentLoved = [];
+const allProductsArray = [];
+const productsOnPageArray = [];
+let productsOnPageList = [];
+let lovedProductsOnPageArray = []
 
 function loveUnloveProduct(productID) {
+
 	const checkbox = document.querySelector("#love-button-" + productID);
 	if (checkbox.checked === true) {
 		if (JSON.parse(localStorage.getItem("lovedProd")) != null) {
 			loveArray = JSON.parse(localStorage.getItem("lovedProd"));
 		}
 		loveArray.push(productID);
-	} else if (checkbox.checked === false) {
+	} else {
 		if (JSON.parse(localStorage.getItem("lovedProd")) != null) {
 			loveArray = JSON.parse(localStorage.getItem("lovedProd"));
 			var itemIndex = loveArray.indexOf(productID);
@@ -232,25 +234,25 @@ function loveUnloveProduct(productID) {
 
 function loadLovedProducts() {
 
-	const allProductsArray = [];
-	const productsOnPageArray = [];
-	const productsOnPageList = Array.from(document.querySelectorAll(".grid-product-container"));
+	productsOnPageList = Array.from(document.querySelectorAll(".grid-product-container"));
+
 	const sortFilterProductsContainer = document.querySelector("#sort-filter-products-container");
 	const checkLovedProdExists = JSON.parse(localStorage.getItem("lovedProd"));
 
 	if (checkLovedProdExists) {
 		if (checkLovedProdExists.length > 0) {
-			const currentLoved = JSON.parse(localStorage.getItem("lovedProd"));
-			if (currentURL.includes("/account/loved")) {
+			currentLoved = JSON.parse(localStorage.getItem("lovedProd"));
+			if (currentURL.indexOf("/account/loved") >= 0) {
+
 
 				for (i = 0; i < currentLoved.length; i++) {
 					const gridProductLovedContainer = document.querySelectorAll("#" + currentLoved[i]);
-					if (currentLoved.includes(gridProductLovedContainer[0].id)) {
+					if (currentLoved.indexOf(gridProductLovedContainer[0].id) >= 0) {
 						gridProductLovedContainer.forEach(el => el.classList.remove("is-hidden"));
 					}
 				}
 				productsOnPageList.forEach(el => allProductsArray.push(el.id));
-				const productsNotLoved = allProductsArray.filter(match => !currentLoved.includes(match));
+				const productsNotLoved = allProductsArray.filter(match => currentLoved.indexOf(match) == -1);
 				for (i = 0; i < currentLoved.length; i++) {
 					document.querySelector("#love-button-" + currentLoved[i]).checked = true;
 				}
@@ -260,13 +262,13 @@ function loadLovedProducts() {
 				}
 			} else {
 				productsOnPageList.forEach(el => productsOnPageArray.push(el.id));
-				const productsWillBeLoved = productsOnPageArray.filter(match => currentLoved.includes(match));
+				const productsWillBeLoved = productsOnPageArray.filter(match => currentLoved.indexOf(match) >= 0);
 				for (i = 0; i < productsWillBeLoved.length; i++) {
 					document.querySelector("#love-button-" + productsWillBeLoved[i]).checked = true;
 				}
 			}
 		} else {
-			if (currentURL.includes("/account/loved")) {
+			if (currentURL.indexOf("/account/loved") >= 0) {
 
 				sortFilterProductsContainer.classList.add("is-hidden");
 
@@ -278,12 +280,26 @@ function loadLovedProducts() {
 			}
 		}
 	} else {
-		if (currentURL.includes("/account/loved")) {
+		if (currentURL.indexOf("/account/loved") >= 0) {
 
 			sortFilterProductsContainer.classList.add("is-hidden");
 
 			const loveListSubtitle = document.querySelector("#my-love-list p");
 			loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
+		}
+	}
+
+	// Find products & colors present on page
+	createProductObjects();
+	loadAvailableColorsInLoveList();
+}
+
+function loadAvailableColorsInLoveList() {
+	if (currentURL.indexOf("/account/loved") >= 0) {
+		const filterColors = Array.from(filterDropdownValues);
+		const availFilterColors = filterColors.filter(el => !productArray.some(i => i.color === el.value));
+		for (let i = 0; i < availFilterColors.length; i++) {
+			availFilterColors[i].parentElement.parentElement.remove();
 		}
 	}
 }

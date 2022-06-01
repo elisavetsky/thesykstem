@@ -1,5 +1,5 @@
 ---
-title: "the classic system"
+title: "the classic sykstem"
 product_type: hat
 is_women: 
 is_men: 

@@ -1,92 +1,168 @@
 // Check URL
-var currentURL = window.location.href;
+const currentURL = window.location.href;
 
-// Product Sort
-var productArray = [];
+// Product Sort & Filter
+let initialProductArray = [];
+let productArray = [];
+let colorArray = [];
+var checkedColors = [];
+var uncheckedColors = [];
+
 const sortDropdown = document.getElementById("sort-products");
+const filterDropdownValues = document.querySelectorAll(".filter-option-color");
+const clearFiltersButton = document.getElementById("clear-filters-button");
+
 const productGrid = document.querySelector(".product-grid");
-var productContainers = Array.from(document.querySelectorAll(".grid-product-container"));
-if (currentURL.includes("loved") || currentURL.includes("unisex") || currentURL.includes("sale") || currentURL.includes("men") || currentURL.includes("women")) {
+const productContainers = Array.from(document.querySelectorAll(".grid-product-container"));
+
+if (sortDropdown) {
 	
+	createProductObject();
 	
+	sortDropdown.addEventListener("change", handleSortDropdownValue);
+	clearFiltersButton.addEventListener("click", clearFilters);
 	
-	
-	
-	
-	sortDropdown.addEventListener("change", handleDropdownValue);
-	
-	function handleDropdownValue() {
-		createProductObject();
+	// Create Product Object
+	function createProductObject() {
+		for (let i = 0; i < productContainers.length; i++) {
+			const productPrice = productContainers[i].querySelector(".price").textContent.replace("$", "");
+			const productColor = productContainers[i].querySelector(".product-page-color").textContent;
+			const productObject = {
+				container: productContainers[i],
+				price: productPrice,
+				color: productColor
+			}
+			initialProductArray.push(productObject);
+			productArray.push(productObject);
+		}
+	}
+
+	// Filter Products (Color)
+	function getCheckedValue(option) {
+		const checkedStatus = option.target.checked;
+		if (checkedStatus === true) {
+			colorArray.push(option.target.value);
+		} else {
+			colorArray.splice(colorArray.indexOf(option.target.value), 1);
+		}
+		console.log(colorArray);
+	}
+
+	filterDropdownValues.forEach((f) => {
+		f.addEventListener("change", (option) => {
+			getCheckedValue(option);
+
+			checkedColors = productArray.filter(el => colorArray.indexOf(el.color) >= 0);
+			uncheckedColors = productArray.filter(el => colorArray.indexOf(el.color) == -1);
+
+			changeClearFiltersButtonState();
+
+			for (let i = 0; i < checkedColors.length; i++) {
+				productGrid.appendChild(checkedColors[i].container);
+			}
+			for (i = 0; i < uncheckedColors.length; i++) {
+				const colorsRemovedFromList = document.querySelectorAll("#" + uncheckedColors[i].container.id);
+				colorsRemovedFromList.forEach(el => el.remove());
+			}
+			if ((uncheckedColors.length == productArray.length) && productArray.every(el => uncheckedColors.indexOf(el) >= 0)) {
+				for (let i = 0; i < productArray.length; i++) {
+					productGrid.appendChild(productArray[i].container);
+				}
+			}
+			handleSortDropdownValue();
+		});
+	});
+
+	function changeClearFiltersButtonState() {
+		if (checkedColors.length > 0) {
+			clearFiltersButton.classList.remove("is-hidden");
+		} else {
+			clearFiltersButton.classList.add("is-hidden");
+		}
+	}
+
+	function clearFilters() {
+		filterDropdownValues.forEach((el) => {
+			if (el.checked == true) {
+				el.checked = false;
+			}
+		})
+		for (let i = 0; i < initialProductArray.length; i++) {
+			productGrid.appendChild(initialProductArray[i].container);
+		}
+		colorArray = [];
+		checkedColors = [];
+		handleSortDropdownValue();
+		clearFiltersButton.classList.add("is-hidden");
+	}
+
+	// Sort Products
+	function handleSortDropdownValue() {
 		if (sortDropdown.options[sortDropdown.selectedIndex].value === "lowToHigh") {
 			sortLowToHigh();
 		} else if (sortDropdown.options[sortDropdown.selectedIndex].value === "highToLow") {
 			sortHighToLow();
+		} else if (sortDropdown.options[sortDropdown.selectedIndex].value === "default") {
+			sortDefault();
 		}
 	}
-	
-	function createProductObject() {
-		for (let i = 0; i < productContainers.length; i++) {
-			const productPrice = productContainers[i].querySelector(".price").textContent.replace("$", "");
-			const productObject = {
-				container: productContainers[i],
-				price: productPrice
-			}
-			productArray.push(productObject);
-		}
-	}
-	
+
 	function sortLowToHigh() {
-		productArray = productArray.sort((a, b) => a.price - b.price);
-		for (let i = 0; i < productArray.length; i++) {
-			productGrid.appendChild(productArray[i].container);
+		console.log(checkedColors);
+		if (checkedColors.length > 0) {
+			checkedColors = checkedColors.sort((a, b) => a.price - b.price);
+			for (let i = 0; i < checkedColors.length; i++) {
+				productGrid.appendChild(checkedColors[i].container);
+			}
+		} else {
+			productArray = productArray.sort((a, b) => a.price - b.price);
+			for (let i = 0; i < productArray.length; i++) {
+				productGrid.appendChild(productArray[i].container);
+			}
 		}
 	}
-	
+
 	function sortHighToLow() {
-		productArray = productArray.sort((a, b) => b.price - a.price);
-		for (let i = 0; i < productArray.length; i++) {
-			productGrid.appendChild(productArray[i].container);
+		if (checkedColors.length > 0) {
+			checkedColors = checkedColors.sort((a, b) => b.price - a.price);
+			for (let i = 0; i < checkedColors.length; i++) {
+				productGrid.appendChild(checkedColors[i].container);
+			}
+		} else {
+			productArray = productArray.sort((a, b) => b.price - a.price);
+			for (let i = 0; i < productArray.length; i++) {
+				productGrid.appendChild(productArray[i].container);
+			}
+		}
+	}
+
+	function sortDefault() {
+		if (checkedColors.length > 0) {
+			// checkedColors = checkedColors.sort((a, b) => a.price - b.price);
+			for (let i = 0; i < checkedColors.length; i++) {
+				productGrid.appendChild(checkedColors[i].container);
+			}
+		} else {
+			// productArray = productArray.sort((a, b) => a.price - b.price);
+			for (let i = 0; i < initialProductArray.length; i++) {
+				productGrid.appendChild(initialProductArray[i].container);
+			}
 		}
 	}
 }
 
-
-// 
-// for (let i = 0; i < productContainersSale.length; i++) {
-// 	var salePrice = productContainersSale[i].textContent.replace("$", "");
-// 	priceArray.push(salePrice);
-// }
-// for (let i = 0; i < productContainersNotSale.length; i++) {
-// 	var originalPrice = productContainersNotSale[i].textContent.replace("$", "");
-// 	priceArray.push(originalPrice);
-// }
-// 
-// console.log(priceArray);
-// console.log(productContainers);
-
-
-
-// for (let i = 0; i < (productContainers.length * 3); i++) {
-// 	var foundValues = productContainers.some(v => sortArray.indexOf(v) !== -1);
-// }
-
-// console.log(sortArray);
-// console.log(productContainers);
-
-
-
 // Product Zoom In
 if (currentURL.includes("product")) {
 
-	var activeCollection = document.querySelector(".active-image");
+	const activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");
 	var activeZoomed = document.querySelector(".active-image .image-zoomed");
-	var thumbs = document.querySelectorAll(".gallery label");
+	const thumbs = document.querySelectorAll(".gallery label");
 	for (let i = 0; i < thumbs.length; i++) {
-		thumbs[i].addEventListener("click", function() {
+		thumbs[i].addEventListener("click", () => {
 			document.querySelector(".active-image").classList.remove("active-image");
-			var activeThumb = this.getAttribute("for");
-			var activeFull = document.getElementById(activeThumb).nextElementSibling;
+			const activeThumb = this.getAttribute("for");
+			const activeFull = document.getElementById(activeThumb).nextElementSibling;
 			activeFull.classList.add("active-image");
 			activeNormal = activeFull.firstElementChild;
 			activeZoomed = activeFull.lastElementChild;
@@ -106,9 +182,9 @@ function getCoordinates(event) {
 }
 
 function zoomProduct(xOffset, yOffset, event) {
-	var targetArray = [event.target.parentNode.firstElementChild, event.target.parentNode.lastElementChild];
-	var productImageNormal = targetArray[0];
-	var productImageZoomed = targetArray[1];
+	const targetArray = [event.target.parentNode.firstElementChild, event.target.parentNode.lastElementChild];
+	const productImageNormal = targetArray[0];
+	const productImageZoomed = targetArray[1];
 	const nWidthZoomed = productImageZoomed.naturalWidth;
 	const nHeightZoomed = productImageZoomed.naturalHeight;
 	const nWidthNormal = productImageNormal.naturalWidth;
@@ -131,10 +207,10 @@ function zoomProduct(xOffset, yOffset, event) {
 }
 
 // Love Component
-var loveArray = [];
+let loveArray = [];
 
 function loveUnloveProduct(productID) {
-	var checkbox = document.querySelector("#love-button-" + productID);
+	const checkbox = document.querySelector("#love-button-" + productID);
 	if (checkbox.checked === true) {
 		if (JSON.parse(localStorage.getItem("lovedProd")) != null) {
 			loveArray = JSON.parse(localStorage.getItem("lovedProd"));
@@ -156,218 +232,58 @@ function loveUnloveProduct(productID) {
 
 function loadLovedProducts() {
 
-	var allProductsArray = [];
-	var productsOnPageArray = [];
-	var allProductsList = Array.from(document.querySelectorAll(".grid-product-container-love-list"));
-	var productsOnPageList = Array.from(document.querySelectorAll(".grid-product-container"));
-	var checkLovedProdExists = JSON.parse(localStorage.getItem("lovedProd"));
-
+	const allProductsArray = [];
+	const productsOnPageArray = [];
+	const productsOnPageList = Array.from(document.querySelectorAll(".grid-product-container"));
+	const sortFilterProductsContainer = document.querySelector("#sort-filter-products-container");
+	const checkLovedProdExists = JSON.parse(localStorage.getItem("lovedProd"));
 
 	if (checkLovedProdExists) {
-		if (checkLovedProdExists.length) {
-			var currentLoved = JSON.parse(localStorage.getItem("lovedProd"));
+		if (checkLovedProdExists.length > 0) {
+			const currentLoved = JSON.parse(localStorage.getItem("lovedProd"));
 			if (currentURL.includes("/account/loved")) {
+
 				for (i = 0; i < currentLoved.length; i++) {
-					var gridProductLovedContainer = document.querySelectorAll("#" + currentLoved[i]);
+					const gridProductLovedContainer = document.querySelectorAll("#" + currentLoved[i]);
 					if (currentLoved.includes(gridProductLovedContainer[0].id)) {
-						gridProductLovedContainer.forEach(el => el.style.display = "flex");
+						gridProductLovedContainer.forEach(el => el.classList.remove("is-hidden"));
 					}
 				}
-				allProductsList.forEach(el => allProductsArray.push(el.id));
-				var productsNotLoved = allProductsArray.filter(match => !currentLoved.includes(match));
+				productsOnPageList.forEach(el => allProductsArray.push(el.id));
+				const productsNotLoved = allProductsArray.filter(match => !currentLoved.includes(match));
 				for (i = 0; i < currentLoved.length; i++) {
 					document.querySelector("#love-button-" + currentLoved[i]).checked = true;
 				}
 				for (i = 0; i < productsNotLoved.length; i++) {
-					var productsRemovedFromList = document.querySelectorAll("#" + productsNotLoved[i]);
+					const productsRemovedFromList = document.querySelectorAll("#" + productsNotLoved[i]);
 					productsRemovedFromList.forEach(el => el.remove());
 				}
 			} else {
 				productsOnPageList.forEach(el => productsOnPageArray.push(el.id));
-				var productsWillBeLoved = productsOnPageArray.filter(match => currentLoved.includes(match));
+				const productsWillBeLoved = productsOnPageArray.filter(match => currentLoved.includes(match));
 				for (i = 0; i < productsWillBeLoved.length; i++) {
 					document.querySelector("#love-button-" + productsWillBeLoved[i]).checked = true;
 				}
 			}
 		} else {
 			if (currentURL.includes("/account/loved")) {
-				var loveListSubtitle = document.querySelector("#my-love-list p");
-				var loveListSection = document.querySelector(".section.is-small");
-				loveListSection.style.minHeight = "877px";
-				loveListSubtitle.innerHTML = "No items yet! Try adding some and check back here.";
-				for (i = 0; i < allProductsList.length; i++) {
-					allProductsList.forEach(el => el.remove());
+
+				sortFilterProductsContainer.classList.add("is-hidden");
+
+				const loveListSubtitle = document.querySelector("#my-love-list p");
+				loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
+				for (i = 0; i < productsOnPageList.length; i++) {
+					productsOnPageList.forEach(el => el.remove());
 				}
 			}
 		}
+	} else {
+		if (currentURL.includes("/account/loved")) {
+
+			sortFilterProductsContainer.classList.add("is-hidden");
+
+			const loveListSubtitle = document.querySelector("#my-love-list p");
+			loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
+		}
 	}
 }
-
-
-
-
-
-
-
-// console.log((calcX) + " " + (calcY));
-// for (var i = 0; i < 10; i++) {
-// 	setTimeout(function() {
-// 		console.log(xOffset);
-// 		// 
-// 	}, 50 * i);
-// }
-
-
-
-
-// for (var i = 0; i < targetArray.length; i++) {
-// 
-// 	// console.log(xOffset, yOffset);
-// 	if (productImageNormal[i].style.opacity == 1 && productImageZoomed[i].style.opacity == 0) {
-// 		productImageNormal[i].style.opacity = 0;
-// 		productImageNormal[i].style.zIndex = 3;
-// 		productImageZoomed[i].style.opacity = 1;
-// 		productImageZoomed[i].style.zIndex = 4;
-// 	} else if (productImageNormal[i].style.opacity == 0 && productImageZoomed[i].style.opacity == 1) {
-// 		productImageNormal[i].style.opacity = 1;
-// 		productImageNormal[i].style.zIndex = 4;
-// 		productImageZoomed[i].style.opacity = 0;
-// 		productImageZoomed[i].style.zIndex = 3;
-// 	}
-// 
-// 	const nWidthZoomed = productImageZoomed[i].naturalWidth;
-// 	const nHeightZoomed = productImageZoomed[i].naturalHeight;
-// 	const nWidthNormal = productImageNormal[i].naturalWidth;
-// 	const nHeightNormal = productImageNormal[i].naturalHeight;
-// 	const zoomScaleDesktop = nHeightNormal / nHeightZoomed;
-// 
-// 	calcX = (xOffset) * (zoomScaleDesktop - (1 + zoomScaleDesktop));
-// 	calcY = (yOffset) * (zoomScaleDesktop - (1 + zoomScaleDesktop));
-// 	productImageZoomed[i].style.left = calcX + "px";
-// 	productImageZoomed[i].style.top = calcY + "px";
-// 
-// }
-
-// productImageZoomed.forEach(i => {
-// 	// console.log(event.offsetX);
-// 	i.addEventListener("click", function(event) {		
-// 		
-// 	});
-// 	if (i.style.opacity == 1) {
-// 		i.style.opacity = 0;
-// 		i.style.zIndex = 0;
-// 	} else if (i.style.opacity == 0) {
-// 		i.style.opacity = 1;
-// 		i.style.zIndex = 1;
-// 	}
-// 	// i.style.left = calcX + "px";
-// 	// console.log(calcX, calcY);
-// 	// i.style.top = calcY + "px";
-// });
-// productImageNormal.forEach(i => {
-// 	// console.log(event.offsetX);
-// 	i.addEventListener("click", function(event) {		
-// 		
-// 	});
-// 	if (i.style.opacity == 1) {
-// 		i.style.opacity = 0;
-// 		i.style.zIndex = 0;
-// 	} else if (i.style.opacity == 0) {
-// 		i.style.opacity = 1;
-// 		i.style.zIndex = 1;
-// 	}
-// });
-
-// console.log(event.target.classList);
-
-// if (theTarget.classList.contains("image-normal")) {
-// 	if (theTarget.style.opacity == 1) {
-// 		theTarget.style.opacity = 0;
-// 		theTarget.style.zIndex = 3;
-// 		targetSibling.style.opacity = 1;
-// 		targetSibling.style.zIndex = 4;
-// 		targetSibling.style.left = calcX + "px";
-// 		targetSibling.style.top = calcY + "px";
-// 	} else {
-// 		theTarget.style.opacity = 1;
-// 		theTarget.style.zIndex = 4;
-// 		targetSibling.style.opacity = 0;
-// 		targetSibling.style.zIndex = 3;
-// 	}
-// } else {
-// 	console.log(event.target);
-// 	if (theTarget.style.opacity == 1) {
-// 		theTarget.style.opacity = 0;
-// 		theTarget.style.zIndex = 3;
-// 		targetFirstSibling.style.opacity = 1;
-// 		theTarget.style.zIndex = 4;
-// 		
-// 	} else {
-// 		theTarget.style.opacity = 1;
-// 		theTarget.style.zIndex = 4;
-// 		targetFirstSibling.style.opacity = 0;
-// 		targetFirstSibling.style.zIndex = 3;
-// 		theTarget.style.left = calcX + "px";
-// 		theTarget.style.top = calcY + "px";
-// 	}
-// }
-
-
-// 	productImageNormal.forEach((i) => {
-// 		i.addEventListener("click", getCoordinates);
-// 		// console.log(event.offsetX);
-// 		if (i.style.opacity == 1) {
-// 			i.style.opacity = 0;
-// 		} else if (i.style.opacity == 0) {
-// 			i.style.opacity = 1;
-// 		}
-// 	});
-// 	
-// 	productImageZoomed.forEach((i) => {
-// 		i.addEventListener("click", getCoordinates);
-// 		// console.log(event.offsetX);
-// 		if (i.style.opacity == 1) {
-// 			i.style.opacity = 0;
-// 		} else if (i.style.opacity == 0) {
-// 			i.style.opacity = 1;
-// 		}
-// 		const nHeightZoomed = i.naturalHeight;
-// 		const nHeightNormal = i.naturalHeight;
-// 		const zoomScaleDesktop = nHeightNormal / nHeightZoomed;
-// 		
-// 
-// 		calcX = (xOffset) * (zoomScaleDesktop - (1 + zoomScaleDesktop));
-// 		calcY = (yOffset) * (zoomScaleDesktop - (1 + zoomScaleDesktop));
-// 		// console.log(xOffset, yOffset, zoomScaleDesktop);
-// 		i.style.left = calcX + "px";
-// 		i.style.top = calcY + "px";
-// 		
-// 		
-// 	});
-
-
-
-// console.log(xOffset, yOffset, zoomScaleDesktop);
-// coordinateArray.push(xOffset);
-// var last8 = coordinateArray.slice(-8);
-// console.log(last8);
-// for (let u = 0; u < 4; u++) {
-
-// console.log("CONTINUE FUN+CTION");
-// }
-
-// while (coordinateArray.length > 10 && !last8.every((val, i, array) => val === array[0]) && coordinateArray.length < 20) {
-// coordinateArray.push(xOffset);
-// console.log("hello world");
-// productImageZoomed[i].style.left = calcX + "px";
-// productImageZoomed[i].style.top = calcY + "px";
-// console.log(coordinateArray);
-// theLoop();
-
-// }
-
-// console.log(coordinateArray);
-// 
-// console.log(lastTen);
-
-// console.log(event.target);

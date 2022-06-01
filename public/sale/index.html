@@ -42,7 +42,7 @@
 
 <body onpageshow="loadLovedProducts()">
 
-
+	
 
 
 
@@ -131,8 +131,8 @@
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
 							<p class="control">
 								<input checked type="checkbox" name="site-search" id="site-search">
-								<label id="exit-search" class="button" for="site-search">
-									<span class="icon is-small is-left">
+								<label id="exit-search" class="button is-medium" for="site-search">
+									<span class="icon is-medium is-left">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
 								</label>
@@ -409,19 +409,23 @@
 		</div>
 	</nav>
 </body>
-<section class="wrapper-section">
-<img class="background-cover" src="/image/product-background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_2403315_2000x0_resize_q75_box.jpg" alt="">
-	<div class="section is-small">
-		<div class="container">
-			<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
-			<h1 id="sale">sale</h1>
+	<section class="wrapper-section">
+		<img class="background-cover" src="/image/product-background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_2403315_2000x0_resize_q75_box.jpg" alt="">
+		<div class="section is-small">
+			<div class="container">
+				<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
+					<h1 id="sale">sale</h1>
 <p><em>Our</em> sales are out of this world.</p>
 
-			</div>
-			<div class="control has-icons-left mb-5">
+				</div>
+				
+				<div id="sort-filter-products-container" class="level is-mobile">
+	<div class="level-left">
+		<div class="level-item">
+			<div class="control has-icons-left">
 				<div class="select is-normal">
 					<select id="sort-products">
-						<option value="">sort</option>
+						<option value="default">sort</option>
 						<option value="lowToHigh">low to high</option>
 						<option value="highToLow">high to low</option>
 					</select>
@@ -430,22 +434,119 @@
 					<span class="fa-solid fa-sort"></span>
 				</span>
 			</div>
-			<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+		</div>
+		<div class="level-item">
+			<div class="dropdown is-hoverable is-right">
+				<div class="dropdown-trigger">
+					<button class="button" aria-haspopup="true" aria-controls="filter-dropdown">
+						<span>filter</span>
+						<span class="icon is-small">
+							<span class="fa-solid fa-filter" aria-hidden="true"></span>
+						</span>
+					</button>
+				</div>
+				<div class="dropdown-menu" id="filter-products" role="menu">
+					<div class="dropdown-content">
+						<div class="dropdown-item">
+							<p><strong>color</strong></p>
+						</div>
+						
+
+
+
+
+
+
+
+
+
+
+						
+
+						
+						
+						
+
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+						
+
+						
+						
+						
+
+						
+						
+						
+						
+
+						
+						<div class="dropdown-item">
+							<label class="checkbox">
+								<input class="filter-option-color" type="checkbox" value="white">
+								white
+							</label>
+						</div>
+						
+						<div class="dropdown-item">
+							<label class="checkbox">
+								<input class="filter-option-color" type="checkbox" value="galaxy">
+								galaxy
+							</label>
+						</div>
+						
+						<hr class="dropdown-divider">
+						<div class="dropdown-item">
+							<p><strong>price</strong></p>
+						</div>
+						<div class="dropdown-item">
+							<p>(if I am smart enough this will also be added)</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div id="clear-filters-button" class="level-item is-hidden">
+			<button class="button">
+				<span>reset</span>
+				<span class="icon">
+					<span class="fa fa-xmark"></span>
+				</span>
+			</button>
+		</div>
+	</div>
+</div>
 				
-				
-				
-				
-				
-				
-				
-				<div id="the-sykstem-hat-white" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
-					<div class="tile is-ancestor">
-						<div class="tile is-parent">
-							<div class="box tile is-child is-article">
-								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-								
-									<div class="product-in-list">
-										
+				<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+					
+					
+					
+					
+					
+					
+					
+					
+					
+					
+
+					<div id="the-sykstem-hat-white" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
+						<div class="tile is-ancestor">
+							<div class="tile is-parent">
+								<div class="box tile is-child is-article">
+									<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+
+										<div class="product-in-list">
+											
 
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
@@ -460,24 +561,24 @@
 		</div>
 	</div>
 </body>
-										<a href="/product/the-sykstem-hat-white/">
-										<h1>the classic system</h1>
-										
-										
-										
-										
-										
-										
-										
-										<figure>
-											<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_500x0_resize_q75_box_3.png" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_500x0_resize_q75_box_3.png" alt="our v1 company hat">
-										</figure>
-										
-										</a>
-									</div>
-								
-									<div>
-									
+											<a href="/product/the-sykstem-hat-white/">
+												<h1>the classic system</h1>
+												
+
+												
+												
+												
+												
+												
+												<figure>
+													<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_500x0_resize_q75_box_3.png" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1905522_500x0_resize_q75_box_3.png" alt="our v1 company hat">
+												</figure>
+												
+											</a>
+										</div>
+
+										<div>
+											
 
 
 
@@ -501,7 +602,7 @@
 	<span class="product-page-color">white</span>
 </div>
 
-									
+											
 
 
 
@@ -514,26 +615,26 @@
 			</span>
 		</a>
 	</div>
-	
 
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				
-				
-				
-				
-				<div id="the-sykstem-shirt-galaxy" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
-					<div class="tile is-ancestor">
-						<div class="tile is-parent">
-							<div class="box tile is-child is-article">
-								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-								
-									<div class="product-in-list">
-										
+					
+					
+					
+					
+
+					<div id="the-sykstem-shirt-galaxy" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
+						<div class="tile is-ancestor">
+							<div class="tile is-parent">
+								<div class="box tile is-child is-article">
+									<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+
+										<div class="product-in-list">
+											
 
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
@@ -548,24 +649,24 @@
 		</div>
 	</div>
 </body>
-										<a href="/product/the-sykstem-shirt-galaxy/">
-										<h1>the system</h1>
-										
-										
-										
-										
-										
-										
-										
-										<figure>
-											<img class="lazyload" data-src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_500x0_resize_q75_box_3.png" src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_500x0_resize_q75_box_3.png" alt="the classic the-sykstem shirt with &#39;the system&#39; written on the bottom">
-										</figure>
-										
-										</a>
-									</div>
-								
-									<div>
-									
+											<a href="/product/the-sykstem-shirt-galaxy/">
+												<h1>the system</h1>
+												
+
+												
+												
+												
+												
+												
+												<figure>
+													<img class="lazyload" data-src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_500x0_resize_q75_box_3.png" src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_500x0_resize_q75_box_3.png" alt="the classic the-sykstem shirt with &#39;the system&#39; written on the bottom">
+												</figure>
+												
+											</a>
+										</div>
+
+										<div>
+											
 
 
 
@@ -589,7 +690,7 @@
 	<span class="product-page-color">galaxy</span>
 </div>
 
-									
+											
 
 
 
@@ -602,26 +703,26 @@
 			</span>
 		</a>
 	</div>
-	
 
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
-				</div>
-				
-				
-				
-				
-				<div id="the-sykstem-shirt-white" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
-					<div class="tile is-ancestor">
-						<div class="tile is-parent">
-							<div class="box tile is-child is-article">
-								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-								
-									<div class="product-in-list">
-										
+					
+					
+					
+					
+
+					<div id="the-sykstem-shirt-white" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
+						<div class="tile is-ancestor">
+							<div class="tile is-parent">
+								<div class="box tile is-child is-article">
+									<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+
+										<div class="product-in-list">
+											
 
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
@@ -636,24 +737,24 @@
 		</div>
 	</div>
 </body>
-										<a href="/product/the-sykstem-shirt-white/">
-										<h1>the system</h1>
-										
-										
-										
-										
-										
-										
-										
-										<figure>
-											<img class="lazyload" data-src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_12114239_500x0_resize_q75_box_3.png" src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_12114239_500x0_resize_q75_box_3.png" alt="the classic the-sykstem shirt with &#34;the system&#34; written on the bottom">
-										</figure>
-										
-										</a>
-									</div>
-								
-									<div>
-									
+											<a href="/product/the-sykstem-shirt-white/">
+												<h1>the system</h1>
+												
+
+												
+												
+												
+												
+												
+												<figure>
+													<img class="lazyload" data-src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_12114239_500x0_resize_q75_box_3.png" src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_12114239_500x0_resize_q75_box_3.png" alt="the classic the-sykstem shirt with &#34;the system&#34; written on the bottom">
+												</figure>
+												
+											</a>
+										</div>
+
+										<div>
+											
 
 
 
@@ -677,7 +778,7 @@
 	<span class="product-page-color">white</span>
 </div>
 
-									
+											
 
 
 
@@ -690,20 +791,19 @@
 			</span>
 		</a>
 	</div>
-	
 
+										</div>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+					
 				</div>
-				
 			</div>
 		</div>
-	</div>
-</section>
-
+	</section>
+	
 
 <body>
 	<footer class="footer">

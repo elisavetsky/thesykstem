@@ -14,4 +14,7 @@
 {{ else if eq $page "/sale/" }}
 {{ $.Scratch.Set "page_range" $on_sale }}
 
+{{ else if eq $page "/account/loved/" }}
+{{ $.Scratch.Set "page_range" $products }}
+
 {{ end }}

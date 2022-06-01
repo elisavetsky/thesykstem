@@ -1,5 +1,5 @@
 ---
-title: "the system"
+title: "the sykstem"
 product_type: "shirt"
 is_women: 
 is_men: 
