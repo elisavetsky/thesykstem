@@ -29,6 +29,7 @@
 						<div class="dropdown-item">
 							<p><strong>color</strong></p>
 						</div>
+						<div id="filter-colors">
 						{{ partial "functions/get-page-range" . }}
 
 						{{ range $.Scratch.Get "page_range" }}
@@ -59,13 +60,24 @@
 							</label>
 						</div>
 						{{ end }}
+						</div>
 						<hr class="dropdown-divider">
 						<div class="dropdown-item">
 							<p><strong>price</strong></p>
 						</div>
-						<div class="dropdown-item">
-							<p>(if I am smart enough this will also be added)</p>
+						<div id="filter-prices">
+							{{ range .Site.Data.price_filters }}	
+							{{ $range_low_value := .low }}
+							{{ $range_high_value := .high }}
+							<div class="dropdown-item">
+								<label class="checkbox">
+									<input class="filter-option-price" type="checkbox" value="{{ delimit (slice $range_low_value $range_high_value) "," }}">
+									{{ .price_range }}
+								</label>
+							</div>
+							{{ end }}
 						</div>
+						
 					</div>
 				</div>
 			</div>

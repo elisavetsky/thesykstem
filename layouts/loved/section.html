@@ -3,8 +3,7 @@
 {{ $herobackground := resources.Get "image/love-list-background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
 
-<body onpageshow="loadLovedProducts()">
-
+<body>
 	{{ partial "navbar" . }}
 	<section class="wrapper-section">
 		<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">

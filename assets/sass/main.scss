@@ -914,6 +914,13 @@ input#account-drawer {
 	width: 100%;
 }
 
+.dropdown-content label[disabled] {
+	text-decoration: line-through;
+	&::after {
+		content: "(0)"
+	}
+}
+
 .select select, .textarea, .dropdown-content {
 	border-radius: $border-radius;
 }

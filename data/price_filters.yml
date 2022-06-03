@@ -1,0 +1,9 @@
+- price_range: "$10 and under"
+  low: 0
+  high: 10
+- price_range: "$11 - $30"
+  low: 11
+  high: 30
+- price_range: "$31 - $50"
+  low: 31
+  high: 50
