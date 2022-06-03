@@ -59,6 +59,7 @@ if (sortDropdown) {
 		}
 	}
 
+	// Create price filter objects
 	function createPriceFilterObjects() {
 		for (let i = 0; i < filterPriceDropdownValues.length; i++) {
 			const lowPrice = Number(filterPriceDropdownValues[i].value.split(",").slice(0, 1));
@@ -72,20 +73,23 @@ if (sortDropdown) {
 		}
 	}
 
-	// function findProductsNotOnPage(currentProductsFiltered) {
-	// 	const productsNotOnPage = productArray.filter(el =>
-	// 		!currentProductsFiltered.some(i =>
-	// 			el.container.id === i.container.id))
-	// 	// console.log(productsNotOnPage)
-	// 	return productsNotOnPage;
-	// }
+	// Load selectable price filters based on products shown
+	function loadAvailablePriceFilters() {
 
+		const unavailFilterPricesOnPageVisit = allPriceFiltersArray.filter(fPrice =>
+			!productArray.some(pNot =>
+				fPrice.high >= pNot.price && fPrice.low <= pNot.price));
+		for (let i = 0; i < unavailFilterPricesOnPageVisit.length; i++) {
+			unavailFilterPricesOnPageVisit[i].container.parentElement.parentElement.remove();
+		}
+	}
+
+	// Find all newly filtered products
 	function findFilteredProductsOnPage(currentProductsFiltered) {
-		// console.log(currentProductsFiltered)
 		productsOnPage = productArray.filter(el =>
 			currentProductsFiltered.some(i =>
 				el.container.id === i.container.id))
-		// console.log(productsOnPage)
+
 		return productsOnPage;
 	}
 
@@ -120,9 +124,10 @@ if (sortDropdown) {
 
 		checkedColors = productArray.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
 		uncheckedColors = productArray.filter(pItem => colorFilterArray.indexOf(pItem.color) == -1);
-		
+
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
+			
 			checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
 		}
 
@@ -149,14 +154,14 @@ if (sortDropdown) {
 		f.addEventListener("change", (option) => {
 			const filterType = "color";
 			getCheckedValue(option, filterType);
-			handleSortDropdownValue();
 
 			var currentProductsFiltered = handleColorDropdownValue();
-
+	
 			if (currentPriceFilterArray.length > 0) {
 				currentProductsFiltered = handlePriceDropdownValue(currentProductsFiltered);
 			}
 			changeProductsAvailable(currentProductsFiltered);
+			handleSortDropdownValue();
 			changeClearFiltersButtonState();
 		});
 	});
@@ -170,7 +175,7 @@ if (sortDropdown) {
 		uncheckedPrices = productArray.filter(pItem =>
 			!currentPriceFilterArray.some(pFilter =>
 				pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-		
+
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
 			checkedPrices = currentProductsFiltered.filter(pItem =>
@@ -201,7 +206,6 @@ if (sortDropdown) {
 		f.addEventListener("change", (option) => {
 			const filterType = "price";
 			getCheckedValue(option, filterType);
-			handleSortDropdownValue();
 
 			var currentProductsFiltered = handlePriceDropdownValue();
 
@@ -209,6 +213,7 @@ if (sortDropdown) {
 				currentProductsFiltered = handleColorDropdownValue(currentProductsFiltered);
 			}
 			changeProductsAvailable(currentProductsFiltered);
+			handleSortDropdownValue();
 			changeClearFiltersButtonState();
 		});
 	});
@@ -225,12 +230,11 @@ if (sortDropdown) {
 			fPrice.high >= pOn.price && fPrice.low <= pOn.price));
 
 		availFilterColors = filterColors.filter(el => productsOnPage.some(i => i.color === el.value));
-
-		changeFiltersAvailable(productsOnPage);
+		
+		changeFiltersAvailable();
 	}
 
-	function changeFiltersAvailable(productsOnPage) {
-		console.log(productsOnPage)
+	function changeFiltersAvailable() {
 
 		if (currentPriceFilterArray.length > 0) {
 			if (availFilterPrices.length > 0) {
@@ -266,8 +270,18 @@ if (sortDropdown) {
 				unavailFilterPrices[i].container.parentElement.removeAttribute("disabled");
 			}
 		}
+		// uncheckDisabledCheckedFilters();
 	}
 
+	function uncheckDisabledCheckedFilters() {
+		for (let i = 0; i < filterColorDropdownValues.length; i++) {
+			if (filterColorDropdownValues[i].checked == true && filterColorDropdownValues[i].disabled == true) {
+				filterColorDropdownValues[i].checked = false;
+			}
+		}
+	}
+
+	// Hide or show reset filters button
 	function changeClearFiltersButtonState() {
 		if (colorFilterArray.length > 0 || currentPriceFilterArray.length > 0) {
 			clearFiltersButton.classList.remove("is-hidden");
@@ -308,7 +322,7 @@ if (sortDropdown) {
 		clearFiltersButton.classList.add("is-hidden");
 	}
 
-	// Sort Products
+	// Handle sort value
 	function handleSortDropdownValue() {
 		const sortValue = sortDropdown.options[sortDropdown.selectedIndex].value;
 		if (sortValue === "lowToHigh") {
@@ -320,6 +334,7 @@ if (sortDropdown) {
 		}
 	}
 
+	// Sort low to high
 	function sortLowToHigh() {
 		if (checkedColors.length > 0) {
 			checkedColors = checkedColors.sort((a, b) => a.price - b.price);
@@ -339,6 +354,7 @@ if (sortDropdown) {
 		}
 	}
 
+	// Sort high to low
 	function sortHighToLow() {
 		if (checkedColors.length > 0) {
 			checkedColors = checkedColors.sort((a, b) => b.price - a.price);
@@ -358,6 +374,7 @@ if (sortDropdown) {
 		}
 	}
 
+	// Default sort
 	function sortDefault() {
 		if (checkedColors.length > 0) {
 			for (let i = 0; i < checkedColors.length; i++) {
@@ -517,15 +534,7 @@ function loadLovedProducts() {
 	}
 }
 
-function loadAvailablePriceFilters() {
-	
-	const unavailFilterPricesOnPageVisit = allPriceFiltersArray.filter(fPrice =>
-		!productArray.some(pNot =>
-			fPrice.high >= pNot.price && fPrice.low <= pNot.price));
-	for (let i = 0; i < unavailFilterPricesOnPageVisit.length; i++) {
-		unavailFilterPricesOnPageVisit[i].container.parentElement.parentElement.remove();
-	}
-}
+
 
 function loadAvailableColorsInLoveList() {
 	if (currentURL.indexOf("/account/loved") >= 0) {

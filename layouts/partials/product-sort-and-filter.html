@@ -26,17 +26,25 @@
 				</div>
 				<div class="dropdown-menu" id="filter-products" role="menu">
 					<div class="dropdown-content">
+						<div id="clear-filters-button" class="dropdown-item is-hidden">
+							<button class="button is-small">
+								<span>reset filters</span>
+								<span class="icon">
+									<span class="fa fa-xmark"></span>
+								</span>
+							</button>
+						</div>
 						<div class="dropdown-item">
 							<p><strong>color</strong></p>
 						</div>
 						<div id="filter-colors">
-						{{ partial "functions/get-page-range" . }}
+							{{ partial "functions/get-page-range" . }}
 
-						{{ range $.Scratch.Get "page_range" }}
+							{{ range $.Scratch.Get "page_range" }}
 
-						{{ $size_var := .Params.sizes }}
-						{{ $color := .Params.color }}
-						{{ $stock_exists := or (where (where $size_var "size" "eq" "adjustable") "stock" "gt" 0 )
+							{{ $size_var := .Params.sizes }}
+							{{ $color := .Params.color }}
+							{{ $stock_exists := or (where (where $size_var "size" "eq" "adjustable") "stock" "gt" 0 )
 						(or (where (where $size_var "size" "eq" "xxxs") "stock" "gt" 0 ) 
 						(where (where $size_var "size" "eq" "xxs") "stock" "gt" 0 ) 
 						(where (where $size_var "size" "eq" "xs") "stock" "gt" 0 ) 
@@ -47,26 +55,26 @@
 						(where (where $size_var "size" "eq" "xxl") "stock" "gt" 0 ) 
 						(where (where $size_var "size" "eq" "xxxl") "stock" "gt" 0 ) ) }}
 
-						{{ with $stock_exists }}
-						{{ $.Scratch.Add "filter_colors" (slice $color) }}
-						{{ end }}
-						{{ end }}
+							{{ with $stock_exists }}
+							{{ $.Scratch.Add "filter_colors" (slice $color) }}
+							{{ end }}
+							{{ end }}
 
-						{{ range $.Scratch.Get "filter_colors" | uniq }}
-						<div class="dropdown-item">
-							<label class="checkbox">
-								<input class="filter-option-color" type="checkbox" value="{{ . }}">
-								{{ . }}
-							</label>
-						</div>
-						{{ end }}
+							{{ range $.Scratch.Get "filter_colors" | uniq }}
+							<div class="dropdown-item">
+								<label class="checkbox">
+									<input class="filter-option-color" type="checkbox" value="{{ . }}">
+									{{ . }}
+								</label>
+							</div>
+							{{ end }}
 						</div>
 						<hr class="dropdown-divider">
 						<div class="dropdown-item">
 							<p><strong>price</strong></p>
 						</div>
 						<div id="filter-prices">
-							{{ range .Site.Data.price_filters }}	
+							{{ range .Site.Data.price_filters }}
 							{{ $range_low_value := .low }}
 							{{ $range_high_value := .high }}
 							<div class="dropdown-item">
@@ -77,18 +85,11 @@
 							</div>
 							{{ end }}
 						</div>
-						
+
 					</div>
 				</div>
 			</div>
 		</div>
-		<div id="clear-filters-button" class="level-item is-hidden">
-			<button class="button">
-				<span>reset</span>
-				<span class="icon">
-					<span class="fa fa-xmark"></span>
-				</span>
-			</button>
-		</div>
+
 	</div>
 </div>
