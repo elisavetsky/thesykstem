@@ -1,4 +1,4 @@
-<nav class="breadcrumb is-small has-arrow-separator" aria-label="breadcrumbs">
+<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
 	{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
 	{{ $.Scratch.Add "path" .Site.BaseURL }}
 	{{ $.Scratch.Add "currentURL" .Permalink }}

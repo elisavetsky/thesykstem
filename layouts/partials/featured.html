@@ -1,0 +1,29 @@
+{{ $feature := resources.Get .Site.Data.featured.image }}
+{{ $resized_feature := $feature.Resize "500x q80" }}
+
+
+{{ $feature2 := resources.Get .Site.Data.featured.image_2 }}
+{{ $resized_feature2 := $feature2.Resize "500x q80" }}
+
+{{ with .Site.Data.featured }}
+<a href="{{ .link }}">
+	<section class="section is-medium">
+		<div class="container">
+			<div class="content columns is-vcentered is-flex-direction-row-reverse">
+				<div class="column is-full-mobile is-4-tablet is-3-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<img class="lazyload" src="{{ $resized_feature2.Permalink }}" alt="one of our hats, in white">
+				</div>
+				<div class="column is-full-mobile is-4-tablet is-6-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<img class="lazyload" src="{{ $resized_feature.Permalink }}" alt="one of our hats, in white">
+				</div>
+				<div class="column is-full-mobile is-4-tablet is-3-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<h1 class="mb-5">{{ .cta }}</h1>
+					<button class="button fit-content-w box is-medium is-responsive is-black" href="/sale">{{ .cta_button }}</button>
+				</div>
+				
+			</div>
+		</div>
+	</section>
+</section>
+</a>
+{{ end }}

@@ -1,12 +1,10 @@
-{{ $logo := resources.Get "image/logo.png" }}
+
 {{ $logosvg := resources.Get "image/logo.svg" }}
-{{ $resized_logo := $logo.Resize "500x q90" }}
-{{ $.Scratch.Set "resized_logo" $resized_logo }}
 
 <body tabindex="-1">
 	<script>
-	{{ $resized_logo := $.Scratch.Get "resized_logo" }};
-			window.cartLogo = {{ $resized_logo.Permalink }};
+	{{ $resized_cart_logo := $logosvg }};
+			window.cartLogo = {{ $resized_cart_logo.Permalink }};
 			window.SnipcartSettings = {
 			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
 			  loadStrategy: "on-user-interaction",
@@ -31,7 +29,20 @@
 			</div>
 		</section>
 	</noscript>
-	<nav tabindex="-1" class="navbar {{ if .IsHome }} b-box-shadow {{ else }} has-shadow {{ end }}" role="navigation" aria-label="main navigation">
+	{{/*{{ if .IsHome }}{{ else }} has-shadow {{ end }}*/}}
+	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+		{{ if .IsHome }}
+		{{ else if eq .Params.type "loved" }}
+		{{ $lovednavbarcover := resources.Get "image/love-list-background-hero.jpg" }}
+		{{ $resized_lovednavbarcover := $lovednavbarcover.Resize "1000x q60" }}
+		<img class="navbar-cover" src="{{ $resized_lovednavbarcover.Permalink }}" alt="">
+		
+		{{ else }}
+		{{ $navbarbackground := resources.Get "image/product-background-hero.jpg" }}
+		{{ $resized_navbarbackground := $navbarbackground.Resize "1000x q60" }}
+		<img class="navbar-cover" src="{{ $resized_navbarbackground.Permalink }}" alt="">
+		
+		{{ end }}
 		<div class="container">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
@@ -47,10 +58,11 @@
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
+
 							<div class="navbar-start">
 								{{ range .Site.Menus.main }}
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="{{ .URL | safeURL }}">{{ .Name }}</a>
+									<strong><a href="{{ .URL | safeURL }}">{{ .Name }}</a></strong>
 								</div>
 								{{ end }}
 							</div>
@@ -58,7 +70,30 @@
 								<div class="navbar-item">
 									<div class="buttons is-flex is-align-items-center is-justify-content-center">
 										{{ partial "search-drawer" . }}
-										{{ partial "account-drawer" . }}
+										<div class="dropdown is-hoverable is-right">
+											<div class="dropdown-trigger">
+												<button class="button account-button" aria-haspopup="true" aria-controls="account-drawer">
+													<span><strong>account</strong></span>
+													<span class="icon is-small">
+														<i class="fas fa-angle-down" aria-hidden="true"></i>
+													</span>
+												</button>
+											</div>
+											<div class="dropdown-menu" id="account-drawer" role="menu">
+												<div class="dropdown-content">
+													<div class="dropdown-item">
+														<a class="snipcart-customer-signin">
+															<h3>my account</h3>
+														</a>
+													</div>
+													<div class="dropdown-item">
+														<a href="/account/loved/">
+															<h3>my love list</h3>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>

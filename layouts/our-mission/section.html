@@ -1,0 +1,19 @@
+{{ define "main" }}
+
+{{ $team := .Resources.GetMatch "**.png" }}
+{{ $resized_team := $team.Resize "500x q80" }}
+
+{{ partial "navbar" . }}
+	<section class="section is-large">
+		<div class="container">
+			<div class="content columns is-flex">
+				<div class="column is-mobile is-offset-one-fifth is-four-fifths-tablet is-four-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<img class="is-float-left" src="{{ $resized_team.Permalink }}" alt="one of our hats, in white">
+					{{ .Content }}
+				</div>
+			</div>
+		</div>
+	</section>
+	{{ partial "footer" . }}
+</section>
+{{ end }}

@@ -1,15 +1,11 @@
 {{ $shortcolor := replace .Params.color "-fill" "" }}
 
-<div class="box 
+{{/*
 {{ if or (or (eq .Params.color "white") (eq .Params.color "galaxy")) (eq .Params.color "galaxy-fill")}}product-white
 {{ else if eq .Params.color "black" }}product-black
 {{ else if eq .Params.color "starlight" }}product-starlight
 {{ else }}product-white
 {{ end }}
-product-title-effect">
-	<div class="absolute-title-4-{{ $shortcolor }}"><h1>{{ .Title }}</h1></div>
-	<div class="absolute-title-3-{{ $shortcolor }}"><h1>{{ .Title }}</h1></div>
-	<div class="absolute-title-2-{{ $shortcolor }}"><h1>{{ .Title }}</h1></div>
-	<div class="absolute-title-1-{{ $shortcolor }}"><h1>{{ .Title }}</h1></div>
-	<div class="relative-title-{{ $shortcolor }}"><h1>{{ .Title }}</h1></div>
-</div>
+*/}}
+
+<h1>{{ .Title }}</h1>

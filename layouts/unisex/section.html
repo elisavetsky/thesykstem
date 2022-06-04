@@ -1,14 +1,9 @@
 {{ define "main" }}
 
-{{ $herobackground := resources.Get "image/product-background-hero.jpg" }}
-{{ $resized_herobackground := $herobackground.Resize "2000x q75" }}
-
 <body>
 
 	{{ partial "navbar" . }}
-	<section class="wrapper-section">
-		<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
-		<div class="section is-small">
+		<section class="section product-section is-small">
 			<div class="container">
 				<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
 					{{ .Content }}
@@ -61,8 +56,7 @@
 					{{ end }}
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 	{{ partial "footer" . }}
 
 </body>

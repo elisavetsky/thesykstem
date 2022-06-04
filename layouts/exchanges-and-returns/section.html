@@ -1,19 +1,18 @@
-
 {{ define "main" }}
 {{ $herobackground := resources.Get "image/background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "2000x r180 q75" }}
 
-<body class="">	
-{{ partial "navbar" . }}
-<section class="wrapper-hero">
-<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
-	<div class="section is-medium">
-		<div class="container content">
-			<div class="section-header mb-6 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-				<h1>{{ .Title }}</h1>
-				<p>{{ .Params.subtitle }}</p>
-			</div>
-			{{ range sort (where .Site.Pages.ByWeight "Section" "sign-up") }}
+<body>
+	{{ partial "navbar" . }}
+	<section class="wrapper-hero">
+		<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
+		<div class="section is-medium">
+			<div class="container content">
+				<div class="section-header mb-6 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<h1>{{ .Title }}</h1>
+					<p>{{ .Params.subtitle }}</p>
+				</div>
+				{{ range sort (where .Site.Pages.ByWeight "Section" "sign-up") }}
 				<div class="sign-up box is-flex is-flex-direction-column">
 					<fieldset disabled>
 						<div class="field">
@@ -23,7 +22,7 @@
 							<div class="control">
 								<input class="input is-medium" type="text" name="" value="" placeholder="your order number / ID">
 							</div>
-							
+
 						</div>
 						<div class="field mb-4">
 							<label class="label" for="">
@@ -32,7 +31,7 @@
 							<div class="control">
 								<input class="input is-medium" type="text" name="" value="" placeholder="your zip / postal code">
 							</div>
-							
+
 						</div>
 					</fieldset>
 					<div class="field">
@@ -45,10 +44,10 @@
 					</div>
 					{{ .Content }}
 				</div>
-		{{ end }}
+				{{ end }}
+			</div>
 		</div>
-	</div>
-</section>
-{{ partial "footer" . }}
+	</section>
+	{{ partial "footer" . }}
 </body>
 {{ end }}

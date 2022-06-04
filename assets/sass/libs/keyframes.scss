@@ -10,13 +10,13 @@
 
 @keyframes transform {
 	from {
-		filter: saturate(1);
-		transform: scale3d(1, 1, 1);
+		filter: saturate(0.5);
+		transform: scale3d(1, 1.2, 1);
 	}
 
 	to {
-		filter: saturate(1.6);
-		transform: scale3d(1, 1.2, 5);
+		filter: saturate(0.2);
+		transform: scale3d(1, 1.5, 5);
 	}
 }
 

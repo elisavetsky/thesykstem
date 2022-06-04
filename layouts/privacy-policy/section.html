@@ -1,29 +1,30 @@
 {{ define "main" }}
-<body class="is-blue-white-grad">
-	
-{{ partial "navbar" . }}
 
-<section class="section is-medium">
-	<div class="container content">
-		<div class="mb-5 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-			<h1>{{ .Title }}</h1>
-		</div>
-		{{ range sort (where .Site.Pages.ByWeight "Section" "privacy-policy") }}
-		<div class="tile is-ancestor">
-			<div class="tile is-parent">
-				<div class="box tile is-child is-privacy">
-					<div class="is-size-7-mobile is-size-6-tablet is-size-6-desktop">
-						<p class="is-size-7-mobile is-size-7-tablet p-0">last modified on {{ .Lastmod | time.Format ":date_full" }}</p>
-						<hr>
-						
-						{{ .Content }}
+<body>
+
+	{{ partial "navbar" . }}
+
+	<section class="section is-medium">
+		<div class="container content">
+			<div class="mb-5 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+				<h1>{{ .Title }}</h1>
+			</div>
+			{{ range sort (where .Site.Pages.ByWeight "Section" "privacy-policy") }}
+			<div class="tile is-ancestor">
+				<div class="tile is-parent">
+					<div class="box tile is-child is-privacy">
+						<div class="is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+							<p class="is-size-7-mobile is-size-7-tablet p-0">last modified on {{ .Lastmod | time.Format ":date_full" }}</p>
+							<hr>
+
+							{{ .Content }}
+						</div>
 					</div>
 				</div>
 			</div>
+			{{ end }}
 		</div>
-		{{ end }}
-	</div>
-</section>
-{{ partial "footer" . }}
+	</section>
+	{{ partial "footer" . }}
 </body>
 {{ end }}

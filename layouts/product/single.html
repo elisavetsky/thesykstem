@@ -1,7 +1,7 @@
 {{ define "main" }}
 {{ partial "navbar" . }}
 
-<body onpageshow="loadLovedProducts()" class="is-almost-blue-back">
+<body onpageshow="loadLovedProducts()" class="is-almost-white-back">
 	<section id="{{ .File.ContentBaseName }}" class="section is-small grid-product-container">
 		<div class="container">
 			<div class="columns is-size-6-mobile is-size-5-tablet is-size-4-desktop">
@@ -18,7 +18,7 @@
 					{{ $more_photos := .Resources.ByType "image" }}
 					{{ $resized_main := $article.Resize "768x center q65" }}
 					{{ .Scratch.Set "resized_main" $resized_main }}
-					<div class="product-on-page box is-white-blue-grad">
+					<div class="product-on-page box">
 						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
 						<figure class="gallery__img active-image">
 							<img style="opacity: 1" class="image-normal lazyload" data-src="{{ $resized_main.Permalink }}" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
@@ -44,6 +44,7 @@
 				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
 					{{ partial "type-love-button" . }}
 					{{ partial "product-title" . }}
+					<p>{{ .Params.description }}</p>
 					{{ partial "price" . }}
 					<hr>
 					{{ partial "colors" . }}
@@ -51,10 +52,10 @@
 						{{ partial "sizes" . }}
 						{{ partial "stock" . }}
 					</form>
-					<div class="mb-5">
+					<!-- <div class="mb-5">
 						<h6>description:</h6>
-						<p>{{ .Params.description }}</p>
-					</div>
+						
+					</div> -->
 					{{ partial "fabriccare" . }}
 				</div>
 			</div>
