@@ -38,7 +38,7 @@
 		<img class="navbar-cover" src="{{ $resized_lovednavbarcover.Permalink }}" alt="">
 		
 		{{ else }}
-		{{ $navbarbackground := resources.Get "image/product-background-hero.jpg" }}
+		{{ $navbarbackground := resources.Get "image/background-hero.jpg" }}
 		{{ $resized_navbarbackground := $navbarbackground.Resize "1000x q60" }}
 		<img class="navbar-cover" src="{{ $resized_navbarbackground.Permalink }}" alt="">
 		

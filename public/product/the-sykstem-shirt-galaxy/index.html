@@ -39,12 +39,10 @@
 
 
 
-
-
 <body tabindex="-1">
 	<script>
 	;
-			window.cartLogo = "/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png";
+			window.cartLogo = "/image/logo.svg";
 			window.SnipcartSettings = {
 			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
 			  loadStrategy: "on-user-interaction",
@@ -69,7 +67,14 @@
 			</div>
 		</section>
 	</noscript>
-	<nav tabindex="-1" class="navbar  has-shadow " role="navigation" aria-label="main navigation">
+	
+	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+		
+		
+		
+		<img class="navbar-cover" src="/image/background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_1372282_1000x0_resize_q60_box.jpg" alt="">
+		
+		
 		<div class="container">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
@@ -85,22 +90,23 @@
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
+
 							<div class="navbar-start">
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/">women</a>
+									<strong><a href="/">women</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/men/">men</a>
+									<strong><a href="/men/">men</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/unisex/">unisex</a>
+									<strong><a href="/unisex/">unisex</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/sale/">sale</a>
+									<strong><a href="/sale/">sale</a></strong>
 								</div>
 								
 							</div>
@@ -110,12 +116,12 @@
 										<nav class="search-drawer">
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
-		<label class="search-label" for="site-search">
-			<a class="button">
+		<label class="search-label p-4" for="site-search">
+			
 				<span class="icon">
 					<span class="fa-solid fa-search"></span>
 				</span>
-			</a>
+			
 		</label>
 		<div class="search-container">
 			<div class="search-items box">
@@ -143,52 +149,30 @@
 		</div>
 	</div>
 </nav>
-										<nav class="account-drawer">
-	<div class="is-collapsable-account-drawer">
-		<input type="checkbox" name="account-drawer" id="account-drawer">
-		<button class="button account-button is-fullwidth is-blue-back">
-			<label class="account-label" for="account-drawer">
-				<span class="icon-text is-inline-block">
-					<span class="icon">
-						<span class="fa-solid fa-user"></span>
-					</span>
-					<span><strong>account</strong></span>
-				</span>
-			</label>
-		</button>
-		<div class="account-container">
-			<div class="account-controls">
-				<input checked type="checkbox" name="shopping-bag" id="account-drawer">
-				<label class="button box" for="account-drawer">
-					<span class="icon">
-						<span class="fa-solid fa-xmark"></span>
-					</span>
-				</label>
-			</div>
-			<div class="account-items box">
-				<div class="columns account-columns content">
-					<div class="column mt-6 is-flex is-flex-direction-column is-align-items-center">
-						<a class="button fit-content-w is-large is-rounded mb-5 mr-0 p-5">
-							<span class="icon is-medium">
-								<span class="fa-solid fa-user fa-lg"></span>
-							</span>
-						</a>
-						<div class="is-flex is-flex-direction-column is-align-items-center">
-							<a class="snipcart-customer-signin">
-								<h3>my account</h3>
-							</a>
-							<a href="/account/loved/">
-								<h3>my love list</h3>
-							</a>
-						</div>
-					</div>
-					
-
-				</div>
-			</div>
-		</div>
-	</div>
-</nav>
+										<div class="dropdown is-hoverable is-right">
+											<div class="dropdown-trigger">
+												<button class="button account-button" aria-haspopup="true" aria-controls="account-drawer">
+													<span><strong>account</strong></span>
+													<span class="icon is-small">
+														<i class="fas fa-angle-down" aria-hidden="true"></i>
+													</span>
+												</button>
+											</div>
+											<div class="dropdown-menu" id="account-drawer" role="menu">
+												<div class="dropdown-content">
+													<div class="dropdown-item">
+														<a class="snipcart-customer-signin">
+															<h3>my account</h3>
+														</a>
+													</div>
+													<div class="dropdown-item">
+														<a href="/account/loved/">
+															<h3>my love list</h3>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -197,7 +181,7 @@
 					
 <nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
-		<button class="snipcart-checkout button shopping-bag-button is-red">
+		<button class="snipcart-checkout button shopping-bag-button">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
 				<span class="icon-text is-inline-block">
 					<span class="icon">
@@ -311,7 +295,7 @@
 								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
 									<a class="is-flex" href="/">
 										
-									<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+									<img class="logo" src="" alt="">
 									</a>
 								</figure>
 							</div>
@@ -404,12 +388,12 @@
 	</nav>
 </body>
 
-<body onpageshow="loadLovedProducts()" class="is-almost-blue-back">
+<body onpageshow="loadLovedProducts()" class="is-almost-white-back">
 	<section id="the-sykstem-shirt-galaxy" class="section is-small grid-product-container">
 		<div class="container">
 			<div class="columns is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 				<div class="column is-offset-1 is-full">
-					<nav class="breadcrumb is-small has-arrow-separator" aria-label="breadcrumbs">
+					<nav class="breadcrumb has-arrow-separator" aria-label="breadcrumbs">
 	
 	
 	
@@ -425,7 +409,7 @@
 		</li>
 		
 		<li class="is-active">
-			<a href="#" aria-current="page">the system - shirt - galaxy</a>
+			<a href="#" aria-current="page">the sykstem - shirt - galaxy</a>
 		</li>
 	</ul>
 </nav>
@@ -440,7 +424,7 @@
 					
 					
 					
-					<div class="product-on-page box is-white-blue-grad">
+					<div class="product-on-page box">
 						<input type="radio" id="/product/the-sykstem-shirt-galaxy/" name="gallery" autocomplete="off" class="gallery__selector" checked />
 						<figure class="gallery__img active-image">
 							<img style="opacity: 1" class="image-normal lazyload" data-src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_768x0_resize_q65_box_3.png" src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_768x0_resize_q65_box_3.png" alt="the classic the-sykstem shirt with &#39;the system&#39; written on the bottom">
@@ -516,16 +500,11 @@
 </body>
 					
 
-<div class="box 
-product-white
 
-product-title-effect">
-	<div class="absolute-title-4-galaxy"><h1>the system</h1></div>
-	<div class="absolute-title-3-galaxy"><h1>the system</h1></div>
-	<div class="absolute-title-2-galaxy"><h1>the system</h1></div>
-	<div class="absolute-title-1-galaxy"><h1>the system</h1></div>
-	<div class="relative-title-galaxy"><h1>the system</h1></div>
-</div>
+
+<h1>the sykstem</h1>
+
+					<p>This is the classic company shirt, in our new &#39;galaxy&#39; colorway.</p>
 					
 
 
@@ -536,7 +515,7 @@ product-title-effect">
 
 
 <div class="tags is-justify-content-flex-start">
-	<span class="tag mb-0 is-red">
+	<span class="tag discount-tag mb-0">
 		<strong>20% off</strong>
 	</span>
 </div>
@@ -804,7 +783,7 @@ function display() {
 		onclick="display()"
 		type="submit"
 		id="add-to-bag"
-		class="snipcart-add-item button box is-medium full-width is-red"
+		class="snipcart-add-item button box is-medium full-width is-black"
 		data-item-id="the-sykstem-shirt-galaxy"
 		data-item-price="
 		
@@ -813,7 +792,7 @@ function display() {
 		data-item-url="/product/the-sykstem-shirt-galaxy/"
 		data-item-description="This is the classic company shirt, in our new &#39;galaxy&#39; colorway."
 		data-item-image="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_15546500_768x0_resize_q65_box_3.png"
-		data-item-name="the system"	
+		data-item-name="the sykstem"	
 		data-item-custom1-name="size"
 		data-item-custom1-options="
 		
@@ -855,12 +834,9 @@ function display() {
 
 
 					</form>
-					<div class="mb-5">
-						<h6>description:</h6>
-						<p>This is the classic company shirt, in our new &#39;galaxy&#39; colorway.</p>
-					</div>
+					
 					<div class="is-collapsable">
-	<input type="checkbox" name="dropdown" id="dropdown-1">
+	<input type="checkbox" name="dropdown" id="dropdown-1" checked>
 	<label for="dropdown-1">
 		<span class="icon-text">
 			<span>
@@ -1002,8 +978,8 @@ function display() {
 						<div>
 							<a href="/terms/">terms of service</a>
 						</div>
-						<p class="mb-0">©2022 the sykstem</p>
-						<p>Powered by Hugo</p>
+						<br>
+						<p class="is-size-7 mb-0">©2022 the sykstem | Powered by Hugo</p>
 					</div>
 				</div>
 			</div>

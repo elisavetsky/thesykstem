@@ -85,21 +85,38 @@ body {
 	text-transform: lowercase !important;
 }
 
+// Section IDs
+
+#featured {
+	position: relative;
+	background-color: $salmon;
+	.column.content {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+#unisex {
+	background-color: $salmon;
+}
+
+
+
 // Navbar
 
 .navbar {
 	background-color: rgba(255, 255, 255, 0);
 	a {
-		color: white;
+		color: $almostblack;
 		transition: $transition-main-navbar;
 	}
 	a:hover {
-		color: white;
+		color: $almostblack;
 		opacity: 0.8;
 		text-decoration: underline;
 	}
 	.button:hover {
-		color: white;
+		color: $almostblack;
 		opacity: 0.8;
 	}
 }
@@ -284,7 +301,7 @@ body {
 	justify-content: center;
 	.shopping-bag-button {
 		background-color: rgba(255, 255, 255, 0);
-		color: white;
+		color: $almostblack;
 		width: 100%;
 		padding: 0;
 		border-radius: $border-radius;
@@ -415,10 +432,8 @@ input#account-drawer {
 	
 }
 
-.navbar-brand {
-	.title {
-		color: $red;
-	}
+.navbar-brand .title {
+	color: $red;
 }
 
 .box {
@@ -434,7 +449,7 @@ input#account-drawer {
 	border-radius: $border-radius;
 	margin-left: 0;
 	span {
-		background: white;
+		background: $almostblack;
 	}
 }
 
@@ -566,14 +581,14 @@ input#account-drawer {
 	display: flex;
 	align-items: center;
 	background: $galaxy-fill;
-	color: white;
+	color: $almostblack;
 }
 
 .button.galaxy-fill {
 	display: flex;
 	align-items: center;
 	background: $galaxy-fill;
-	color: white;
+	color: $almostblack;
 }
 
 .button.starlight {
@@ -751,12 +766,12 @@ input#account-drawer {
 	
 }
 
-{{ $signinBackground := resources.Get "image/sign-up-hero.jpg" }};
+{{ $signinBackground := resources.Get "image/background-hero.jpg" }};
 {{ $resized_signinBackground := $signinBackground.Resize "2000x q60" }};
 
 .snipcart-cart__footer {
 	padding: 0 !important;
-	background: url({{ $resized_signinBackground.Permalink }}) center;
+	background: url({{ $resized_signinBackground.Permalink }}) bottom;
 	border-top: 1px solid $red;
 	.snipcart-cart__footer-col {
 		background-color: white;
@@ -1140,6 +1155,13 @@ input#account-drawer {
 	h6, h5, h4, h3, h2, h1, p, strong {
 		color: white;
 	}
+	.column {
+		position: relative;
+		z-index: 1;
+	}
+	.content.column {
+		border-radius: 4rem;
+	}
 }
 
 .wrapper-section {
@@ -1204,6 +1226,10 @@ input#account-drawer {
 	a {
 		color: $red;
 	}
+}
+
+.brown-dark-back {
+	background-color: $brown-dark;
 }
 
 .is-blue-white-grad {
@@ -1500,17 +1526,18 @@ input#account-drawer {
 .background-cover {
 	position: absolute;
 	object-fit: cover;
-	z-index: 0;
+	z-index: -1;
 	width: 100%;
 	height: 100%;
 	border: none;
-	animation: transform 30s infinite alternate ease-in-out;
+	transform: scale(1, 1.4);
+	// animation: transform 30s infinite alternate ease-in-out;
 }
 
 .navbar-cover {
 	position: absolute;
 	object-fit: cover;
-	object-position: top;
+	// object-position: right;
 	z-index: -1;
 	width: 100%;
 	height: 100%;
@@ -1518,9 +1545,87 @@ input#account-drawer {
 	// animation: transform 30s infinite alternate ease-in-out;
 }
 
+.hero-feature {
+	position: relative;
+	left: -1em;
+}
+
+.left-hero-feature {
+	position: relative;
+	right: -1em;
+}
+
+.right-hero-feature {
+	position: relative;
+	left: -1em;
+	scale: 1.05;
+}
 
 .is-float-left {
 	padding: 0 10px 10px 0;
+}
+
+.snipcart-item-line__media--small {
+	height: unset;
+	margin-right: 16px;
+}
+
+.gallery {
+	display: flex;
+	gap: 5px;
+	height: 64px;
+	input {
+		display: none;
+	}
+	figure {
+		background: $gray1;
+		margin: 0;
+		padding: 0.25rem;
+	}
+	&__thumb {
+		filter: brightness(0.95);
+		&:hover {
+			opacity: 1;
+			filter: saturate(1.5) brightness(1);
+			transition: 0.2s ease-in-out;
+		}
+	}
+	
+	&__img {
+		opacity: 0;
+		margin: 0 !important;
+	}
+	&__selector {
+		opacity: 1;
+		visibility: hidden;
+		position: absolute;
+		&:checked {
+			+ .gallery__img {
+				opacity: 1;
+			}
+		}
+	}
+}
+
+.product-on-page {
+	overflow: hidden;
+	background-color: $gray2;
+	.gallery__img {
+		.image-normal {
+			cursor: zoom-in;
+		}
+		.image-zoomed {
+			cursor: zoom-out;
+			transform-origin: top left;
+			transform: scale(2);
+			position: absolute;
+			height: auto;
+			width: auto;
+		}
+	}
+	.active-image {
+		z-index: 10;
+	}
 }
 
 // Tiles 
@@ -1589,6 +1694,10 @@ input#account-drawer {
 	white-space: normal;
 	display: flex;
 	padding: 0.25rem 1.2rem;
+}
+
+.discount-tag {
+	background-color: $salmon !important;
 }
 
 // Prices
@@ -1693,70 +1802,6 @@ input#dropdown-6 {
 	display: none;
 }
 
-// Images
-
-.snipcart-item-line__media--small {
-	height: unset;
-	margin-right: 16px;
-}
-
-.gallery {
-	display: flex;
-	gap: 5px;
-	height: 64px;
-	input {
-		display: none;
-	}
-	figure {
-		background: $gray1;
-		margin: 0;
-		padding: 0.25rem;
-	}
-	&__thumb {
-		filter: brightness(0.95);
-		&:hover {
-			opacity: 1;
-			filter: saturate(1.5) brightness(1);
-			transition: 0.2s ease-in-out;
-		}
-	}
-	
-	&__img {
-		opacity: 0;
-		margin: 0 !important;
-	}
-	&__selector {
-		opacity: 1;
-		visibility: hidden;
-		position: absolute;
-		&:checked {
-			+ .gallery__img {
-				opacity: 1;
-			}
-		}
-	}
-}
-
-.product-on-page {
-	overflow: hidden;
-	background-color: $gray2;
-	.gallery__img {
-		.image-normal {
-			cursor: zoom-in;
-		}
-		.image-zoomed {
-			cursor: zoom-out;
-			transform-origin: top left;
-			transform: scale(2);
-			position: absolute;
-			height: auto;
-			width: auto;
-		}
-	}
-	.active-image {
-		z-index: 10;
-	}
-}
 
 // Typography 
 .snipcart__font--subtitle {

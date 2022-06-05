@@ -1,14 +1,25 @@
 {{ define "main" }}
 
+{{ $banner := .Resources.GetMatch "banner.jpg" }}
+{{ $banner_resized := $banner.Resize "900x q85" }}
+
 <body>
-
 	{{ partial "navbar" . }}
-		<section class="section product-section is-small">
-			<div class="container">
-				<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
-					{{ .Content }}
-
+		<section id="unisex" class="section">
+			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
+				<div class="column">
+					<figure class="image is-fullwidth">
+						<img class="is-rounded "src="{{ $banner_resized.Permalink }}" alt="">
+					</figure>
 				</div>
+				<div class="column">
+					{{ .Content }}
+				</div>
+			</div>
+		</section>
+		<section class="section product-section is-small">
+			<div class="">
+				
 				
 				{{ partial "product-sort-and-filter" . }}
 				
@@ -21,7 +32,7 @@
 					{{ $counter = add $counter 1 }}
 					{{ .Scratch.Set "counter" $counter }}
 
-					<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
+					<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 						<div class="tile is-ancestor">
 							<div class="tile is-parent">
 								<div class="box tile is-child is-article">

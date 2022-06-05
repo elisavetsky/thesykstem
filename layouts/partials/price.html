@@ -13,7 +13,7 @@
 </div>
 {{ else }}
 <div class="tags is-justify-content-flex-start">
-	<span class="tag mb-0 is-red">
+	<span class="tag discount-tag mb-0">
 		<strong>{{ math.Round (mul 100 (div (sub (float $original) (float $sale) ) (float $original) ) ) }}% off</strong>
 	</span>
 </div>

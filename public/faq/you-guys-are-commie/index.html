@@ -39,12 +39,10 @@
 
 
 
-
-
 <body tabindex="-1">
 	<script>
 	;
-			window.cartLogo = "/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png";
+			window.cartLogo = "/image/logo.svg";
 			window.SnipcartSettings = {
 			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
 			  loadStrategy: "on-user-interaction",
@@ -69,7 +67,14 @@
 			</div>
 		</section>
 	</noscript>
-	<nav tabindex="-1" class="navbar  has-shadow " role="navigation" aria-label="main navigation">
+	
+	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+		
+		
+		
+		<img class="navbar-cover" src="/image/background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_1372282_1000x0_resize_q60_box.jpg" alt="">
+		
+		
 		<div class="container">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
@@ -85,22 +90,23 @@
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
+
 							<div class="navbar-start">
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/">women</a>
+									<strong><a href="/">women</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/men/">men</a>
+									<strong><a href="/men/">men</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/unisex/">unisex</a>
+									<strong><a href="/unisex/">unisex</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/sale/">sale</a>
+									<strong><a href="/sale/">sale</a></strong>
 								</div>
 								
 							</div>
@@ -110,12 +116,12 @@
 										<nav class="search-drawer">
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
-		<label class="search-label" for="site-search">
-			<a class="button">
+		<label class="search-label p-4" for="site-search">
+			
 				<span class="icon">
 					<span class="fa-solid fa-search"></span>
 				</span>
-			</a>
+			
 		</label>
 		<div class="search-container">
 			<div class="search-items box">
@@ -143,52 +149,30 @@
 		</div>
 	</div>
 </nav>
-										<nav class="account-drawer">
-	<div class="is-collapsable-account-drawer">
-		<input type="checkbox" name="account-drawer" id="account-drawer">
-		<button class="button account-button is-fullwidth is-blue-back">
-			<label class="account-label" for="account-drawer">
-				<span class="icon-text is-inline-block">
-					<span class="icon">
-						<span class="fa-solid fa-user"></span>
-					</span>
-					<span><strong>account</strong></span>
-				</span>
-			</label>
-		</button>
-		<div class="account-container">
-			<div class="account-controls">
-				<input checked type="checkbox" name="shopping-bag" id="account-drawer">
-				<label class="button box" for="account-drawer">
-					<span class="icon">
-						<span class="fa-solid fa-xmark"></span>
-					</span>
-				</label>
-			</div>
-			<div class="account-items box">
-				<div class="columns account-columns content">
-					<div class="column mt-6 is-flex is-flex-direction-column is-align-items-center">
-						<a class="button fit-content-w is-large is-rounded mb-5 mr-0 p-5">
-							<span class="icon is-medium">
-								<span class="fa-solid fa-user fa-lg"></span>
-							</span>
-						</a>
-						<div class="is-flex is-flex-direction-column is-align-items-center">
-							<a class="snipcart-customer-signin">
-								<h3>my account</h3>
-							</a>
-							<a href="/account/loved/">
-								<h3>my love list</h3>
-							</a>
-						</div>
-					</div>
-					
-
-				</div>
-			</div>
-		</div>
-	</div>
-</nav>
+										<div class="dropdown is-hoverable is-right">
+											<div class="dropdown-trigger">
+												<button class="button account-button" aria-haspopup="true" aria-controls="account-drawer">
+													<span><strong>account</strong></span>
+													<span class="icon is-small">
+														<i class="fas fa-angle-down" aria-hidden="true"></i>
+													</span>
+												</button>
+											</div>
+											<div class="dropdown-menu" id="account-drawer" role="menu">
+												<div class="dropdown-content">
+													<div class="dropdown-item">
+														<a class="snipcart-customer-signin">
+															<h3>my account</h3>
+														</a>
+													</div>
+													<div class="dropdown-item">
+														<a href="/account/loved/">
+															<h3>my love list</h3>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -197,7 +181,7 @@
 					
 <nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
-		<button class="snipcart-checkout button shopping-bag-button is-red">
+		<button class="snipcart-checkout button shopping-bag-button">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
 				<span class="icon-text is-inline-block">
 					<span class="icon">
@@ -311,7 +295,7 @@
 								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
 									<a class="is-flex" href="/">
 										
-									<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+									<img class="logo" src="" alt="">
 									</a>
 								</figure>
 							</div>

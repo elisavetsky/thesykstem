@@ -30,7 +30,7 @@ $galaxy1: #F16DE2;
 $galaxy2: #F89A7E;
 $galaxy3: #4B78EF;
 $galaxy4: #39363B;
-$galaxy-fill: linear-gradient(125deg, #F16DE2, #F89A7E, #4B78EF, #39363B);
+$galaxy-fill: linear-gradient(125deg, #c3bcb1, #e5dddb, #c8c0b5, #cec6be);
 $galaxy-border: linear-gradient(#fff, #fff) padding-box, linear-gradient(125deg, #F16DE2, #F89A7E, #4B78EF, #39363B) border-box;
 
 // Starlight
@@ -38,11 +38,18 @@ $starlight: rgba(241, 235, 211, 1);
 $starlight2: rgba(211, 203, 185, 1);
 $starlight3: rgba(205, 192, 166, 1);
 $starlight4: rgba(186, 171, 142, 1);
+$starlight-dark: rgba(130, 114, 83, 1);
+
+// Salmon
+$salmon: rgb(214, 180, 149);
+
+// Brown
+$brown-dark: rgba(106, 82, 70, 1);
 
 // Grayscale
 $almostblack: rgba(54, 54, 54, 1);
 $almostwhite: rgba(245, 245, 245, 1);
-$gray1: rgba(234, 234, 234, 1);
+$gray1: rgba(232, 230, 227, 1);
 $gray2: rgba(220, 220, 220, 1);
 $gray6: rgba(138, 138, 138, 1);
 $gray9: rgba(48, 48, 48, 1);
@@ -64,7 +71,8 @@ $transition-dropdown: all 0.8s ease-in-out;
 // Box Shadow 
 $b-box-shadow: 0px 10px 11px -10px rgba(88, 88, 88, 0.558);
 $box-box-shadow: 0 .5em 1em -.125em rgba(10,10,10,.1),0 0 0 1px rgba(10,10,10,.02);
-$text-shadow: 10px 10px 5px 10px rgba(0, 122, 255, 1);
+// $text-shadow-old: 10px 10px 5px 10px rgba(0, 122, 255, 1);
+$text-shadow: 0 0 4px black;
 
 // Snipcart
 .snipcart, .snipcart__font--secondary, .snipcart__font--primary, .snipcart__font--std {

@@ -43,12 +43,10 @@
 	
 
 
-
-
 <body tabindex="-1">
 	<script>
 	;
-			window.cartLogo = "/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png";
+			window.cartLogo = "/image/logo.svg";
 			window.SnipcartSettings = {
 			  publicApiKey: "MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3",
 			  loadStrategy: "on-user-interaction",
@@ -73,7 +71,10 @@
 			</div>
 		</section>
 	</noscript>
-	<nav tabindex="-1" class="navbar  b-box-shadow " role="navigation" aria-label="main navigation">
+	
+	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
+		
+		
 		<div class="container">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
@@ -89,22 +90,23 @@
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
+
 							<div class="navbar-start">
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/">women</a>
+									<strong><a href="/">women</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/men/">men</a>
+									<strong><a href="/men/">men</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/unisex/">unisex</a>
+									<strong><a href="/unisex/">unisex</a></strong>
 								</div>
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a href="/sale/">sale</a>
+									<strong><a href="/sale/">sale</a></strong>
 								</div>
 								
 							</div>
@@ -114,12 +116,12 @@
 										<nav class="search-drawer">
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
-		<label class="search-label" for="site-search">
-			<a class="button">
+		<label class="search-label p-4" for="site-search">
+			
 				<span class="icon">
 					<span class="fa-solid fa-search"></span>
 				</span>
-			</a>
+			
 		</label>
 		<div class="search-container">
 			<div class="search-items box">
@@ -147,52 +149,30 @@
 		</div>
 	</div>
 </nav>
-										<nav class="account-drawer">
-	<div class="is-collapsable-account-drawer">
-		<input type="checkbox" name="account-drawer" id="account-drawer">
-		<button class="button account-button is-fullwidth is-blue-back">
-			<label class="account-label" for="account-drawer">
-				<span class="icon-text is-inline-block">
-					<span class="icon">
-						<span class="fa-solid fa-user"></span>
-					</span>
-					<span><strong>account</strong></span>
-				</span>
-			</label>
-		</button>
-		<div class="account-container">
-			<div class="account-controls">
-				<input checked type="checkbox" name="shopping-bag" id="account-drawer">
-				<label class="button box" for="account-drawer">
-					<span class="icon">
-						<span class="fa-solid fa-xmark"></span>
-					</span>
-				</label>
-			</div>
-			<div class="account-items box">
-				<div class="columns account-columns content">
-					<div class="column mt-6 is-flex is-flex-direction-column is-align-items-center">
-						<a class="button fit-content-w is-large is-rounded mb-5 mr-0 p-5">
-							<span class="icon is-medium">
-								<span class="fa-solid fa-user fa-lg"></span>
-							</span>
-						</a>
-						<div class="is-flex is-flex-direction-column is-align-items-center">
-							<a class="snipcart-customer-signin">
-								<h3>my account</h3>
-							</a>
-							<a href="/account/loved/">
-								<h3>my love list</h3>
-							</a>
-						</div>
-					</div>
-					
-
-				</div>
-			</div>
-		</div>
-	</div>
-</nav>
+										<div class="dropdown is-hoverable is-right">
+											<div class="dropdown-trigger">
+												<button class="button account-button" aria-haspopup="true" aria-controls="account-drawer">
+													<span><strong>account</strong></span>
+													<span class="icon is-small">
+														<i class="fas fa-angle-down" aria-hidden="true"></i>
+													</span>
+												</button>
+											</div>
+											<div class="dropdown-menu" id="account-drawer" role="menu">
+												<div class="dropdown-content">
+													<div class="dropdown-item">
+														<a class="snipcart-customer-signin">
+															<h3>my account</h3>
+														</a>
+													</div>
+													<div class="dropdown-item">
+														<a href="/account/loved/">
+															<h3>my love list</h3>
+														</a>
+													</div>
+												</div>
+											</div>
+										</div>
 									</div>
 								</div>
 							</div>
@@ -201,7 +181,7 @@
 					
 <nav class="shopping-bag">
 	<div class="is-collapsable-shopping-bag is-flex is-flex-direction-column is-align-item-center">
-		<button class="snipcart-checkout button shopping-bag-button is-red">
+		<button class="snipcart-checkout button shopping-bag-button">
 			<label class="shopping-bag-label" for="shopping-bag-menu">
 				<span class="icon-text is-inline-block">
 					<span class="icon">
@@ -315,7 +295,7 @@
 								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
 									<a class="is-flex" href="/">
 										
-									<img class="logo" src="/image/logo_hudaf9f0359a69f95d72e1ef909fff9dde_1037779_500x0_resize_q90_box_3.png" alt="">
+									<img class="logo" src="" alt="">
 									</a>
 								</figure>
 							</div>
@@ -415,46 +395,70 @@
 
 
 <section class="wrapper-hero">
-	<img class="background-cover" src="/image/background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_4102291_2000x0_resize_q75_box.jpg" alt="">
-	<div class="hero">
+	<img class="background-cover" src="/image/background-hero_hu2c3b45375361e8595c0e2e0f9edbd104_1372282_800x0_resize_q80_box.jpg" alt="the site background">
+	<div class="hero is-medium">
 		<div class="hero-body">
-			<div class="container">
-				<div class="content columns is-flex">
-					<div class="column is-flex is-flex-direction-column is-half-mobile is-half-tablet is-two-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop is-justify-content-center">
-					<h1 id="your-pro-worker-boutique">your <strong>pro-worker</strong> boutique.</h1>
-<p><em>Our</em> high-quality products are union-made in sunny Los Angeles, California. We have a sustainable business practice that lets us put our <strong>workers  first</strong>.</p>
+			<a href="/unisex">
+				<div class="container is-fullhd">
+					<div class="columns">
+						<div class="column is-full-mobile is-6-tablet is-7-desktop">
+							<figure class="image m-0 is-fullwidth">
+								<img class="is-rounded hero-feature" src="/hero/models-1_hu95431ab6de12fc96ed3c4771fa1d11b4_131185_900x0_resize_q75_box.jpg" alt="a selection of our products">
+							</figure>
+						</div>
+						<div class="content column p-6 fit-content-h brown-dark-back is-full-mobile is-6-tablet is-5-desktop  is-justify-content-center">
 
-						
-					</div>
-					<div class="column is-half-mobile is-half-tablet is-three-fifths-desktop">
-						<img src="/image/hoodie-hat-shirt_hudf65648ef13baca9e2bf44d043ff2056_21109627_800x0_resize_q80_box_3.png" alt="one of our hoodies, in black">
+							<div class="is-size-5-mobile is-size-4-tablet is-size-3-desktop">
+								<h1>your pro-worker boutique</h1>
+							</div>
+							<div class="is-size-6-mobile is-size-5-tablet is-size-5-desktop mb-5">
+								<p><em>Our</em> high-quality clothes are union-made in sunny Los Angeles, California. We have a sustainable business practice that lets us put our <strong>workers first</strong>.</p>
+
+							</div>
+
+							
+							<button class="button fit-content-w box is-medium is-white" href="/unisex">
+								shop now
+							</button>
+							
+						</div>
 					</div>
 				</div>
-			</div>
+			</a>
 		</div>
 	</div>
-
+</section>
+	
 	
 
 
 
-	<section class="section is-medium">
-		<div class="container">
-			<div class="section-header content columns is-flex">
-				<div class="column is-mobile is-offset-one-fifth is-four-fifths-tablet is-four-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-					<img class="is-float-left" src="/image/the-sykstem-hat_hu6071f8c524d0604fa8de7a5773dffbef_1905522_500x0_resize_q80_box_3.png" alt="one of our hats, in white">
-					<h2 id="a-bit-about-us">a bit about us.</h2>
-<p><em>Our</em> executives earn a maximum <strong>two times</strong> the average employee.</p>
-<p><em>Our</em> workers earn enough to support a family on just <strong>one</strong> income.</p>
-<p><em>Our</em> surplus earnings are invested <strong>straight back into</strong> the boutique and our tight-knit small business community.</p>
-<p><em>Our</em> life here <strong>revolves around our skilled laborers</strong> who make this all possible.</p>
-<p><em>Our</em> business is not some sort of charity case&hellip;<strong>we take great pride</strong> in each and every one of our workers and we take care of them, like every business should.</p>
 
-				</div>
+
+
+
+
+<section id="featured" class="section is-medium">
+	<a href="/sale">
+		<div class="columns is-vcentered is-flex-direction-row-reverse">
+			<div class="column is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+				<figure class="image left-hero-feature is-fullwidth">
+					<img class="is-rounded lazyload" src="/image/models-2_hud81d12c41e7571e6705cc2dc26686dad_478309_800x0_resize_q80_box.jpg" alt="two of our models">
+				</figure>
+			</div>
+			<div class="content p-6 column is-full-mobile is-4-tablet is-3-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+				<h1 class="mb-5">see our dazzling styles on sale</h1>
+				<button class="button fit-content-w box is-medium is-black" href="/sale">shop sale</button>
+			</div>
+			<div class="column is-full-mobile is-4-tablet is-5-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+				<figure class="image right-hero-feature is-fullwidth">
+					<img class="is-rounded lazyload" src="/image/models-4_hu4da7a711ef5e8da72f735ed4009445bf_841848_800x0_resize_q80_box.jpg" alt="male models">
+				</figure>
 			</div>
 		</div>
-	</section>
+	</a>
 </section>
+
 
 	
 
@@ -529,8 +533,8 @@
 						<div>
 							<a href="/terms/">terms of service</a>
 						</div>
-						<p class="mb-0">©2022 the sykstem</p>
-						<p>Powered by Hugo</p>
+						<br>
+						<p class="is-size-7 mb-0">©2022 the sykstem | Powered by Hugo</p>
 					</div>
 				</div>
 			</div>

@@ -1,40 +1,41 @@
 {{ $herobackground := resources.Get "image/background-hero.jpg" }}
-{{ $resized_herobackground := $herobackground.Resize "2000x q80" }}
+{{ $resized_herobackground := $herobackground.Resize "800x q80" }}
 
 
 {{ with .Site.GetPage "hero" }}
 {{ $hero1 := .Resources.GetMatch "**.jpg" }}
-{{ $hero1_resized := $hero1.Resize "800x q80" }}
+{{ $hero1_resized := $hero1.Resize "900x q75" }}
 <section class="wrapper-hero">
-	<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
+	<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="the site background">
 	<div class="hero is-medium">
-
-		<a href="{{ with site.Data.hero }}{{ .hero_link }}{{ end }}">
-			<div class="hero-body">
-				<div class="container">
-					<div class="content columns">
-						<div class="column is-full-mobile is-half-tablet is-three-fifths-desktop">
-							<img src="{{ $hero1_resized.Permalink }}" alt="a selection of our products">
+		<div class="hero-body">
+			<a href="{{ with site.Data.hero }}{{ .hero_link }}{{ end }}">
+				<div class="container is-fullhd">
+					<div class="columns">
+						<div class="column is-full-mobile is-6-tablet is-7-desktop">
+							<figure class="image m-0 is-fullwidth">
+								<img class="is-rounded hero-feature" src="{{ $hero1_resized.Permalink }}" alt="a selection of our products">
+							</figure>
 						</div>
-						<div class="column is-full-mobile is-half-tablet is-two-fifths-desktop  is-justify-content-center">
-							<div class="is-size-5-mobile is-size-5-tablet is-size-3-desktop">
+						<div class="content column p-6 fit-content-h brown-dark-back is-full-mobile is-6-tablet is-5-desktop  is-justify-content-center">
+
+							<div class="is-size-5-mobile is-size-4-tablet is-size-3-desktop">
 								<h1>{{ .Params.hero }}</h1>
 							</div>
-							<div class="is-size-6-mobile is-size-6-tablet is-size-5-desktop mb-5">
+							<div class="is-size-6-mobile is-size-5-tablet is-size-5-desktop mb-5">
 								{{ .Content }}
 							</div>
-							
+
 							{{ with site.Data.hero }}
-							<button class="button fit-content-w box is-medium is-responsive is-white" href="{{ .hero_link }}">
+							<button class="button fit-content-w box is-medium is-white" href="{{ .hero_link }}">
 								{{ .hero_button }}
 							</button>
 							{{ end }}
 						</div>
-						
 					</div>
 				</div>
-			</div>
-		</a>
+			</a>
+		</div>
 	</div>
-
-{{ end }}
+</section>
+	{{ end }}

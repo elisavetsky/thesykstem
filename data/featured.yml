@@ -1,5 +1,8 @@
 image: "image/models-4.jpg"
+alt: "male models"
 image_2: "image/models-2.jpg"
+alt_2: "two of our models"
+
 cta: "see our dazzling styles on sale"
 cta_button: "shop sale"
 link: "/sale"
