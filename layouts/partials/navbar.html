@@ -62,7 +62,7 @@
 							<div class="navbar-start">
 								{{ range .Site.Menus.main }}
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<strong><a href="{{ .URL | safeURL }}">{{ .Name }}</a></strong>
+									<a class="py-3" href="{{ .URL | safeURL }}"><strong>{{ .Name }}</strong></a>
 								</div>
 								{{ end }}
 							</div>

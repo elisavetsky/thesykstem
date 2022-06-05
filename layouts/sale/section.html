@@ -1,63 +1,78 @@
 {{ define "main" }}
 
+{{ $banner := .Resources.GetMatch "banner.jpg" }}
+{{ $banner_resized := $banner.Resize "900x q85" }}
+
 <body>
 	{{ partial "navbar" . }}
-	<section class="section product-section is-small">
-		<div class="container">
-			<div class="section-header content is-size-6-mobile is-size-5-tablet is-size-4-desktop mb-6">
-				{{ .Content }}
+	<section id="sale" class="hero">
+		<div class="hero-body">
+			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
+				<div class="column">
+					<figure class="image is-fullwidth">
+						<img class="is-rounded" src="{{ $banner_resized.Permalink }}" alt="sale section image">
+					</figure>
+				</div>
+				<div class="column">
+					{{ .Content }}
+				</div>
 			</div>
+		</div>
+	</section>
+	<section class="section product-section is-small">
 
-			{{ partial "product-sort-and-filter" . }}
 
-			<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
-				{{ $counter := 0 }}
-				{{ .Scratch.Set "counter" $counter }}
 
-				{{ $products :=  where .Site.RegularPages "Section" "product" }}
-				{{ $sale_field_filled := where .Site.RegularPages "Params.sale_price" "ne" nil }}
-				{{ $on_sale := $products | intersect (where ($sale_field_filled) "Params.sale_price" "gt" 0) }}
-				{{ range $on_sale }}
+		{{ partial "product-sort-and-filter" . }}
 
-				{{ $counter = add $counter 1 }}
-				{{ .Scratch.Set "counter" $counter }}
+		<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+			{{ $counter := 0 }}
+			{{ .Scratch.Set "counter" $counter }}
 
-				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-half-tablet is-one-third-desktop">
-					<div class="tile is-ancestor">
-						<div class="tile is-parent">
-							<div class="box tile is-child is-article">
-								<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+			{{ $products :=  where .Site.RegularPages "Section" "product" }}
+			{{ $sale_field_filled := where .Site.RegularPages "Params.sale_price" "ne" nil }}
+			{{ $on_sale := $products | intersect (where ($sale_field_filled) "Params.sale_price" "gt" 0) }}
+			{{ range $on_sale }}
 
-									<div class="product-in-list">
-										{{ partial "type-love-button" . }}
-										<a href="{{ .Permalink }}">
-											<h1>{{ .Title }}</h1>
-											{{ $img := .Params.img }}
+			{{ $counter = add $counter 1 }}
+			{{ .Scratch.Set "counter" $counter }}
 
-											{{ $article := .Resources.GetMatch $img }}
-											{{ $main_alt := .Params.main_alt }}
-											{{ $.Scratch.Set "alt" $main_alt }}
-											{{ with $article }}
-											{{ $resized := $article.Resize "500x center q75" }}
-											<figure>
-												<img class="lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
-											</figure>
-											{{ end }}
-										</a>
-									</div>
+			<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-half-tablet is-4-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
 
-									<div>
-										{{ partial "price" . }}
-										{{ partial "product-color-sizes-available" . }}
-									</div>
+								<div class="product-in-list">
+									{{ partial "type-love-button" . }}
+									<a href="{{ .Permalink }}">
+										<h1>{{ .Title }}</h1>
+										{{ $img := .Params.img }}
+
+										{{ $article := .Resources.GetMatch $img }}
+										{{ $main_alt := .Params.main_alt }}
+										{{ $.Scratch.Set "alt" $main_alt }}
+										{{ with $article }}
+										{{ $resized := $article.Resize "500x center q75" }}
+										<figure>
+											<img class="lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+										</figure>
+										{{ end }}
+									</a>
+								</div>
+
+								<div>
+									{{ partial "price" . }}
+									{{ partial "product-color-sizes-available" . }}
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-				{{ end }}
 			</div>
+			{{ end }}
 		</div>
+
 	</section>
 
 	{{ partial "footer" . }}

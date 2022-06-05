@@ -98,6 +98,22 @@ body {
 
 #unisex {
 	background-color: $salmon;
+	overflow: hidden;
+	
+	.content.column {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+#sale {
+	background-color: $gray1;
+	overflow: hidden;
+	
+	.content.column {
+		position: relative;
+		z-index: 1;
+	}
 }
 
 
@@ -644,7 +660,7 @@ input#account-drawer {
 }
 
 .snipcart-modal__container {
-	background: $blue;
+	background: $almostwhite;
 }
 
 .snipcart-cart-summary--edit.snipcart-modal__container {
@@ -654,7 +670,7 @@ input#account-drawer {
 .snipcart-cart-header {
 	min-height: 4.5rem;
 	padding: 1rem 16px;
-	color: $blue;
+	color: $almostblack;
 	background: rgba(255, 255, 255, 0);
 	justify-content: space-between;
 	margin: 0 auto 16px;
@@ -680,9 +696,9 @@ input#account-drawer {
 }
 
 .snipcart-cart--edit {
-	background-color: $almostblue;
+	background-color: $almostwhite;
 	.snipcart-cart__content, .snipcart-item-list {
-		background-color: $almostblue;
+		background-color: $almostwhite;
 	}
 }
 
@@ -695,7 +711,7 @@ input#account-drawer {
 }
 
 .snipcart-cart-header__close-button {
-	color: $blue !important;
+	color: $almostblack !important;
 }
 
 .snipcart-item-line__container {
@@ -772,7 +788,7 @@ input#account-drawer {
 .snipcart-cart__footer {
 	padding: 0 !important;
 	background: url({{ $resized_signinBackground.Permalink }}) bottom;
-	border-top: 1px solid $red;
+	border-top: 1px solid $salmon;
 	.snipcart-cart__footer-col {
 		background-color: white;
 		padding: 1.25rem 1.5rem;
@@ -1161,6 +1177,7 @@ input#account-drawer {
 	}
 	.content.column {
 		border-radius: 4rem;
+		mix-blend-mode: luminosity;
 	}
 }
 
@@ -1548,6 +1565,7 @@ input#account-drawer {
 .hero-feature {
 	position: relative;
 	left: -1em;
+	top: 1em;
 }
 
 .left-hero-feature {
@@ -1670,7 +1688,7 @@ input#account-drawer {
 }
 
 .is-fabric-care {
-	background-color: $gray2 !important;
+	background-color: $taupe !important;
 	.icon-text {
 		line-height: 1.3;
 	}	
