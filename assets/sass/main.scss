@@ -89,7 +89,7 @@ body {
 
 #featured {
 	position: relative;
-	background-color: $salmon;
+	background-color: $salmon-brown;
 	.column.content {
 		position: relative;
 		z-index: 1;
@@ -97,7 +97,7 @@ body {
 }
 
 #unisex {
-	background-color: $salmon;
+	background-color: $salmon-brown;
 	overflow: hidden;
 	
 	.content.column {
@@ -107,13 +107,26 @@ body {
 }
 
 #sale {
-	background-color: $gray1;
+	background-color: $blue-green;
 	overflow: hidden;
 	
 	.content.column {
 		position: relative;
 		z-index: 1;
 	}
+}
+
+#my-love-list {
+	background-color: $salmon;
+	overflow: hidden;
+	.content.column {
+		position: relative;
+		z-index: 1;
+	}
+}
+
+#loved-products {
+	min-height: 50vh;
 }
 
 
@@ -788,7 +801,7 @@ input#account-drawer {
 .snipcart-cart__footer {
 	padding: 0 !important;
 	background: url({{ $resized_signinBackground.Permalink }}) bottom;
-	border-top: 1px solid $salmon;
+	border-top: 1px solid $salmon-brown;
 	.snipcart-cart__footer-col {
 		background-color: white;
 		padding: 1.25rem 1.5rem;
@@ -1531,6 +1544,9 @@ input#account-drawer {
 	ul {
 		margin: 0 0 3rem;
 	}
+	a {
+		color: $starlight-dark;
+	}
 }
 
 // Images & Graphics
@@ -1554,7 +1570,7 @@ input#account-drawer {
 .navbar-cover {
 	position: absolute;
 	object-fit: cover;
-	// object-position: right;
+	object-position: top;
 	z-index: -1;
 	width: 100%;
 	height: 100%;
@@ -1715,7 +1731,7 @@ input#account-drawer {
 }
 
 .discount-tag {
-	background-color: $salmon !important;
+	background-color: $taupe !important;
 }
 
 // Prices

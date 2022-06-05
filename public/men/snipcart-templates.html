@@ -1,0 +1,704 @@
+<!DOCTYPE html>
+<html>
+	<head><title>Templates</title></head>
+	
+	<body>
+		
+		<div id="snipcart-templates">
+			
+			<!-- Loading Screen -->
+			<loading-screen>
+				<div>
+					<component :is="tag">
+						<slot v-if="!loading"></slot>
+						<div name="loading-screen" v-else>
+							<div class="snipcart__loading__screen">
+								<div :class="[
+									'snipcart__loading__screen__content',
+									displaySpinner ? 'is-visible' : null,
+								]">
+									<icon class="is-flex icon fa-solid fa-circle-notch fa-4x"></icon>
+									<span class="snipcart__loading__screen__content__message ">
+										<h4>{{ localizedLoadingMessage }}</h4>
+									</span>
+								</div>
+							</div>
+						</div>
+					</component>
+				</div>
+			</loading-screen>
+			
+			<!-- Loading Component -->
+			<loading-component>
+				<div>
+					<slot v-if="!isLoading"></slot>
+					<overridable name="loading-component" v-else>
+						<div class="snipcart-loading-component">
+							<div class="snipcart-loading-component__content">
+								<span class="icon">
+									<span class="fa-solid fa-circle-notch"></span>
+								</span>
+								<span class="snipcart-loading-component__content__message">
+									{{ localizedLoadingMessage }}
+								</span>
+							</div>
+						</div>
+					</overridable>
+				</div>
+			</loading-component>
+			
+			<!-- Register Form -->
+			<signin-form>
+				<div>
+					what
+				</div>
+			</signin-form>
+			
+			<register-form>
+				<div>
+					<authentication-view>
+						<div name="register">
+							<div class="snipcart__box snipcart-register__box snipcart-register">
+								<h2 class="snipcart__font--subtitle snipcart-register__title">{{ $localize('register_form.register')}}</h2>
+								<p class="snipcart__font snipcart-register__register">
+									{{ $localize('register_form.already_have_an_account')}}
+									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
+										{{ $localize('signin_form.signin')}}
+									</router-link>
+								</p>
+					
+								<snipcart-form @submit="save" class="snipcart-register__form">
+									<flash-message v-if="requiresConfirmation"
+										type="info"
+										:title="$localize('register_form.requires_action.title')"
+										:description="$localize('register_form.requires_action.description')">
+									</flash-message>
+					
+									<snipcart-form-error></snipcart-form-error>
+					
+									<overridable name="register" section="top"></overridable>
+									<div class="snipcart-form__field">
+										<snipcart-label for="email">{{ $localize('register_form.email')}}</snipcart-label>
+										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
+										<snipcart-field-error name="email"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="password">{{ $localize('register_form.password')}}</snipcart-label>
+										<snipcart-password name="password" icon="password"></snipcart-password>
+										<snipcart-field-error name="password"></snipcart-field-error>
+									</div>
+									<div class="snipcart-form__field">
+										<snipcart-label for="passwordConfirmation">{{ $localize('register_form.confirm_password')}}</snipcart-label>
+										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
+										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
+									</div>
+					
+									<overridable name="register" section="bottom"></overridable>
+					
+									<snipcart-submit
+										label="register_form.register"
+										icon="continue-arrow"
+									></snipcart-submit>
+								</snipcart-form>
+							</div>
+						</div>
+					</authentication-view>
+				</div>
+			</register-form>
+			
+			<!-- Empty Cart -->
+			<empty-cart>
+				<section class="snipcart-empty-cart content">
+					<div class="is-flex p-6 snipcart-empty-cart__title snipcart__font--secondary">
+						<h6>{{ $localize(`you've got an empty bag, but that's okay.`) }}</h6>
+					</div>
+					<button-secondary
+					isFitContent="true"
+					class="fit-content-w"
+					@click="$actions.goBack">
+						<span class="icon-text is-inline-flex is-align-items-center">
+							<span class="icon">
+								<span class="fa-solid fa-arrow-left-long"></span>
+							</span>
+							<span>{{ $localize(`back to our store`) }}</span>
+						</span>
+					</button-secondary>
+				</section>
+			</empty-cart>
+			
+			<!-- Cart Layout -->
+			
+			
+			<!-- Cart Header -->
+			<cart-header>
+				<div>
+					<header class="snipcart-cart-header container is-mobile" v-if="!loading">
+						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
+							<span class="icon">
+								<span class="fa-solid fa-arrow-left-long"></span>
+							</span>
+							<span class="snipcart-modal__close-title snipcart__font--std">
+								{{ backButtonTitle || $localize('back to browsing') }}
+							</span>
+						</close-cart-action>
+					
+						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-5-mobile is-4-desktop" name="tablet, large" v-if="title">
+							<div class="logo-cart image is-128x128">
+								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
+									
+									<a class="is-flex" href="/">
+										
+									<img id="res-cart-logo" class="logo" src="" alt="">
+									</a>
+								</figure>
+							</div>
+						</media>
+					
+						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
+							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
+								<span class="icon-text is-inline-flex is-align-items-center">
+									<span>{{ $localize('signin_form.signin').toLowerCase()}}</span>
+								</span>
+							</sign-in-action>
+					
+							<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
+								<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
+								{{ $localize('customer_dashboard.sign_out').toLowerCase()}}
+							</sign-out-action>
+					
+							<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
+								<icon name="user" class="snipcart-cart-header__icon"></icon>
+								{{ $localize('customer_dashboard.my_account').toLowerCase() }}
+							</customer-account-link>
+					
+							<show-detailed-cart-action class="snipcart-cart-header__option snipcart-cart-header__count snipcart__font--secondary snipcart__font--bold" v-if="showItemsCount">
+								<span class="icon-text is-inline-flex is-align-items-center">
+									<span class="icon">
+										<span class="fa-solid fa-bag-shopping"></span>
+									</span>
+									<span>
+										<template v-if="!hasSubscription">
+											{{ itemsCount }}
+										</template>
+									</span>
+								</span>
+							</show-detailed-cart-action>
+						</div>
+					
+						<media name="mobile, tablet" class="snipcart-modal__header-summary" v-if="showSummary && !loading">
+							<div class="snipcart-modal__header-summary-title snipcart__font--large snipcart__font--secondary snipcart__font--bold" @click.prevent="toggleSummary">
+								<span class="bag-total-dropdown icon-text is-inline-flex is-align-items-center">
+									<span class="icon">
+										<span class="fa-solid fa-user"></span>
+									</span>
+									<span>{{ cart.total | money(cart.currency) }}</span>
+								</span>
+								<icon :name="summaryIcon" class="snipcart-cart-header__icon snipcart__icon--medium"></icon>
+							</div>
+					
+							<cart-summary class="snipcart-cart-summary--small" v-if="summaryVisible" @close="closeSummary">
+							</cart-summary>
+						</media>
+					</header>
+					<header class="snipcart-cart-header" v-else>
+						<close-cart-action class="snipcart-modal__close">
+							<span class="icon-text is-inline-flex is-align-items-center">
+								<span class="icon">
+									<span class="fa-solid fa-arrow-left"></span>
+								</span>
+								<span>{{ $localize('actions.continue_shopping') }}</span>
+							</span>
+						</close-cart-action>
+					</header>
+				</div>
+			</cart-header>
+			
+			<!-- Cart Summary -->
+			<cart-summary>
+				<div>
+					<div name="cart-summary">
+						<div class="snipcart-cart-summary">
+							<section class="snipcart-cart-summary__content content">
+								<div class="snipcart-cart-summary__actions snipcart__box--header">
+									<span>
+										<h4 class="mb-0 snipcart-cart-summary__title">
+										{{ $localize('your order') }}
+										</h4>
+									</span>
+									<button-link
+									class="button is-small justify-self-flex-end"
+									label="actions.edit"
+									@click="openSideCart">
+									</button-link>
+								</div>
+				
+								<overridable
+									name="cart-summary"
+									section="items"
+								>
+									<cart-summary-items-list class="snipcart-cart-summary__items ml-0"></cart-summary-items-list>
+								</overridable>
+				
+								<hr class="snipcart-cart-summary__separator" />
+				
+								<loading-overlay>
+									<div class="snipcart-cart-summary__totals">
+										<summary-fees :summary-data="summaryFeesProvider"></summary-fees>
+									</div>
+								</loading-overlay>
+							</section>
+				
+							<footer class="snipcart-cart-summary__footer">
+								<featured-payment-methods class="snipcart-featured-payment-methods--no-background is-size-7"></featured-payment-methods>
+							</footer>
+						</div>
+					</div>
+				
+					<transition name="snipcart-cart-summary__overlay-transition">
+						<div
+							class="snipcart-cart-summary__overlay"
+							v-if="editing"
+						></div>
+					</transition>
+				
+					<transition name="snipcart-transition--slide-in">
+						<cart
+							:editing-cart="true"
+							class="snipcart-cart-summary--edit"
+							v-if="editing || isSideCart"
+							:is-side-cart="isSideCart"
+						></cart>
+					</transition>
+				</div>
+			</cart-summary>
+			
+			<!-- Item Line New -->
+			<item-line>
+				<li class="box" :class="{'snipcart-item-line': true, 'snipcart-item-line--cart-edit': editingCart}">
+					<flash-message
+						class="is-justify-content-center"
+						v-if="stockLimitReached"
+					>
+						<span>{{ $localize('errors.quantity_revised') }}</span>
+						
+					</flash-message>
+					<flash-message
+						type="error"
+						icon="box"
+						v-if="outOfStock"
+						:title="$localize('errors.quantity_out_of_stock')"
+					></flash-message>
+					<div class="snipcart-item-line__container">
+						<figure
+							class="snipcart-item-line__media"
+							v-if="showLargeImage"
+						>
+							<item-image class="snipcart-item-line__image"></item-image>
+						</figure>
+						<div class="snipcart-item-line__product">
+							<div class="snipcart-item-line__header">
+								<figure
+									class="snipcart-item-line__media snipcart-item-line__media--small"
+									v-if="showSmallImage"
+								>
+									<item-image class="snipcart-item-line__image--large"></item-image>
+								</figure>
+				
+								<div class="is-flex is-flex-direction-column content mr-auto">
+									<h6 class="mb-2">{{ item.customFields[2]['value'] }}</h6>
+									<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
+									{{ item.name }}
+									</h2>
+									<span class="tag fit-content-w mb-2">{{ item.customFields[1]['value'] }}</span>
+								</div>
+				
+								<button-icon
+									icon="trash"
+									label="item.remove_item"
+									styling="danger"
+									@click="removeItem"
+								>
+									<span class="icon">
+										<span class="fa-solid fa-trash"></span>
+									</span>
+								</button-icon>
+							</div>
+				
+							<div class="snipcart-item-line__content">
+								<div class="snipcart-item-line__body">
+									<div class="snipcart-item-line__info">
+										<item-description v-if="showDescription"></item-description>
+									</div>
+									<div class="snipcart-item-line__variants">
+										<div>
+											<item-plans
+												:item="item"
+												v-if="!adding && isSubscribable"
+											></item-plans>
+											<item-custom-fields v-if="!adding"></item-custom-fields>
+										</div>
+										<item-quantity
+											class="snipcart-item-line__quantity"
+											v-if="!adding && !isSubscribable"
+											:disabled="outOfStock || isSubscribable"
+										></item-quantity>
+										<div
+											class="snipcart-form__field snipcart-form__field--plan snipcart-form__field--plan--billed-on"
+											v-if="isSubscribable && !adding"
+										>
+											<span class="snipcart-form__label snipcart__font--tiny">
+												{{$localize('subscription.payment_amount')}}
+											</span>
+											<div class="snipcart-form__field--plan__readonly">
+												<item-price
+													:item="item"
+													:selected-plan="selectedPlan"
+												>
+												</item-price>
+											</div>
+										</div>
+				
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</li>
+			</item-line>
+			
+			<!-- Billing -->
+			<billing>
+				<snipcart-form @submit="save" id="snipcart-billing-form">
+					<div name="billing">
+						<div class="snipcart__box">
+							<div class="snipcart__box--header">
+								<div class="snipcart__box--title">
+									<div class="snipcart__box--badge snipcart__box--badge snipcart__box--badge-highlight snipcart__font--bold snipcart__font--secondary">{{ number }}</div>
+									<h1 class="snipcart__font--subtitle">
+										{{ $localize('billing.title').toLowerCase() }}
+									</h1>
+								</div>
+							</div>
+				
+							<snipcart-form-error></snipcart-form-error>
+				
+							<overridable name="billing" section="top"></overridable>
+							
+							<fieldset class="snipcart-form__set">
+								<div class="snipcart-form__field">
+									<snipcart-label class="snipcart__font--tiny" for="name">
+										{{ $localize('address_form.name') }}
+									</snipcart-label>
+									
+									<snipcart-input name="name"></snipcart-input>
+									<snipcart-field-error name="name"></snipcart-field-error>
+								</div>
+				
+								<div class="snipcart-form__field">
+									<snipcart-label class="snipcart__font--tiny" for="email">
+										{{ $localize('address_form.email' )}}
+									</snipcart-label>
+				
+									<snipcart-input name="email" v-if="!emailIsReadonly"></snipcart-input>
+									<span class="snipcart-input--readonly snipcart__font--secondary snipcart__font--bold" v-else>{{ customer.email }}</span>
+									<snipcart-field-error name="email"></snipcart-field-error>
+								</div>
+							</fieldset>
+				
+							<address-fields type="billing"></address-fields>
+				
+							<hr class="snipcart-form__separator" v-if="shippingEnabled" />
+				
+							<fieldset class="snipcart-form__set snipcart-form__set--different-shipping" v-if="shippingEnabled && !hasOnlyNonShippableGoods">
+								<div class="snipcart-form__field">
+									<div class="snipcart-form__field-checkbox">
+										<snipcart-checkbox name="useDifferentShippingAddress"></snipcart-checkbox>
+				
+										<snipcart-label class="snipcart__font--tiny snipcart-form__label--checkbox" for="useDifferentShippingAddress">
+											{{ $localize('billing.use_different_shipping_address') }}
+										</snipcart-label>
+									</div>
+								</div>
+							</fieldset>
+				
+							<overridable name="billing" section="bottom"></overridable>
+				
+							<div class="snipcart-form__footer lowercase">
+								<snipcart-submit :label="labelSubmit" class="lowercase"></snipcart-submit>
+							</div>
+						</div>
+					</div>
+				</snipcart-form>
+			</billing>
+			
+			<!-- Address Fields -->
+			<address-fields type="billing">
+				<div>
+				<overridable name="address-fields" section="top"></overridable>
+				<fieldset class="snipcart-form__set">
+					<div class="snipcart-form__row">
+					  <div class="snipcart-form__field snipcart-form__cell--large">
+						  <snipcart-label
+							class="snipcart__font--tiny"
+							for="address1"
+						  >{{ $localize('address_form.address1') }}</snipcart-label>
+						  <snipcart-input name="address1"></snipcart-input>
+						  <snipcart-field-error name="address1"></snipcart-field-error>
+					  </div>
+				
+					  <div class="snipcart-form__field snipcart-form__cell--tidy">
+						<snipcart-label
+						  class="snipcart__font--tiny"
+						  for="address2"
+						>{{ $localize('address_form.address2') }}</snipcart-label>
+						<snipcart-input name="address2"></snipcart-input>
+						<snipcart-field-error name="address2"></snipcart-field-error>
+					  </div>
+					</div>
+				
+					<div class="snipcart-form__field">
+					  <snipcart-label
+						class="snipcart__font--tiny"
+						for="city"
+					  >{{ $localize('address_form.city') }}</snipcart-label>
+					  <snipcart-input name="city"></snipcart-input>
+					  <snipcart-field-error name="city"></snipcart-field-error>
+					</div>
+				
+					<div class="snipcart-form__field">
+					  <snipcart-label
+						class="snipcart__font--tiny"
+						for="country"
+					  >{{ $localize('address_form.country') }}</snipcart-label>
+					  <snipcart-typeahead type="dropdown" name="country" autocomplete="country"></snipcart-typeahead>
+					  <snipcart-field-error name="country"></snipcart-field-error>
+					</div>
+				
+					<div class="snipcart-form__row">
+					  <div class="snipcart-form__field snipcart-form__cell--large">
+						<snipcart-label
+						  class="snipcart__font--tiny"
+						  for="province"
+						>{{ $localize('address_form.province') }}</snipcart-label>
+						<snipcart-typeahead type="dropdown" name="province" autocomplete="province state"></snipcart-typeahead>
+						<snipcart-field-error name="province"></snipcart-field-error>
+					  </div>
+				
+					  <div class="snipcart-form__field snipcart-form__cell--tidy">
+						<snipcart-label
+						  class="snipcart__font--tiny"
+						  for="postalCode"
+						>{{ $localize('address_form.postalCode') }}</snipcart-label>
+						<snipcart-input name="postalCode"></snipcart-input>
+						<snipcart-field-error name="postalCode"></snipcart-field-error>
+					  </div>
+					</div>
+				</fieldset>
+				<overridable name="address-fields" section="bottom"></overridable>
+				  </div>
+			</address-fields>
+			
+			<!-- Billing Complete -->
+			<billing-completed>
+				<transition name="snipcart-billing-completed__slide-transition">
+					<div name="billing-completed" :class="cssClasses">
+						<div class="snipcart__box snipcart-billing-completed">
+							<div class="snipcart-billing-completed__header snipcart__box--header">
+								<div class="snipcart__box--title">
+									<div class="snipcart__box--badge snipcart__font--bold snipcart__font--secondary" v-if="checkout">
+										<span class="icon">
+											<span class="fa-solid fa-check"></span>
+										</span>
+									</div>
+									<h1 class="snipcart-billing-completed__title snipcart__font--subtitle">
+										<!-- <span class="icon">
+											<icon name="user" class="fa-solid fa-user" v-if="!checkout">
+											
+											</icon>
+										</span> -->
+										{{ $localize('billing.title').toLowerCase() }}
+									</h1>
+								</div>
+				
+								<button-link
+									v-if="checkout"
+									label="actions.edit"
+									@click="edit"
+								></button-link>
+							</div>
+							
+							<div class="snipcart-checkout-step__cols snipcart__font--std">
+								<div class="snipcart-checkout-step__col">
+									<div class="snipcart-checkout-step__icon snipcart-billing-completed__step-icon">
+										<span class="icon">
+											<span class="fa-solid fa-user"></span>
+										</span>
+									</div>
+									<div>
+										<h3 class="snipcart-billing-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('customer.information') }}</h3>
+										<span class="snipcart-billing-completed__information snipcart__font--std">{{ cart.billingAddress.name }}<br />{{ cart.email }}</span>
+									</div>
+								</div>
+				
+								<div class="snipcart-checkout-step__col">
+									<div class="snipcart-checkout-step__icon snipcart-billing-completed__step-icon">
+										<span class="icon">
+											<span class="fa-solid fa-location-dot"></span>
+										</span>
+									</div>
+									<div>
+										<h3 class="snipcart-billing-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('billing.address') }}</h3>
+										<span class="snipcart-billing-completed__information snipcart__font--std">{{ cart.billingAddress | fullAddress }}</span>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</transition>
+			</billing-completed>
+			
+			<!-- Payment -->
+			
+			
+			<!-- Cart -->
+			<cart-header
+				name="cart"
+				section="header"
+			>
+				<cart-header
+					title="bag summary"
+					:show-items-count="true"
+					:show-account-menu="true"
+					v-if="!editingCart"
+				></cart-header>
+			</cart-header>
+			<!-- <cart>
+				<div>
+					<layout v-click-outside="clickedOutside">
+						<overridable
+							name="cart"
+							section="header"
+						>
+							<cart-header
+								title="bag summary"
+								:show-items-count="true"
+								:show-account-menu="true"
+								v-if="!editingCart"
+							></cart-header>
+						</overridable>
+						<loading-screen
+							message="cart.loading"
+							class="snipcart-layout__content"
+							:class="layoutContentCssClasses"
+						>
+							<div
+								class="snipcart-cart__secondary-header"
+								v-if="editingCart"
+							>
+								<h1 class="snipcart__font--secondary snipcart-cart__secondary-header-title snipcart__font--bold snipcart__font--xlarge">
+									{{ $localize("header.title_cart_summary") }}
+								</h1>
+								<close-side-cart-action :is-cart-summary="!isSideCart">
+									<icon
+										name="plus"
+										class="snipcart__icon--medium snipcart__icon--angled"
+										alt="item.remove_item"
+									></icon>
+								</close-side-cart-action>
+							</div>
+							<flash-message
+								class="snipcart-cart__flash-message"
+								type="error"
+								v-if="promptItemConfigurationError"
+								:title="$localize(`errors.cart_items.${itemConfigurationErrorLocale}.title`)"
+								:description="$localize(`errors.cart_items.${itemConfigurationErrorLocale}.description`)"
+								icon="box"
+							>
+								<button-link
+									label="actions.clear_cart"
+									@click="clearCart"
+								></button-link>
+					
+								<button-link
+									label="actions.dismiss"
+									@click="dismissItemConfigurationError"  
+								></button-link>
+							</flash-message>
+							<overridable
+								name="cart"
+								v-if="hasItems"
+							>
+								<section class="snipcart-cart__content">
+									<item-list
+										item-template="item-line"
+										class="snipcart-item-list--no-shadow"
+										:show-description="!isSideCart"
+									>
+										<template
+											v-slot:footer
+											v-if="isSideCart && hasActiveDiscountsTriggerableByCode"
+										>
+											<li class="snipcart-item-line snipcart-item-line--cart-edit">
+												<div class="snipcart-item-line__container">
+													<discount-box class="snipcart-cart__discount-box"></discount-box>
+												</div>
+											</li>
+										</template>
+									</item-list>
+									<div class="snipcart-cart__footer">
+										<div class="snipcart-cart__footer-col cart__footer-discount-box snipcart-cart__actions">
+											<discount-box
+												v-if="!isSideCart && hasActiveDiscountsTriggerableByCode"
+												class="snipcart-cart__discount-box"
+											></discount-box>
+										</div>
+					
+										<div class="snipcart-cart__footer-col">
+											<summary-fees
+												class="snipcart-cart-summary-fees--reverse"
+												:summary-data="summaryFeesProvider"
+											>
+												{{ $localize('cart.shipping_taxes_calculated_at_checkout')}}
+											</summary-fees>
+					
+											<footer v-if="!editingCart || isSideCart" class="snipcart-cart__footer-buttons">
+												<flash-message
+													type="error"
+													v-if="errors != null"
+													:title="$localize('errors.order_validation.custom_fields_validation.title')"
+												>
+													{{$localize('errors.order_validation.custom_fields_validation.description')}}
+												</flash-message>
+												<!-- BUTTON: checkout -->
+												<!-- <button-primary
+													label="actions.checkout"
+													icon="continue-arrow"
+													:state="checkoutDisabled ? 'disabled' : undefined"
+													@click="checkout"
+												></button-primary>
+												<button-link
+													v-if="isSideCart"
+													label="cart.view_detailed_cart"
+													@click="viewDetailedCart"
+												></button-link>
+											</footer>
+					
+											<div class="snipcart-cart__featured-payment-methods-container">
+												<featured-payment-methods v-if="!editingCart"></featured-payment-methods>
+											</div>
+										</div>
+									</div>
+								</section>
+							</overridable>
+							<empty-cart v-else></empty-cart>
+						</loading-screen>
+						<transition name="snipcart-transition--slide-in">
+							<router-view />
+						</transition>
+					</layout>
+				</div>
+			</cart> -->
+		</div>
+	</body>
+	
+</html>

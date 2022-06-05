@@ -8,7 +8,7 @@
 	<section id="sale" class="hero">
 		<div class="hero-body">
 			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
-				<div class="column">
+				<div class="column is-4">
 					<figure class="image is-fullwidth">
 						<img class="is-rounded" src="{{ $banner_resized.Permalink }}" alt="sale section image">
 					</figure>
@@ -37,7 +37,7 @@
 			{{ $counter = add $counter 1 }}
 			{{ .Scratch.Set "counter" $counter }}
 
-			<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-half-tablet is-4-desktop">
+			<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 					<div class="tile is-parent">
 						<div class="box tile is-child is-article">
