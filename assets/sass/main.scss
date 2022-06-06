@@ -107,7 +107,7 @@ body {
 }
 
 #sale {
-	background-color: $blue-green;
+	background-color: $blue-light;
 	overflow: hidden;
 	
 	.content.column {
@@ -534,10 +534,10 @@ input#account-drawer {
 
 .snipcart-button-icon.is-secondary {
 	background-color: unset;
-	color: $danger;
+	color: black;
 	&:hover {
 		background-color: unset;
-		color: $danger-hover;
+		color: $gray6;
 	}
 }
 
@@ -624,6 +624,12 @@ input#account-drawer {
 	display: flex;
 	align-items: center;
 	background: $starlight;
+}
+
+.button.periwinkle {
+	display: flex;
+	align-items: center;
+	background: $blue-light;
 }
 	
 .buttons {
@@ -1061,11 +1067,11 @@ input#account-drawer {
 	height: 40px;
 	border-radius: $border-radius;
 	&:hover {
-		border-color: $red;
+		border-color: $almostblack;
 	}
 	&:focus-within {
 		box-shadow: $box-box-shadow;
-		border-color: $red;
+		border-color: $almostblack;
 	}
 }
 
@@ -1078,21 +1084,21 @@ input#account-drawer {
 	height: 40px;
 	padding: 0 35px 0 16px;
 	&:hover, &:focus {
-		border-color: $red;
+		border-color: $almostblack;
 	}
 	&:focus-within {
 		box-shadow: $box-box-shadow;
-		border-color: $red;
+		border-color: $almostblack;
 	}
 }
 
 .snipcart-input {
 	&:focus-within {
-		border-color: $red;
+		border-color: $almostblack;
 		box-shadow: $box-box-shadow;
 	}
 	&:hover, &:focus {
-		border-color: $red;
+		border-color: $almostblack;
 	}
 }
 
@@ -1109,11 +1115,11 @@ input#account-drawer {
 }
 
 .snipcart-form__select-wrapper .snipcart__icon {
-	color: $danger !important;
+	color: $almostblack !important;
 }
 
 .snipcart-featured-payment-methods__title {
-	background: $almostblue !important;
+	background: white;
 }
 
 #select-size {
@@ -1225,6 +1231,10 @@ input#account-drawer {
 
 .product-starlight {
 	background: $gray1;
+}
+
+.product-periwinkle {
+	background: $blue-light;
 }
 
 .blue-text {
@@ -1535,6 +1545,10 @@ input#account-drawer {
 
 .icon-starlight {
 	color: $starlight;
+}
+
+.icon-periwinkle {
+	color: $blue1;
 }
 
 // Breadcrumb 

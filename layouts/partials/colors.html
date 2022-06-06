@@ -43,4 +43,12 @@
 	{{ end }}
 	<button class="button box {{ .Params.color }}">{{ .Params.color }}</button>
 {{ end }}
+
+{{ if eq .Params.color "periwinkle" }}
+	{{ $variants := where (where .Site.RegularPages "Params.is_variant" "!=" true ) "Title" "=" $title }}
+	{{ range $variants }}
+	<a href="{{ .Permalink }}"class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+	{{ end }}
+	<button class="button box {{ .Params.color }}">{{ .Params.color }}</button>
+{{ end }}
 </div>

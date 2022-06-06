@@ -60,9 +60,21 @@
 						<div id="res-main-menu" class="navbar-menu">
 
 							<div class="navbar-start">
+								
+								{{ $.Scratch.Set "cs" .Section }}
 								{{ range .Site.Menus.main }}
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
-									<a class="py-3" href="{{ .URL | safeURL }}"><strong>{{ .Name }}</strong></a>
+									<a class="py-3" href="{{ .URL | safeURL }}">
+										{{ if eq .Name ($.Scratch.Get "cs") }}
+										<strong>
+										{{ .Name }}
+										</strong>
+										{{ else }}
+									
+										{{ .Name }}
+									
+										{{ end }}
+									</a>
 								</div>
 								{{ end }}
 							</div>
@@ -72,7 +84,7 @@
 										{{ partial "search-drawer" . }}
 										<div class="dropdown is-hoverable is-right">
 											<div class="dropdown-trigger">
-												<button class="button account-button" aria-haspopup="true" aria-controls="account-drawer">
+												<button class="button p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 													<span><strong>account</strong></span>
 													<span class="icon is-small">
 														<i class="fas fa-angle-down" aria-hidden="true"></i>

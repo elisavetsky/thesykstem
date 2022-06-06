@@ -33,7 +33,7 @@
 		</label>
 		{{ end }}
 {{ end }}
-{{ else if or (eq .Params.product_type "shirt") (eq .Params.product_type "hoodie") }}
+{{ else if or (eq .Params.product_type "shirt") (eq .Params.product_type "hoodie") (eq .Params.product_type "jacket") }}
 
 	{{ with $size_catalog := dict "xxxs" "2-4" "xxs" "6-8" "xs" "10-12" "s" "14-16" "m" "18-20" "l" "22-24" "xl" "26-28" "xxl" "30-32" "xxxl" "34-36" }}
 
