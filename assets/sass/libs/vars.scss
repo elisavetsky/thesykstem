@@ -1,5 +1,10 @@
 // Background Colors
 
+// Pink
+
+$our-pink: rgba(203, 146, 127, 1);
+$rose: rgba(185, 132, 133, 1);
+
 // Red
 $red: rgba(253, 109, 138, 1);
 $red2: rgba(222, 79, 108, 1);
@@ -42,6 +47,12 @@ $starlight3: rgba(205, 192, 166, 1);
 $starlight4: rgba(186, 171, 142, 1);
 $starlight-dark: rgba(130, 114, 83, 1);
 
+// Gold
+$gold: linear-gradient(125deg, #faedc5, #d9bd84, #a6804b, #c9a968);
+
+// Silver
+$silver: linear-gradient(125deg, #f9f7f0, #dddbd8, #8c8a8a, #bebebe);
+
 // Salmon
 $salmon: rgba(252, 218, 202, 1);
 
@@ -62,6 +73,7 @@ $almostblack: rgba(54, 54, 54, 1);
 $almostwhite: rgba(245, 245, 245, 1);
 $gray1: rgba(237, 237, 237, 1);
 $gray2: rgba(221, 218, 212, 1);
+$gray3: rgba(187, 185, 181, 1);
 $gray6: rgba(138, 138, 138, 1);
 $gray9: rgba(48, 48, 48, 1);
 

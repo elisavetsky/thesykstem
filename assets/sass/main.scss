@@ -106,6 +106,10 @@ body {
 	}
 }
 
+#women {
+	background-color: $our-pink;
+}
+
 #sale {
 	background-color: $blue-light;
 	overflow: hidden;
@@ -161,7 +165,10 @@ body {
 			text-decoration: underline;
 			}
 		}
-		
+	}
+	.dropdown-content {
+		width: fit-content;
+		border-radius: 9999px;
 	}
 }
 
@@ -580,12 +587,18 @@ input#account-drawer {
 }
 
 .button {
+	display: flex;
 	border-radius: $border-radius;
-	
+	color: unset;
 }
 
-.button.is-focused, .button:focus {
+.button.is-focused:not(:active), .button:focus:not(:active) {
 	border-color: #000000;
+	box-shadow: 0 0 0 .125em rgba(0, 0, 0, 0.25);
+}
+
+.button.is-focused.is-static {
+	color: intial;
 }
 
 .button.is-apple-pay {
@@ -594,7 +607,9 @@ input#account-drawer {
 }
 
 .button.white {
-	border: 1px solid $almostwhite !important;
+	background: white;
+	color: $almostblack;
+	border: 1px solid $almostwhite;
 }
 
 .button.black {
@@ -624,13 +639,51 @@ input#account-drawer {
 	display: flex;
 	align-items: center;
 	background: $starlight;
+	color: $almostblack;
 }
 
 .button.periwinkle {
 	display: flex;
 	align-items: center;
 	background: $blue-light;
+	color: $almostblack;
 }
+
+.button.gold {
+	display: flex;
+	align-items: center;
+	background: $gold;
+	color: $almostblack;
+}
+
+.button.silver {
+	display: flex;
+	align-items: center;
+	background: $silver;
+	color: $almostblack;;
+}
+
+.button.grey {
+	display: flex;
+	align-items: center;
+	background: $gray3;
+	color: $almostblack;
+}
+
+.button.salmon {
+	display: flex;
+	align-items: center;
+	background: $salmon;
+	color: $almostblack;
+}
+
+.button.rose {
+	display: flex;
+	align-items: center;
+	background: $rose;
+	color: white;
+}
+
 	
 .buttons {
 	.button.fit-content {
@@ -1237,6 +1290,27 @@ input#account-drawer {
 	background: $blue-light;
 }
 
+.product-gold {
+	background: $gold;
+}
+
+.product-silver {
+	background: $blue-light;
+}
+
+.product-grey {
+	background: $gray3;
+}
+
+.product-salmon {
+	background: $salmon;
+}
+
+.product-rose {
+	background: $rose;
+}
+
+
 .blue-text {
 	color: $blue;
 }
@@ -1549,6 +1623,32 @@ input#account-drawer {
 
 .icon-periwinkle {
 	color: $blue1;
+}
+
+.icon-grey {
+	color: $gray3;
+}
+
+.icon-silver {
+	background: $silver;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.icon-gold {
+	background: $gold;
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.icon-salmon {
+	color: $salmon;
+}
+
+.icon-rose {
+	color: $rose;
 }
 
 // Breadcrumb 

@@ -19,7 +19,7 @@ disableKinds = ["taxonomy", "taxonomyTerm", "term",]
 [menu]
   [[menu.main]]
     name = "women"
-    url = "/"
+    url = "/women"
     weight = 1
   [[menu.main]]
 	name = "men"

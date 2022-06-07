@@ -11,6 +11,28 @@
 	
 	
 	
+	
+	
+	
+	
+	
+	
+	
+	
+		
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 		
 	
 	
@@ -28,4 +50,12 @@
 	
 	
 	
-	[{"color":"galaxy","contents":"{{ item.name }}\n","description":"This is v2 of our company hat. In a striking 'galaxy' colorway.","img":"/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2556679_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-hat-galaxy/","price":15,"tags":null,"title":"the classic sykstem","type":"hat"},{"color":"white","contents":"","description":"This is v2 of our company hat.","img":"/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_2112724_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-hat-white/","price":10,"tags":null,"title":"the classic sykstem","type":"hat"},{"color":"galaxy","contents":"","description":"This is the classic company shirt, in our new 'galaxy' colorway.","img":"/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_hu06132125f6fe376a00ce7ebb32e60e1f_18782949_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-shirt-galaxy/","price":20,"tags":null,"title":"the sykstem","type":"shirt"},{"color":"white","contents":"","description":"This is the classic company shirt.","img":"/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706721_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-shirt-white/","price":20,"tags":null,"title":"the sykstem","type":"shirt"},{"color":"black","contents":"","description":"This is the classic company hoodie.","img":"/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4832162_768x0_resize_q65_box_3.png","material":"100% bamboo","permalink":"/product/the-sykstem-hoodie-black/","price":35,"tags":null,"title":"the warming sykstem","type":"hoodie"},{"color":"starlight","contents":"","description":"This is the classic company hoodie, now in a cosmic 'starlight'","img":"/product/the-sykstem-hoodie-starlight/1-the-sykstem-hoodie-starlight_hu13a98aa1b8fc6559c9eaaade59d94d29_13717801_768x0_resize_q65_box_3.png","material":"100% bamboo","permalink":"/product/the-sykstem-hoodie-starlight/","price":35,"tags":null,"title":"the warming sykstem","type":"hoodie"}]
+	
+	
+	
+	
+	
+	
+	
+	
+	[{"color":"galaxy","contents":"{{ item.name }}\n","description":"This is v2 of our company hat. In a striking 'galaxy' colorway.","img":"/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2556679_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-hat-galaxy/","price":15,"tags":null,"title":"the classic sykstem","type":"hat"},{"color":"white","contents":"","description":"This is v2 of our company hat.","img":"/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_2112724_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-hat-white/","price":10,"tags":null,"title":"the classic sykstem","type":"hat"},{"color":"black","contents":"","description":"The cool denim. It's for making you cool...with your hemp denim.","img":"/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-jacket-black/","price":50,"tags":null,"title":"the denim sykstem","type":"jacket"},{"color":"periwinkle","contents":"","description":"The cool denim. It's for making you cool...with your hemp denim.","img":"/product/the-sykstem-jacket-periwinkle/1-the-sykstem-jacket-periwinkle_hue7c07c8759818de4b4ffcf049587b1e7_2783926_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-jacket-periwinkle/","price":50,"tags":null,"title":"the denim sykstem","type":"jacket"},{"color":"rose","contents":"","description":"A snug garment, just waiting for the warmth of your body.","img":"/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18488093_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/ryana-long-sleeve-top-rose/","price":28,"tags":null,"title":"the relaxing ryana","type":"long sleeve"},{"color":"gold","contents":"","description":"An out of this world, space-y kind of vibe.","img":"/product/the-sykstem-top-gold/1-the-sykstem-top-gold_hu401973146b8aeef352b597753df8c35f_432908_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-top-gold/","price":40,"tags":null,"title":"the space sykstem","type":"top"},{"color":"silver","contents":"","description":"An out of this world, space-y kind of vibe.","img":"/product/the-sykstem-top-silver/1-the-sykstem-top-silver_hu688b8d422baff784c0f3a5dd7a74e87c_622814_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-top-silver/","price":40,"tags":null,"title":"the space sykstem","type":"top"},{"color":"galaxy","contents":"","description":"This is the classic company shirt, in our new 'galaxy' colorway.","img":"/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_21104514_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-shirt-galaxy/","price":20,"tags":null,"title":"the sykstem","type":"shirt"},{"color":"white","contents":"","description":"This is the classic company shirt.","img":"/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-shirt-white/","price":20,"tags":null,"title":"the sykstem","type":"shirt"},{"color":"grey","contents":"","description":"A casual touch to our favorite tank style.","img":"/product/the-sykstem-tank-top-grey/1-the-sykstem-tank-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17611176_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-tank-top-grey/","price":30,"tags":null,"title":"the tank sykstem","type":"tank top"},{"color":"salmon","contents":"","description":"A casual touch to our favorite tank style.","img":"/product/the-sykstem-tank-top-salmon/1-the-sykstem-tank-top-salmon_hu73633cbe3c9bdc8bf05df77f7bd665bd_11757693_768x0_resize_q65_box_3.png","material":"100% hemp","permalink":"/product/the-sykstem-tank-top-salmon/","price":30,"tags":null,"title":"the tank sykstem","type":"tank top"},{"color":"black","contents":"","description":"This is the classic company hoodie.","img":"/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4774282_768x0_resize_q65_box_3.png","material":"100% bamboo","permalink":"/product/the-sykstem-hoodie-black/","price":35,"tags":null,"title":"the warming sykstem","type":"hoodie"},{"color":"starlight","contents":"","description":"This is the classic company hoodie, now in a cosmic 'starlight'","img":"/product/the-sykstem-hoodie-starlight/1-the-sykstem-hoodie-starlight_hudd7da7c190f826b983416da116648f9b_13734341_768x0_resize_q65_box_3.png","material":"100% bamboo","permalink":"/product/the-sykstem-hoodie-starlight/","price":35,"tags":null,"title":"the warming sykstem","type":"hoodie"}]
