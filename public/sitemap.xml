@@ -18,21 +18,11 @@
     <loc>/account/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>/account/loved/</loc>
-  </url><url>
     <loc>/hero/</loc>
-  </url><url>
-    <loc>/men/</loc>
   </url><url>
     <loc>/oldproducts/slice-hat/</loc>
   </url><url>
     <loc>/product/</loc>
-  </url><url>
-    <loc>/sale/</loc>
-  </url><url>
-    <loc>/unisex/</loc>
-  </url><url>
-    <loc>/women/</loc>
   </url><url>
     <loc>/faq/can-i-work-here/</loc>
   </url><url>
@@ -44,9 +34,15 @@
   </url><url>
     <loc>/faq/</loc>
   </url><url>
+    <loc>/account/loved/</loc>
+  </url><url>
+    <loc>/men/</loc>
+  </url><url>
     <loc>/oldproducts/</loc>
   </url><url>
     <loc>/our-mission/</loc>
+  </url><url>
+    <loc>/sale/</loc>
   </url><url>
     <loc>/sign-up/</loc>
   </url><url>
@@ -92,8 +88,12 @@
   </url><url>
     <loc>/product/the-sykstem-hoodie-starlight/</loc>
   </url><url>
+    <loc>/unisex/</loc>
+  </url><url>
     <loc>/faq/what-is-your-return-exchange-process/</loc>
   </url><url>
     <loc>/faq/why-do-you-use-hemp-and-bamboo-for-your-clothing/</loc>
+  </url><url>
+    <loc>/women/</loc>
   </url>
 </urlset>
