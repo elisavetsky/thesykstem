@@ -16,7 +16,7 @@
 					{{ $main_alt := .Params.main_alt }}
 					{{ .Scratch.Set "alt" $main_alt }}
 					{{ $more_photos := .Resources.ByType "image" }}
-					{{ $resized_main := $article.Resize "768x center q65" }}
+					{{ $resized_main := $article.Resize "700x center q65" }}
 					{{ .Scratch.Set "resized_main" $resized_main }}
 					<div class="product-on-page box">
 						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
