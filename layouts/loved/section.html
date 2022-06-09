@@ -3,7 +3,6 @@
 {{ $banner := .Resources.GetMatch "banner.jpg" }}
 {{ $banner_resized := $banner.Resize "900x q85" }}
 
-
 <body>
 	{{ partial "navbar" . }}
 	<section id="my-love-list" class="hero">
@@ -58,7 +57,7 @@
 										{{ end }}
 									</a>
 								</div>
-								<div class="half-height">
+								<div class="half-min-height">
 										{{ partial "price" . }}
 									<a href="{{ .Permalink }}">
 										<h2>{{ .Title }}</h2>

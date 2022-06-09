@@ -7,3 +7,9 @@
 - price_range: "$31 - $50"
   low: 31
   high: 50
+- price_range: "$51 - $70"
+  low: 51
+  high: 70
+- price_range: "$71 - $90"
+  low: 71
+  high: 90

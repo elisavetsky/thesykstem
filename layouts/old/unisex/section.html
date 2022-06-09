@@ -6,7 +6,7 @@
 
 <body>
 	{{ partial "navbar" . }}
-	<section id="women" class="hero">
+	<section id="unisex" class="hero">
 		<div class="hero-body">
 			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
 				<div class="column is-4">
@@ -58,7 +58,7 @@
 										{{ end }}
 									</a>
 								</div>
-								<div class="half-height">
+								<div class="half-min-height">
 										{{ partial "price" . }}
 									<a href="{{ .Permalink }}">
 										<h2>{{ .Title }}</h2>
