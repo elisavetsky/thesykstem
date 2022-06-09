@@ -1,6 +1,6 @@
 ---
 title: "the sykstem"
-product_type: "shirt"
+product_type: "t-shirt"
 is_women: 
 is_men: 
 is_unisex: true

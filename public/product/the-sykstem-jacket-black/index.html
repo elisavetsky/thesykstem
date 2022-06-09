@@ -510,7 +510,6 @@
 				</div>
 				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
 					
-
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 		<h5>jacket</h5>
@@ -528,9 +527,9 @@
 
 
 
-<h1>the denim sykstem</h1>
+<h2 class="mt-2">the denim sykstem</h2>
 
-					<p>The cool denim. It&#39;s for making you cool...with your hemp denim.</p>
+					<p class="mb-7">The cool denim. It&#39;s for making you cool...with your hemp denim.</p>
 					
 
 
@@ -541,7 +540,7 @@
 
 
 <div class="price-group tags is-justify-content-space-between">
-	<h4 class="price m-0">$50</h4>
+	<h3 class="price m-0">$50</h3>
 	<span class="product-page-color">black</span>
 </div>
 
@@ -757,35 +756,26 @@
 	
 
 
-</div>
-<div id="disp" style=
-		"color:green; font-size:18px; font-weight:bold;">
+
 </div>
 
 <script>
 	
 function display() {
-		var checkRadio = document.querySelector(
-			'input[name="select-size"]:checked');
+	var checkRadio = document.querySelector(
+		'input[name="select-size"]:checked');
+	
+	if(checkRadio != null) {
 		
-		if(checkRadio != null) {
-			
-			
-			document.querySelector('#add-to-bag').disabled = false;
-			const user = document.querySelector("[data-item-custom1-value]");
-			user.setAttribute('data-item-custom1-value', checkRadio.value);
-			console.log(user.dataset.itemCustom1Value);	
-		}
-		else {
-			document.getElementById("disp").innerHTML
-				= "No one selected";
-		}
+		
+		document.querySelector('#add-to-bag').disabled = false;
+		const user = document.querySelector("[data-item-custom1-value]");
+		user.setAttribute('data-item-custom1-value', checkRadio.value);
+		console.log(user.dataset.itemCustom1Value);	
+	}
 }
 
 </script>
-
-
-
 						
 
 
@@ -793,31 +783,17 @@ function display() {
 <div class="buttons safari-reverse-only">
 	<div class="pb-0 full-width safari-only is-full">
 		<button class="button box is-apple-pay is-medium full-width">
-		<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
-			<span class="text">Buy with</span>
-			<span class="logo"></span>
-		</div>
+			<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
+				<span class="text">Buy with</span>
+				<span class="logo"></span>
+			</div>
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<button 
-		disabled
-		autocomplete="off"
-		onclick="display()"
-		type="submit"
-		id="add-to-bag"
-		class="snipcart-add-item button box is-medium full-width is-black"
-		data-item-id="the-sykstem-jacket-black"
-		data-item-price="
+		<button disabled autocomplete="off" onclick="display()" type="submit" id="add-to-bag" class="snipcart-add-item button box is-medium full-width is-black" data-item-id="the-sykstem-jacket-black" data-item-price="
 		
 		50
-		"
-		data-item-url="/product/the-sykstem-jacket-black/"
-		data-item-description="The cool denim. It&#39;s for making you cool...with your hemp denim."
-		data-item-image="/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_768x0_resize_q65_box_3.png"
-		data-item-name="the denim sykstem"	
-		data-item-custom1-name="size"
-		data-item-custom1-options="
+		" data-item-url="/product/the-sykstem-jacket-black/" data-item-description="The cool denim. It&#39;s for making you cool...with your hemp denim." data-item-image="/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_768x0_resize_q65_box_3.png" data-item-name="the denim sykstem" data-item-custom1-name="size" data-item-custom1-options="
 		
 		
 		
@@ -854,16 +830,7 @@ function display() {
 		
 			
 			xxxs|xxs|xs|s|m|xl|xxl|xxxl
-		"
-		data-item-custom1-value=""
-		data-item-custom1-required="true"
-		data-item-custom2-name="color"
-		data-item-custom2-value="black"
-		data-item-custom2-type="hidden"
-		data-item-custom3-name="product-type"
-		data-item-custom3-value="jacket"
-		data-item-custom3-type="hidden"
-		>add to bag</button>
+		" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="black" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="jacket" data-item-custom3-type="hidden">add to bag</button>
 	</div>
 </div>
 

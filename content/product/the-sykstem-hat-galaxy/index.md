@@ -1,6 +1,6 @@
 ---
 title: "the classic sykstem"
-product_type: hat
+product_type: "hat"
 is_women: 
 is_men: 
 is_unisex: true

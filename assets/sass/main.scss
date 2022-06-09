@@ -79,6 +79,10 @@ body {
 	width: 97%;
 }
 
+.mb-7 {
+	margin-bottom: 5rem !important;
+}
+
 // Text Helpers
 
 .lowercase {
@@ -98,16 +102,14 @@ body {
 
 #unisex {
 	background-color: $salmon-brown;
-	overflow: hidden;
-	
-	.content.column {
-		position: relative;
-		z-index: 1;
-	}
 }
 
 #women {
 	background-color: $our-pink;
+}
+
+#men {
+	background-color: $blue-green;
 }
 
 #sale {
@@ -133,6 +135,15 @@ body {
 	min-height: 50vh;
 }
 
+// Classes
+.price-group-on-sale {
+	position: relative;
+	margin-bottom: 1rem;
+	.tags {
+		position: absolute;
+		top: -3rem;
+	}
+}
 
 
 // Navbar
@@ -473,7 +484,7 @@ input#account-drawer {
 }
 
 .box {
-	border-radius: 0;
+	border-radius: $border-radius;
 	margin-bottom: 0;
 }
 
@@ -670,18 +681,25 @@ input#account-drawer {
 	color: $almostblack;
 }
 
-.button.salmon {
+.button.brass {
 	display: flex;
 	align-items: center;
-	background: $salmon;
-	color: $almostblack;
+	background: $brass;
+	color: black;
 }
 
 .button.rose {
 	display: flex;
 	align-items: center;
 	background: $rose;
-	color: white;
+	color: black;
+}
+
+.button.camel {
+	display: flex;
+	align-items: center;
+	background: $camel;
+	color: black;
 }
 
 	
@@ -1302,12 +1320,16 @@ input#account-drawer {
 	background: $gray3;
 }
 
-.product-salmon {
-	background: $salmon;
+.product-brass {
+	background: $brass;
 }
 
 .product-rose {
 	background: $rose;
+}
+
+.product-camel {
+	background: $camel;
 }
 
 
@@ -1643,18 +1665,23 @@ input#account-drawer {
 	-webkit-text-fill-color: transparent;
 }
 
-.icon-salmon {
-	color: $salmon;
+.icon-brass {
+	color: $brass;
 }
 
 .icon-rose {
 	color: $rose;
 }
 
+.icon-camel {
+	color: $camel;
+}
+
 // Breadcrumb 
 
 .breadcrumb {
 	margin: 0 !important;
+	white-space: normal;
 	ul {
 		margin: 0 0 3rem;
 	}
@@ -1690,6 +1717,10 @@ input#account-drawer {
 	height: 100%;
 	border: none;
 	// animation: transform 30s infinite alternate ease-in-out;
+}
+
+.hero {
+	overflow: hidden;
 }
 
 .hero-feature {
@@ -1787,11 +1818,11 @@ input#account-drawer {
 .tile figure {
 	margin: 2em 0 2em;
 	img {
-	padding: 5px;
+	border-bottom: 2px solid rgba(0, 0, 0, 0.011);
 	transition: $transition-img;
 	-moz-transition: $transition-img;
 		&:hover {
-			padding: 0;
+			opacity: 0.75;
 		}
 	}
 }
@@ -1807,7 +1838,7 @@ input#account-drawer {
 
 
 .is-article {
-	background: $gray2;
+	background: rgba(255, 255, 255, 0);
 	height: 100%;
 	.content {
 		height: 100%;

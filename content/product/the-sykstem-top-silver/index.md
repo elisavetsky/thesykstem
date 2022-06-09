@@ -1,6 +1,6 @@
 ---
-title: "the space sykstem"
-product_type: "top"
+title: "the solar sykstem"
+product_type: "cropped strapped top"
 is_women: true
 is_men: 
 is_unisex: true

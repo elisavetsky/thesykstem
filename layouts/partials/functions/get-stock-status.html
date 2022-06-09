@@ -1,0 +1,18 @@
+{{ $title := .product_title }}
+
+	{{ $color := replace .Params.color "-fill" "" }}
+
+		{{ $stock_data := newScratch }}
+
+		{{ range .product_sizes }}
+			{{ if gt .stock 0 }}
+				{{ $stock_data.Add "stock" .stock }}
+			{{ else }}
+				{{ $stock_data.Add "stock" .stock }}
+			{{ end }}
+		{{ end }}
+		
+		{{ if  (eq (int (index (slice ($stock_data.Get "stock")) 0)) 0) }}
+			<!-- return -->
+			{{ $stock_data.Get "stock" }}
+		{{ end }}

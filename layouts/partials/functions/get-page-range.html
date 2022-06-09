@@ -2,14 +2,18 @@
 {{ $sale_field_filled := where .Site.RegularPages "Params.sale_price" "ne" nil }}
 {{ $on_sale := $products | intersect (where ($sale_field_filled) "Params.sale_price" "gt" 0) }}
 {{ $is_unisex := where ($products) "Params.is_unisex" true }}
+{{ $is_women := where ($products) "Params.is_women" true }}
+{{ $is_men := where ($products) "Params.is_men" true }}
 {{ $page := .RelPermalink }}
 
 {{ if eq $page "/unisex/" }}
 {{ $.Scratch.Set "page_range" $is_unisex }}
 
 {{ else if eq $page "/men/" }}
+{{ $.Scratch.Set "page_range" $is_men }}
 
 {{ else if eq $page "/women/" }}
+{{ $.Scratch.Set "page_range" $is_women }}
 
 {{ else if eq $page "/sale/" }}
 {{ $.Scratch.Set "page_range" $on_sale }}

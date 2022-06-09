@@ -435,7 +435,7 @@
 		</li>
 		
 		<li class="is-active">
-			<a href="#" aria-current="page">the sykstem - shirt - white</a>
+			<a href="#" aria-current="page">the sykstem - t-shirt - white</a>
 		</li>
 	</ul>
 </nav>
@@ -510,10 +510,9 @@
 				</div>
 				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
 					
-
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
-		<h5>shirt</h5>
+		<h5>t-shirt</h5>
 		<div class="love-container">
 			<input onclick="loveUnloveProduct(&#34;the-sykstem-shirt-white&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-shirt-white">
 			<label for="love-button-the-sykstem-shirt-white">
@@ -528,9 +527,9 @@
 
 
 
-<h1>the sykstem</h1>
+<h2 class="mt-2">the sykstem</h2>
 
-					<p>This is the classic company shirt.</p>
+					<p class="mb-7">This is the classic company shirt.</p>
 					
 
 
@@ -540,17 +539,18 @@
 
 
 
-<div class="tags is-justify-content-flex-start">
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
 	<span class="tag discount-tag mb-0">
 		<strong>20% off</strong>
 	</span>
-</div>
-<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	</div>
 	<div class="is-flex is-flex-direction-row">
 		<div class="mr-2">
-			<h4 class="original-price m-0"><s>$25</s></h4>
+			<h3 class="original-price m-0"><s>$25</s></h3>
 		</div>
-		<h4 class="price mb-0">$20</h4>
+		<h3 class="price m-0">$20</h3>
 	</div>
 	<span class="product-page-color">white</span>
 </div>
@@ -758,35 +758,26 @@
 	
 
 
-</div>
-<div id="disp" style=
-		"color:green; font-size:18px; font-weight:bold;">
+
 </div>
 
 <script>
 	
 function display() {
-		var checkRadio = document.querySelector(
-			'input[name="select-size"]:checked');
+	var checkRadio = document.querySelector(
+		'input[name="select-size"]:checked');
+	
+	if(checkRadio != null) {
 		
-		if(checkRadio != null) {
-			
-			
-			document.querySelector('#add-to-bag').disabled = false;
-			const user = document.querySelector("[data-item-custom1-value]");
-			user.setAttribute('data-item-custom1-value', checkRadio.value);
-			console.log(user.dataset.itemCustom1Value);	
-		}
-		else {
-			document.getElementById("disp").innerHTML
-				= "No one selected";
-		}
+		
+		document.querySelector('#add-to-bag').disabled = false;
+		const user = document.querySelector("[data-item-custom1-value]");
+		user.setAttribute('data-item-custom1-value', checkRadio.value);
+		console.log(user.dataset.itemCustom1Value);	
+	}
 }
 
 </script>
-
-
-
 						
 
 
@@ -794,31 +785,17 @@ function display() {
 <div class="buttons safari-reverse-only">
 	<div class="pb-0 full-width safari-only is-full">
 		<button class="button box is-apple-pay is-medium full-width">
-		<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
-			<span class="text">Buy with</span>
-			<span class="logo"></span>
-		</div>
+			<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
+				<span class="text">Buy with</span>
+				<span class="logo"></span>
+			</div>
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<button 
-		disabled
-		autocomplete="off"
-		onclick="display()"
-		type="submit"
-		id="add-to-bag"
-		class="snipcart-add-item button box is-medium full-width is-black"
-		data-item-id="the-sykstem-shirt-white"
-		data-item-price="
+		<button disabled autocomplete="off" onclick="display()" type="submit" id="add-to-bag" class="snipcart-add-item button box is-medium full-width is-black" data-item-id="the-sykstem-shirt-white" data-item-price="
 		
 		20
-		"
-		data-item-url="/product/the-sykstem-shirt-white/"
-		data-item-description="This is the classic company shirt."
-		data-item-image="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_768x0_resize_q65_box_3.png"
-		data-item-name="the sykstem"	
-		data-item-custom1-name="size"
-		data-item-custom1-options="
+		" data-item-url="/product/the-sykstem-shirt-white/" data-item-description="This is the classic company shirt." data-item-image="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_768x0_resize_q65_box_3.png" data-item-name="the sykstem" data-item-custom1-name="size" data-item-custom1-options="
 		
 		
 		
@@ -843,16 +820,7 @@ function display() {
 		
 			
 			xxxs|xs|m|xxl|xxxl
-		"
-		data-item-custom1-value=""
-		data-item-custom1-required="true"
-		data-item-custom2-name="color"
-		data-item-custom2-value="white"
-		data-item-custom2-type="hidden"
-		data-item-custom3-name="product-type"
-		data-item-custom3-value="shirt"
-		data-item-custom3-type="hidden"
-		>add to bag</button>
+		" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="white" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="t-shirt" data-item-custom3-type="hidden">add to bag</button>
 	</div>
 </div>
 

@@ -510,7 +510,6 @@
 				</div>
 				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
 					
-
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 		<h5>hat</h5>
@@ -528,9 +527,9 @@
 
 
 
-<h1>the classic sykstem</h1>
+<h2 class="mt-2">the classic sykstem</h2>
 
-					<p>This is v2 of our company hat. In a striking &#39;galaxy&#39; colorway.</p>
+					<p class="mb-7">This is v2 of our company hat. In a striking &#39;galaxy&#39; colorway.</p>
 					
 
 
@@ -541,7 +540,7 @@
 
 
 <div class="price-group tags is-justify-content-space-between">
-	<h4 class="price m-0">$15</h4>
+	<h3 class="price m-0">$15</h3>
 	<span class="product-page-color">galaxy</span>
 </div>
 
@@ -594,35 +593,26 @@
 
 
 
-</div>
-<div id="disp" style=
-		"color:green; font-size:18px; font-weight:bold;">
+
 </div>
 
 <script>
 	
 function display() {
-		var checkRadio = document.querySelector(
-			'input[name="select-size"]:checked');
+	var checkRadio = document.querySelector(
+		'input[name="select-size"]:checked');
+	
+	if(checkRadio != null) {
 		
-		if(checkRadio != null) {
-			
-			
-			document.querySelector('#add-to-bag').disabled = false;
-			const user = document.querySelector("[data-item-custom1-value]");
-			user.setAttribute('data-item-custom1-value', checkRadio.value);
-			console.log(user.dataset.itemCustom1Value);	
-		}
-		else {
-			document.getElementById("disp").innerHTML
-				= "No one selected";
-		}
+		
+		document.querySelector('#add-to-bag').disabled = false;
+		const user = document.querySelector("[data-item-custom1-value]");
+		user.setAttribute('data-item-custom1-value', checkRadio.value);
+		console.log(user.dataset.itemCustom1Value);	
+	}
 }
 
 </script>
-
-
-
 						
 
 
@@ -630,47 +620,24 @@ function display() {
 <div class="buttons safari-reverse-only">
 	<div class="pb-0 full-width safari-only is-full">
 		<button class="button box is-apple-pay is-medium full-width">
-		<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
-			<span class="text">Buy with</span>
-			<span class="logo"></span>
-		</div>
+			<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
+				<span class="text">Buy with</span>
+				<span class="logo"></span>
+			</div>
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<button 
-		disabled
-		autocomplete="off"
-		onclick="display()"
-		type="submit"
-		id="add-to-bag"
-		class="snipcart-add-item button box is-medium full-width is-black"
-		data-item-id="the-sykstem-hat-galaxy"
-		data-item-price="
+		<button disabled autocomplete="off" onclick="display()" type="submit" id="add-to-bag" class="snipcart-add-item button box is-medium full-width is-black" data-item-id="the-sykstem-hat-galaxy" data-item-price="
 		
 		15
-		"
-		data-item-url="/product/the-sykstem-hat-galaxy/"
-		data-item-description="This is v2 of our company hat. In a striking &#39;galaxy&#39; colorway."
-		data-item-image="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2556679_768x0_resize_q65_box_3.png"
-		data-item-name="the classic sykstem"	
-		data-item-custom1-name="size"
-		data-item-custom1-options="
+		" data-item-url="/product/the-sykstem-hat-galaxy/" data-item-description="This is v2 of our company hat. In a striking &#39;galaxy&#39; colorway." data-item-image="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2556679_768x0_resize_q65_box_3.png" data-item-name="the classic sykstem" data-item-custom1-name="size" data-item-custom1-options="
 		
 		
 		
 			adjustable
 		
 		
-		"
-		data-item-custom1-value=""
-		data-item-custom1-required="true"
-		data-item-custom2-name="color"
-		data-item-custom2-value="galaxy"
-		data-item-custom2-type="hidden"
-		data-item-custom3-name="product-type"
-		data-item-custom3-value="hat"
-		data-item-custom3-type="hidden"
-		>add to bag</button>
+		" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="galaxy" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="hat" data-item-custom3-type="hidden">add to bag</button>
 	</div>
 </div>
 

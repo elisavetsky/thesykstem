@@ -1,6 +1,6 @@
 ---
-title: the warming sykstem
-product_type: hoodie
+title: "the warming sykstem"
+product_type: "hoodie"
 is_women: 
 is_men: 
 is_unisex: true
@@ -29,7 +29,7 @@ sizes:
   stock: 1
 
 img: "1-the-sykstem-hoodie-black.png"
-main_alt: the classic the-sykstem hoodie with our logo turned on its side
-description: This is the classic company hoodie.
+main_alt: "the classic the-sykstem hoodie with our logo turned on its side"
+description: "This is the classic company hoodie."
 material: "100% bamboo"
 ---

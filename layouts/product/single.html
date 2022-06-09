@@ -11,8 +11,8 @@
 			</div>
 			<div class="content columns is-variable is-4 is-justify-content-center is-size-6-mobile is-size-5-tablet is-size-5-desktop">
 				<div class="column is-full-mobile is-half-tablet is-half-desktop">
-					{{ $img := .Params.img }}
-					{{ $article := .Resources.GetMatch $img }}
+					
+					{{ $article := .Resources.GetMatch "**.png" }}
 					{{ $main_alt := .Params.main_alt }}
 					{{ .Scratch.Set "alt" $main_alt }}
 					{{ $more_photos := .Resources.ByType "image" }}
@@ -44,7 +44,7 @@
 				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
 					{{ partial "type-love-button" . }}
 					{{ partial "product-title" . }}
-					<p>{{ .Params.description }}</p>
+					<p class="mb-7">{{ .Params.description }}</p>
 					{{ partial "price" . }}
 					<hr>
 					{{ partial "colors" . }}

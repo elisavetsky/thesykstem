@@ -13,50 +13,36 @@
 (where (where $size_var "size" "eq" "xxxl") "stock" "eq" 0 ) ) }}
 <div class="columns">
 	<div class="column is-full">
-		<button disabled class="button mb-4 is-medium full-width is-red">
+		<button disabled class="button mb-4 is-medium full-width">
 			out of stock
 		</button>
-		<a href="">
-			<button class="button full-width">
-				<span class="icon">
-					<span class="fa-solid fa-bell"></span>
-				</span>
-				<span>notify me</span>
-			</button>
-		</a>
+
+		<!-- <a class="full-width">
+			<span class="icon">
+				<span class="fa-solid fa-bell"></span>
+			</span>
+			<span>notify me</span>
+		</a> -->
+
 	</div>
-</div>	
+</div>
 {{ else }}
 <div class="buttons safari-reverse-only">
 	<div class="pb-0 full-width safari-only is-full">
 		<button class="button box is-apple-pay is-medium full-width">
-		<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
-			<span class="text">Buy with</span>
-			<span class="logo"></span>
-		</div>
+			<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
+				<span class="text">Buy with</span>
+				<span class="logo"></span>
+			</div>
 		</button>
 	</div>
 	<div class="pb-0 full-width is-full">
-		<button 
-		disabled
-		autocomplete="off"
-		onclick="display()"
-		type="submit"
-		id="add-to-bag"
-		class="snipcart-add-item button box is-medium full-width is-black"
-		data-item-id="{{ .File.ContentBaseName }}"
-		data-item-price="
+		<button disabled autocomplete="off" onclick="display()" type="submit" id="add-to-bag" class="snipcart-add-item button box is-medium full-width is-black" data-item-id="{{ .File.ContentBaseName }}" data-item-price="
 		{{ if .Params.sale_price }}
 		{{ replace .Params.sale_price "$" "" }}
 		{{ else }}
 		{{ replace .Params.original_price "$" "" }}
-		{{ end }}"
-		data-item-url="{{ .RelPermalink }}"
-		data-item-description="{{ .Description }}"
-		data-item-image="{{ $resized_main.Permalink }}"
-		data-item-name="{{ .Title }}"	
-		data-item-custom1-name="size"
-		data-item-custom1-options="
+		{{ end }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Description }}" data-item-image="{{ $resized_main.Permalink }}" data-item-name="{{ .Title }}" data-item-custom1-name="size" data-item-custom1-options="
 		{{ range (where $size_var "stock" "gt" 0) }}
 		{{ $.Scratch.Add "s" (slice .size) }}
 		{{ if eq .size "adjustable" }}
@@ -67,16 +53,7 @@
 		{{ if where $size_var "size" "!=" "adjustable" }}
 			{{ $s := $.Scratch.Get "s" }}
 			{{ delimit $s "|" }}
-		{{ end }}"
-		data-item-custom1-value=""
-		data-item-custom1-required="true"
-		data-item-custom2-name="color"
-		data-item-custom2-value="{{ replace .Params.color "-fill" "" }}"
-		data-item-custom2-type="hidden"
-		data-item-custom3-name="product-type"
-		data-item-custom3-value="{{ .Params.product_type }}"
-		data-item-custom3-type="hidden"
-		>add to bag</button>
+		{{ end }}" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="{{ replace .Params.color "-fill" "" }}" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="{{ .Params.product_type }}" data-item-custom3-type="hidden">add to bag</button>
 	</div>
 </div>
 

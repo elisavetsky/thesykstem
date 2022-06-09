@@ -33,7 +33,7 @@
 		</label>
 		{{ end }}
 {{ end }}
-{{ else if or (eq .Params.product_type "shirt") (eq .Params.product_type "hoodie") (eq .Params.product_type "jacket") }}
+{{ else }}
 
 	{{ with $size_catalog := dict "xxxs" "2-4" "xxs" "6-8" "xs" "10-12" "s" "14-16" "m" "18-20" "l" "22-24" "xl" "26-28" "xxl" "30-32" "xxxl" "34-36" }}
 
@@ -127,66 +127,24 @@
 		{{ end }}
 	{{ end }}
 {{ end }}
+{{/* (eq .Params.product_type "shirt") (eq .Params.product_type "hoodie") (eq .Params.product_type "jacket") */}}
 
-</div>
-<div id="disp" style=
-		"color:green; font-size:18px; font-weight:bold;">
 </div>
 
 <script>
 	
 function display() {
-		var checkRadio = document.querySelector(
-			'input[name="select-size"]:checked');
-		
-		if(checkRadio != null) {
-			// document.getElementById("disp").innerHTML
-			// 	= checkRadio.value
-			document.querySelector('#add-to-bag').disabled = false;
-			const user = document.querySelector("[data-item-custom1-value]");
-			user.setAttribute('data-item-custom1-value', checkRadio.value);
-			console.log(user.dataset.itemCustom1Value);	
-		}
-		else {
-			document.getElementById("disp").innerHTML
-				= "No one selected";
-		}
+	var checkRadio = document.querySelector(
+		'input[name="select-size"]:checked');
+	
+	if(checkRadio != null) {
+		// document.getElementById("disp").innerHTML
+		// 	= checkRadio.value
+		document.querySelector('#add-to-bag').disabled = false;
+		const user = document.querySelector("[data-item-custom1-value]");
+		user.setAttribute('data-item-custom1-value', checkRadio.value);
+		console.log(user.dataset.itemCustom1Value);	
+	}
 }
 
 </script>
-
-
-{{/*<!-- <script>
-
-	// 	document.addEventListener('snipcart.ready', () => {
-	// 	document.querySelector('#{{ $.Scratch.Get "product-id" }}-{{ $size }}').addEventListener('click', () => {
-	// 	
-	// 	
-	// 		if (document.querySelector('#{{ $.Scratch.Get "product-id" }}-{{ $size }}').classList.contains("is-active")) {
-	// 			document.querySelector('#{{ $.Scratch.Get "product-id" }}-{{ $size }}').classList.remove("is-active")
-	// 			console.log("{{ $size }} Button is ACTIVE!");
-	// 			
-	// 		
-	// 		// async function start() {
-	// 		// 	console.log("{{ $size }} Function start!");
-	// 		// 	try {
-	// 		// 		await Snipcart.api.cart.items.add({
-	// 		// 			'id': '{{ $.Scratch.Get "product-id" }}',
-	// 		// 			'name': '{{ $.Scratch.Get "product-name" }}',
-	// 		// 			'url': '{{ $.Scratch.Get "product-url" }}',
-	// 		// 			'customFields': [{	
-	// 		// 				'name': 'size',
-	// 		// 				'value': '{{ $size }}',
-	// 		// 			}],
-	// 		// 		});
-	// 		// 	} catch (error) {
-	// 		// 		console.log(error)
-	// 		// 	}
-	// 		// }
-	// 		// start();
-	// 		}
-	// 		
-	// 	});
-	// 	
-	// });
-</script> -->*/}}

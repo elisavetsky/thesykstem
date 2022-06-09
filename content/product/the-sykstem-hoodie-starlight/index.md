@@ -1,13 +1,13 @@
 ---
-title: the warming sykstem
-product_type: hoodie
+title: "the warming sykstem"
+product_type: "hoodie"
 is_women: 
 is_men: 
 is_unisex: true
 is_variant: true
 original_price: 35
 sale_price:
-color: starlight
+color: "starlight"
 sizes:
 - size: "xxxs"
   stock: 7

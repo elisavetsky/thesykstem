@@ -3,6 +3,7 @@
 {{ $banner := .Resources.GetMatch "banner.jpg" }}
 {{ $banner_resized := $banner.Resize "900x q85" }}
 
+
 <body>
 	{{ partial "navbar" . }}
 	<section id="women" class="hero">
@@ -26,11 +27,13 @@
 		{{ partial "product-sort-and-filter" . }}
 
 		<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
-
+			{{ partial "functions/get-page-range" . }}
+			
 			{{ $counter := 0 }}
-			{{ .Scratch.Set "counter" $counter}}
-			{{ $is_women := (where .Site.RegularPages "Params.is_women" true) }}
-			{{ range $is_women }}
+			{{ .Scratch.Set "counter" $counter }}
+			
+			{{ $page_range := $.Scratch.Get "page_range" }}
+			{{ range $page_range }}
 			{{ $counter = add $counter 1 }}
 			{{ .Scratch.Set "counter" $counter }}
 
@@ -38,15 +41,13 @@
 				<div class="tile is-ancestor">
 					<div class="tile is-parent">
 						<div class="box tile is-child is-article">
-							<div class="content no-h1-mt is-flex is-flex-direction-column is-justify-content-space-between is-size-7-mobile is-size-6-tablet is-size-6-desktop">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
 								<div class="product-in-list">
-									{{ partial "type-love-button" . }}
+									
 									<a href="{{ .Permalink }}">
-										<h1>{{ .Title }}</h1>
+										
 
-										{{ $img := .Params.img }}
-
-										{{ $article := .Resources.GetMatch $img }}
+										{{ $article := .Resources.GetMatch "**.png" }}
 										{{ $main_alt := .Params.main_alt }}
 										{{ $.Scratch.Set "alt" $main_alt }}
 										{{ with $article }}
@@ -58,8 +59,13 @@
 									</a>
 								</div>
 								<div>
-									{{ partial "price" . }}
-									{{ partial "colors-sizes-available" . }}
+										{{ partial "price" . }}
+									<a href="{{ .Permalink }}">
+										<h2>{{ .Title }}</h2>
+									</a>
+									{{ partial "type-love-button" . }}
+									
+									{{ partial "colors-sizes-available" (dict "page_range" ($.Scratch.Get "page_range" ) "product_title" .Title) }}
 								</div>
 							</div>
 						</div>
@@ -70,6 +76,7 @@
 		</div>
 
 	</section>
+	
 	{{ partial "footer" . }}
 
 </body>

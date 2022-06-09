@@ -1,6 +1,6 @@
 ---
 title: "the relaxing ryana"
-product_type: "long sleeve"
+product_type: "long sleeve top"
 is_women: true
 is_men: 
 is_unisex: true
@@ -28,7 +28,6 @@ sizes:
 - size: "xxxl"
   stock: 10
 
-img: "1-ryana-long-sleeve-top-rose.png"
 main_alt: "A snug garment, just waiting for the warmth of your body."
 description: "A snug garment, just waiting for the warmth of your body."
 material: "100% hemp"
