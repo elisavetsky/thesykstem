@@ -1,5 +1,6 @@
 ---
-type: loved
+title: "loved"
+type: "loved"
 ---
 
 # my love list

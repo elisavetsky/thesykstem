@@ -50,6 +50,10 @@ body {
 	height: 50%;
 }
 
+.half-min-height {
+	min-height: 50%;
+}
+
 .full-height {
 	height: 100%;
 }
@@ -122,7 +126,7 @@ body {
 	}
 }
 
-#my-love-list {
+#loved {
 	background-color: $salmon;
 	overflow: hidden;
 	.content.column {
@@ -1760,7 +1764,7 @@ input#account-drawer {
 		display: none;
 	}
 	figure {
-		background: $gray1;
+		background: rgba(255, 255, 255, 0);
 		margin: 0;
 		padding: 0.25rem;
 	}
@@ -1791,7 +1795,7 @@ input#account-drawer {
 
 .product-on-page {
 	overflow: hidden;
-	background-color: $gray2;
+	background-color: rgba(255, 255, 255, 0);
 	.gallery__img {
 		.image-normal {
 			cursor: zoom-in;
