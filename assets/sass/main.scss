@@ -141,7 +141,7 @@ body {
 	margin-bottom: 1rem;
 	.tags {
 		position: absolute;
-		top: -3rem;
+		top: -2.5rem;
 	}
 }
 
@@ -996,6 +996,7 @@ input#account-drawer {
 			}
 			.tag {
 				margin: 0 0.5rem;
+				
 			}
 			.remove-button {
 				margin-right: 0 !important;
@@ -1626,6 +1627,8 @@ input#account-drawer {
 
 .icon-white {
 	color: white;
+	border-inline: 1px solid $gray2;
+	border-radius: 99999px;
 }
 
 .icon-black {
@@ -1922,6 +1925,9 @@ input#account-drawer {
 		min-height: 0;
 		max-height: 0;
 		transition: $transition-dropdown;
+		.tag {
+			border-radius: $border-radius;
+		}
 	}
 }
 	

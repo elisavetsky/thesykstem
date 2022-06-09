@@ -8,7 +8,7 @@
 {{ $color := replace .Params.color "-fill" "" }}
 {{ with not $sale }}
 <div class="price-group tags is-justify-content-space-between">
-	<h3 class="price m-0">${{ $original }}</h3>
+	<h4 class="price m-0">${{ $original }}</h4>
 	<span class="product-page-color">{{ $color }}</span>
 </div>
 {{ else }}
@@ -21,9 +21,9 @@
 	</div>
 	<div class="is-flex is-flex-direction-row">
 		<div class="mr-2">
-			<h3 class="original-price m-0"><s>${{ $original }}</s></h3>
+			<h4 class="original-price m-0"><s>${{ $original }}</s></h4>
 		</div>
-		<h3 class="price m-0">${{ $sale }}</h3>
+		<h4 class="price m-0">${{ $sale }}</h4>
 	</div>
 	<span class="product-page-color">{{ $color }}</span>
 </div>

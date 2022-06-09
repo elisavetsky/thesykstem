@@ -6,7 +6,7 @@ is_men:
 is_unisex: true
 is_variant: true
 original_price: 25
-sale_price: 20
+sale_price: 
 color: "galaxy"
 sizes:
 - size: "xxxs"
