@@ -1,7 +1,7 @@
 <div class="gallery">
 	{{ $more_photos := .Resources.ByType "image" }}
 	{{ range $more_photos }}
-	{{ $resized := .Resize "200x webp center q50" }}
+	{{ $resized := .Resize "100x jpg #f5f5f5 center q50" }}
 	<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector"/>
 	
 		<div class="gallery__thumb">
