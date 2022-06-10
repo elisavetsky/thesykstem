@@ -29,6 +29,7 @@
 							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ $article_zoomed_resized.Permalink }}" src="{{ $article_zoomed_resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 						</figure>
 						{{ range $more_photos }}
+						{{ $resized_zoomed := .Resize "1000x jpg #f5f5f5 center q80" }}
 						{{ $resized := .Resize "700x jpg #f5f5f5 center q70" }}
 						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" />
 						<figure class="gallery__img">
@@ -36,7 +37,7 @@
 							<noscript>
 								<img style="opacity: 1" class="image-normal" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 							</noscript>
-							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ $resized_zoomed.Permalink }}" src="{{ $resized_zoomed.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 						</figure>
 						{{ end }}
 					</div>

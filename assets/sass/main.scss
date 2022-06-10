@@ -820,7 +820,7 @@ input#account-drawer {
 
 .snipcart-item-line {
 	margin: 1.2rem !important;
-	background-color: $gray2 !important;
+	background-color: rgba(255, 255, 255, 0) !important;
 }
 
 .snipcart-item-line__title {
@@ -904,6 +904,7 @@ input#account-drawer {
 	position: fixed;
 	height: 100%;
 	background: $almostwhite;
+	border-radius: 0 !important;
 	.field {
 		overflow: scroll;
 	}
@@ -1772,10 +1773,9 @@ input#account-drawer {
 		padding: 0.25rem;
 	}
 	&__thumb {
-		filter: brightness(0.95);
 		&:hover {
 			opacity: 1;
-			filter: saturate(1.5) brightness(1);
+			filter: saturate(1.5);
 			transition: 0.2s ease-in-out;
 		}
 	}
