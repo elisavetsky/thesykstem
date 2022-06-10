@@ -402,7 +402,7 @@ if (currentURL.indexOf("product") >= 0) {
 	for (let i = 0; i < thumbs.length; i++) {
 		thumbs[i].addEventListener("click", () => {
 			document.querySelector(".active-image").classList.remove("active-image");
-			const activeThumb = this.getAttribute("for");
+			const activeThumb = thumbs[i].getAttribute("for");
 			const activeFull = document.getElementById(activeThumb).nextElementSibling;
 			activeFull.classList.add("active-image");
 			activeNormal = activeFull.firstElementChild;
@@ -541,7 +541,7 @@ function loadAvailableColorsInLoveList() {
 
 		unavailFilterColors = filterColors.filter(el => !productArray.some(i => i.color === el.value));
 		for (let i = 0; i < unavailFilterColors.length; i++) {
-			unavailFilterColors[i].parentElement.parentElement.remove();
+			unavailFilterColors[i].parentElement.parentElement.parentElement.remove();
 		}
 	}
 }

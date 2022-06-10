@@ -1,9 +1,9 @@
 {{ $products :=  where .Site.RegularPages "Section" "product" }}
 {{ $sale_field_filled := where .Site.RegularPages "Params.sale_price" "ne" nil }}
 {{ $on_sale := $products | intersect (where ($sale_field_filled) "Params.sale_price" "gt" 0) }}
-{{ $is_unisex := where ($products) "Params.is_unisex" true }}
-{{ $is_women := where ($products) "Params.is_women" true }}
-{{ $is_men := where ($products) "Params.is_men" true }}
+{{ $is_unisex := (where ($products) "Params.is_unisex" true) }}
+{{ $is_women := (where ($products) "Params.is_women" true) }}
+{{ $is_men := (where ($products) "Params.is_men" true) }}
 {{ $page := .RelPermalink }}
 
 {{ if eq $page "/unisex/" }}
@@ -20,5 +20,8 @@
 
 {{ else if eq $page "/account/loved/" }}
 {{ $.Scratch.Set "page_range" $products }}
+
+{{ else if eq $page "/product/" }}
+{{ $.Scratch.Set "section_range" $is_unisex }}
 
 {{ end }}

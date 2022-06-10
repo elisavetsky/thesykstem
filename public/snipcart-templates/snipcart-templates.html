@@ -3,7 +3,7 @@
 	<head><title>Templates</title></head>
 	
 	<body>
-		
+		{{ $color := item.customFields[1]['value'] }}
 		<div id="snipcart-templates">
 			
 			<!-- Loading Screen -->
@@ -309,7 +309,12 @@
 									<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
 									{{ item.name }}
 									</h2>
-									<span class="tag fit-content-w mb-2">{{ item.customFields[1]['value'] }}</span>
+									<span class="fit-content-w mb-2">
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle" :class="'icon-' + item.customFields[1]['displayValue']"></span>
+										</span>
+										{{ item.customFields[1]['value'] }}
+									</span>
 								</div>
 				
 								<button-icon

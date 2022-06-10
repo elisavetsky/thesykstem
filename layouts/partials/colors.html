@@ -6,10 +6,23 @@
 	{{ $variants := where .Site.RegularPages "Title" "=" $title }}
 	{{ $current_color := .Params.color }}
 	{{ range $variants }}
+		
+		{{- $stock_status := (partial "functions/get-stock-status" (dict "page_range" $variants "product_title" .Title "product_sizes" .Params.sizes )) -}}
+		{{- $fix_stock_status := int (index (chomp (replace $stock_status "\t" "" )) 0 ) -}}
+
 		{{ if eq $current_color .Params.color }}
-		<a href="{{ .Permalink }}" class="button is-focused is-static box {{ .Params.color }}">{{ .Params.color }}</a>
+			
+			{{ if eq $fix_stock_status 10 }}
+				<a disabled href="{{ .Permalink }}" class="button is-static box {{ .Params.color }}">{{ .Params.color }}</a>
+			{{ else }}
+				<a href="{{ .Permalink }}" class="button is-focused is-static box {{ .Params.color }}">{{ .Params.color }}</a>
+			{{ end }}
 		{{ else }}
-		<a href="{{ .Permalink }}" class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+			{{ if eq $fix_stock_status 10 }}
+				<a disabled href="{{ .Permalink }}" class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+			{{ else }}
+				<a href="{{ .Permalink }}" class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+			{{ end }}
 		{{ end }}
 	{{ end }}
 {{ end }}

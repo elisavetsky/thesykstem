@@ -1,4 +1,5 @@
 ---
+navbar_section: true
 title: "women"
 draft: false
 ---
