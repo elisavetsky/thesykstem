@@ -920,7 +920,7 @@ input#account-drawer {
 		
 	}
 	.icon-text {
-		color: white;
+		color: $almostblack;
 	}
 	.search-buttons .is-collapsable {
 		min-width: 150px;
@@ -1846,16 +1846,20 @@ input#account-drawer {
 }
 
 
-
 .is-article {
 	background: rgba(255, 255, 255, 0);
 	height: 100%;
 	.content {
 		height: 100%;
 	}
+	
 	// .is-flex {
 	// 	min-height: 100%;
 	// }
+}
+
+a.is-article:hover {
+	box-shadow: $box-box-shadow;
 }
 
 .is-fabric-care {
