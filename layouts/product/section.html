@@ -10,15 +10,15 @@
 	{{ $.Scratch.Set "banner" ($banner.Resize "900x q85") }}
 	{{ end }}
 
-	<section id="{{ .Title }}" class="hero">
-		<div class="hero-body">
+	<section id="{{ .Title }}" class="hero is-fullheight">
+		<div class="hero-body is-flex-direction-column">
 			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
 				<div class="column is-4">
 					<figure class="image is-fullwidth">
 						<img class="is-rounded" src="{{ with $.Scratch.Get "banner" }}{{ .Permalink }}{{ end }}" alt="{{ .Title }} section image">
 					</figure>
 				</div>
-				<div class="column content">
+				<div class="column content is-flex is-flex-direction-column is-align-items-center">
 					{{ .Content }}
 				</div>
 			</div>
@@ -83,9 +83,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
-		<div class="">
-			
 		</div>
 	</section>
 	{{ end }}
