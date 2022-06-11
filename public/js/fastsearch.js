@@ -144,9 +144,18 @@ function executeSearch(term) {
 		resultsAvailable = false;
 		searchitems = '';
 	} else { // build our html 
-		for (let item in results.slice(0, 6)) { // only show first 5 results
+		for (let item in results.slice(0, 6)) { 
+			
+			if (results[item].item.stock_status == 10) {
+				var circleOrBan = "ban";
+				var outOfStockTag = "<span class='fit-content-w tag mb-3'>out of stock</span>";
+			} else {
+				circleOrBan = "circle"
+				outOfStockTag = "";
+			}
+			// only show first 5 results
 			// searchitems = searchitems + '<li><a href="' + results[item].permalink + '" tabindex="0">' + '<span class="title">' + results[item].title + '</span><br /> <span class="sc">'+ results[item].section +'</span> — ' + results[item].date + ' — <em>' + results[item].desc + '</em></a></li>';
-			searchitems = searchitems + '<li><a class="box is-article" href="' + results[item].item.permalink + '" tabindex="0">' + '<div class="is-flex is-justify-content-space-between is-size-7"><div class="is-flex is-flex-direction-column"><h4 class="mt-0">' + results[item].item.type + '</h4><h2 class="mt-0 search-title">' + results[item].item.title + '</h2><span class="icon-text fit-content-w mb-5 is-align-items-center">' + '<span class="icon is-medium mr-1"><span class="fa-solid fa-circle fa-2x icon-' + results[item].item.color + '"></span></span>' + results[item].item.color + '</span><div class="full-height is-flex is-align-items-end"><h4 class="m-0">' + results[item].item.price + '</h4></div></div><figure class="image is-96x96"><img class="lazyload" data-src="' + results[item].item.img + '" src="' + results[item].item.img + '"></img></figure></div></a></li>';
+			searchitems = searchitems + '<li><a class="box is-article" href="' + results[item].item.permalink + '" tabindex="0">' + '<div class="is-flex is-justify-content-space-between is-size-7"><div class="is-flex is-flex-direction-column"><h4 class="mt-0">' + results[item].item.type + '</h4><h2 class="mt-0 search-title">' + results[item].item.title + '</h2>' + outOfStockTag + '<span class="icon-text fit-content-w mb-5 is-align-items-center">' + '<span class="icon is-medium mr-1"><span class="fa-solid fa-' + circleOrBan + ' fa-2x icon-' + results[item].item.color + '"></span></span>' + results[item].item.color + '</span><div class="full-height is-flex is-align-items-end"><h4 class="m-0">' + results[item].item.price +  '</h4></div></div><figure class="image is-96x96"><img class="lazyload" data-src="' + results[item].item.img + '" src="' + results[item].item.img + '"></img></figure></div></a></li>';
 		}
 		resultsAvailable = true;
 	}

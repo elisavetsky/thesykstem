@@ -7,7 +7,11 @@
 	{{ end }}
 	
 	{{ $price := $.Scratch.Get "price" }}
-	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "description" .Params.description "material" .Params.material "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
+	{{ $page_range := $.Scratch.Get "page_range" }}
+	{{- $stock_status := (partial "functions/get-stock-status" (dict "page_range" $page_range "product_title" .Title "product_sizes" .Params.sizes )) -}}
+	{{- $fix_stock_status := int (index (chomp (replace $stock_status "\t" "" )) 0 ) -}}
+	
+	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "stock_status" $fix_stock_status "description" .Params.description "material" .Params.material "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
 	
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}  
