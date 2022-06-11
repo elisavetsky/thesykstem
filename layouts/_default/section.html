@@ -5,7 +5,7 @@
 {{ $.Scratch.Set "banner" ($banner.Resize "900x q85") }}
 {{ end }}
 
-<body>
+<body class="{{ .Title }}">
 	{{ partial "navbar" . }}
 	<section id="{{ .Title }}" class="hero">
 		<div class="hero-body">

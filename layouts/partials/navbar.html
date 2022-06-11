@@ -33,10 +33,12 @@
 	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
 		{{ if .IsHome }}
 		{{ else if eq .Params.type "loved" }}
-		{{ $lovednavbarcover := resources.Get "image/love-list-background-hero.jpg" }}
-		{{ $resized_lovednavbarcover := $lovednavbarcover.Resize "1000x q60" }}
-		<img class="navbar-cover" src="{{ $resized_lovednavbarcover.Permalink }}" alt="">
+		<div class="navbar-cover loved">
+		</div>
 		
+		{{ else if .IsSection }}
+		<div class="navbar-cover {{ .Section }}">
+		</div>
 		{{ else }}
 		{{ $navbarbackground := resources.Get "image/background-hero.jpg" }}
 		{{ $resized_navbarbackground := $navbarbackground.Resize "1000x q60" }}

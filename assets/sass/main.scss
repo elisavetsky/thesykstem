@@ -87,6 +87,7 @@ body {
 	margin-bottom: 5rem !important;
 }
 
+
 // Text Helpers
 
 .lowercase {
@@ -104,19 +105,19 @@ body {
 	}
 }
 
-#unisex {
+#unisex, .unisex {
 	background-color: $salmon-brown;
 }
 
-#women {
+#women, .women {
 	background-color: $our-pink;
 }
 
-#men {
+#men, .men {
 	background-color: $blue-green;
 }
 
-#sale {
+#sale, .sale {
 	background-color: $blue-light;
 	overflow: hidden;
 	
@@ -126,7 +127,7 @@ body {
 	}
 }
 
-#loved {
+#loved, .loved {
 	background-color: $salmon;
 	overflow: hidden;
 	.content.column {
@@ -1087,6 +1088,11 @@ input#account-drawer {
 }
 
 // Forms
+
+.input:active, .input:focus {
+	box-shadow: 0 0 0 .125em rgba(109, 109, 109, 0.25);
+	border-color: $gray6;
+}
 
 .dropdown-content label {
 	width: 100%;

@@ -3,7 +3,7 @@ title: "the solar sykstem"
 product_type: "cropped strapped top"
 is_women: true
 is_men: 
-is_unisex: true
+is_unisex:
 is_variant: 
 original_price: 40
 sale_price:
