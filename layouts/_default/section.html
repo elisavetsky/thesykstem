@@ -22,19 +22,17 @@
 		</div>
 	</section>
 	<section class="section product-section is-small">
-
+		
 		{{ partial "product-sort-and-filter" . }}
-
+		
 		<div class="product-grid columns is-variable is-1-mobile is-3-tablet is-3-desktop is-multiline">
+			
 			{{ partial "functions/get-page-range" . }}
 			
-			{{ $counter := 0 }}
-			{{ .Scratch.Set "counter" $counter }}
+			
 			
 			{{ $page_range := $.Scratch.Get "page_range" }}
 			{{ range $page_range }}
-			{{ $counter = add $counter 1 }}
-			{{ .Scratch.Set "counter" $counter }}
 
 			<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">

@@ -324,6 +324,9 @@
 }
 
 @media only screen and (max-width: 1023px) {
+	.is-fluid {
+		padding: 0 !important;
+	}
 	.navbar-start {
 		border-radius: 9999px !important;
 		box-shadow: $box-box-shadow;

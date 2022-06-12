@@ -129,6 +129,7 @@ if (sortDropdown) {
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
 			
 			checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
+			uncheckedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) == -1);
 		}
 
 		// Add Products selected by color filter(s)
@@ -156,10 +157,11 @@ if (sortDropdown) {
 			getCheckedValue(option, filterType);
 
 			var currentProductsFiltered = handleColorDropdownValue();
-	
+			
 			if (currentPriceFilterArray.length > 0) {
 				currentProductsFiltered = handlePriceDropdownValue(currentProductsFiltered);
 			}
+			
 			changeProductsAvailable(currentProductsFiltered);
 			handleSortDropdownValue();
 			changeClearFiltersButtonState();
@@ -175,12 +177,13 @@ if (sortDropdown) {
 		uncheckedPrices = productArray.filter(pItem =>
 			!currentPriceFilterArray.some(pFilter =>
 				pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-
+		
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
 			checkedPrices = currentProductsFiltered.filter(pItem =>
 				currentPriceFilterArray.some(pFilter =>
 					pFilter.high >= pItem.price && pFilter.low <= pItem.price))
+			
 		}
 
 		// Add Products selected by price filters(s)
@@ -212,6 +215,7 @@ if (sortDropdown) {
 			if (colorFilterArray.length > 0) {
 				currentProductsFiltered = handleColorDropdownValue(currentProductsFiltered);
 			}
+			
 			changeProductsAvailable(currentProductsFiltered);
 			handleSortDropdownValue();
 			changeClearFiltersButtonState();
@@ -235,7 +239,6 @@ if (sortDropdown) {
 	}
 
 	function changeFiltersAvailable() {
-
 		if (currentPriceFilterArray.length > 0) {
 			if (availFilterPrices.length > 0) {
 				for (let i = 0; i < unavailFilterColors.length; i++) {
