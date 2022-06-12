@@ -40,10 +40,8 @@
 		<div class="navbar-cover {{ .Section }}">
 		</div>
 		{{ else }}
-		{{ $navbarbackground := resources.Get "image/background-hero.jpg" }}
-		{{ $resized_navbarbackground := $navbarbackground.Resize "1000x q60" }}
-		<img class="navbar-cover" src="{{ $resized_navbarbackground.Permalink }}" alt="">
-		
+		<div class="navbar-blur">
+		</div>
 		{{ end }}
 		<div class="container is-fluid">
 			<div class="navbar-brand is-flex is-flex-direction-row">

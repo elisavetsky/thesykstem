@@ -1736,6 +1736,16 @@ input#account-drawer {
 	// animation: transform 30s infinite alternate ease-in-out;
 }
 
+.navbar-blur {
+	position: absolute;
+	background-color: rgba(245, 245, 245, 0.496);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: opacity(50%);
+	height: 100%;
+	width: 100%;
+	z-index: -1;
+}
+
 .hero {
 	overflow: hidden;
 }
