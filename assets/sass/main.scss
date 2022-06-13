@@ -2000,7 +2000,14 @@ a.is-article:hover {
 
 // Dropdown 
 
+.fabric-and-care {
+	background-color: $almostwhite;
+	position: relative;
+	z-index: 5;
+}
+
 .is-collapsable {
+	padding-top: 1em;
 	margin-bottom: 1em;
 	label {
 		.icon-text {
@@ -2012,7 +2019,7 @@ a.is-article:hover {
 			margin-bottom: 1.75em;
 		}
 	}
-	.fa-chevron-down, .buttons, .tags {
+	.fa-chevron-down, .buttons, .tags, .table {
 		transition: $transition-dropdown;
 	}
 	.buttons {
@@ -2037,6 +2044,10 @@ a.is-article:hover {
 			border-radius: $border-radius;
 		}
 	}
+	.table {
+		font-size: 0.25rem !important;
+		transition: $transition-table-dropdown;
+	}
 }
 	
 .is-collapsable > input:checked ~ label .fa-chevron-down {
@@ -2055,6 +2066,11 @@ a.is-article:hover {
 	min-height: 20px;
 	max-height: 1000px;
 	transition: $transition-dropdown 0.35s;
+}
+
+.is-collapsable > input:checked ~ .table {
+	font-size: 1rem !important;
+	transition: $transition-table-dropdown 0.35s;
 }
 
 .is-collapsable > #login-signup-dropdown:checked ~ .login-label {

@@ -541,10 +541,11 @@ function loadLovedProducts() {
 
 function loadAvailableColorsInLoveList() {
 	if (currentURL.indexOf("/account/loved") >= 0) {
-
+		
 		unavailFilterColors = filterColors.filter(el => !productArray.some(i => i.color === el.value));
+
 		for (let i = 0; i < unavailFilterColors.length; i++) {
-			unavailFilterColors[i].parentElement.parentElement.parentElement.remove();
+			unavailFilterColors[i].parentElement.parentElement.remove();
 		}
 	}
 }

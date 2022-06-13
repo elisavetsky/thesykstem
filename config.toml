@@ -1,6 +1,6 @@
 baseURL = ""
 languageCode = "en-us"
-title = "the-sykstem"
+title = "the sykstem"
 permalinks = ":slug"
 # enableGitInfo = true
 disableKinds = ["taxonomy", "taxonomyTerm", "term",]

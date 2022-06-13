@@ -1,0 +1,39 @@
+<div class="is-collapsable">
+	<input type="checkbox" name="dropdown" id="dropdown-1">
+	<label for="dropdown-1">
+		<span class="icon-text">
+			<span>
+				<h6>size guide:</h6>
+			</span>
+			
+			<span class="icon">
+				<span class="fa-solid fa-chevron-down"></span>
+			</span>
+			<span>
+				<h6 class="is-size-7">(tap arrow to enlarge)</h6>
+			</span>
+		</span>
+	</label>
+	<table class="table is-bordered">
+		<thead>
+			<tr>
+				<th><abbr title="the sykstem sizing">our sizing</abbr></th>
+				<th><abbr title="others' sizing">others' sizing</abbr></th>
+				<th><abbr title="bust">bust</abbr></th>
+				<th><abbr title="waist">waist</abbr></th>
+				<th><abbr title="hip">hip</abbr></th>
+			</tr>
+		</thead>
+		<tbody>
+			{{ range .Site.Data.size_guide }}
+			<tr>
+				<th>{{ .our_size }}</th>
+				<td>{{ .their_size }}</td>
+				<td>{{ .bust }}</td>
+				<td>{{ .waist }}</td>
+				<td>{{ .hip }}</td>
+			</tr>
+			{{ end }}
+		</tbody>
+	</table>
+</div>
