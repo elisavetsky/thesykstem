@@ -321,6 +321,12 @@
 		width: unset;
 		max-width: 500px;
 	}
+	
+	.product-grid {
+		.column:nth-of-type(3) {
+			// width: 66.66% !important;
+		}
+	}
 }
 
 @media only screen and (max-width: 1023px) {
@@ -338,11 +344,11 @@
 		padding: 0rem 0.75rem;
 	}
 	.navbar-end {
-		.search-drawer, .account-button {
+		.search-drawer, .account-button, .dropdown-content {
 			box-shadow: $box-box-shadow;
 			border-radius: 9999px !important;
 			padding: 0.5rem 0.75rem;
-			background-color: $blue-green;
+			background-color: white;
 		}
 	}
 	.navbar-brand {
@@ -499,5 +505,10 @@
 
 	.snipcart__box--slim {
 		padding: 16px 32px !important;
+	}
+	
+	.product-grid {
+		
+		
 	}
 }

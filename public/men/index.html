@@ -45,7 +45,6 @@
 <body class="men">
 	
 
-
 <body tabindex="-1">
 	<script>
 	;
@@ -63,18 +62,14 @@
 			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
 	</script>
 	<noscript>
-		<section class="section white-back is-small pt-1 pb-1">
-			<div class="container has-text-centered blue-text">
-				<span class="icon-text">
+		<section class="section is-small py-0">
+			<div class="noscript-container container is-fluid translucent-dark-back py-2">
+				<div class="is-flex is-justify-content-center is-align-items-center">
 					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
-					<span class="icon">
-						<span class="fa-solid fa-thumbs-up"></span>
-					</span>
-				</span>
+				</div>
 			</div>
 		</section>
 	</noscript>
-	
 	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
 		
 		<div class="navbar-cover men">
@@ -97,15 +92,15 @@
 						<div id="res-main-menu" class="navbar-menu">
 
 							<div class="navbar-start">
-								
+
 								
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/women">
 										
-									
+
 										women
-									
+
 										
 									</a>
 								</div>
@@ -114,7 +109,7 @@
 									<a class="py-3" href="/men/">
 										
 										<strong>
-										men
+											men
 										</strong>
 										
 									</a>
@@ -123,9 +118,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/unisex/">
 										
-									
+
 										unisex
-									
+
 										
 									</a>
 								</div>
@@ -133,9 +128,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/sale/">
 										
-									
+
 										sale
-									
+
 										
 									</a>
 								</div>
@@ -180,9 +175,9 @@
 		</div>
 	</div>
 </nav>
-										<div class="dropdown is-hoverable">
+										<div class="dropdown is-hoverable is-right">
 											<div class="dropdown-trigger">
-												<button class="button p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+												<button class="button men p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 													<span><strong>account</strong></span>
 													<span class="icon is-small">
 														<i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -190,15 +185,15 @@
 												</button>
 											</div>
 											<div class="dropdown-menu" id="account-drawer" role="menu">
-												<div class="dropdown-content p-4">
+												<div class="dropdown-content is-flex men p-3">
 													<div class="dropdown-item">
 														<a class="snipcart-customer-signin">
-															<h3>my account</h3>
+															<h3><strong>my account</strong></h3>
 														</a>
 													</div>
 													<div class="dropdown-item">
 														<a href="/account/loved/">
-															<h3>my love list</h3>
+															<h3><strong>my love list</strong></h3>
 														</a>
 													</div>
 												</div>
@@ -506,6 +501,69 @@
 
 							
 							
+							
+							
+
+							
+							
+							
+
+							
+							
+
+							
+							
+							
+
+							
+							
+							
+							
+
+							
+							
+							
+
+							
+							
+							
+							
+
+							
+							
+							
+
+							
+							
+							
+							
+
+							
+							
+							
+
+							
+							
+							
+							
+
+							
+							
+							
+
+							
+							
+							
+							
+
+							
+							
+							
+
+							
+							
+							
+							
 
 							
 							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
@@ -515,6 +573,46 @@
 								</label>
 								<span class="icon is-medium">
 									<span class="fa-solid fa-circle icon-black"></span>
+								</span>
+							</div>
+							
+							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+								<label class="checkbox">
+									<input class="filter-option-color" type="checkbox" value="brick">
+									brick
+								</label>
+								<span class="icon is-medium">
+									<span class="fa-solid fa-circle icon-brick"></span>
+								</span>
+							</div>
+							
+							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+								<label class="checkbox">
+									<input class="filter-option-color" type="checkbox" value="wine">
+									wine
+								</label>
+								<span class="icon is-medium">
+									<span class="fa-solid fa-circle icon-wine"></span>
+								</span>
+							</div>
+							
+							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+								<label class="checkbox">
+									<input class="filter-option-color" type="checkbox" value="bay">
+									bay
+								</label>
+								<span class="icon is-medium">
+									<span class="fa-solid fa-circle icon-bay"></span>
+								</span>
+							</div>
+							
+							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+								<label class="checkbox">
+									<input class="filter-option-color" type="checkbox" value="cocoa">
+									cocoa
+								</label>
+								<span class="icon is-medium">
+									<span class="fa-solid fa-circle icon-cocoa"></span>
 								</span>
 							</div>
 							
@@ -594,12 +692,140 @@
 
 
 
-			
-			
-			
-			
+						
 			
 
+			
+			
+			
+			
+			<div id="shipital-plaid-shirt-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/shipital-plaid-shirt-black/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="Our plaid is a modern take on the classic style.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>38% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$40</s></h4>
+		</div>
+		<h4 class="price m-0">$25</h4>
+	</div>
+	<span class="product-page-color">black</span>
+</div>
+
+									<a href="/product/shipital-plaid-shirt-black/">
+										<h2>the plaid shipital</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>plaid shirt</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-plaid-shirt-black&#34;)" type="checkbox" name="love" id="love-button-shipital-plaid-shirt-black">
+			<label for="love-button-shipital-plaid-shirt-black">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+			<a href="/product/shipital-plaid-shirt-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 			<div id="shipital-topcoat-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 					<div class="tile is-parent">
@@ -677,6 +903,10 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/shipital-topcoat-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -696,6 +926,30 @@
 			
 		
 	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
 </div>
 
 								</div>
@@ -705,7 +959,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="shipital-topcoat-camel" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 					<div class="tile is-parent">
@@ -783,6 +1037,10 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/shipital-topcoat-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -802,6 +1060,30 @@
 			
 		
 	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
 </div>
 
 								</div>
@@ -810,6 +1092,793 @@
 					</div>
 				</div>
 			</div>
+			
+			
+			<div id="shipital-blazer-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/shipital-blazer-black/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+<div class="price-group tags is-justify-content-space-between">
+	<h4 class="price m-0">$80</h4>
+	<span class="product-page-color">black</span>
+</div>
+
+									<a href="/product/shipital-blazer-black/">
+										<h2>the spotlight shipital</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>blazer</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-blazer-black&#34;)" type="checkbox" name="love" id="love-button-shipital-blazer-black">
+			<label for="love-button-shipital-blazer-black">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-red/" alt="brick variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-wine/" alt="wine variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="shipital-blazer-red" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/shipital-blazer-red/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+<div class="price-group tags is-justify-content-space-between">
+	<h4 class="price m-0">$80</h4>
+	<span class="product-page-color">brick</span>
+</div>
+
+									<a href="/product/shipital-blazer-red/">
+										<h2>the spotlight shipital</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>blazer</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-blazer-red&#34;)" type="checkbox" name="love" id="love-button-shipital-blazer-red">
+			<label for="love-button-shipital-blazer-red">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-red/" alt="brick variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-wine/" alt="wine variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="shipital-blazer-wine" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/shipital-blazer-wine/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/shipital-blazer-wine/1-shipital-blazer-wine_hu8871916346ef57ff8df0d77b685119d7_3286719_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-wine/1-shipital-blazer-wine_hu8871916346ef57ff8df0d77b685119d7_3286719_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+<div class="price-group tags is-justify-content-space-between">
+	<h4 class="price m-0">$80</h4>
+	<span class="product-page-color">wine</span>
+</div>
+
+									<a href="/product/shipital-blazer-wine/">
+										<h2>the spotlight shipital</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>blazer</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-blazer-wine&#34;)" type="checkbox" name="love" id="love-button-shipital-blazer-wine">
+			<label for="love-button-shipital-blazer-wine">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-red/" alt="brick variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-blazer-wine/" alt="wine variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="the-sykstem-rain-jacket-bay" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/the-sykstem-rain-jacket-bay/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu6d4e94510568d1a61a851205eb206a4b_769422_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu6d4e94510568d1a61a851205eb206a4b_769422_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="The right article for when the weather takes over.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>50% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$70</s></h4>
+		</div>
+		<h4 class="price m-0">$35</h4>
+	</div>
+	<span class="product-page-color">bay</span>
+</div>
+
+									<a href="/product/the-sykstem-rain-jacket-bay/">
+										<h2>the storm sykstem</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>rain jacket</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;the-sykstem-rain-jacket-bay&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-rain-jacket-bay">
+			<label for="love-button-the-sykstem-rain-jacket-bay">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/the-sykstem-rain-jacket-bay/" alt="bay variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-bay fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="shipital-bomber-jacket-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/shipital-bomber-jacket-black/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>33% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$90</s></h4>
+		</div>
+		<h4 class="price m-0">$60</h4>
+	</div>
+	<span class="product-page-color">black</span>
+</div>
+
+									<a href="/product/shipital-bomber-jacket-black/">
+										<h2>the stylish shipital</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>bomber jacket</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-bomber-jacket-black&#34;)" type="checkbox" name="love" id="love-button-shipital-bomber-jacket-black">
+			<label for="love-button-shipital-bomber-jacket-black">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/shipital-bomber-jacket-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-bomber-jacket-cocoa/" alt="cocoa variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="shipital-bomber-jacket-cocoa" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent">
+						<div class="box tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/shipital-bomber-jacket-cocoa/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/shipital-bomber-jacket-cocoa/1-shipital-bomber-jacket-cocoa_hufa8effd05281ed08b8a3dd52b608f1a1_3186934_400x0_resize_q70_bgf5f5f5_box_3.jpg" src="/product/shipital-bomber-jacket-cocoa/1-shipital-bomber-jacket-cocoa_hufa8effd05281ed08b8a3dd52b608f1a1_3186934_400x0_resize_q70_bgf5f5f5_box_3.jpg" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="">
+										
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>33% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$90</s></h4>
+		</div>
+		<h4 class="price m-0">$60</h4>
+	</div>
+	<span class="product-page-color">cocoa</span>
+</div>
+
+									<a href="/product/shipital-bomber-jacket-cocoa/">
+										<h2>the stylish shipital</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>bomber jacket</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-bomber-jacket-cocoa&#34;)" type="checkbox" name="love" id="love-button-shipital-bomber-jacket-cocoa">
+			<label for="love-button-shipital-bomber-jacket-cocoa">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/shipital-bomber-jacket-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+			<a href="/product/shipital-bomber-jacket-cocoa/" alt="cocoa variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 			
 		</div>
 

@@ -23,6 +23,9 @@ body {
 
 // Customizing Classes
 
+.noscript-container {
+	border-radius: 99999px;
+}
 
 .no-margin {
 	margin: 0 !important;
@@ -106,19 +109,19 @@ body {
 }
 
 #unisex, .unisex {
-	background-color: $salmon-brown;
+	background-color: $salmon-brown !important;
 }
 
 #women, .women {
-	background-color: $our-pink;
+	background-color: $our-pink !important;
 }
 
 #men, .men {
-	background-color: $blue-green;
+	background-color: $blue-green !important;
 }
 
 #sale, .sale {
-	background-color: $blue-light;
+	background-color: $blue-light !important;
 	overflow: hidden;
 	
 	.content.column {
@@ -128,7 +131,7 @@ body {
 }
 
 #loved, .loved {
-	background-color: $salmon;
+	background-color: $salmon !important;
 	overflow: hidden;
 	.content.column {
 		position: relative;
@@ -183,7 +186,7 @@ body {
 		}
 	}
 	.dropdown-content {
-		width: fit-content;
+		width: max-content;
 		border-radius: 9999px;
 	}
 }
@@ -527,8 +530,10 @@ input#account-drawer {
 	}
 	h3, h4, h5, h6 {
 		margin-bottom: 0;
+		
 	}
 }
+
 
 // Buttons
 
@@ -707,6 +712,41 @@ input#account-drawer {
 	color: black;
 }
 
+.button.zucchini {
+	display: flex;
+	align-items: center;
+	background: $zucchini;
+	color: white;
+}
+
+.button.brick {
+	display: flex;
+	align-items: center;
+	background: $brick-red;
+	color: white;
+}
+
+.button.wine {
+	display: flex;
+	align-items: center;
+	background: $wine;
+	color: white;
+}
+
+.button.bay {
+	display: flex;
+	align-items: center;
+	background: $bay;
+	color: white;
+}
+
+.button.cocoa {
+	display: flex;
+	align-items: center;
+	background: $cocoa;
+	color: white;
+}
+
 	
 .buttons {
 	.button.fit-content {
@@ -779,6 +819,7 @@ input#account-drawer {
 	display: flex;
 	justify-content: center;
 	margin-right: 42px;
+	text-transform: lowercase;
 }
 
 .snipcart-cart__secondary-header {
@@ -1344,6 +1385,26 @@ input#account-drawer {
 	background: $camel;
 }
 
+.product-zucchini {
+	background: $zucchini;
+}
+
+.product-brick {
+	background: $brick-red;
+}
+
+.product-wine {
+	background: $wine;
+}
+
+.product-bay {
+	background: $bay;
+}
+
+.product-bay {
+	background: $cocoa;
+}
+
 
 .blue-text {
 	color: $blue;
@@ -1361,9 +1422,9 @@ input#account-drawer {
 	background: $almostwhite;
 }
 
-.white-back {
-	background: white;
-	border-bottom: 1px solid $gray1;
+.translucent-dark-back {
+	background: rgba(0, 0, 0, 0.149);
+	color: black;
 }
 
 .is-blue-back {
@@ -1694,6 +1755,26 @@ input#account-drawer {
 	color: $camel;
 }
 
+.icon-zucchini {
+	color: $zucchini;
+}
+
+.icon-brick {
+	color: $brick-red;
+}
+
+.icon-wine {
+	color: $wine;
+}
+
+.icon-bay {
+	color: $bay;
+}
+
+.icon-cocoa {
+	color: $cocoa;
+}
+
 // Breadcrumb 
 
 .breadcrumb {
@@ -1721,7 +1802,7 @@ input#account-drawer {
 	width: 100%;
 	height: 100%;
 	border: none;
-	transform: scale(1, 1.4);
+	transform: scale(1, 1.5);
 	// animation: transform 30s infinite alternate ease-in-out;
 }
 

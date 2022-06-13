@@ -16,6 +16,8 @@ $danger-hover: #e85a4a;
 $danger-bg: #fceae8;
 $danger-bg-hover: #fdefed;
 
+$brick-red: #ca2731;
+
 // Light Red
 $light-red: rgba(251, 172, 188, 1);
 
@@ -31,6 +33,8 @@ $white-blue-gradient: linear-gradient( rgba(245, 245, 245, 1), $blue);
 $blue-white-gradient: linear-gradient(white 10vh, 60vh, $blue 75vh);
 
 $light-blue: rgba(171, 191, 214, 1);
+
+$bay: rgba(60, 87, 115, 1);
 
 // Galaxy 
 $galaxy1: #F16DE2;
@@ -53,6 +57,9 @@ $gold: linear-gradient(125deg, #faedc5, #d9bd84, #a6804b, #c9a968);
 // Silver
 $silver: linear-gradient(125deg, #f9f7f0, #dddbd8, #8c8a8a, #bebebe);
 
+// Cocoa
+$cocoa: rgba(69, 33, 30, 1);
+
 // Camel
 $camel: rgba(173, 115, 67, 1);
 
@@ -67,6 +74,12 @@ $salmon-brown: rgb(214, 180, 149);
 
 // Blue Green
 $blue-green: rgb(217, 235, 235);
+
+// Zucchini
+$zucchini: rgb(4, 55, 46);
+
+// Wine
+$wine: rgba(87, 65, 107, 1);
 
 // Taupe
 $taupe: rgba(216, 207, 200, 1);

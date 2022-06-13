@@ -40,7 +40,6 @@
 <body>
 	
 
-
 <body tabindex="-1">
 	<script>
 	;
@@ -58,18 +57,14 @@
 			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
 	</script>
 	<noscript>
-		<section class="section white-back is-small pt-1 pb-1">
-			<div class="container has-text-centered blue-text">
-				<span class="icon-text">
+		<section class="section is-small py-0">
+			<div class="noscript-container container is-fluid translucent-dark-back py-2">
+				<div class="is-flex is-justify-content-center is-align-items-center">
 					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
-					<span class="icon">
-						<span class="fa-solid fa-thumbs-up"></span>
-					</span>
-				</span>
+				</div>
 			</div>
 		</section>
 	</noscript>
-	
 	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
 		
 		<div class="navbar-cover product">
@@ -92,15 +87,15 @@
 						<div id="res-main-menu" class="navbar-menu">
 
 							<div class="navbar-start">
-								
+
 								
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/women">
 										
-									
+
 										women
-									
+
 										
 									</a>
 								</div>
@@ -108,9 +103,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/men/">
 										
-									
+
 										men
-									
+
 										
 									</a>
 								</div>
@@ -118,9 +113,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/unisex/">
 										
-									
+
 										unisex
-									
+
 										
 									</a>
 								</div>
@@ -128,9 +123,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/sale/">
 										
-									
+
 										sale
-									
+
 										
 									</a>
 								</div>
@@ -175,9 +170,9 @@
 		</div>
 	</div>
 </nav>
-										<div class="dropdown is-hoverable">
+										<div class="dropdown is-hoverable is-right">
 											<div class="dropdown-trigger">
-												<button class="button p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+												<button class="button  p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 													<span><strong>account</strong></span>
 													<span class="icon is-small">
 														<i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -185,15 +180,15 @@
 												</button>
 											</div>
 											<div class="dropdown-menu" id="account-drawer" role="menu">
-												<div class="dropdown-content p-4">
+												<div class="dropdown-content is-flex  p-3">
 													<div class="dropdown-item">
 														<a class="snipcart-customer-signin">
-															<h3>my account</h3>
+															<h3><strong>my account</strong></h3>
 														</a>
 													</div>
 													<div class="dropdown-item">
 														<a href="/account/loved/">
-															<h3>my love list</h3>
+															<h3><strong>my love list</strong></h3>
 														</a>
 													</div>
 												</div>
@@ -570,6 +565,10 @@
 		
 		
 	
+		
+		
+		
+	
 </div>
 
 									</div>
@@ -708,6 +707,10 @@
 		
 		
 	
+		
+		
+		
+	
 </div>
 
 									</div>
@@ -809,6 +812,10 @@
 				</span>
 			</a>
 			
+		
+	
+		
+		
 		
 	
 		
@@ -1036,6 +1043,42 @@
 		
 		
 	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
 </div>
 
 									</div>
@@ -1190,6 +1233,42 @@
 		
 		
 	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
 </div>
 
 									</div>
@@ -1291,6 +1370,42 @@
 				</span>
 			</a>
 			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
 		
 	
 		
@@ -1506,6 +1621,30 @@
 		
 		
 	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
 </div>
 
 									</div>
@@ -1621,6 +1760,30 @@
 		
 		
 	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
 </div>
 
 									</div>
@@ -1631,14 +1794,14 @@
 				</div>
 				
 
-				<div id="ryana-long-sleeve-top-rose" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div id="shipital-plaid-shirt-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent">
 							<div class="box tile is-child is-article">
 								<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
 									<div class="product-in-list">
 
-										<a href="/product/ryana-long-sleeve-top-rose/">
+										<a href="/product/shipital-plaid-shirt-black/">
 
 											
 											
@@ -1647,7 +1810,7 @@
 											
 											
 											<figure>
-												<img class="lazyload" data-src="/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18528287_300x0_resize_q70_box_3.png" src="/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18528287_300x0_resize_q70_box_3.png" alt="A snug garment, just waiting for the warmth of your body.">
+												<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" alt="Our plaid is a modern take on the classic style.">
 											</figure>
 											
 										</a>
@@ -1666,28 +1829,28 @@
 <div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
 	<div class="tags is-justify-content-flex-start">
 	<span class="tag discount-tag mb-0">
-		<strong>13% off</strong>
+		<strong>38% off</strong>
 	</span>
 	</div>
 	<div class="is-flex is-flex-direction-row">
 		<div class="mr-2">
-			<h4 class="original-price m-0"><s>$32</s></h4>
+			<h4 class="original-price m-0"><s>$40</s></h4>
 		</div>
-		<h4 class="price m-0">$28</h4>
+		<h4 class="price m-0">$25</h4>
 	</div>
-	<span class="product-page-color">rose</span>
+	<span class="product-page-color">black</span>
 </div>
 
-										<a href="/product/ryana-long-sleeve-top-rose/">
-											<h2>the relaxing ryana</h2>
+										<a href="/product/shipital-plaid-shirt-black/">
+											<h2>the plaid shipital</h2>
 										</a>
 										
 <body>
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
-		<h5>long sleeve top</h5>
+		<h5>plaid shirt</h5>
 		<div class="love-container">
-			<input onclick="loveUnloveProduct(&#34;ryana-long-sleeve-top-rose&#34;)" type="checkbox" name="love" id="love-button-ryana-long-sleeve-top-rose">
-			<label for="love-button-ryana-long-sleeve-top-rose">
+			<input onclick="loveUnloveProduct(&#34;shipital-plaid-shirt-black&#34;)" type="checkbox" name="love" id="love-button-shipital-plaid-shirt-black">
+			<label for="love-button-shipital-plaid-shirt-black">
 				<a class="p-3 button love-button icon">
 					<span class="fa-solid fa-heart"></span>
 				</a>
@@ -1716,12 +1879,36 @@
 		
 		
 		
-			<a href="/product/ryana-long-sleeve-top-rose/" alt="rose variant">
+			<a href="/product/shipital-plaid-shirt-black/" alt="black variant">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-rose fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
 			</a>
 			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
 		
 	
 		
@@ -1804,6 +1991,133 @@
 
 				
 
+				<div id="shipital-plaid-shirt-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+					<div class="tile is-ancestor">
+						<div class="tile is-parent">
+							<div class="box tile is-child is-article">
+								<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+									<div class="product-in-list">
+
+										<a href="/product/shipital-plaid-shirt-black/">
+
+											
+											
+											
+											
+											
+											
+											<figure>
+												<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" alt="Our plaid is a modern take on the classic style.">
+											</figure>
+											
+										</a>
+									</div>
+									<div class="">
+										
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>38% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$40</s></h4>
+		</div>
+		<h4 class="price m-0">$25</h4>
+	</div>
+	<span class="product-page-color">black</span>
+</div>
+
+										<a href="/product/shipital-plaid-shirt-black/">
+											<h2>the plaid shipital</h2>
+										</a>
+										
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>plaid shirt</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-plaid-shirt-black&#34;)" type="checkbox" name="love" id="love-button-shipital-plaid-shirt-black">
+			<label for="love-button-shipital-plaid-shirt-black">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+
+										
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+			<a href="/product/shipital-plaid-shirt-black/" alt="black variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				
+
 				<div id="shipital-topcoat-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent">
@@ -1881,6 +2195,10 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/shipital-topcoat-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -1898,6 +2216,30 @@
 				</span>
 			</a>
 			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
 		
 	
 </div>
@@ -1987,6 +2329,10 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/shipital-topcoat-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -2004,6 +2350,30 @@
 				</span>
 			</a>
 			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
 		
 	
 </div>

@@ -42,7 +42,6 @@
 <body class="">	
 
 
-
 <body tabindex="-1">
 	<script>
 	;
@@ -60,18 +59,14 @@
 			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
 	</script>
 	<noscript>
-		<section class="section white-back is-small pt-1 pb-1">
-			<div class="container has-text-centered blue-text">
-				<span class="icon-text">
+		<section class="section is-small py-0">
+			<div class="noscript-container container is-fluid translucent-dark-back py-2">
+				<div class="is-flex is-justify-content-center is-align-items-center">
 					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
-					<span class="icon">
-						<span class="fa-solid fa-thumbs-up"></span>
-					</span>
-				</span>
+				</div>
 			</div>
 		</section>
 	</noscript>
-	
 	<nav tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
 		
 		<div class="navbar-cover sign-up">
@@ -94,15 +89,15 @@
 						<div id="res-main-menu" class="navbar-menu">
 
 							<div class="navbar-start">
-								
+
 								
 								
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/women">
 										
-									
+
 										women
-									
+
 										
 									</a>
 								</div>
@@ -110,9 +105,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/men/">
 										
-									
+
 										men
-									
+
 										
 									</a>
 								</div>
@@ -120,9 +115,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/unisex/">
 										
-									
+
 										unisex
-									
+
 										
 									</a>
 								</div>
@@ -130,9 +125,9 @@
 								<div class="navbar-item pr-3 is-justify-content-flex-end">
 									<a class="py-3" href="/sale/">
 										
-									
+
 										sale
-									
+
 										
 									</a>
 								</div>
@@ -177,9 +172,9 @@
 		</div>
 	</div>
 </nav>
-										<div class="dropdown is-hoverable">
+										<div class="dropdown is-hoverable is-right">
 											<div class="dropdown-trigger">
-												<button class="button p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+												<button class="button sign-up p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 													<span><strong>account</strong></span>
 													<span class="icon is-small">
 														<i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -187,15 +182,15 @@
 												</button>
 											</div>
 											<div class="dropdown-menu" id="account-drawer" role="menu">
-												<div class="dropdown-content p-4">
+												<div class="dropdown-content is-flex sign-up p-3">
 													<div class="dropdown-item">
 														<a class="snipcart-customer-signin">
-															<h3>my account</h3>
+															<h3><strong>my account</strong></h3>
 														</a>
 													</div>
 													<div class="dropdown-item">
 														<a href="/account/loved/">
-															<h3>my love list</h3>
+															<h3><strong>my love list</strong></h3>
 														</a>
 													</div>
 												</div>
