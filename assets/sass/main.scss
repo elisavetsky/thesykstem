@@ -108,6 +108,15 @@ body {
 	}
 }
 
+#the-latest {
+	position: relative;
+	background-color: $blue1;
+	.column.content {
+		position: relative;
+		z-index: 1;
+	}
+}
+
 #unisex, .unisex {
 	background-color: $salmon-brown !important;
 }
@@ -2045,6 +2054,9 @@ a.is-article:hover {
 		}
 	}
 	.table {
+		display: block;
+		width: fit-content;
+		border-radius: $border-radius;
 		font-size: 0.25rem !important;
 		transition: $transition-table-dropdown;
 	}

@@ -1,4 +1,5 @@
 ---
+weight: -1
 title: "the snug sykstem"
 product_type: "knit sweater"
 is_women: 
@@ -28,7 +29,7 @@ sizes:
 - size: "xxxl"
   stock: 13
 
-main_alt: "This is the most snug blanket of a sweater around, just feel for yourself."
-description: "This is the most snug blanket of a sweater around, just feel for yourself."
+main_alt: "This is the most snug blanket of a sweater around. Just feel for yourself."
+description: "This is the most snug blanket of a sweater around. Just feel for yourself."
 material: "100% hemp"
 ---

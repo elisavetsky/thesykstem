@@ -1,4 +1,5 @@
 ---
+weight: -1
 title: "the stylish shipital"
 product_type: "bomber jacket"
 is_women: 

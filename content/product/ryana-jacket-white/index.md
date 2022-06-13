@@ -1,7 +1,7 @@
 ---
 title: "the rad ryana"
 product_type: "jacket"
-is_women: true
+is_women:
 is_men: 
 is_unisex: true
 is_variant: 
@@ -28,7 +28,7 @@ sizes:
 - size: "xxxl"
   stock: 30
 
-main_alt: "It's pretty rad jacket, right?"
-description: "It's pretty rad jacket, right?"
+main_alt: "It's a pretty rad jacket, right?"
+description: "It's a pretty rad jacket, right?"
 material: "100% bamboo"
 ---
