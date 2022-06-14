@@ -1,7 +1,7 @@
 ---
 title: "the square sykstem"
 product_type: "cropped strapped top"
-is_women: true
+is_women:
 is_men: 
 is_unisex: true
 is_variant: 

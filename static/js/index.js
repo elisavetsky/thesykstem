@@ -130,7 +130,6 @@ if (sortDropdown) {
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
 
 			checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
-
 		}
 
 		// Add Products selected by color filter(s)
@@ -184,7 +183,6 @@ if (sortDropdown) {
 			checkedPrices = currentProductsFiltered.filter(pItem =>
 				currentPriceFilterArray.some(pFilter =>
 					pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-
 		}
 		
 		// Add Products selected by price filters(s)

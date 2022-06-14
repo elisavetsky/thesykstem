@@ -2,7 +2,7 @@
 title: "the sophisticated shipital"
 product_type: "topcoat"
 is_women: 
-is_men: true
+is_men:
 is_unisex: true
 is_variant: 
 original_price: 80

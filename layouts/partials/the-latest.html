@@ -5,7 +5,7 @@
 				
 				<div class="grid-product-container column is-half-mobile is-3-tablet is-3-desktop">
 					<div class="tile is-ancestor">
-						<div class="tile is-parent">
+						<div class="tile is-parent p-0">
 							<div class="tile content is-child is-article">
 								<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-5-mobile is-size-4-tablet is-size-3-desktop">
 									<h1>the latest</h1>
@@ -20,8 +20,8 @@
 
 				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-3-tablet is-3-desktop">
 					<div class="tile is-ancestor">
-						<div class="tile is-parent">
-							<div class="box tile is-child is-article">
+						<div class="tile is-parent p-0">
+							<div class="tile is-child is-article">
 								<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
 									<div class="product-in-list">
 
@@ -39,7 +39,7 @@
 											{{ end }}
 										</a>
 									</div>
-									<div class="">
+									<div class="half-height">
 										{{ partial "price" . }}
 										<a href="{{ .Permalink }}">
 											<h2>{{ .Title }}</h2>

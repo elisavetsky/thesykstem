@@ -1,7 +1,7 @@
 ---
 title: "the relaxing ryana"
 product_type: "long sleeve top"
-is_women: true
+is_women:
 is_men: 
 is_unisex: true
 is_variant: 
