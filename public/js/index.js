@@ -2,12 +2,14 @@
 
 // Check URL
 const currentURL = window.location.href;
+const baseURL = window.location.origin;
 
 // Product Sort & Filter
 let initialProductArray = [];
 let productArray = [];
 let currentProductArray = [];
-let productsOnPage;
+let productsOnPage = [];
+let productsNotOnPage = [];
 let colorFilterArray = [];
 let currentPriceFilterArray = [];
 let allPriceFiltersArray = [];
@@ -89,8 +91,16 @@ if (sortDropdown) {
 		productsOnPage = productArray.filter(el =>
 			currentProductsFiltered.some(i =>
 				el.container.id === i.container.id))
-
+		
 		return productsOnPage;
+	}
+	
+	function findFilteredProductsNotOnPage(currentProductsFiltered) {
+		productsNotOnPage = productArray.filter(el =>
+			!currentProductsFiltered.some(i =>
+				el.container.id === i.container.id))
+				
+		return productsNotOnPage
 	}
 
 	function getCheckedValue(option, filterType) {
@@ -127,9 +137,8 @@ if (sortDropdown) {
 
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
-			
+
 			checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
-			uncheckedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) == -1);
 		}
 
 		// Add Products selected by color filter(s)
@@ -157,11 +166,12 @@ if (sortDropdown) {
 			getCheckedValue(option, filterType);
 
 			var currentProductsFiltered = handleColorDropdownValue();
-			
+
 			if (currentPriceFilterArray.length > 0) {
 				currentProductsFiltered = handlePriceDropdownValue(currentProductsFiltered);
+				
 			}
-			
+
 			changeProductsAvailable(currentProductsFiltered);
 			handleSortDropdownValue();
 			changeClearFiltersButtonState();
@@ -177,15 +187,14 @@ if (sortDropdown) {
 		uncheckedPrices = productArray.filter(pItem =>
 			!currentPriceFilterArray.some(pFilter =>
 				pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-		
+
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
 			checkedPrices = currentProductsFiltered.filter(pItem =>
 				currentPriceFilterArray.some(pFilter =>
 					pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-			
 		}
-
+		
 		// Add Products selected by price filters(s)
 		for (let i = 0; i < checkedPrices.length; i++) {
 			productGrid.appendChild(checkedPrices[i].container);
@@ -213,9 +222,11 @@ if (sortDropdown) {
 			var currentProductsFiltered = handlePriceDropdownValue();
 
 			if (colorFilterArray.length > 0) {
+
 				currentProductsFiltered = handleColorDropdownValue(currentProductsFiltered);
+				
 			}
-			
+
 			changeProductsAvailable(currentProductsFiltered);
 			handleSortDropdownValue();
 			changeClearFiltersButtonState();
@@ -223,18 +234,33 @@ if (sortDropdown) {
 	});
 
 	function changeProductsAvailable(currentProductsFiltered) {
+		
 		productsOnPage = findFilteredProductsOnPage(currentProductsFiltered);
-
-		unavailFilterPrices = allPriceFiltersArray.filter(fPrice => !productsOnPage.some(pNot =>
+		
+		productsNotOnPage = findFilteredProductsNotOnPage(currentProductsFiltered);
+		
+		
+		if (currentPriceFilterArray.length > 0) {
+			productsOnPage = handlePriceDropdownValue(productsOnPage)
+			
+		}
+		
+		unavailFilterPrices = allPriceFiltersArray.filter(fPrice => productsNotOnPage.some(pNot =>
 			fPrice.high >= pNot.price && fPrice.low <= pNot.price));
 
-		unavailFilterColors = filterColors.filter(fColor => !productsOnPage.some(i => i.color === fColor.value));
+		unavailFilterColors = filterColors.filter(fColor => productsNotOnPage.some(i => i.color === fColor.value));
+		
+		console.log("PRODUCTS ON PAGE >")
+		console.log(productsOnPage)
+		
+		console.log("UNAVAIL COLORS >")
+		console.log(unavailFilterColors)
 
 		availFilterPrices = allPriceFiltersArray.filter(fPrice => productsOnPage.some(pOn =>
 			fPrice.high >= pOn.price && fPrice.low <= pOn.price));
 
 		availFilterColors = filterColors.filter(el => productsOnPage.some(i => i.color === el.value));
-		
+
 		changeFiltersAvailable();
 	}
 
@@ -250,6 +276,7 @@ if (sortDropdown) {
 				availFilterColors[i].removeAttribute("disabled");
 				availFilterColors[i].parentElement.removeAttribute("disabled");
 			}
+			
 		} else {
 			for (let i = 0; i < unavailFilterColors.length; i++) {
 				unavailFilterColors[i].removeAttribute("disabled");
@@ -396,7 +423,7 @@ if (sortDropdown) {
 }
 
 // Product Zoom In
-if (currentURL.indexOf("product") >= 0) {
+if ((currentURL.indexOf("product") >= 0) && currentURL !== baseURL + "/product/") {
 
 	const activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");
@@ -541,7 +568,7 @@ function loadLovedProducts() {
 
 function loadAvailableColorsInLoveList() {
 	if (currentURL.indexOf("/account/loved") >= 0) {
-		
+
 		unavailFilterColors = filterColors.filter(el => !productArray.some(i => i.color === el.value));
 
 		for (let i = 0; i < unavailFilterColors.length; i++) {

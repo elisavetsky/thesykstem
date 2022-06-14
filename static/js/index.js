@@ -8,7 +8,8 @@ const baseURL = window.location.origin;
 let initialProductArray = [];
 let productArray = [];
 let currentProductArray = [];
-let productsOnPage;
+let productsOnPage = [];
+let productsNotOnPage = [];
 let colorFilterArray = [];
 let currentPriceFilterArray = [];
 let allPriceFiltersArray = [];
@@ -90,8 +91,16 @@ if (sortDropdown) {
 		productsOnPage = productArray.filter(el =>
 			currentProductsFiltered.some(i =>
 				el.container.id === i.container.id))
-
+		
 		return productsOnPage;
+	}
+	
+	function findFilteredProductsNotOnPage(currentProductsFiltered) {
+		productsNotOnPage = productArray.filter(el =>
+			!currentProductsFiltered.some(i =>
+				el.container.id === i.container.id))
+				
+		return productsNotOnPage
 	}
 
 	function getCheckedValue(option, filterType) {
@@ -160,6 +169,7 @@ if (sortDropdown) {
 
 			if (currentPriceFilterArray.length > 0) {
 				currentProductsFiltered = handlePriceDropdownValue(currentProductsFiltered);
+				
 			}
 
 			changeProductsAvailable(currentProductsFiltered);
@@ -214,6 +224,7 @@ if (sortDropdown) {
 			if (colorFilterArray.length > 0) {
 
 				currentProductsFiltered = handleColorDropdownValue(currentProductsFiltered);
+				
 			}
 
 			changeProductsAvailable(currentProductsFiltered);
@@ -223,12 +234,27 @@ if (sortDropdown) {
 	});
 
 	function changeProductsAvailable(currentProductsFiltered) {
+		
 		productsOnPage = findFilteredProductsOnPage(currentProductsFiltered);
-
-		unavailFilterPrices = allPriceFiltersArray.filter(fPrice => !productsOnPage.some(pNot =>
+		
+		productsNotOnPage = findFilteredProductsNotOnPage(currentProductsFiltered);
+		
+		
+		if (currentPriceFilterArray.length > 0) {
+			productsOnPage = handlePriceDropdownValue(productsOnPage)
+			
+		}
+		
+		unavailFilterPrices = allPriceFiltersArray.filter(fPrice => productsNotOnPage.some(pNot =>
 			fPrice.high >= pNot.price && fPrice.low <= pNot.price));
 
-		unavailFilterColors = filterColors.filter(fColor => !productsOnPage.some(i => i.color === fColor.value));
+		unavailFilterColors = filterColors.filter(fColor => productsNotOnPage.some(i => i.color === fColor.value));
+		
+		console.log("PRODUCTS ON PAGE >")
+		console.log(productsOnPage)
+		
+		console.log("UNAVAIL COLORS >")
+		console.log(unavailFilterColors)
 
 		availFilterPrices = allPriceFiltersArray.filter(fPrice => productsOnPage.some(pOn =>
 			fPrice.high >= pOn.price && fPrice.low <= pOn.price));
