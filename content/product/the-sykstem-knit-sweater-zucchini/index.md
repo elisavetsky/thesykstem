@@ -1,5 +1,5 @@
 ---
-weight: -1
+date: "2022-06-13"
 title: "the snug sykstem"
 product_type: "knit sweater"
 is_women: 

@@ -16,7 +16,7 @@
 				</div>
 				{{ $page_range := .Scratch.Get "page_range" }}
 				
-				{{ range first 3 (where .Site.RegularPages.ByWeight "Section" "eq" "product" )}}
+				{{ range first 3 (where .Site.RegularPages "Section" "eq" "product" ).ByDate.Reverse }}
 
 				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-3-tablet is-3-desktop">
 					<div class="tile is-ancestor">

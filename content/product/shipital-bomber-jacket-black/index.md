@@ -1,9 +1,9 @@
 ---
-weight: -1
+date: "2022-06-12"
 title: "the stylish shipital"
 product_type: "bomber jacket"
 is_women: 
-is_men: true
+is_men:
 is_unisex: true
 is_variant: 
 original_price: 90

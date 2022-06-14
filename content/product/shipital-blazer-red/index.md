@@ -3,7 +3,7 @@ title: "the spotlight shipital"
 product_type: "blazer"
 is_women: 
 is_men: true
-is_unisex: true
+is_unisex:
 is_variant: 
 original_price: 80
 sale_price:

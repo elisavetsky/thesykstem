@@ -3,7 +3,7 @@ title: "the plaid shipital"
 product_type: "plaid shirt"
 is_women: 
 is_men: true
-is_unisex: true
+is_unisex:
 is_variant: 
 original_price: 40
 sale_price: 25

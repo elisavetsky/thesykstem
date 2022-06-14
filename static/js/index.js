@@ -2,6 +2,7 @@
 
 // Check URL
 const currentURL = window.location.href;
+const baseURL = window.location.origin;
 
 // Product Sort & Filter
 let initialProductArray = [];
@@ -127,9 +128,9 @@ if (sortDropdown) {
 
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
-			
+
 			checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
-			uncheckedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) == -1);
+
 		}
 
 		// Add Products selected by color filter(s)
@@ -157,11 +158,11 @@ if (sortDropdown) {
 			getCheckedValue(option, filterType);
 
 			var currentProductsFiltered = handleColorDropdownValue();
-			
+
 			if (currentPriceFilterArray.length > 0) {
 				currentProductsFiltered = handlePriceDropdownValue(currentProductsFiltered);
 			}
-			
+
 			changeProductsAvailable(currentProductsFiltered);
 			handleSortDropdownValue();
 			changeClearFiltersButtonState();
@@ -177,15 +178,15 @@ if (sortDropdown) {
 		uncheckedPrices = productArray.filter(pItem =>
 			!currentPriceFilterArray.some(pFilter =>
 				pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-		
+
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
 			checkedPrices = currentProductsFiltered.filter(pItem =>
 				currentPriceFilterArray.some(pFilter =>
 					pFilter.high >= pItem.price && pFilter.low <= pItem.price))
-			
-		}
 
+		}
+		
 		// Add Products selected by price filters(s)
 		for (let i = 0; i < checkedPrices.length; i++) {
 			productGrid.appendChild(checkedPrices[i].container);
@@ -213,9 +214,10 @@ if (sortDropdown) {
 			var currentProductsFiltered = handlePriceDropdownValue();
 
 			if (colorFilterArray.length > 0) {
+
 				currentProductsFiltered = handleColorDropdownValue(currentProductsFiltered);
 			}
-			
+
 			changeProductsAvailable(currentProductsFiltered);
 			handleSortDropdownValue();
 			changeClearFiltersButtonState();
@@ -234,7 +236,7 @@ if (sortDropdown) {
 			fPrice.high >= pOn.price && fPrice.low <= pOn.price));
 
 		availFilterColors = filterColors.filter(el => productsOnPage.some(i => i.color === el.value));
-		
+
 		changeFiltersAvailable();
 	}
 
@@ -250,6 +252,7 @@ if (sortDropdown) {
 				availFilterColors[i].removeAttribute("disabled");
 				availFilterColors[i].parentElement.removeAttribute("disabled");
 			}
+			
 		} else {
 			for (let i = 0; i < unavailFilterColors.length; i++) {
 				unavailFilterColors[i].removeAttribute("disabled");
@@ -396,7 +399,7 @@ if (sortDropdown) {
 }
 
 // Product Zoom In
-if (currentURL.indexOf("product") >= 0) {
+if ((currentURL.indexOf("product") >= 0) && currentURL !== baseURL + "/product/") {
 
 	const activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");
@@ -541,7 +544,7 @@ function loadLovedProducts() {
 
 function loadAvailableColorsInLoveList() {
 	if (currentURL.indexOf("/account/loved") >= 0) {
-		
+
 		unavailFilterColors = filterColors.filter(el => !productArray.some(i => i.color === el.value));
 
 		for (let i = 0; i < unavailFilterColors.length; i++) {

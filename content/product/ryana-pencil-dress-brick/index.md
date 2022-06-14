@@ -1,7 +1,7 @@
 ---
 title: "the squared ryana"
 product_type: "pencil dress"
-is_women: true
+is_women:
 is_men: 
 is_unisex: true
 is_variant: 

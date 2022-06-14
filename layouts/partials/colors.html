@@ -13,15 +13,15 @@
 		{{ if eq $current_color .Params.color }}
 			
 			{{ if eq $fix_stock_status 10 }}
-				<a disabled href="{{ .Permalink }}" class="button is-static box {{ .Params.color }}">{{ .Params.color }}</a>
+				<a disabled href="{{ .Permalink }}" class="button color-select-button is-static box {{ .Params.color }}">{{ .Params.color }}</a>
 			{{ else }}
-				<a href="{{ .Permalink }}" class="button is-focused is-static box {{ .Params.color }}">{{ .Params.color }}</a>
+				<a href="{{ .Permalink }}" class="button color-select-button is-focused is-static box {{ .Params.color }}">{{ .Params.color }}</a>
 			{{ end }}
 		{{ else }}
 			{{ if eq $fix_stock_status 10 }}
-				<a disabled href="{{ .Permalink }}" class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+				<a disabled href="{{ .Permalink }}" class="button color-select-button box {{ .Params.color }}">{{ .Params.color }}</a>
 			{{ else }}
-				<a href="{{ .Permalink }}" class="button box {{ .Params.color }}">{{ .Params.color }}</a>
+				<a href="{{ .Permalink }}" class="button color-select-button box {{ .Params.color }}">{{ .Params.color }}</a>
 			{{ end }}
 		{{ end }}
 	{{ end }}

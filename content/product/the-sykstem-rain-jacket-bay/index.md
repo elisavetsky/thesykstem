@@ -1,10 +1,10 @@
 ---
-weight: -1
+date: "2022-06-11"
 title: "the storm sykstem"
 product_type: "rain jacket"
 is_women: 
 is_men: true
-is_unisex: true
+is_unisex:
 is_variant: 
 original_price: 70
 sale_price: 35
