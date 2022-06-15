@@ -8,6 +8,7 @@ const baseURL = window.location.origin;
 let initialProductArray = [];
 let productArray = [];
 let currentProductArray = [];
+var gridObjects = [];
 let productsOnPage = [];
 let productsNotOnPage = [];
 let colorFilterArray = [];
@@ -32,6 +33,43 @@ const filterPriceDropdownValues = document.querySelectorAll(".filter-option-pric
 const clearFiltersButton = document.getElementById("clear-filters-button");
 const productGrid = document.querySelector(".product-grid");
 
+const mainNavbar = document.getElementById("main-nav");
+
+// Hide & Show Navbar
+
+/*
+let scrolling = false;
+
+window.addEventListener('scroll', (e) => {
+    scrolling = true;
+});
+
+var scrollval = 0;
+setInterval(() => {
+    if (scrolling) {
+        scrolling = false;
+		
+		if (scrollval > window.scrollY) {
+ 			
+			mainNavbar.classList.add("navbar-slide-down");
+			
+ 		} else {
+			console.log("DOWN")
+			
+ 			mainNavbar.classList.add("navbar-slide-up");
+			setTimeout(() => {
+				mainNavbar.classList.remove("navbar-slide-down");
+			}, 1000)
+			
+			 
+ 		}
+ 		scrollval = window.scrollY;
+    }
+}, 200);
+*/
+
+
+// Sorting & Filtering
 if (sortDropdown) {
 
 	window.addEventListener("DOMContentLoaded", () => {
@@ -40,6 +78,7 @@ if (sortDropdown) {
 		createPriceFilterObjects();
 		loadAvailablePriceFilters();
 		loadAvailableColorsInLoveList();
+		findProductsOnPage()
 	});
 
 	sortDropdown.addEventListener("change", handleSortDropdownValue);
@@ -91,15 +130,24 @@ if (sortDropdown) {
 		productsOnPage = productArray.filter(el =>
 			currentProductsFiltered.some(i =>
 				el.container.id === i.container.id))
-		
+
 		return productsOnPage;
 	}
-	
+
+	function findProductsOnPage() {
+		const gridProducts = Array.from(document.querySelectorAll(".grid-product-container"));
+		gridObjects = productArray.filter(el =>
+			gridProducts.some(i =>
+				el.container.id === i.id))
+
+		return gridObjects;
+	}
+
 	function findFilteredProductsNotOnPage(currentProductsFiltered) {
 		productsNotOnPage = productArray.filter(el =>
 			!currentProductsFiltered.some(i =>
 				el.container.id === i.container.id))
-				
+
 		return productsNotOnPage
 	}
 
@@ -137,9 +185,11 @@ if (sortDropdown) {
 
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
-
 			checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
+
 		}
+
+		
 
 		// Add Products selected by color filter(s)
 		for (let i = 0; i < checkedColors.length; i++) {
@@ -149,10 +199,19 @@ if (sortDropdown) {
 		// Remove Products not selected for color filter(s)
 		uncheckedColors.forEach(el => el.container.remove());
 
+
+
+		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
+			uncheckedPrices.forEach(el => el.container.remove());
+			// checkedColors = currentProductsFiltered.filter(pItem => colorFilterArray.indexOf(pItem.color) >= 0);
+
+		}
+
+
 		// Add products back if no filter selected
 		if ((uncheckedColors.length == productArray.length) && productArray.every(el => uncheckedColors.indexOf(el) >= 0)) {
 
-			changeFiltersAvailable(productsOnPage);
+			changeFiltersAvailable();
 
 			for (let i = 0; i < productArray.length; i++) {
 				productGrid.appendChild(productArray[i].container);
@@ -168,8 +227,8 @@ if (sortDropdown) {
 			var currentProductsFiltered = handleColorDropdownValue();
 
 			if (currentPriceFilterArray.length > 0) {
+
 				currentProductsFiltered = handlePriceDropdownValue(currentProductsFiltered);
-				
 			}
 
 			changeProductsAvailable(currentProductsFiltered);
@@ -188,13 +247,20 @@ if (sortDropdown) {
 			!currentPriceFilterArray.some(pFilter =>
 				pFilter.high >= pItem.price && pFilter.low <= pItem.price))
 
+
 		// Change checked products if there are already filters on
 		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
-			checkedPrices = currentProductsFiltered.filter(pItem =>
-				currentPriceFilterArray.some(pFilter =>
-					pFilter.high >= pItem.price && pFilter.low <= pItem.price))
+
+			// checkedPrices = currentProductsFiltered.filter(pItem =>
+			// 	currentPriceFilterArray.some(pFilter =>
+			// 		pFilter.high >= pItem.price && pFilter.low <= pItem.price))
+			// uncheckedPrices = currentProductsFiltered.filter(pItem =>
+			// 	!currentPriceFilterArray.some(pFilter =>
+			// 		pFilter.high >= pItem.price && pFilter.low <= pItem.price))
 		}
-		
+
+
+
 		// Add Products selected by price filters(s)
 		for (let i = 0; i < checkedPrices.length; i++) {
 			productGrid.appendChild(checkedPrices[i].container);
@@ -203,16 +269,27 @@ if (sortDropdown) {
 		// Remove Products not selected for price filter(s)
 		uncheckedPrices.forEach(el => el.container.remove());
 
+		if (currentProductsFiltered !== undefined && currentProductsFiltered.length > 0) {
+			uncheckedColors.forEach(el => el.container.remove());
+			// checkedPrices = currentProductsFiltered.filter(pItem =>
+			// 	currentPriceFilterArray.some(pFilter =>
+			// 		pFilter.high >= pItem.price && pFilter.low <= pItem.price))
+			// uncheckedPrices = currentProductsFiltered.filter(pItem =>
+			// !currentPriceFilterArray.some(pFilter =>
+			// 	pFilter.high >= pItem.price && pFilter.low <= pItem.price))
+		}
+
 		// Add products back if no filter selected
 		if ((uncheckedPrices.length == productArray.length) && productArray.every(el => uncheckedPrices.indexOf(el) >= 0)) {
 
-			changeFiltersAvailable(productsOnPage);
+			changeFiltersAvailable();
 
 			for (let i = 0; i < productArray.length; i++) {
 				productGrid.appendChild(productArray[i].container);
 			}
 		}
 		return checkedPrices
+
 	}
 	filterPriceDropdownValues.forEach((f) => {
 		f.addEventListener("change", (option) => {
@@ -224,7 +301,6 @@ if (sortDropdown) {
 			if (colorFilterArray.length > 0) {
 
 				currentProductsFiltered = handleColorDropdownValue(currentProductsFiltered);
-				
 			}
 
 			changeProductsAvailable(currentProductsFiltered);
@@ -234,32 +310,30 @@ if (sortDropdown) {
 	});
 
 	function changeProductsAvailable(currentProductsFiltered) {
-		
+
 		productsOnPage = findFilteredProductsOnPage(currentProductsFiltered);
-		
+
 		productsNotOnPage = findFilteredProductsNotOnPage(currentProductsFiltered);
+
+		gridObjects = findProductsOnPage();
 		
-		
-		if (currentPriceFilterArray.length > 0) {
-			productsOnPage = handlePriceDropdownValue(productsOnPage)
-			
+		if (gridObjects.length == 0) {
+			for (let i = 0; i < productsOnPage.length; i++) {
+				productGrid.appendChild(productsOnPage[i].container);
+			}
 		}
-		
+			
 		unavailFilterPrices = allPriceFiltersArray.filter(fPrice => productsNotOnPage.some(pNot =>
 			fPrice.high >= pNot.price && fPrice.low <= pNot.price));
 
 		unavailFilterColors = filterColors.filter(fColor => productsNotOnPage.some(i => i.color === fColor.value));
-		
-		console.log("PRODUCTS ON PAGE >")
-		console.log(productsOnPage)
-		
-		console.log("UNAVAIL COLORS >")
-		console.log(unavailFilterColors)
+
 
 		availFilterPrices = allPriceFiltersArray.filter(fPrice => productsOnPage.some(pOn =>
 			fPrice.high >= pOn.price && fPrice.low <= pOn.price));
 
-		availFilterColors = filterColors.filter(el => productsOnPage.some(i => i.color === el.value));
+		availFilterColors = filterColors.filter(fColor =>
+			productsOnPage.some(i => i.color === fColor.value));
 
 		changeFiltersAvailable();
 	}
@@ -276,7 +350,7 @@ if (sortDropdown) {
 				availFilterColors[i].removeAttribute("disabled");
 				availFilterColors[i].parentElement.removeAttribute("disabled");
 			}
-			
+
 		} else {
 			for (let i = 0; i < unavailFilterColors.length; i++) {
 				unavailFilterColors[i].removeAttribute("disabled");
@@ -339,6 +413,7 @@ if (sortDropdown) {
 		currentPriceFilterArray = [];
 		checkedColors = [];
 		checkedPrices = [];
+		findProductsOnPage();
 
 		for (let i = 0; i < unavailFilterColors.length; i++) {
 			unavailFilterColors[i].removeAttribute("disabled");
@@ -366,59 +441,72 @@ if (sortDropdown) {
 
 	// Sort low to high
 	function sortLowToHigh() {
-		if (checkedColors.length > 0) {
-			checkedColors = checkedColors.sort((a, b) => a.price - b.price);
-			for (let i = 0; i < checkedColors.length; i++) {
-				productGrid.appendChild(checkedColors[i].container);
+		
+		gridObjects = gridObjects.sort((a, b) => a.price - b.price);
+			for (let i = 0; i < gridObjects.length; i++) {
+				productGrid.appendChild(gridObjects[i].container);
 			}
-		} else if (checkedPrices.length > 0) {
-			checkedPrices = checkedPrices.sort((a, b) => a.price - b.price);
-			for (let i = 0; i < checkedPrices.length; i++) {
-				productGrid.appendChild(checkedPrices[i].container);
-			}
-		} else {
-			productArray = productArray.sort((a, b) => a.price - b.price);
-			for (let i = 0; i < productArray.length; i++) {
-				productGrid.appendChild(productArray[i].container);
-			}
-		}
+		// if (checkedColors.length > 0) {
+		// 	checkedColors = checkedColors.sort((a, b) => a.price - b.price);
+		// 	for (let i = 0; i < checkedColors.length; i++) {
+		// 		productGrid.appendChild(checkedColors[i].container);
+		// 	}
+		// } else if (checkedPrices.length > 0) {
+		// 	checkedPrices = checkedPrices.sort((a, b) => a.price - b.price);
+		// 	for (let i = 0; i < checkedPrices.length; i++) {
+		// 		productGrid.appendChild(checkedPrices[i].container);
+		// 	}
+		// } else {
+		// 	productArray = productArray.sort((a, b) => a.price - b.price);
+		// 	for (let i = 0; i < productArray.length; i++) {
+		// 		productGrid.appendChild(productArray[i].container);
+		// 	}
+		// }
 	}
 
 	// Sort high to low
 	function sortHighToLow() {
-		if (checkedColors.length > 0) {
-			checkedColors = checkedColors.sort((a, b) => b.price - a.price);
-			for (let i = 0; i < checkedColors.length; i++) {
-				productGrid.appendChild(checkedColors[i].container);
+		gridObjects = gridObjects.sort((a, b) => b.price - a.price);
+			for (let i = 0; i < gridObjects.length; i++) {
+				productGrid.appendChild(gridObjects[i].container);
 			}
-		} else if (checkedPrices.length > 0) {
-			checkedPrices = checkedPrices.sort((a, b) => b.price - a.price);
-			for (let i = 0; i < checkedPrices.length; i++) {
-				productGrid.appendChild(checkedPrices[i].container);
-			}
-		} else {
-			productArray = productArray.sort((a, b) => b.price - a.price);
-			for (let i = 0; i < productArray.length; i++) {
-				productGrid.appendChild(productArray[i].container);
-			}
-		}
+		// if (checkedColors.length > 0) {
+		// 	checkedColors = checkedColors.sort((a, b) => b.price - a.price);
+		// 	for (let i = 0; i < checkedColors.length; i++) {
+		// 		productGrid.appendChild(checkedColors[i].container);
+		// 	}
+		// } else if (checkedPrices.length > 0) {
+		// 	checkedPrices = checkedPrices.sort((a, b) => b.price - a.price);
+		// 	for (let i = 0; i < checkedPrices.length; i++) {
+		// 		productGrid.appendChild(checkedPrices[i].container);
+		// 	}
+		// } else {
+		// 	productArray = productArray.sort((a, b) => b.price - a.price);
+		// 	for (let i = 0; i < productArray.length; i++) {
+		// 		productGrid.appendChild(productArray[i].container);
+		// 	}
+		// }
 	}
 
 	// Default sort
 	function sortDefault() {
-		if (checkedColors.length > 0) {
-			for (let i = 0; i < checkedColors.length; i++) {
-				productGrid.appendChild(checkedColors[i].container);
-			}
-		} else if (checkedPrices.length > 0) {
-			for (let i = 0; i < checkedPrices.length; i++) {
-				productGrid.appendChild(checkedPrices[i].container);
-			}
-		} else {
-			for (let i = 0; i < initialProductArray.length; i++) {
-				productGrid.appendChild(initialProductArray[i].container);
-			}
+		gridObjects = gridObjects.sort((a, b) => a.container.id.toLowerCase().localeCompare(b.container.id.toLowerCase()));
+		for (let i = 0; i < gridObjects.length; i++) {
+			productGrid.appendChild(gridObjects[i].container);
 		}
+		// if (checkedColors.length > 0) {
+		// 	for (let i = 0; i < checkedColors.length; i++) {
+		// 		productGrid.appendChild(checkedColors[i].container);
+		// 	}
+		// } else if (checkedPrices.length > 0) {
+		// 	for (let i = 0; i < checkedPrices.length; i++) {
+		// 		productGrid.appendChild(checkedPrices[i].container);
+		// 	}
+		// } else {
+		// 	for (let i = 0; i < initialProductArray.length; i++) {
+		// 		productGrid.appendChild(initialProductArray[i].container);
+		// 	}
+		// }
 	}
 }
 
