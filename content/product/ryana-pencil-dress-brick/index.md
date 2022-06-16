@@ -1,9 +1,9 @@
 ---
 title: "the squared ryana"
 product_type: "pencil dress"
-is_women:
-is_men: 
-is_unisex: true
+is_women: true
+is_men:
+is_unisex:
 is_variant: 
 original_price: 80
 sale_price: 60

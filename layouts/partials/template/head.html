@@ -21,12 +21,14 @@
 	<!-- <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script> -->
 	{{ end }}
 	
+<!-- Snipcart  -->
+	<link href="/css/snipcart.css" rel="stylesheet">
+
 <!-- Font Awesome  -->
 	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/brands.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
-
-
+	
 	<!--SCSS converted to CSS for website-->
 	{{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true)}}
 	<link rel="stylesheet" href="{{ ($style | minify).Permalink }}">

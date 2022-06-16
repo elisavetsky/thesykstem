@@ -21,11 +21,13 @@
 	
 	
 
+	<link href="/css/snipcart.css" rel="stylesheet">
+
+
 	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/brands.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
-
-
+	
 	
 	
 	<link rel="stylesheet" href="/sass/main.min.css">
@@ -59,7 +61,7 @@
 			  templatesUrl: "/snipcart-templates/snipcart-templates.html",
 			};
 
-			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.css",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+			(()=>{var a,d;(d=(a=window.SnipcartSettings).version)!=null||(a.version="3.0");var s,S;(S=(s=window.SnipcartSettings).currency)!=null||(s.currency="usd");var l,p;(p=(l=window.SnipcartSettings).timeoutDuration)!=null||(l.timeoutDuration=2750);var w,u;(u=(w=window.SnipcartSettings).domain)!=null||(w.domain="cdn.snipcart.com");var m,g;(g=(m=window.SnipcartSettings).protocol)!=null||(m.protocol="https");var y=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,f=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(f.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var c=!1;function o(){if(c)return;c=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),h(e),i||(i=document.createElement("script"),i.src="https://cdn.snipcart.com/themes/v3.4.0/default/snipcart.js",i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href="",t.prepend(n)),f.forEach(v=>document.removeEventListener(v,o))}function h(t){!y||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
 	</script>
 	<noscript>
 		<section class="section is-small py-0">
@@ -143,11 +145,11 @@
 	<div class="is-collapsable-search">
 		<input type="checkbox" name="site-search" id="site-search">
 		<label class="search-label p-3" for="site-search">
-			
-				<span class="icon">
-					<span class="fa-solid fa-search"></span>
-				</span>
-			
+
+			<span class="icon">
+				<span class="fa-solid fa-search"></span>
+			</span>
+
 		</label>
 		<div class="search-container">
 			<div class="search-items box">
@@ -165,9 +167,279 @@
 							</p>
 							<p id="fastSearch" class="control is-expanded">
 								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
-								<ul id="searchResults">
-								</ul>
+							<ul id="searchResults">
+							</ul>
 							</p>
+							<section id="the-latest-search" class="is-hidden">
+								<div class="is-flex-direction-column">
+									<div class="container">
+										<div class="p-4 content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-center is-size-6">
+											<h4>oops, no products found.</h4>
+											<h1 class="m-0">shop the latest</h1>
+
+										</div>
+										<div class="columns is-mobile is-variable is-2-mobile is-2-tablet is-3-desktop is-multiline">
+
+											
+
+											
+
+											<div id="ryana-knit-sweater-cherrywood" class="column is-half">
+												
+													
+														<div class="tile is-child">
+															<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+																<div class="product-in-list">
+
+																	<a href="/product/ryana-knit-sweater-cherrywood/">
+
+																		
+																		
+																		
+																		
+																		
+																		
+																		<figure>
+																			<img class="lazyload" data-src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" alt="This sweater will feel like a cozy hug.">
+																		</figure>
+																		
+																	</a>
+																</div>
+																<div class="half-height">
+																	
+
+
+
+
+
+
+
+
+<div class="price-group tags is-justify-content-space-between">
+	<h4 class="price m-0">$45</h4>
+	<span class="product-page-color">cherrywood</span>
+</div>
+
+																	<a href="/product/ryana-knit-sweater-cherrywood/">
+																		<h2>the snug ryana</h2>
+																	</a>
+																	
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>knit sweater</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;ryana-knit-sweater-cherrywood&#34;)" type="checkbox" name="love" id="love-button-ryana-knit-sweater-cherrywood">
+			<label for="love-button-ryana-knit-sweater-cherrywood">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+
+																	
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+</div>
+
+																</div>
+															</div>
+														</div>
+													
+											</div>
+											
+
+											<div id="the-sykstem-knit-sweater-zucchini" class="column is-half">
+												
+													
+														<div class="tile is-child">
+															<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+																<div class="product-in-list">
+
+																	<a href="/product/the-sykstem-knit-sweater-zucchini/">
+
+																		
+																		
+																		
+																		
+																		
+																		
+																		<figure>
+																			<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
+																		</figure>
+																		
+																	</a>
+																</div>
+																<div class="half-height">
+																	
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>25% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$60</s></h4>
+		</div>
+		<h4 class="price m-0">$45</h4>
+	</div>
+	<span class="product-page-color">zucchini</span>
+</div>
+
+																	<a href="/product/the-sykstem-knit-sweater-zucchini/">
+																		<h2>the snug sykstem</h2>
+																	</a>
+																	
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>knit sweater</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;the-sykstem-knit-sweater-zucchini&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-knit-sweater-zucchini">
+			<label for="love-button-the-sykstem-knit-sweater-zucchini">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+
+																	
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+</div>
+
+																</div>
+															</div>
+														</div>
+													
+											</div>
+											
+
+											<div id="shipital-bomber-jacket-black" class="column is-half">
+												
+													
+														<div class="tile is-child">
+															<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+																<div class="product-in-list">
+
+																	<a href="/product/shipital-bomber-jacket-black/">
+
+																		
+																		
+																		
+																		
+																		
+																		
+																		<figure>
+																			<img class="lazyload" data-src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
+																		</figure>
+																		
+																	</a>
+																</div>
+																<div class="half-height">
+																	
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>33% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$90</s></h4>
+		</div>
+		<h4 class="price m-0">$60</h4>
+	</div>
+	<span class="product-page-color">black</span>
+</div>
+
+																	<a href="/product/shipital-bomber-jacket-black/">
+																		<h2>the stylish shipital</h2>
+																	</a>
+																	
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>bomber jacket</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;shipital-bomber-jacket-black&#34;)" type="checkbox" name="love" id="love-button-shipital-bomber-jacket-black">
+			<label for="love-button-shipital-bomber-jacket-black">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+
+																	
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+</div>
+
+																</div>
+															</div>
+														</div>
+													
+											</div>
+											
+											
+											<div class="column is-half">
+												
+
+														<a href="/product" class="box tile is-child is-article">
+															<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-6-mobile is-size-6-tablet is-size-4-desktop">
+																<span class="icon is-medium">
+																	<span class="fa-solid fa-arrow-right"></span>
+																</span>
+																<h4 class="mb-1">shop all styles</h4>
+
+															</div>
+														</a>
+											</div>
+											
+										</div>
+									</div>
+								</div>
+							</section>
 						</div>
 					</div>
 				</div>
@@ -460,460 +732,517 @@
 				<div class="dropdown-menu" id="filter-products" role="menu">
 					<div class="dropdown-content">
 						<div id="clear-filters-button" class="dropdown-item is-hidden">
-							<button class="button is-small">
-								<span>reset filters</span>
-								<span class="icon">
-									<span class="fa fa-xmark"></span>
+								<button class="button is-small">
+									<span>reset filters</span>
+										<span class="icon">
+											<span class="fa fa-xmark"></span>
+										</span>
+								</button>
+							</div>
+						<div class="is-collapsable">
+							<input type="checkbox" name="dropdown" id="dropdown-1">
+							<label for="dropdown-1" class="py-4">
+								<span class="icon-text full-width is-justify-content-space-between">
+									<div class="dropdown-item">
+										<p><strong>color</strong></p>
+									</div>
+
+									<span class="icon mr-4">
+										<span class="fa-solid fa-chevron-down"></span>
+									</span>
 								</span>
-							</button>
+								
+							</label>
+							
+								
+								<div id="filter-colors">
+									
+									
+
+
+
+
+
+
+
+
+
+
+
+
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									
+									
+
+									
+									
+									
+									
+
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="cherrywood">
+											cherrywood
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-cherrywood"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="zucchini">
+											zucchini
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-zucchini"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="black">
+											black
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-black"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="bay">
+											bay
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-bay"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="white">
+											white
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-white"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="brass">
+											brass
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-brass"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="galaxy">
+											galaxy
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-galaxy"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="periwinkle">
+											periwinkle
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-periwinkle"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="grey">
+											grey
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-grey"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="rose">
+											rose
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-rose"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="gold">
+											gold
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-gold"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="silver">
+											silver
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-silver"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="brick">
+											brick
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-brick"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="wine">
+											wine
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-wine"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="cocoa">
+											cocoa
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-cocoa"></span>
+										</span>
+									</div>
+									
+									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
+										<label class="checkbox py-2 ">
+											<input class="filter-option-color" type="checkbox" value="starlight">
+											starlight
+										</label>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-starlight"></span>
+										</span>
+									</div>
+									
+								</div>
 						</div>
-						<div class="dropdown-item">
-							<p><strong>color</strong></p>
-						</div>
-						<div id="filter-colors">
-							
 
-
-
-
-
-
-
-
-
-
-
-
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							
-							
-
-							
-							
-							
-							
-
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="zucchini">
-									zucchini
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-zucchini"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="black">
-									black
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-black"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="bay">
-									bay
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-bay"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="brass">
-									brass
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-brass"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="galaxy">
-									galaxy
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-galaxy"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="white">
-									white
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-white"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="periwinkle">
-									periwinkle
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-periwinkle"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="grey">
-									grey
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-grey"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="rose">
-									rose
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-rose"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="gold">
-									gold
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-gold"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="silver">
-									silver
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-silver"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="brick">
-									brick
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-brick"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="wine">
-									wine
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-wine"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="cocoa">
-									cocoa
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-cocoa"></span>
-								</span>
-							</div>
-							
-							<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-								<label class="checkbox">
-									<input class="filter-option-color" type="checkbox" value="starlight">
-									starlight
-								</label>
-								<span class="icon is-medium">
-									<span class="fa-solid fa-circle icon-starlight"></span>
-								</span>
-							</div>
-							
-						</div>
+						
 						<hr class="dropdown-divider">
-						<div class="dropdown-item">
-							<p><strong>price</strong></p>
-						</div>
-						<div id="filter-prices">
+						
+						<div class="is-collapsable">
+							<input type="checkbox" name="dropdown" id="dropdown-2">
+							<label for="dropdown-2" class="py-4">
+								<span class="icon-text full-width is-justify-content-space-between">
+									<div class="dropdown-item ">
+										<p><strong>price</strong></p>
+									</div>
+
+									<span class="icon mr-4">
+										<span class="fa-solid fa-chevron-down"></span>
+									</span>
+								</span>
+								
+							</label>
+							<div id="filter-prices">
 							
 							
 							
 							<div class="dropdown-item">
-								<label class="checkbox">
+								<label class="checkbox py-2">
 									<input class="filter-option-price" type="checkbox" value="0,10">
 									$10 and under
 								</label>
@@ -922,7 +1251,7 @@
 							
 							
 							<div class="dropdown-item">
-								<label class="checkbox">
+								<label class="checkbox py-2">
 									<input class="filter-option-price" type="checkbox" value="11,30">
 									$11 - $30
 								</label>
@@ -931,7 +1260,7 @@
 							
 							
 							<div class="dropdown-item">
-								<label class="checkbox">
+								<label class="checkbox py-2">
 									<input class="filter-option-price" type="checkbox" value="31,50">
 									$31 - $50
 								</label>
@@ -940,7 +1269,7 @@
 							
 							
 							<div class="dropdown-item">
-								<label class="checkbox">
+								<label class="checkbox py-2">
 									<input class="filter-option-price" type="checkbox" value="51,70">
 									$51 - $70
 								</label>
@@ -949,14 +1278,15 @@
 							
 							
 							<div class="dropdown-item">
-								<label class="checkbox">
+								<label class="checkbox py-2">
 									<input class="filter-option-price" type="checkbox" value="71,90">
 									$71 - $90
 								</label>
 							</div>
 							
 						</div>
-
+						</div>
+						
 					</div>
 				</div>
 			</div>
@@ -986,6 +1316,214 @@
 			
 			
 			
+			<div id="ryana-knit-sweater-cherrywood" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent p-0">
+						<div class="tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/ryana-knit-sweater-cherrywood/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This sweater will feel like a cozy hug.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="half-height">
+										
+
+
+
+
+
+
+
+
+<div class="price-group tags is-justify-content-space-between">
+	<h4 class="price m-0">$45</h4>
+	<span class="product-page-color">cherrywood</span>
+</div>
+
+									<a href="/product/ryana-knit-sweater-cherrywood/">
+										<h2>the snug ryana</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>knit sweater</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;ryana-knit-sweater-cherrywood&#34;)" type="checkbox" name="love" id="love-button-ryana-knit-sweater-cherrywood">
+			<label for="love-button-ryana-knit-sweater-cherrywood">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+			<a href="/product/ryana-knit-sweater-cherrywood/" alt="cherrywood variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-cherrywood fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
 			<div id="the-sykstem-knit-sweater-zucchini" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 					<div class="tile is-parent p-0">
@@ -1002,7 +1540,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3058577_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3058577_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
+											<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
 										</figure>
 										
 									</a>
@@ -1063,12 +1601,20 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/the-sykstem-knit-sweater-zucchini/" alt="zucchini variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-zucchini fa-2x"></span>
 				</span>
 			</a>
 			
+		
+	
+		
+		
 		
 	
 		
@@ -1278,12 +1824,20 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/shipital-bomber-jacket-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
 			</a>
 			
+		
+	
+		
+		
 		
 	
 		
@@ -1431,7 +1985,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu6d4e94510568d1a61a851205eb206a4b_769422_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu6d4e94510568d1a61a851205eb206a4b_769422_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The right article for when the weather takes over.">
+											<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The right article for when the weather takes over.">
 										</figure>
 										
 									</a>
@@ -1500,9 +2054,236 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/the-sykstem-rain-jacket-bay/" alt="bay variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-bay fa-2x"></span>
+				</span>
+			</a>
+			
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			
+			<div id="ryana-lantern-sleeve-blouse-white" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+				<div class="tile is-ancestor">
+					<div class="tile is-parent p-0">
+						<div class="tile is-child is-article">
+							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
+								<div class="product-in-list">
+									
+									<a href="/product/ryana-lantern-sleeve-blouse-white/">
+										
+
+										
+										
+										
+										
+										
+										<figure class="image">
+											<img class="lazyload" data-src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The blouse for those special occasions.">
+										</figure>
+										
+									</a>
+								</div>
+								<div class="half-height">
+										
+
+
+
+
+
+
+
+
+
+<div class="price-group-on-sale is-flex is-justify-content-space-between fit-content-h">
+	<div class="tags is-justify-content-flex-start">
+	<span class="tag discount-tag mb-0">
+		<strong>50% off</strong>
+	</span>
+	</div>
+	<div class="is-flex is-flex-direction-row">
+		<div class="mr-2">
+			<h4 class="original-price m-0"><s>$50</s></h4>
+		</div>
+		<h4 class="price m-0">$25</h4>
+	</div>
+	<span class="product-page-color">white</span>
+</div>
+
+									<a href="/product/ryana-lantern-sleeve-blouse-white/">
+										<h2>the radiant ryana</h2>
+									</a>
+									
+<body>
+	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
+		<h5>lantern sleeve blouse</h5>
+		<div class="love-container">
+			<input onclick="loveUnloveProduct(&#34;ryana-lantern-sleeve-blouse-white&#34;)" type="checkbox" name="love" id="love-button-ryana-lantern-sleeve-blouse-white">
+			<label for="love-button-ryana-lantern-sleeve-blouse-white">
+				<a class="p-3 button love-button icon">
+					<span class="fa-solid fa-heart"></span>
+				</a>
+			</label>
+		</div>
+	</div>
+</body>
+									
+									
+
+
+
+
+
+<div class="buttons circle-color-buttons mb-0 mt-1">
+	
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/ryana-lantern-sleeve-blouse-white/" alt="white variant">
+				<span class="icon is-medium">
+					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
 			</a>
 			
@@ -1688,6 +2469,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -1922,6 +2711,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/ryana-bandeau-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -2067,7 +2864,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2556679_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2556679_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
+											<img class="lazyload" data-src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
 										</figure>
 										
 									</a>
@@ -2113,6 +2910,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -2274,7 +3079,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_2112724_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_2112724_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
+											<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
 										</figure>
 										
 									</a>
@@ -2331,6 +3136,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -2570,6 +3383,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/the-sykstem-jacket-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -2745,6 +3566,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -2992,6 +3821,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/ryana-floral-lace-crop-top-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-ban icon-black fa-2x"></span>
@@ -3159,6 +3996,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -3425,6 +4270,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/shipital-plaid-shirt-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -3640,6 +4493,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/ryana-jacket-white/" alt="white variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
@@ -3788,6 +4649,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -4062,6 +4931,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/ryana-long-sleeve-top-grey/" alt="grey variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-grey fa-2x"></span>
@@ -4151,14 +5028,14 @@
 			</div>
 			
 			
-			<div id="the-sykstem-top-gold" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+			<div id="the-sykstem-cropped-top-gold" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 					<div class="tile is-parent p-0">
 						<div class="tile is-child is-article">
 							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
 								<div class="product-in-list">
 									
-									<a href="/product/the-sykstem-top-gold/">
+									<a href="/product/the-sykstem-cropped-top-gold/">
 										
 
 										
@@ -4167,7 +5044,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2760827_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2760827_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2762878_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2762878_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
 										</figure>
 										
 									</a>
@@ -4187,7 +5064,7 @@
 	<span class="product-page-color">gold</span>
 </div>
 
-									<a href="/product/the-sykstem-top-gold/">
+									<a href="/product/the-sykstem-cropped-top-gold/">
 										<h2>the solar sykstem</h2>
 									</a>
 									
@@ -4195,8 +5072,8 @@
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 		<h5>cropped strapped top</h5>
 		<div class="love-container">
-			<input onclick="loveUnloveProduct(&#34;the-sykstem-top-gold&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-top-gold">
-			<label for="love-button-the-sykstem-top-gold">
+			<input onclick="loveUnloveProduct(&#34;the-sykstem-cropped-top-gold&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-cropped-top-gold">
+			<label for="love-button-the-sykstem-cropped-top-gold">
 				<a class="p-3 button love-button icon">
 					<span class="fa-solid fa-heart"></span>
 				</a>
@@ -4277,7 +5154,15 @@
 		
 		
 		
-			<a href="/product/the-sykstem-top-gold/" alt="gold variant">
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/the-sykstem-cropped-top-gold/" alt="gold variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-gold fa-2x"></span>
 				</span>
@@ -4288,7 +5173,7 @@
 		
 		
 		
-			<a href="/product/the-sykstem-top-silver/" alt="silver variant">
+			<a href="/product/the-sykstem-cropped-top-silver/" alt="silver variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-silver fa-2x"></span>
 				</span>
@@ -4358,14 +5243,14 @@
 			</div>
 			
 			
-			<div id="the-sykstem-top-silver" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
+			<div id="the-sykstem-cropped-top-silver" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 					<div class="tile is-parent p-0">
 						<div class="tile is-child is-article">
 							<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
 								<div class="product-in-list">
 									
-									<a href="/product/the-sykstem-top-silver/">
+									<a href="/product/the-sykstem-cropped-top-silver/">
 										
 
 										
@@ -4374,7 +5259,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4508474_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4508474_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4510472_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4510472_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
 										</figure>
 										
 									</a>
@@ -4394,7 +5279,7 @@
 	<span class="product-page-color">silver</span>
 </div>
 
-									<a href="/product/the-sykstem-top-silver/">
+									<a href="/product/the-sykstem-cropped-top-silver/">
 										<h2>the solar sykstem</h2>
 									</a>
 									
@@ -4402,8 +5287,8 @@
 	<div class="is-flex is-flex-direction-row is-align-items-baseline is-justify-content-space-between">
 		<h5>cropped strapped top</h5>
 		<div class="love-container">
-			<input onclick="loveUnloveProduct(&#34;the-sykstem-top-silver&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-top-silver">
-			<label for="love-button-the-sykstem-top-silver">
+			<input onclick="loveUnloveProduct(&#34;the-sykstem-cropped-top-silver&#34;)" type="checkbox" name="love" id="love-button-the-sykstem-cropped-top-silver">
+			<label for="love-button-the-sykstem-cropped-top-silver">
 				<a class="p-3 button love-button icon">
 					<span class="fa-solid fa-heart"></span>
 				</a>
@@ -4484,7 +5369,15 @@
 		
 		
 		
-			<a href="/product/the-sykstem-top-gold/" alt="gold variant">
+	
+		
+		
+		
+	
+		
+		
+		
+			<a href="/product/the-sykstem-cropped-top-gold/" alt="gold variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-gold fa-2x"></span>
 				</span>
@@ -4495,7 +5388,7 @@
 		
 		
 		
-			<a href="/product/the-sykstem-top-silver/" alt="silver variant">
+			<a href="/product/the-sykstem-cropped-top-silver/" alt="silver variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-silver fa-2x"></span>
 				</span>
@@ -4638,6 +5531,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -4928,6 +5829,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/shipital-topcoat-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -5063,6 +5972,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -5357,6 +6274,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/shipital-blazer-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -5571,6 +6496,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/shipital-blazer-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -5659,7 +6592,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12730216_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12730216_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12740322_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12740322_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
 										</figure>
 										
 									</a>
@@ -5705,6 +6638,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -5866,7 +6807,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17611176_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17611176_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17616785_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17616785_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
 										</figure>
 										
 									</a>
@@ -5912,6 +6853,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -6230,6 +7179,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/ryana-pencil-dress-brick/" alt="brick variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
@@ -6349,12 +7306,20 @@
 		
 		
 		
+	
+		
+		
+		
 			<a href="/product/shipital-bomber-jacket-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
 			</a>
 			
+		
+	
+		
+		
 		
 	
 		
@@ -6548,6 +7513,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		
@@ -6874,6 +7847,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/the-sykstem-shirt-galaxy/" alt="galaxy variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
@@ -7089,6 +8070,14 @@
 		
 		
 		
+	
+		
+		
+		
+	
+		
+		
+		
 			<a href="/product/the-sykstem-hoodie-black/" alt="black variant">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
@@ -7180,6 +8169,14 @@
 
 <div class="buttons circle-color-buttons mb-0 mt-1">
 	
+	
+		
+		
+		
+	
+		
+		
+		
 	
 		
 		

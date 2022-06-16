@@ -5,6 +5,7 @@ var list = document.getElementById('searchResults'); // targets the <ul>
 var first = list.firstChild; // first child of search list
 var last = list.lastChild; // last child of search list
 var maininput = document.getElementById('searchInput'); // input box for search
+var theLatestSearch = document.getElementById('the-latest-search'); // input box for search
 var resultsAvailable = false; // Did we get any search results?
 
 // ==========================================
@@ -116,7 +117,6 @@ function loadSearch() {
 			minMatchCharLength: 2,
 			keys: [
 				'title',
-				// 'permalink',
 				'description',
 				'material',
 				'type',
@@ -143,7 +143,10 @@ function executeSearch(term) {
 	if (results.length === 0) { // no results based on what was typed into the input box
 		resultsAvailable = false;
 		searchitems = '';
+		theLatestSearch.classList.remove("is-hidden");
 	} else { // build our html 
+		theLatestSearch.classList.add("is-hidden");
+		
 		for (let item in results.slice(0, 6)) { 
 			
 			if (results[item].item.stock_status == 10) {

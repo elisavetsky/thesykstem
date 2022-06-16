@@ -6,7 +6,16 @@
     <description>Recent content on the sykstem</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/product/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 16 Jun 2022 00:00:00 +0000</lastBuildDate><atom:link href="/product/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>the snug ryana</title>
+      <link>/product/ryana-knit-sweater-cherrywood/</link>
+      <pubDate>Thu, 16 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/product/ryana-knit-sweater-cherrywood/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>the snug sykstem</title>
       <link>/product/the-sykstem-knit-sweater-zucchini/</link>
@@ -31,6 +40,15 @@
       <pubDate>Sat, 11 Jun 2022 00:00:00 +0000</pubDate>
       
       <guid>/product/the-sykstem-rain-jacket-bay/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>the radiant ryana</title>
+      <link>/product/ryana-lantern-sleeve-blouse-white/</link>
+      <pubDate>Fri, 10 Jun 2022 00:00:00 +0000</pubDate>
+      
+      <guid>/product/ryana-lantern-sleeve-blouse-white/</guid>
       <description></description>
     </item>
     
@@ -144,19 +162,19 @@
     
     <item>
       <title>the solar sykstem</title>
-      <link>/product/the-sykstem-top-gold/</link>
+      <link>/product/the-sykstem-cropped-top-gold/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/the-sykstem-top-gold/</guid>
+      <guid>/product/the-sykstem-cropped-top-gold/</guid>
       <description></description>
     </item>
     
     <item>
       <title>the solar sykstem</title>
-      <link>/product/the-sykstem-top-silver/</link>
+      <link>/product/the-sykstem-cropped-top-silver/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/product/the-sykstem-top-silver/</guid>
+      <guid>/product/the-sykstem-cropped-top-silver/</guid>
       <description></description>
     </item>
     

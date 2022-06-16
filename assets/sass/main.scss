@@ -110,7 +110,7 @@ body {
 
 #the-latest {
 	position: relative;
-	background-color: $blue1;
+	background-color: $almostwhite;
 	.column.content {
 		position: relative;
 		z-index: 1;
@@ -768,6 +768,13 @@ input#account-drawer {
 	color: white;
 }
 
+.button.cherrywood {
+	display: flex;
+	align-items: center;
+	background: $cherrywood;
+	color: white;
+}
+
 	
 .buttons {
 	.button.fit-content {
@@ -1422,8 +1429,12 @@ input#account-drawer {
 	background: $bay;
 }
 
-.product-bay {
+.product-cocoa {
 	background: $cocoa;
+}
+
+.product-cherrywood {
+	background: $cherrywood;
 }
 
 
@@ -1794,6 +1805,10 @@ input#account-drawer {
 
 .icon-cocoa {
 	color: $cocoa;
+}
+
+.icon-cherrywood {
+	color: $cherrywood;
 }
 
 // Breadcrumb 
