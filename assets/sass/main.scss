@@ -2076,6 +2076,18 @@ a.is-article:hover {
 		font-size: 0.25rem !important;
 		transition: $transition-table-dropdown;
 	}
+	#filter-colors {
+		overflow: hidden;
+		min-height: 0;
+		max-height: 0;
+		transition: $transition-dropdown;
+	}
+	#filter-prices {
+		overflow: hidden;
+		min-height: 0;
+		max-height: 0;
+		transition: $transition-dropdown;
+	}
 }
 	
 .is-collapsable > input:checked ~ label .fa-chevron-down {
@@ -2091,6 +2103,18 @@ a.is-article:hover {
 }
 
 .is-collapsable > input:checked ~ .tags {
+	min-height: 20px;
+	max-height: 1000px;
+	transition: $transition-dropdown 0.35s;
+}
+
+.is-collapsable > input:checked ~ #filter-colors {
+	min-height: 20px;
+	max-height: 1000px;
+	transition: $transition-dropdown 0.35s;
+}
+
+.is-collapsable > input:checked ~ #filter-prices {
 	min-height: 20px;
 	max-height: 1000px;
 	transition: $transition-dropdown 0.35s;
