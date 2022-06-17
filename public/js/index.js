@@ -35,6 +35,15 @@ const productGrid = document.querySelector(".product-grid");
 
 const mainNavbar = document.getElementById("main-nav");
 
+// Love List
+let loveArray = [];
+let currentLoved = [];
+const allProductsArray = [];
+const productsOnPageArray = [];
+let productsOnPageList = [];
+let lovedProductsOnPageArray = [];
+const lovedCountNavbarContainer = document.querySelector(".loved-items-count");
+
 // Hide & Show Navbar
 
 /*
@@ -70,6 +79,7 @@ setInterval(() => {
 
 
 // Sorting & Filtering
+
 if (sortDropdown) {
 
 	window.addEventListener("DOMContentLoaded", () => {
@@ -508,6 +518,10 @@ if (sortDropdown) {
 		// 	}
 		// }
 	}
+} else if (!sortDropdown && (currentURL.indexOf("/account/loved") >= 0)) {
+	loadLovedProducts();
+} else if (currentURL === (baseURL + "/")) {
+	loadLovedProducts();
 }
 
 // Product Zoom In
@@ -566,21 +580,22 @@ function zoomProduct(xOffset, yOffset, event) {
 }
 
 // Love Component
-let loveArray = [];
-let currentLoved = [];
-const allProductsArray = [];
-const productsOnPageArray = [];
-let productsOnPageList = [];
-let lovedProductsOnPageArray = []
+window.addEventListener("DOMContentLoaded", () => {
+	loadLovedNavbarCount();
+});
 
 function loveUnloveProduct(productID) {
-
+	
 	const checkbox = document.querySelector("#love-button-" + productID);
 	if (checkbox.checked === true) {
 		if (JSON.parse(localStorage.getItem("lovedProd")) != null) {
 			loveArray = JSON.parse(localStorage.getItem("lovedProd"));
+			if (!loveArray.includes(productID)) {
+				loveArray.push(productID);
+			}
+		} else {
+			loveArray.push(productID);
 		}
-		loveArray.push(productID);
 	} else {
 		if (JSON.parse(localStorage.getItem("lovedProd")) != null) {
 			loveArray = JSON.parse(localStorage.getItem("lovedProd"));
@@ -593,6 +608,9 @@ function loveUnloveProduct(productID) {
 	} catch (error) {
 		console.error("An error occured while modifying your love list.");
 	}
+	setTimeout(() => {
+		loadLovedNavbarCount();
+	}, 500)
 }
 
 function loadLovedProducts() {
@@ -634,7 +652,7 @@ function loadLovedProducts() {
 
 				sortFilterProductsContainer.classList.add("is-hidden");
 
-				const loveListSubtitle = document.querySelector("#my-love-list p");
+				const loveListSubtitle = document.querySelector("#loved p");
 				loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
 				for (i = 0; i < productsOnPageList.length; i++) {
 					productsOnPageList[i].remove();
@@ -652,7 +670,15 @@ function loadLovedProducts() {
 	}
 }
 
-
+function loadLovedNavbarCount() {
+	
+	if (JSON.parse(localStorage.getItem("lovedProd")).length == 0 || JSON.parse(localStorage.getItem("lovedProd")).length == undefined) {
+		lovedCountNavbarContainer.classList.add("is-hidden");
+	} else {
+		lovedCountNavbarContainer.classList.remove("is-hidden");
+		lovedCountNavbarContainer.innerText = JSON.parse(localStorage.getItem("lovedProd")).length;
+	}
+}
 
 function loadAvailableColorsInLoveList() {
 	if (currentURL.indexOf("/account/loved") >= 0) {

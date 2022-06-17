@@ -53,7 +53,7 @@
 		{{ if where $size_var "size" "!=" "adjustable" }}
 			{{ $s := $.Scratch.Get "s" }}
 			{{ delimit $s "|" }}
-		{{ end }}" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="{{ replace .Params.color "-fill" "" }}" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="{{ .Params.product_type }}" data-item-custom3-type="hidden">add to bag</button>
+		{{ end }}" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="{{ replace .Params.color "-fill" "" }}" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="{{ .Params.product_type }}" data-item-custom3-type="hidden" data-item-custom4-name="permalink" data-item-custom4-value="{{ .Permalink }}" data-item-custom4-type="hidden">add to bag</button>
 	</div>
 </div>
 

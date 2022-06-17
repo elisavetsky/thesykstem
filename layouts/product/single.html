@@ -20,6 +20,9 @@
 					{{ $resized_main := $article.Resize "700x jpg #f5f5f5 center q70" }}
 					{{ .Scratch.Set "resized_main" $resized_main }}
 					<div class="product-on-page box">
+						<div class="is-flex is-justify-content-flex-end">
+							{{ partial "love-button" . }}
+						</div>
 						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
 						<figure class="gallery__img active-image">
 							<img style="opacity: 1" class="image-normal lazyload" data-src="{{ $resized_main.Permalink }}" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
@@ -44,7 +47,7 @@
 					{{ partial "gallery-nav" . }}
 				</div>
 				<div class="column is-full-mobile is-half-tablet is-one-third-desktop">
-					{{ partial "type-love-button" . }}
+					{{ partial "type" . }}
 					{{ partial "product-title" . }}
 					<p class="mb-7">{{ .Params.description }}</p>
 					{{ partial "price" . }}

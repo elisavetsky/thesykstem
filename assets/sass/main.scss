@@ -16,6 +16,10 @@ body {
 	padding-top: 5rem;
 }
 
+input[type=text], .snipcart-input {
+	border-radius: 99999px !important;
+}
+
 * {
 	// border: 1px solid red;
 }
@@ -266,7 +270,7 @@ body {
 	.search-items {
 		color: $almostblack;
 		input {
-			border-radius: $border-radius;
+			border-radius: 999px;
 		}
 	}
 }
@@ -302,6 +306,19 @@ body {
 	background-color: rgba(255, 255, 255, 0);
 	border: none;
 	margin: 0;
+}
+
+.love-list-navbar-button {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+	margin: 0;
+	&:hover {
+		text-decoration: none !important;
+	}
+	&:focus {
+		box-shadow: none !important;
+		border: none;
+	}
 }
 
 
@@ -458,6 +475,7 @@ input#account-drawer {
 	z-index: 9;
 	transform: translateY(-1.1rem);
 	background: white;
+	box-shadow: $b-box-shadow;
 	border: $classic-border;
 	color: $almostblack;
 	min-width: 1.6rem;
@@ -782,7 +800,23 @@ input#account-drawer {
 	}
 }
 
+.loved-items-count {
+	position: relative;
+	z-index: 9;
+	transform: translateY(-1.1rem);
+	background: white;
+	box-shadow: $b-box-shadow;
+	border: $classic-border;
+	color: $almostblack;
+	min-width: 1.6rem;
+	border-radius: 2rem;
+	right: 10px;
+}
+
 .love-container {
+	position: absolute;
+	z-index: 12;
+	display: flex;
 	background: none;
 	padding: 0;
 	border: none;
@@ -2047,8 +2081,7 @@ a.is-article:hover {
 }
 
 .is-collapsable {
-	padding-top: 1em;
-	margin-bottom: 1em;
+	padding: 1em 0;
 	label {
 		.icon-text {
 			width: fit-content;
@@ -2098,6 +2131,7 @@ a.is-article:hover {
 		transition: $transition-dropdown;
 	}
 	#filter-prices {
+		min-width: max-content;
 		overflow: hidden;
 		min-height: 0;
 		max-height: 0;
@@ -2144,6 +2178,10 @@ a.is-article:hover {
 	opacity: 0;
 	visibility: hidden;
 	transition: $transition-dropdown;
+}
+
+#filter-products {
+	min-width: max-content;
 }
 
 input#site-search {

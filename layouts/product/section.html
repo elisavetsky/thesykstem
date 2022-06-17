@@ -35,7 +35,9 @@
 							<div class="tile is-child is-article">
 								<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-7">
 									<div class="product-in-list">
-
+										<div class="is-flex is-justify-content-flex-end">
+											{{ partial "love-button" . }}
+										</div>
 										<a href="{{ .Permalink }}">
 
 											{{ $image_color := "#753232" }}
@@ -55,7 +57,7 @@
 										<a href="{{ .Permalink }}">
 											<h2>{{ .Title }}</h2>
 										</a>
-										{{ partial "type-love-button" . }}
+										{{ partial "type" . }}
 
 										{{ partial "colors-sizes-available" (dict "page_range" ($page_range) "product_title" .Title) }}
 									</div>

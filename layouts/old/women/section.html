@@ -63,7 +63,7 @@
 									<a href="{{ .Permalink }}">
 										<h2>{{ .Title }}</h2>
 									</a>
-									{{ partial "type-love-button" . }}
+									{{ partial "type" . }}
 									
 									{{ partial "colors-sizes-available" (dict "page_range" ($.Scratch.Get "page_range" ) "product_title" .Title) }}
 								</div>

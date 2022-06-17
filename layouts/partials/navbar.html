@@ -79,30 +79,20 @@
 								<div class="navbar-item">
 									<div class="buttons is-flex is-align-items-center is-justify-content-center">
 										{{ partial "search-drawer" . }}
-										<div class="dropdown is-hoverable is-right">
-											<div class="dropdown-trigger">
-												<button class="button {{ .Title }} p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
-													<span><strong>account</strong></span>
-													<span class="icon is-small">
-														<i class="fas fa-angle-down" aria-hidden="true"></i>
-													</span>
-												</button>
-											</div>
-											<div class="dropdown-menu" id="account-drawer" role="menu">
-												<div class="dropdown-content is-flex {{ .Title }} p-3">
-													<div class="dropdown-item">
-														<a class="snipcart-customer-signin">
-															<h3><strong>my account</strong></h3>
-														</a>
-													</div>
-													<div class="dropdown-item">
-														<a href="/account/loved/">
-															<h3><strong>my love list</strong></h3>
-														</a>
-													</div>
-												</div>
-											</div>
-										</div>
+										<a class="love-list-navbar-button button mr-0 pr-2" href="/account/loved">
+											<span class="icon is-small p-5">
+												<span class="fa-solid fa-heart"></span>
+											</span>
+											<span id="" class="loved-items-count"></span>
+										</a>
+										<button class="snipcart-customer-signin button {{ .Title }} p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+											<span class="icon is-small">
+												<span class="fa-solid fa-user" aria-hidden="true"></span>
+											</span>
+											<span><strong>account</strong></span>
+
+										</button>
+
 									</div>
 								</div>
 							</div>

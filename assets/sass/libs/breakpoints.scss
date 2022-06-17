@@ -127,6 +127,10 @@
 	.menu {
 		display: flex;
 	}
+	
+	#filter-products {
+		right: 0;
+	}
 
 	.shopping-bag {
 
@@ -250,7 +254,11 @@
 			width: 380px;
 		}
 	}
-
+	
+	#filter-products {
+		right: -50%;
+	}
+	
 	.shopping-bag {
 		display: flex;
 
@@ -344,7 +352,7 @@
 		padding: 0rem 0.75rem;
 	}
 	.navbar-end {
-		.search-drawer, .account-button, .dropdown-content {
+		.search-drawer, .account-button, .dropdown-content, .love-list-navbar-button .icon {
 			box-shadow: $box-box-shadow;
 			border-radius: 9999px !important;
 			padding: 0.5rem 0.75rem;

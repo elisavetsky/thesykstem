@@ -7,6 +7,7 @@
 
 <body>
 	{{ $color := item.customFields[1]['value'] }}
+	{{ $permalink := item.customFields[4]['value'] }}
 	<div id="snipcart-templates">
 
 		<!-- Loading Screen -->
@@ -266,10 +267,9 @@
 					</figure>
 					<div class="snipcart-item-line__product">
 						<div class="snipcart-item-line__header">
-							<figure class="snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
+							<a :href=" $localize(item.customFields[3]['value']) "><figure class="snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
 								<item-image class="snipcart-item-line__image--large"></item-image>
 							</figure>
-
 							<div class="is-flex is-flex-direction-column content mr-auto">
 								<h6 class="mb-2">{{ item.customFields[2]['value'] }}</h6>
 								<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
@@ -281,7 +281,7 @@
 									</span>
 									{{ item.customFields[1]['value'] }}
 								</span>
-							</div>
+							</div></a>
 
 							<button-icon icon="trash" label="item.remove_item" styling="danger" @click="removeItem">
 								<span class="icon">

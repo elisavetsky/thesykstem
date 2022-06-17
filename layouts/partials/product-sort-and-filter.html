@@ -25,7 +25,7 @@
 					</button>
 				</div>
 				<div class="dropdown-menu" id="filter-products" role="menu">
-					<div class="dropdown-content">
+					<div class="dropdown-content columns">
 						<div id="clear-filters-button" class="dropdown-item is-hidden">
 								<button class="button is-small">
 									<span>reset filters</span>
@@ -34,7 +34,7 @@
 										</span>
 								</button>
 							</div>
-						<div class="is-collapsable">
+						<div class="column is-collapsable">
 							<input type="checkbox" name="dropdown" id="dropdown-1">
 							<label for="dropdown-1" class="py-4">
 								<span class="icon-text full-width is-justify-content-space-between">
@@ -46,10 +46,7 @@
 										<span class="fa-solid fa-chevron-down"></span>
 									</span>
 								</span>
-								
 							</label>
-							
-								
 								<div id="filter-colors">
 									
 									{{ partial "functions/get-page-range" . }}
@@ -91,7 +88,7 @@
 						
 						<hr class="dropdown-divider">
 						
-						<div class="is-collapsable">
+						<div class="column is-collapsable">
 							<input type="checkbox" name="dropdown" id="dropdown-2">
 							<label for="dropdown-2" class="py-4">
 								<span class="icon-text full-width is-justify-content-space-between">

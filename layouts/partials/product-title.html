@@ -1,11 +1,3 @@
 {{ $shortcolor := replace .Params.color "-fill" "" }}
 
-{{/*
-{{ if or (or (eq .Params.color "white") (eq .Params.color "galaxy")) (eq .Params.color "galaxy-fill")}}product-white
-{{ else if eq .Params.color "black" }}product-black
-{{ else if eq .Params.color "starlight" }}product-starlight
-{{ else }}product-white
-{{ end }}
-*/}}
-
 <h2 class="mt-2">{{ .Title }}</h2>
