@@ -152,6 +152,10 @@ input[type=text], .snipcart-input {
 	}
 }
 
+#loved + .section {
+	min-height: 50vh;	
+}
+
 #loved-products {
 	min-height: 50vh;
 }
@@ -472,15 +476,19 @@ input#account-drawer {
 
 .snipcart-items-count {
 	position: absolute;
+	right: -10px;
+	background: rgba(255, 255, 255, 0);
+}
+
+.snipcart-items-count, .loved-items-count {
 	z-index: 9;
 	transform: translateY(-1.1rem);
-	background: white;
 	box-shadow: $b-box-shadow;
 	border: $classic-border;
 	color: $almostblack;
-	min-width: 1.6rem;
+	width: 1.6rem;
 	border-radius: 2rem;
-	right: -10px;
+	height: 1.6rem;
 }
 
 .menu-switch-pos {
@@ -582,7 +590,7 @@ input#account-drawer {
 	color: white;
 	width: 100% !important;
 	&:hover {
-		background: $blue;
+		background: black;
 	}
 }
 
@@ -646,10 +654,13 @@ input#account-drawer {
 	border-radius: 999px !important;
 }
 
+
+
 .button {
 	display: flex;
 	border-radius: $border-radius;
 	color: unset;
+	padding: calc(0.5em - 1px) 1em;
 }
 
 .button.is-focused:not(:active), .button:focus:not(:active), .select select:focus {
@@ -802,14 +813,9 @@ input#account-drawer {
 
 .loved-items-count {
 	position: relative;
-	z-index: 9;
+	
 	transform: translateY(-1.1rem);
-	background: white;
-	box-shadow: $b-box-shadow;
-	border: $classic-border;
-	color: $almostblack;
-	min-width: 1.6rem;
-	border-radius: 2rem;
+	
 	right: 10px;
 }
 
@@ -959,6 +965,7 @@ input#account-drawer {
 
 .snipcart-flash-message {
 	padding: 1.5rem;
+	border-radius: $border-radius;
 }
 
 .snipcart-flash-message__action-container {
@@ -987,9 +994,11 @@ input#account-drawer {
 	padding: 0 !important;
 	background: url({{ $resized_signinBackground.Permalink }}) bottom;
 	border-top: 1px solid $salmon-brown;
+	border-radius: 40px;
 	.snipcart-cart__footer-col {
 		background-color: white;
 		padding: 1.25rem 1.5rem;
+		border-radius: 40px;
 	}
 	.snipcart-cart__footer-col.cart__footer-discount-box {
 		background-color: unset !important;
@@ -1251,7 +1260,7 @@ input#account-drawer {
 
 .snipcart-item-quantity__quantity {
 	height: 40px;
-	border-radius: $border-radius;
+	border-radius: 99999px;;
 	&:hover {
 		border-color: $almostblack;
 	}
@@ -1266,7 +1275,7 @@ input#account-drawer {
 }
 
 .snipcart-form__select {
-	border-radius: $border-radius;
+	border-radius: 99999px;
 	height: 40px;
 	padding: 0 35px 0 16px;
 	&:hover, &:focus {
@@ -1293,11 +1302,12 @@ input#account-drawer {
 }
 
 .snipcart-typeahead__suggestions {
-	border-color: $red;
+	border-color: $almostblack;
+	border-radius: $border-radius;
 }
 
 .snipcart-typeahead__suggestion--active {
-	background-color: $danger-bg;
+	background-color: $gray1;
 }
 
 .snipcart-form__select-wrapper .snipcart__icon {
@@ -1335,7 +1345,7 @@ input#account-drawer {
 }
 
 .snipcart__box--badge-highlight {
-	background-color: $danger-bg;
+	background-color: $gray1;
 	color: $danger;
 }
 
@@ -2125,13 +2135,14 @@ a.is-article:hover {
 		transition: $transition-table-dropdown;
 	}
 	#filter-colors {
+		width: max-content;
 		overflow: hidden;
 		min-height: 0;
 		max-height: 0;
 		transition: $transition-dropdown;
 	}
 	#filter-prices {
-		min-width: max-content;
+		width: max-content;
 		overflow: hidden;
 		min-height: 0;
 		max-height: 0;

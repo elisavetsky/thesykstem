@@ -199,7 +199,7 @@ if (sortDropdown) {
 
 		}
 
-		
+
 
 		// Add Products selected by color filter(s)
 		for (let i = 0; i < checkedColors.length; i++) {
@@ -326,13 +326,13 @@ if (sortDropdown) {
 		productsNotOnPage = findFilteredProductsNotOnPage(currentProductsFiltered);
 
 		gridObjects = findProductsOnPage();
-		
+
 		if (gridObjects.length == 0) {
 			for (let i = 0; i < productsOnPage.length; i++) {
 				productGrid.appendChild(productsOnPage[i].container);
 			}
 		}
-			
+
 		unavailFilterPrices = allPriceFiltersArray.filter(fPrice => productsNotOnPage.some(pNot =>
 			fPrice.high >= pNot.price && fPrice.low <= pNot.price));
 
@@ -451,11 +451,11 @@ if (sortDropdown) {
 
 	// Sort low to high
 	function sortLowToHigh() {
-		
+
 		gridObjects = gridObjects.sort((a, b) => a.price - b.price);
-			for (let i = 0; i < gridObjects.length; i++) {
-				productGrid.appendChild(gridObjects[i].container);
-			}
+		for (let i = 0; i < gridObjects.length; i++) {
+			productGrid.appendChild(gridObjects[i].container);
+		}
 		// if (checkedColors.length > 0) {
 		// 	checkedColors = checkedColors.sort((a, b) => a.price - b.price);
 		// 	for (let i = 0; i < checkedColors.length; i++) {
@@ -477,9 +477,9 @@ if (sortDropdown) {
 	// Sort high to low
 	function sortHighToLow() {
 		gridObjects = gridObjects.sort((a, b) => b.price - a.price);
-			for (let i = 0; i < gridObjects.length; i++) {
-				productGrid.appendChild(gridObjects[i].container);
-			}
+		for (let i = 0; i < gridObjects.length; i++) {
+			productGrid.appendChild(gridObjects[i].container);
+		}
 		// if (checkedColors.length > 0) {
 		// 	checkedColors = checkedColors.sort((a, b) => b.price - a.price);
 		// 	for (let i = 0; i < checkedColors.length; i++) {
@@ -585,7 +585,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function loveUnloveProduct(productID) {
-	
+
 	const checkbox = document.querySelector("#love-button-" + productID);
 	if (checkbox.checked === true) {
 		if (JSON.parse(localStorage.getItem("lovedProd")) != null) {
@@ -608,9 +608,7 @@ function loveUnloveProduct(productID) {
 	} catch (error) {
 		console.error("An error occured while modifying your love list.");
 	}
-	setTimeout(() => {
-		loadLovedNavbarCount();
-	}, 500)
+	loadLovedNavbarCount();
 }
 
 function loadLovedProducts() {
@@ -656,6 +654,7 @@ function loadLovedProducts() {
 				loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
 				for (i = 0; i < productsOnPageList.length; i++) {
 					productsOnPageList[i].remove();
+
 				}
 			}
 		}
@@ -664,19 +663,28 @@ function loadLovedProducts() {
 
 			sortFilterProductsContainer.classList.add("is-hidden");
 
-			const loveListSubtitle = document.querySelector("#my-love-list p");
+			const loveListSubtitle = document.querySelector("#loved p");
 			loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
+
+			for (i = 0; i < productsOnPageList.length; i++) {
+				productsOnPageList[i].classList.add("is-hidden");
+				productsOnPageList[i].remove();
+			}
 		}
 	}
 }
 
 function loadLovedNavbarCount() {
-	
-	if (JSON.parse(localStorage.getItem("lovedProd")).length == 0 || JSON.parse(localStorage.getItem("lovedProd")).length == undefined) {
-		lovedCountNavbarContainer.classList.add("is-hidden");
+	if (JSON.parse(localStorage.getItem("lovedProd")) !== null) {
+		let lovedStuff = JSON.parse(localStorage.getItem("lovedProd"));
+		if (lovedStuff.length == 0 || lovedStuff.length == undefined) {
+			lovedCountNavbarContainer.classList.add("is-hidden");
+		} else {
+			lovedCountNavbarContainer.classList.remove("is-hidden");
+			lovedCountNavbarContainer.innerText = JSON.parse(localStorage.getItem("lovedProd")).length;
+		}
 	} else {
-		lovedCountNavbarContainer.classList.remove("is-hidden");
-		lovedCountNavbarContainer.innerText = JSON.parse(localStorage.getItem("lovedProd")).length;
+		lovedCountNavbarContainer.classList.add("is-hidden");
 	}
 }
 
