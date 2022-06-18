@@ -46,6 +46,31 @@ const lovedCountNavbarContainer = document.querySelector(".loved-items-count");
 
 // Hide & Show Navbar
 
+let options = {
+  root: document.querySelector("#main-nav"),
+  rootMargin: "0px",
+  threshold: 1.0
+}
+
+let target = document.querySelector('.hero-feature');
+
+let callback = (entries, observer) => {
+  entries.forEach(entry => {
+	  console.log("hello world")
+    // Each entry describes an intersection change for one observed
+    // target element:
+    //   entry.boundingClientRect
+    //   entry.intersectionRatio
+    //   entry.intersectionRect
+    //   entry.isIntersecting
+    //   entry.rootBounds
+    //   entry.target
+    //   entry.time
+  });
+};
+let observer = new IntersectionObserver(callback, options);
+
+
 /*
 let scrolling = false;
 
