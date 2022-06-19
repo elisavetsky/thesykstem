@@ -79,3 +79,18 @@
 		top: 0;
 	}
 }
+
+@keyframes fadeOut {
+	0% {
+		opacity: 1;
+		scale: 1;
+		border-radius: 0;
+		width: 100%;
+	}
+	100% {
+		opacity: 0;
+		scale: 0;
+		border-radius: 9999px;
+		width: 0;
+	}
+}

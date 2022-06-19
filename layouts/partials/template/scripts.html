@@ -1,0 +1,51 @@
+{{ $main := resources.Get "js/index.js" }}
+{{ $observer := resources.Get "js/observer.js" }}
+{{ $fuse := resources.Get "js/fuse.min.js" }}
+{{ $fsearch := resources.Get "js/fastsearch.js" }}
+{{ $lazy := resources.Get "js/lazysizes.min.js" }}
+
+{{ $js := slice $lazy $fuse $fsearch $observer $main | resources.Concat "assets/js/bundle.js" | minify }}
+
+<script>
+	function delay(milliseconds) {
+		return new Promise(resolve => {
+			setTimeout(resolve, milliseconds);
+		});
+	}
+
+	document.addEventListener('snipcart.ready', () => {
+		const bagCount = document.querySelector('#bag-count');
+		const addToBag = document.querySelector('#add-to-bag');
+		let isCustomerSignedIn = false;
+
+		Snipcart.store.subscribe(() => {
+			const customer = Snipcart.store.getState().customer;
+			isCustomerSignedIn = customer.status === 'SignedIn';
+		});
+		Snipcart.events.on('snipcart.initialized', (snipcartState) => {
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			} else {
+				bagCount.hidden = false;
+			}
+		});
+		Snipcart.events.on('item.removed', (cartItem) => {
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			} else {
+				bagCount.hidden = false;
+			}
+		});
+		Snipcart.events.on('item.adding', (parsedCartItem) => {
+			bagCount.hidden = false;
+			addToBag.classList.add('is-loading');
+		});
+		Snipcart.events.on("item.added", (cartItem) => {
+			bagCount.hidden = false;
+			addToBag.classList.remove('is-loading');
+			addToBag.innerHTML = "added to bag";
+			setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+		});
+	});
+</script>
+<script src='{{ $js.RelPermalink }}'></script>

@@ -8,7 +8,7 @@
 {{ with .Site.Data.featured }}
 
 <section id="featured" class="section is-medium">
-	<a href="{{ .link }}">
+	<a class="" href="{{ .link }}">
 		<div class="columns is-vcentered is-flex-direction-row-reverse">
 			<div class="column is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 				<figure class="image left-hero-feature is-fullwidth">
@@ -21,7 +21,7 @@
 			</div>
 			<div class="column is-full-mobile is-4-tablet is-5-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 				<figure class="image right-hero-feature is-fullwidth">
-					<img class="is-rounded lazyload" src="{{ $resized_feature.Permalink }}" alt="{{ .alt }}">
+					<img class="is-rounded lazyload invert-navbar" src="{{ $resized_feature.Permalink }}" alt="{{ .alt }}">
 				</figure>
 			</div>
 		</div>

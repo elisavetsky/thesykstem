@@ -16,7 +16,12 @@
     border-spacing: 0;
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing:grayscale
+    -moz-osx-font-smoothing:grayscale;
+	text-transform: lowercase;
+}
+
+.snipcart * a:hover {
+	text-decoration: none !important;
 }
 
 .snipcart__font--secondary, .snipcart__font--subtitle, .snipcart__font--subtitle-small {
@@ -275,7 +280,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: Open Sans, sans-serif;
     color: #2e3338;
     color: var(--color-default, #2e3338);
     cursor:pointer
@@ -306,7 +310,6 @@
     text-decoration: none;
     color: #1a4db3;
     color: var(--color-link, #1a4db3);
-    font-family: Open Sans, sans-serif;
     font-size: 14px;
     border: none;
     background-color: transparent;
@@ -525,7 +528,7 @@
     margin-top:10.66667px
 }
 
-@media (min-width: 768px) and(max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1024px) {
     .snipcart-cart__footer {
         display: block;
         margin-top:0
@@ -1619,6 +1622,7 @@
 
 .snipcart-register__box {
     width: 100%;
+	border-radius: 40px;
     max-width: 440px;
     margin-left: auto;
     margin-right: auto;
@@ -1670,7 +1674,8 @@
     max-width: 440px;
     margin-left: auto;
     margin-right: auto;
-    padding:32px
+    padding:32px;
+	border-radius: 40px;
 }
 
 .snipcart-signin .snipcart-signin__form {
@@ -1694,7 +1699,8 @@
 
 .snipcart-signin__forgot-password {
     text-align: right;
-    margin-top:8px
+    position: relative;
+	top: 10px;
 }
 
 .snipcart-payment-details {
@@ -2343,7 +2349,6 @@
 
 .snipcart-button-link {
     display: inline-block;
-    font-family: Open Sans, sans-serif;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;
@@ -3137,7 +3142,6 @@
 .snipcart-cart-summary-expanded-item {
     margin: 0;
     padding: 0;
-    font-family: Open Sans, sans-serif;
     font-size: 14px;
     padding: 3.6px 0;
     color: #2e3338;
@@ -4152,8 +4156,8 @@
 }
 
 .snipcart-input--focus .snipcart-input__left-icon {
-    color: #0aa7f5;
-    color:var(--color-inputIcon-focus, #0aa7f5)
+    color: initial;
+    color: initial
 }
 
 .snipcart-input--invalid {
@@ -4527,7 +4531,6 @@
 
 .snipcart-test-banner__message {
     position: absolute;
-    font-family: Open Sans, sans-serif;
     font-size: 12px;
     font-weight: 600;
     margin-top: -4px;

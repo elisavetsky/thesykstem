@@ -36,10 +36,10 @@
 						</div>
 						<div class="columns px-4"><div class="column is-collapsable">
 							<input type="checkbox" name="dropdown" id="dropdown-1">
-							<label for="dropdown-1" class="">
+							<label for="dropdown-1" class="py-2">
 								<span class="icon-text full-width is-justify-content-space-between">
 									<div class="dropdown-item">
-										<p><strong>color</strong></p>
+										color
 									</div>
 
 									<span class="icon mr-4">
@@ -73,7 +73,7 @@
 
 								{{ range $.Scratch.Get "filter_colors" | uniq }}
 								<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-									<label class="checkbox py-2 ">
+									<label class="checkbox py-2">
 										<input class="filter-option-color" type="checkbox" value="{{ . }}">
 										{{ . }}
 									</label>
@@ -86,14 +86,14 @@
 						</div>
 
 
-						<hr class="dropdown-divider">
+						
 
 						<div class="column is-collapsable">
 							<input type="checkbox" name="dropdown" id="dropdown-2">
-							<label for="dropdown-2" class="py-4">
+							<label for="dropdown-2" class="py-2">
 								<span class="icon-text full-width is-justify-content-space-between">
 									<div class="dropdown-item ">
-										<p><strong>price</strong></p>
+										price
 									</div>
 
 									<span class="icon mr-4">

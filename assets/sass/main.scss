@@ -173,15 +173,38 @@ input[type=text], .snipcart-input {
 
 // Navbar
 
-.navbar-slide-up {
-	animation: slideUp 1s ease-in;
+
+.blurring {
+	position: absolute;
+	background-color: rgba(245, 245, 245, 0.747);
+	backdrop-filter: opacity(50%);
+	transition: 0.1s ease-in-out all;
+	-webkit-backdrop-filter: blur(10px);
+	height: 100%;
+	width: 100%;
 }
 
-.navbar-slide-down {
-	animation: slideDown 1s ease-in-out;
+.unblurring {
+	position: absolute;
+	animation: fadeOut 1s cubic-bezier(.18,.89,.32,1.28);
+	background-color: rgba(245, 245, 245, 0);
+	backdrop-filter: opacity(0.5);
+	-webkit-backdrop-filter: blur(0);
+}
+
+.navbar-blur {
+	transition: 0.2s ease-in-out backdrop-filter;
+	position: absolute;
+	background-color: rgba(245, 245, 245, 0.747);
+	-webkit-backdrop-filter: blur(10px);
+	backdrop-filter: opacity(50%);
+	height: 100%;
+	width: 100%;
+	z-index: -1;
 }
 
 .navbar {
+	transition: opacity 0.2s ease-in-out;
 	background-color: rgba(255, 255, 255, 0);
 	a {
 		color: $almostblack;
@@ -654,10 +677,18 @@ input#account-drawer {
 	border-radius: 999px !important;
 }
 
+#clear-filters-button .button {
+	box-shadow: $box-box-shadow;
+	border-radius: 999px;
+}
 
+.dropdown .button {
+	border: none;
+}
 
 .button {
 	display: flex;
+	border-color: transparent;
 	border-radius: $border-radius;
 	color: unset;
 	padding: calc(0.5em - 1px) 1em;
@@ -1206,7 +1237,7 @@ input#account-drawer {
 	border-color: $gray6;
 }
 
-.dropdown-content label {
+.dropdown-content {
 	width: 100%;
 }
 
@@ -1219,6 +1250,7 @@ input#account-drawer {
 
 .select select, .textarea, .dropdown-content {
 	border-radius: $border-radius;
+	border: none;
 }
 
 .select:not(.is-multiple):not(.is-loading)::after {
@@ -1380,6 +1412,10 @@ input#account-drawer {
 }
 
 // Wrapper 
+
+.landing-wrapper {
+	margin-top: 1px;
+}
 
 .wrapper-hero {
 	position: relative;
@@ -1897,16 +1933,6 @@ input#account-drawer {
 	// animation: transform 30s infinite alternate ease-in-out;
 }
 
-.navbar-blur {
-	position: absolute;
-	background-color: rgba(245, 245, 245, 0.747);
-	-webkit-backdrop-filter: blur(10px);
-	backdrop-filter: opacity(50%);
-	height: 100%;
-	width: 100%;
-	z-index: -1;
-}
-
 .hero {
 	overflow: hidden;
 }
@@ -2041,6 +2067,14 @@ input#account-drawer {
 
 a.is-article:hover {
 	box-shadow: $box-box-shadow;
+}
+
+a.box, label.button {
+	transition: box-shadow 0.2s ease-in-out;
+}
+
+a.box:hover {
+	box-shadow: $box-box-shadow-dark;
 }
 
 .is-fabric-care {

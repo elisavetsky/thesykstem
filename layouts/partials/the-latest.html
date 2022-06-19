@@ -1,18 +1,18 @@
-<section id="the-latest" class="hero is-medium">
+<section id="the-latest" class="hero is-medium ">
 	<div class="hero-body is-flex-direction-column">
-		<div class="container is-fluid ">
+		<div class="container is-fluid">
 			<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-center is-size-4-mobile is-size-3-tablet is-size-3-desktop">
 
 				<h1>{{ .Site.Data.the_latest.cta }}</h1>
 
 			</div>
-			<div class="product-grid columns is-variable is-2-mobile is-2-tablet is-3-desktop is-multiline">
+			<div class="product-grid columns is-variable is-2-mobile is-2-tablet is-3-desktop is-multiline ">
 
 				{{ $page_range := .Scratch.Get "page_range" }}
 
 				{{ range first 5 (where .Site.RegularPages "Section" "eq" "product" ).ByDate.Reverse }}
 
-				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-4-tablet is-3-desktop is-2-fullhd">
+				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-4-tablet is-3-desktop is-2-fullhd invert-navbar">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent p-0">
 							<div class="tile is-child is-article">

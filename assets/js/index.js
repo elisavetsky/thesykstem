@@ -34,6 +34,7 @@ const clearFiltersButton = document.getElementById("clear-filters-button");
 const productGrid = document.querySelector(".product-grid");
 
 const mainNavbar = document.getElementById("main-nav");
+const mainNavStyle = document.querySelector(".nav-style");
 
 // Love List
 let loveArray = [];
@@ -44,63 +45,147 @@ let productsOnPageList = [];
 let lovedProductsOnPageArray = [];
 const lovedCountNavbarContainer = document.querySelector(".loved-items-count");
 
-// Hide & Show Navbar
+// Observer
+class Observer {
+	constructor({
+		root = false,
+		targets = false,
+		inCb = this.isIn,
+		outCb = this.isOut,
+		thres = 0,
+		unobserve = false,
+	} = {}) {
+		// this element's position creates with rootMargin the area in the document
+		// which is used as intersection observer's root area.
+		// the real root is allways the document.
+		this.area = document.querySelector(root); // intersection area
+		this.targets = document.querySelectorAll(targets); // intersection targets
+		this.inCallback = inCb; // callback when intersecting
+		this.outCallback = outCb; // callback when not intersecting
+		this.unobserve = unobserve; // unobserve after intersection
+		this.margins; // rootMargin for observer
+		this.windowW = document.documentElement.clientWidth;
+		this.windowH = document.documentElement.clientHeight;
 
-let options = {
-  root: document.querySelector("#main-nav"),
-  rootMargin: "0px",
-  threshold: 1.0
+		// intersection is being checked like:
+		// if (entry.isIntersecting || entry.intersectionRatio >= this.ratio),
+		// and if ratio is 0, "entry.intersectionRatio >= this.ratio" will be true,
+		// even for non-intersecting elements, therefore:
+		this.ratio = thres;
+		if (Array.isArray(thres)) {
+			for (var i = 0; i < thres.length; i++) {
+				if (thres[i] == 0) {
+					this.ratio[i] = 0.0001;
+				}
+			}
+		} else {
+			if (thres == 0) {
+				this.ratio = 0.0001;
+			}
+		}
+
+		// if root selected use its position to create margins, else no margins (viewport as root)
+		if (this.area) {
+			this.iArea = this.area.getBoundingClientRect(); // intersection area
+			this.margins = `-${this.iArea.top}px -${(this.windowW - this.iArea.right)}px -${(this.windowH - this.iArea.bottom)}px -${this.iArea.left}px`;
+		} else {
+			this.margins = '0px';
+		}
+
+		// Keep this last (this.ratio has to be defined before).
+		// targets are required to create an observer.
+		if (this.targets) {
+			window.addEventListener('resize', () => this.resetObserver());
+			this.resetObserver();
+		}
+	}
+
+	resetObserver() {
+		if (this.observer) this.observer.disconnect();
+
+		const options = {
+			root: null, // null for the viewport
+			rootMargin: this.margins,
+			threshold: this.ratio,
+		}
+
+		this.observer = new IntersectionObserver(
+			entries => this.observerCallback(entries, options),
+			options,
+		);
+
+		this.targets.forEach((target) => this.observer.observe(target));
+	};
+
+	observerCallback(entries, options) {
+		entries.forEach(entry => {
+			// "entry.intersectionRatio >= this.ratio" for older browsers
+			if (entry.isIntersecting || entry.intersectionRatio >= this.ratio) {
+				// callback when visible
+				this.inCallback(this.area, entry, options);
+
+				// unobserve
+				if (this.unobserve) {
+					this.observer.unobserve(entry.target);
+				}
+			} else {
+				// callback when hidden
+				this.outCallback(this.area, entry, options);
+				// No unobserve, because all invisible targets will be unobserved automatically
+			}
+		});
+	};
+
+	isIn(rootElmnt, targetElmt, options) {
+		if (!rootElmnt) {
+			console.log(`IO Root: VIEWPORT`);
+		} else {
+			console.log(`IO Root: ${rootElmnt.tagName} class="${rootElmnt.classList}"`);
+		}
+		console.log(`IO Target: ${targetElmt.target.tagName} class="${targetElmt.target.classList}" IS IN (${targetElmt.intersectionRatio * 100}%)`);
+		console.log(`IO Threshold: ${options.threshold}`);
+		//console.log(targetElmt.rootBounds);
+		console.log(`============================================`);
+	}
+	isOut(rootElmnt, targetElmt, options) {
+		if (!rootElmnt) {
+			console.log(`IO Root: VIEWPORT`);
+		} else {
+			console.log(`IO Root: ${rootElmnt.tagName} class="${rootElmnt.classList}"`);
+		}
+		console.log(`IO Target: ${targetElmt.target.tagName} class="${targetElmt.target.classList}" IS OUT `);
+		console.log(`============================================`);
+	}
 }
 
-let target = document.querySelector('.hero-feature');
-
-let callback = (entries, observer) => {
-  entries.forEach(entry => {
-	  console.log("hello world")
-    // Each entry describes an intersection change for one observed
-    // target element:
-    //   entry.boundingClientRect
-    //   entry.intersectionRatio
-    //   entry.intersectionRect
-    //   entry.isIntersecting
-    //   entry.rootBounds
-    //   entry.target
-    //   entry.time
-  });
-};
-let observer = new IntersectionObserver(callback, options);
-
-
-/*
-let scrolling = false;
-
-window.addEventListener('scroll', (e) => {
-    scrolling = true;
+// Hide/Show Navbar Background
+window.addEventListener("load", () => {
+	var invertedHeader = new Observer({
+	root: '#main-nav', // don't set to have the viewport as root
+	targets: '.landing-wrapper',
+	rootMargin: '10px',
+	thres: [0, 0.1],
+	inCb: applyInversion,
+	outCb: removeInversion,
 });
 
-var scrollval = 0;
-setInterval(() => {
-    if (scrolling) {
-        scrolling = false;
-		
-		if (scrollval > window.scrollY) {
- 			
-			mainNavbar.classList.add("navbar-slide-down");
-			
- 		} else {
-			console.log("DOWN")
-			
- 			mainNavbar.classList.add("navbar-slide-up");
-			setTimeout(() => {
-				mainNavbar.classList.remove("navbar-slide-down");
-			}, 1000)
-			
-			 
- 		}
- 		scrollval = window.scrollY;
-    }
-}, 200);
-*/
+function applyInversion() {
+	mainNavStyle.classList.add("blurring");
+	setTimeout(() => {
+		mainNavStyle.classList.remove("blurring");
+		mainNavStyle.classList.add("navbar-blur");
+	}, 100)
+}
+
+function removeInversion() {
+	mainNavStyle.classList.add("unblurring");
+	setTimeout(() => {
+		mainNavStyle.classList.remove("unblurring");
+		mainNavStyle.classList.remove("navbar-blur");
+	}, 300)
+}
+
+});
 
 
 // Sorting & Filtering
@@ -547,6 +632,8 @@ if (sortDropdown) {
 	loadLovedProducts();
 } else if (currentURL === (baseURL + "/")) {
 	loadLovedProducts();
+} else if (currentURL.includes("product")) {
+	loadLovedProducts();
 }
 
 // Product Zoom In
@@ -607,6 +694,13 @@ function zoomProduct(xOffset, yOffset, event) {
 // Love Component
 window.addEventListener("DOMContentLoaded", () => {
 	loadLovedNavbarCount();
+	document.querySelectorAll(".grid-product-container").forEach((i) => {
+		i.querySelectorAll(".love-container input").forEach((l) => {
+			l.addEventListener("click", () => {
+				loveUnloveProduct(i.id);
+			})
+		})
+	})
 });
 
 function loveUnloveProduct(productID) {
@@ -648,7 +742,7 @@ function loadLovedProducts() {
 			currentLoved = JSON.parse(localStorage.getItem("lovedProd"));
 			if (currentURL.indexOf("/account/loved") >= 0) {
 
-				for (i = 0; i < currentLoved.length; i++) {
+				for (let i = 0; i < currentLoved.length; i++) {
 					const gridProductLovedContainer = document.querySelectorAll("#" + currentLoved[i]);
 					if (currentLoved.indexOf(gridProductLovedContainer[0].id) >= 0) {
 						gridProductLovedContainer.forEach(el => el.classList.remove("is-hidden"));
@@ -656,17 +750,17 @@ function loadLovedProducts() {
 				}
 				productsOnPageList.forEach(el => allProductsArray.push(el.id));
 				const productsNotLoved = allProductsArray.filter(match => currentLoved.indexOf(match) == -1);
-				for (i = 0; i < currentLoved.length; i++) {
+				for (let i = 0; i < currentLoved.length; i++) {
 					document.querySelector("#love-button-" + currentLoved[i]).checked = true;
 				}
-				for (i = 0; i < productsNotLoved.length; i++) {
+				for (let i = 0; i < productsNotLoved.length; i++) {
 					const productsRemovedFromList = document.querySelectorAll("#" + productsNotLoved[i]);
 					productsRemovedFromList.forEach(el => el.remove());
 				}
 			} else {
 				productsOnPageList.forEach(el => productsOnPageArray.push(el.id));
 				const productsWillBeLoved = productsOnPageArray.filter(match => currentLoved.indexOf(match) >= 0);
-				for (i = 0; i < productsWillBeLoved.length; i++) {
+				for (let i = 0; i < productsWillBeLoved.length; i++) {
 					document.querySelector("#love-button-" + productsWillBeLoved[i]).checked = true;
 				}
 			}
@@ -677,7 +771,7 @@ function loadLovedProducts() {
 
 				const loveListSubtitle = document.querySelector("#loved p");
 				loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
-				for (i = 0; i < productsOnPageList.length; i++) {
+				for (let i = 0; i < productsOnPageList.length; i++) {
 					productsOnPageList[i].remove();
 
 				}

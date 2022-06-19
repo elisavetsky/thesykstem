@@ -1,5 +1,5 @@
 ---
-navbar_section: true
+navbar_section: false
 title: "sale"
 ---
 

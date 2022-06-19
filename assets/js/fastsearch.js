@@ -1,4 +1,4 @@
-var fuse; // holds our search engine
+var Fuse; // holds our search engine
 var searchVisible = true;
 var firstRun = true; // allow us to delay loading json data unless search activated
 var list = document.getElementById('searchResults'); // targets the <ul>

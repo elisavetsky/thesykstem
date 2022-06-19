@@ -69,7 +69,7 @@
 	</noscript>
 	<nav id="main-nav" tabindex="-1" class="navbar is-transparent is-fixed-top" role="navigation" aria-label="main navigation">
 		
-		<div class="navbar-blur">
+		<div class="nav-style navbar-blur">
 		</div>
 		
 		<div class="container is-fluid">
@@ -173,7 +173,7 @@
 											<h1 class="m-0">shop the latest</h1>
 
 										</div>
-										<div class="columns is-mobile is-variable is-2-mobile is-2-tablet is-3-desktop is-multiline">
+										<div class="columns is-mobile is-variable is-3 is-multiline">
 
 											
 
@@ -421,11 +421,11 @@
 		</div>
 	</div>
 </nav>
-										<a class="love-list-navbar-button button mr-0 pr-2" href="/account/loved">
-											<span class="icon is-small p-5">
+										<a class="love-list-navbar-button button mr-0" href="/account/loved">
+											<span class="icon is-small p-5 mr-0">
 												<span class="fa-solid fa-heart"></span>
 											</span>
-											<span id="" class="loved-items-count"></span>
+											<span class="loved-items-count"></span>
 										</a>
 										<button class="snipcart-customer-signin button cookies policy p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 											<span class="icon is-small">
@@ -747,53 +747,58 @@
 		
 
 	</footer>
-	<script>
-		function delay(milliseconds) {
-			return new Promise(resolve => {
-				setTimeout(resolve, milliseconds);
-			});
-		}
-	
-		document.addEventListener('snipcart.ready', () => {
-			const bagCount = document.querySelector('#bag-count');
-			const addToBag = document.querySelector('#add-to-bag');
-			let isCustomerSignedIn = false;
-	
-			Snipcart.store.subscribe(() => {
-				const customer = Snipcart.store.getState().customer;
-				isCustomerSignedIn = customer.status === 'SignedIn';
-			});
-			Snipcart.events.on('snipcart.initialized', (snipcartState) => {
-				if (bagCount.innerHTML == 0) {
-					bagCount.hidden = true;
-				} else {
-					bagCount.hidden = false;
-				}
-			});
-			Snipcart.events.on('item.removed', (cartItem) => {
-				if (bagCount.innerHTML == 0) {
-					bagCount.hidden = true;
-				} else {
-					bagCount.hidden = false;
-				}
-			});
-			Snipcart.events.on('item.adding', (parsedCartItem) => {
-				bagCount.hidden = false;
-				addToBag.classList.add('is-loading');
-			});
-			Snipcart.events.on("item.added", (cartItem) => {
-				bagCount.hidden = false;
-				addToBag.classList.remove('is-loading');
-				addToBag.innerHTML = "added to bag";
-				setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
-			});
-		});
-	</script>
-	<script src="/js/fuse.min.js" type="text/javascript" defer></script>
-	<script src="/js/fastsearch.js" type="text/javascript" defer></script>
-	<script src="/js/lazysizes.min.js" type="text/javascript" async=""></script>
-	<script src="/js/index.js" type="text/javascript"></script>
 </body>
 
 
+	
+
+
+
+
+
+
+
+<script>
+	function delay(milliseconds) {
+		return new Promise(resolve => {
+			setTimeout(resolve, milliseconds);
+		});
+	}
+
+	document.addEventListener('snipcart.ready', () => {
+		const bagCount = document.querySelector('#bag-count');
+		const addToBag = document.querySelector('#add-to-bag');
+		let isCustomerSignedIn = false;
+
+		Snipcart.store.subscribe(() => {
+			const customer = Snipcart.store.getState().customer;
+			isCustomerSignedIn = customer.status === 'SignedIn';
+		});
+		Snipcart.events.on('snipcart.initialized', (snipcartState) => {
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			} else {
+				bagCount.hidden = false;
+			}
+		});
+		Snipcart.events.on('item.removed', (cartItem) => {
+			if (bagCount.innerHTML == 0) {
+				bagCount.hidden = true;
+			} else {
+				bagCount.hidden = false;
+			}
+		});
+		Snipcart.events.on('item.adding', (parsedCartItem) => {
+			bagCount.hidden = false;
+			addToBag.classList.add('is-loading');
+		});
+		Snipcart.events.on("item.added", (cartItem) => {
+			bagCount.hidden = false;
+			addToBag.classList.remove('is-loading');
+			addToBag.innerHTML = "added to bag";
+			setTimeout(() => (addToBag.innerHTML = "add to bag"), 2000);
+		});
+	});
+</script>
+<script src='/assets/js/bundle.min.js'></script>
 </html>
