@@ -45,126 +45,13 @@ let productsOnPageList = [];
 let lovedProductsOnPageArray = [];
 const lovedCountNavbarContainer = document.querySelector(".loved-items-count");
 
-// Observer
-class Observer {
-	constructor({
-		root = false,
-		targets = false,
-		inCb = this.isIn,
-		outCb = this.isOut,
-		thres = 0,
-		unobserve = false,
-	} = {}) {
-		// this element's position creates with rootMargin the area in the document
-		// which is used as intersection observer's root area.
-		// the real root is allways the document.
-		this.area = document.querySelector(root); // intersection area
-		this.targets = document.querySelectorAll(targets); // intersection targets
-		this.inCallback = inCb; // callback when intersecting
-		this.outCallback = outCb; // callback when not intersecting
-		this.unobserve = unobserve; // unobserve after intersection
-		this.margins; // rootMargin for observer
-		this.windowW = document.documentElement.clientWidth;
-		this.windowH = document.documentElement.clientHeight;
-
-		// intersection is being checked like:
-		// if (entry.isIntersecting || entry.intersectionRatio >= this.ratio),
-		// and if ratio is 0, "entry.intersectionRatio >= this.ratio" will be true,
-		// even for non-intersecting elements, therefore:
-		this.ratio = thres;
-		if (Array.isArray(thres)) {
-			for (var i = 0; i < thres.length; i++) {
-				if (thres[i] == 0) {
-					this.ratio[i] = 0.0001;
-				}
-			}
-		} else {
-			if (thres == 0) {
-				this.ratio = 0.0001;
-			}
-		}
-
-		// if root selected use its position to create margins, else no margins (viewport as root)
-		if (this.area) {
-			this.iArea = this.area.getBoundingClientRect(); // intersection area
-			this.margins = `-${this.iArea.top}px -${(this.windowW - this.iArea.right)}px -${(this.windowH - this.iArea.bottom)}px -${this.iArea.left}px`;
-		} else {
-			this.margins = '0px';
-		}
-
-		// Keep this last (this.ratio has to be defined before).
-		// targets are required to create an observer.
-		if (this.targets) {
-			window.addEventListener('resize', () => this.resetObserver());
-			this.resetObserver();
-		}
-	}
-
-	resetObserver() {
-		if (this.observer) this.observer.disconnect();
-
-		const options = {
-			root: null, // null for the viewport
-			rootMargin: this.margins,
-			threshold: this.ratio,
-		}
-
-		this.observer = new IntersectionObserver(
-			entries => this.observerCallback(entries, options),
-			options,
-		);
-
-		this.targets.forEach((target) => this.observer.observe(target));
-	};
-
-	observerCallback(entries, options) {
-		entries.forEach(entry => {
-			// "entry.intersectionRatio >= this.ratio" for older browsers
-			if (entry.isIntersecting || entry.intersectionRatio >= this.ratio) {
-				// callback when visible
-				this.inCallback(this.area, entry, options);
-
-				// unobserve
-				if (this.unobserve) {
-					this.observer.unobserve(entry.target);
-				}
-			} else {
-				// callback when hidden
-				this.outCallback(this.area, entry, options);
-				// No unobserve, because all invisible targets will be unobserved automatically
-			}
-		});
-	};
-
-	isIn(rootElmnt, targetElmt, options) {
-		if (!rootElmnt) {
-			console.log(`IO Root: VIEWPORT`);
-		} else {
-			console.log(`IO Root: ${rootElmnt.tagName} class="${rootElmnt.classList}"`);
-		}
-		console.log(`IO Target: ${targetElmt.target.tagName} class="${targetElmt.target.classList}" IS IN (${targetElmt.intersectionRatio * 100}%)`);
-		console.log(`IO Threshold: ${options.threshold}`);
-		//console.log(targetElmt.rootBounds);
-		console.log(`============================================`);
-	}
-	isOut(rootElmnt, targetElmt, options) {
-		if (!rootElmnt) {
-			console.log(`IO Root: VIEWPORT`);
-		} else {
-			console.log(`IO Root: ${rootElmnt.tagName} class="${rootElmnt.classList}"`);
-		}
-		console.log(`IO Target: ${targetElmt.target.tagName} class="${targetElmt.target.classList}" IS OUT `);
-		console.log(`============================================`);
-	}
-}
-
 // Hide/Show Navbar Background
 window.addEventListener("load", () => {
 	var invertedHeader = new Observer({
 	root: '#main-nav', // don't set to have the viewport as root
 	targets: '.landing-wrapper',
 	rootMargin: '10px',
-	thres: [0, 0.1],
+	thres: [0, 0.2],
 	inCb: applyInversion,
 	outCb: removeInversion,
 });
@@ -813,7 +700,7 @@ function loadAvailableColorsInLoveList() {
 		unavailFilterColors = filterColors.filter(el => !productArray.some(i => i.color === el.value));
 
 		for (let i = 0; i < unavailFilterColors.length; i++) {
-			unavailFilterColors[i].parentElement.parentElement.remove();
+			unavailFilterColors[i].parentElement.parentElement.parentElement.remove();
 		}
 	}
 }

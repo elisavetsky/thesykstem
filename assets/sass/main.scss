@@ -254,7 +254,7 @@ input[type=text], .snipcart-input {
 		display: inline-block;
 		text-align: center;
 		width: 100%;
-		
+		border-radius: 9999px;
 		cursor: pointer;
 		.icon-text {
 			align-items: baseline;
@@ -1248,6 +1248,10 @@ input#account-drawer {
 	}
 }
 
+.filter-option-color {
+	// margin-right: 0.2rem;
+}
+
 .select select, .textarea, .dropdown-content {
 	border-radius: $border-radius;
 	border: none;
@@ -2054,6 +2058,7 @@ input#account-drawer {
 
 
 .is-article {
+	border-radius: $border-radius;
 	background: rgba(255, 255, 255, 0);
 	height: 100%;
 	.content {
@@ -2174,6 +2179,9 @@ a.box:hover {
 		min-height: 0;
 		max-height: 0;
 		transition: $transition-dropdown;
+		.checkbox {
+			display: contents;
+		}
 	}
 	#filter-prices {
 		width: max-content;

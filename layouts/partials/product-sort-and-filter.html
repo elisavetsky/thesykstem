@@ -73,13 +73,16 @@
 
 								{{ range $.Scratch.Get "filter_colors" | uniq }}
 								<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-									<label class="checkbox py-2">
-										<input class="filter-option-color" type="checkbox" value="{{ . }}">
-										{{ . }}
+									<label class="checkbox full-width py-2">
+										<span>
+											<input class="filter-option-color" type="checkbox" value="{{ . }}">
+											{{ . }}
+										</span>
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle icon-{{ . }}"></span>
+										</span>
 									</label>
-									<span class="icon is-medium">
-										<span class="fa-solid fa-circle icon-{{ . }}"></span>
-									</span>
+									
 								</div>
 								{{ end }}
 							</div>
