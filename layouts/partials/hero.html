@@ -2,7 +2,7 @@
 {{ $resized_herobackground := $herobackground.Resize "800x q80" }}
 
 {{ $home_folder := .Site.GetPage "/homepage" }}
-{{ $home_content := $home_folder.Resources.ByType "page" }}
+{{ $home_content := $home_folder.Pages }}
 {{ range first 1 $home_content }}
 {{ $hero1 := $home_folder.Resources.GetMatch "**.jpg" }}
 {{ $hero1_resized := $hero1.Resize "900x q75" }}

@@ -1,5 +1,4 @@
 ---
-headless: true
 hero: "your pro-worker boutique"
 ---
 
