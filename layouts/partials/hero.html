@@ -1,9 +1,10 @@
 {{ $herobackground := resources.Get "image/background-hero.jpg" }}
 {{ $resized_herobackground := $herobackground.Resize "800x q80" }}
 
-
-{{ with .Site.GetPage "hero" }}
-{{ $hero1 := .Resources.GetMatch "**.jpg" }}
+{{ $hero_folder := .Site.GetPage "/hero" }}
+{{ $hero_content := $hero_folder.Resources.ByType "page" }}
+{{ range first 1 $hero_content }}
+{{ $hero1 := $hero_folder.Resources.GetMatch "**.jpg" }}
 {{ $hero1_resized := $hero1.Resize "900x q75" }}
 <section class="wrapper-hero">
 	<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="the site background">
