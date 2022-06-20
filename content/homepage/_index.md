@@ -1,6 +1,7 @@
 ---
-_build:
- list: never
- render: false
+cascade:
+ _build:
+  list: local
+  render: never
 headless: true
 ---
