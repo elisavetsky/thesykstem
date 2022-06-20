@@ -1,4 +1,7 @@
 ---
+_build:
+ list: false
+ render: false
 headless: true
 draft: false
 hero: "your pro-worker boutique"
