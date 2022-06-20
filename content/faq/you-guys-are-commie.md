@@ -1,5 +1,6 @@
 ---
 title: "you guys are commie!"
+category: "general"
 weight: -1
 ---
 This isn't a question, but we get this one **a lot** and while it may seem that we are...**we aren't**. 

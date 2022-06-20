@@ -1,4 +1,5 @@
 ---
+headless: true
 draft: false
 hero: "your pro-worker boutique"
 ---

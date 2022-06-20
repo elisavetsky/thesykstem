@@ -1,52 +1,60 @@
 {{ define "main" }}
 {{ $herobackground := resources.Get "image/background-hero.jpg" }}
-{{ $resized_herobackground := $herobackground.Resize "2000x r180 q75" }}
+{{ $resized_herobackground := $herobackground.Resize "800x r180 q80" }}
 
 <body>
 	{{ partial "navbar" . }}
-	<section class="wrapper-hero">
+	<section class="wrapper-hero vh-75">
 		<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
-		<div class="section is-medium">
-			<div class="container content">
-				<div class="section-header mb-6 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-					<h1>{{ .Title }}</h1>
-					<p>{{ .Params.subtitle }}</p>
-				</div>
-				{{ range sort (where .Site.Pages.ByWeight "Section" "sign-up") }}
-				<div class="sign-up box is-flex is-flex-direction-column">
-					<fieldset disabled>
-						<div class="field">
-							<label class="label" for="">
-								order number / ID <label class="has-text-danger">*</label>
-							</label>
-							<div class="control">
-								<input class="input is-medium" type="text" name="" value="" placeholder="your order number / ID">
-							</div>
 
+		<section class="section is-medium">
+			<div class="container">
+				<div class="columns">
+					<div class="column">
+						<div class="section-header content mb-6 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+							<h1>{{ .Title }}</h1>
+							<p>{{ .Params.subtitle }}</p>
 						</div>
-						<div class="field mb-4">
-							<label class="label" for="">
-								zip / postal code <label class="has-text-danger">*</label>
-							</label>
-							<div class="control">
-								<input class="input is-medium" type="text" name="" value="" placeholder="your zip / postal code">
-							</div>
-
-						</div>
-					</fieldset>
-					<div class="field">
-						<div class="control mb-4">
-							<a class="button is-medium is-blue-back is-fullwidth" href="">
-								<span>start your return</span>
-							</a>
-						</div>
-						<p class="help is-size-6">by continuing, you agree to our <a href="/privacy-policy/">privacy policy</a>.</p>
 					</div>
-					{{ .Content }}
+					<div class="column">
+						<div class="sign-up box is-flex is-flex-direction-column">
+							<fieldset disabled>
+								<div class="field">
+									<label class="label" for="">
+										order number / ID <label class="has-text-danger">*</label>
+									</label>
+									<div class="control">
+										<input class="input is-medium" type="text" name="" value="" placeholder="your order number / ID">
+									</div>
+
+								</div>
+								<div class="field mb-4">
+									<label class="label" for="">
+										zip / postal code <label class="has-text-danger">*</label>
+									</label>
+									<div class="control">
+										<input class="input is-medium" type="text" name="" value="" placeholder="your zip / postal code">
+									</div>
+
+								</div>
+							</fieldset>
+							<div class="field">
+								<div class="control mb-4">
+									<a class="button is-medium is-black is-fullwidth" href="">
+										<span>start your return</span>
+									</a>
+								</div>
+								<p class="help has-text-black is-size-6">
+									by continuing, you agree to our <a href="/privacy-policy/">privacy policy</a>.
+								</p>
+							</div>
+						</div>
+					</div>
 				</div>
-				{{ end }}
+
+
 			</div>
-		</div>
+		</section>
 	</section>
 	{{ partial "footer" . }}
 </body>
