@@ -1,0 +1,79 @@
+{{ with .Site.Data.materials_spotlight }}
+
+{{ $images := newScratch }}
+{{ $clothes_rack := (resources.Get .clothes_rack_image).Resize "500x q80 jpg" }}
+{{ $clothes_rack_2 := (resources.Get .clothes_rack_image_2).Resize "500x q80 jpg" }}
+<section id="materials-spotlight" class="section is-small">
+	<div class="columns is-variable is-6 is-vcentered is-flex-direction-row-reverse">
+		<div class="column is-full-mobile is-4-tablet is-5-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			<div class="columns is-multiline is-gapless is-mobile">
+				{{ range .materials }}
+
+				{{ $images.Set "fabric" ((resources.Get .fabric_image).Resize "500x q80 jpg") }}
+
+				{{ $fabric := $images.Get "fabric" }}
+				<div class="column is-half-mobile is-full-tablet is-full-desktop is-6-widescreen is-7-fullhd">
+					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
+						<img class="is-rounded lazyload" data-src="{{ $fabric.Permalink }}" src="{{ $fabric.Permalink }}" alt="">
+						<span class="icon-text">
+							<span class="tag is-rounded">
+								<span>our {{ .material }} fabric</span>
+							</span>
+						</span>
+					</figure>
+				</div>
+				{{ end }}
+				<div class="column is-7-mobile is-full-tablet is-full-desktop is-7-widescreen is-5-fullhd">
+					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
+						<img class="is-rounded lazyload" data-src="{{ $clothes_rack.Permalink }}" src="{{ $clothes_rack.Permalink }}" alt="">
+					</figure>
+				</div>
+				<div class="column is-5-mobile is-full-tablet is-full-desktop is-5-widescreen is-5-fullhd">
+					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
+						<img class="is-rounded lazyload" data-src="{{ $clothes_rack_2.Permalink }}" src="{{ $clothes_rack_2.Permalink }}" alt="">
+					</figure>
+				</div>
+			</div>
+		</div>
+
+		<div class="column content p-6 is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-6-tablet is-size-4-desktop">
+			<div class="columns is-mobile is-multiline is-vcentered">
+				<div class="column is-full">
+					<span class="icon is-large">
+						<span class="fa-solid fa-recycle fa-2x"></span>
+					</span>
+				</div>
+				<div class="column is-full">
+					<h1 class="mb-5">{{ .hero }}</h1>
+					<p>{{ .subtitle }}</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="column is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			<div class="columns is-multiline is-gapless is-mobile is-vcentered">
+				{{ range .materials }}
+
+				{{ $images.Set "plant" ((resources.Get .plant_image).Resize "800x q80 jpg") }}
+
+				{{ $plant := $images.Get "plant" }}
+				<div class="column is-full-mobile is-full-tablet is-full-desktop is-full-fullhd">
+					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
+						<img class="is-rounded lazyload" data-src="{{ $plant.Permalink }}" src="{{ $plant.Permalink }}" alt="">
+						<span class="icon-text">
+							<span class="tag is-rounded">
+								<span class="icon">
+									<span class="fa-solid fa-{{ .icon }}"></span>
+								</span>
+								<span>our {{ .material }}</span>
+							</span>
+						</span>
+					</figure>
+
+				</div>
+				{{ end }}
+			</div>
+		</div>
+	</div>
+</section>
+{{ end }}

@@ -6,19 +6,23 @@
 
 	<section class="section is-medium vh-75">
 		<div class="container content">
-			<div class="columns">
-				<div class="column">
-					<div class="mb-5 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			<div class="columns is-variable is-6">
+				<div class="column is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+					<div class="mb-5 ">
 						<h1>{{ .Title }}</h1>
 						<p>{{ .Params.subtitle }}</p>
 					</div>
 				</div>
-				<div class="column">
+				<div class="column is-8-desktop">
 					{{ $counter := 0 }}
-					{{ range where (where .Site.RegularPages.ByWeight "Section" "faq") "Params.category" "eq" "general" }}
+					{{ range where .Pages "Section" "faq" }}
+					
+					<h2>{{ .CurrentSection.Title }}</h2>
+					
+					{{ range .RegularPages }}
+					
 					{{ $counter = add $counter 1 }}
 					{{ .Scratch.Set "counter" $counter }}
-					<h1>general</h1>
 					<div class="tile">
 						<div class="tile is-child box is-faq">
 							<div class="is-collapsable full-width">
@@ -39,6 +43,7 @@
 							</div>
 						</div>
 					</div>
+					{{ end }}
 					{{ end }}
 				</div>
 			</div>

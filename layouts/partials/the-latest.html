@@ -10,9 +10,9 @@
 
 				{{ $page_range := .Scratch.Get "page_range" }}
 
-				{{ range first 5 (where .Site.RegularPages "Section" "eq" "product" ).ByDate.Reverse }}
+				{{ range first 5 (where .Site.RegularPages "Section" "product" ).ByDate.Reverse }}
 
-				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-4-tablet is-3-desktop is-2-fullhd invert-navbar">
+				<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-4-tablet is-3-desktop is-2-fullhd">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent p-0">
 							<div class="tile is-child is-article">

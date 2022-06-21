@@ -117,12 +117,24 @@ input[type=text], .snipcart-input {
 }
 
 #the-latest {
+	z-index: 1;
 	position: relative;
 	background-color: $almostwhite;
 	.column.content {
 		position: relative;
 		z-index: 1;
 	}
+}
+
+#materials-spotlight {
+	figure {
+		position: relative;
+		.icon-text {
+			position: absolute;
+			top: 1em;
+		}
+	}
+	
 }
 
 #unisex, .unisex {
