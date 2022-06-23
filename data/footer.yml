@@ -16,9 +16,6 @@ payment_icons:
 - vendor: Mastercard
   icon: /svg/mc_symbol.svg
   alt: Mastercard logo
-- vendor: American Express
-  icon: "/svg/Amex_logo_color.svg"
-  alt: American Express logo
 
 ### Bottom Right Column (mobile bottom right) ###
 privacy_policy: "/privacy-policy/"

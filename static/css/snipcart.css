@@ -17,15 +17,24 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing:grayscale;
-	text-transform: lowercase;
 }
 
 .snipcart * a:hover {
 	text-decoration: none !important;
 }
 
-.snipcart__font--secondary, .snipcart__font--subtitle, .snipcart__font--subtitle-small {
-    
+.snipcart__font * {
+	
+}
+
+
+.snipcart__font--subtitle,
+.snipcart__font--subtitle-small,
+.snipcart__font--tiny,
+.snipcart__font--large,
+.snipcart-button-link,
+.snipcart-base-button__label {
+    text-transform: lowercase;
 }
 
 .snipcart__font--small {

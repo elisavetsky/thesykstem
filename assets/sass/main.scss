@@ -1041,6 +1041,11 @@ input#account-drawer {
 	align-items: flex-start;
 }
 
+.snipcart-cart-summary,
+.snipcart-form {
+	border-radius: 40px;
+}
+
 .snipcart-cart-summary__actions {
 	min-height: 40px;
 }
