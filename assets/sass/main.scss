@@ -572,8 +572,10 @@ input#account-drawer {
 	}
 }
 
-.snipcart-billing-completed {
-	border-radius: 40px;
+.snipcart-checkout__content {
+	.snipcart-billing-completed {
+		border-radius: 40px;
+	}
 }
 
 .snipcart-customer-details {
