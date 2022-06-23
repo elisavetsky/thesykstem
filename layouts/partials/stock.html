@@ -42,7 +42,7 @@
 		{{ replace .Params.sale_price "$" "" }}
 		{{ else }}
 		{{ replace .Params.original_price "$" "" }}
-		{{ end }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Description }}" data-item-image="{{ $resized_main.Permalink }}" data-item-name="{{ .Title }}" data-item-custom1-name="size" data-item-custom1-options="
+		{{ end }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Description }}" data-item-image="{{ $resized_main.Permalink }}" data-item-name="{{ .Title }}" data-item-custom1-name="size" data-item-custom1-options="
 		{{ range (where $size_var "stock" "gt" 0) }}
 		{{ $.Scratch.Add "s" (slice .size) }}
 		{{ if eq .size "adjustable" }}
@@ -53,7 +53,15 @@
 		{{ if where $size_var "size" "!=" "adjustable" }}
 			{{ $s := $.Scratch.Get "s" }}
 			{{ delimit $s "|" }}
-		{{ end }}" data-item-custom1-value="" data-item-custom1-required="true" data-item-custom2-name="color" data-item-custom2-value="{{ replace .Params.color "-fill" "" }}" data-item-custom2-type="hidden" data-item-custom3-name="product-type" data-item-custom3-value="{{ .Params.product_type }}" data-item-custom3-type="hidden" data-item-custom4-name="permalink" data-item-custom4-value="{{ .Permalink }}" data-item-custom4-type="hidden">add to bag</button>
+		{{ end }}" data-item-custom1-value=""
+		data-item-custom1-required="true" 
+		data-item-custom2-name="color" 
+		data-item-custom2-value="{{ replace .Params.color "-fill" "" }}" data-item-custom2-type="hidden" 
+		data-item-custom3-name="product-type" 
+		data-item-custom3-value="{{ .Params.product_type }}" data-item-custom3-type="hidden" 
+		data-item-custom4-name="permalink" 
+		data-item-custom4-value="{{ .Permalink }}" 
+		data-item-custom4-type="hidden">add to bag</button>
 	</div>
 </div>
 

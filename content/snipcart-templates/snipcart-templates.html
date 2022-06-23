@@ -139,9 +139,9 @@
 		</register-form>
 
 		<!-- Account -->
-		
-		
-		
+
+
+
 
 		<!-- Empty Cart -->
 		<empty-cart>
@@ -306,15 +306,21 @@
 					</figure>
 					<div class="snipcart-item-line__product">
 						<div class="snipcart-item-line__header">
-							<a class="columns m-0 is-variable is-1" :href="item.customFields[3]['value']">
-								<figure class="column is-3 snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
-									<item-image class="snipcart-item-line__image--large"></item-image>
-								</figure>
+							<div class="columns m-0 is-variable is-1">
+								
+									<figure class="column is-3 snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
+										<a :href="item.customFields[3]['value']">
+										<item-image class="snipcart-item-line__image--large"></item-image>
+										</a>
+									</figure>
+								
 								<div class="column is-9 is-flex is-flex-direction-column content mr-auto">
 									<h6 class="mb-2">{{ item.customFields[2]['value'] }}</h6>
-									<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
-										{{ item.name }}
-									</h2>
+									<a class="fit-content-w" :href="item.customFields[3]['value']">
+										<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
+											{{ item.name }}
+										</h2>
+									</a>
 									<span class="fit-content-w mb-2">
 										<span class="icon is-medium">
 											<span class="fa-solid fa-circle" :class="'icon-' + item.customFields[1]['displayValue']"></span>
@@ -322,7 +328,7 @@
 										{{ item.customFields[1]['value'] }}
 									</span>
 								</div>
-							</a>
+							</div>
 
 							<button-icon icon="trash" label="item.remove_item" styling="danger" @click="removeItem">
 								<span class="icon">
