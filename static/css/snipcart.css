@@ -33,7 +33,12 @@
 .snipcart__font--tiny,
 .snipcart__font--large,
 .snipcart-button-link,
-.snipcart-base-button__label {
+.snipcart-base-button__label,
+.snipcart-tabs__tab-button,
+.snipcart-customer-details-group__title,
+.snipcart-form__label,
+.snipcart-signin__forgot-password,
+.snipcart-summary-fees__title {
     text-transform: lowercase;
 }
 

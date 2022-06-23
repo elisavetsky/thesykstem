@@ -569,13 +569,18 @@ input#account-drawer {
 }
 
 .snipcart-tabs__slider.at-start {
-	border-top-right-radius: $border-radius;
-	border-bottom-right-radius: $border-radius;
+	border-top-right-radius: 40px;
+	border-bottom-right-radius: 40px;
 }
 
 .snipcart-tabs__slider.at-end {
-	border-top-left-radius: $border-radius;
-	border-bottom-left-radius: $border-radius;
+	border-top-left-radius: 40px;
+	border-bottom-left-radius: 40px;
+}
+
+.snipcart-payment-form__left,
+.snipcart-payment-form__column  {
+	border-radius: 9999px !important;
 }
 
 .menu-switch-pos {
@@ -998,6 +1003,20 @@ input#account-drawer {
 	padding: 0 1.5rem;
 }
 
+.snipcart-shipping-rates-list-item:focus-within {
+	border-color: $almostblack;
+}
+
+.snipcart-shipping-rates-list-item--highlight {
+	border-color: $almostblack;
+	border-radius: 9999px;
+}
+
+.snipcart-form-radio:checked + label::before {
+	border-color: $almostblack;
+	background-color: $almostblack;
+}
+
 .snipcart-cart--edit {
 	background-color: $almostwhite;
 	.snipcart-cart__content, .snipcart-item-list {
@@ -1042,7 +1061,8 @@ input#account-drawer {
 }
 
 .snipcart-cart-summary,
-.snipcart-form {
+.snipcart-form,
+.snipcart-customer-details {
 	border-radius: 40px;
 }
 

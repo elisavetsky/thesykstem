@@ -42,7 +42,7 @@
 		{{ replace .Params.sale_price "$" "" }}
 		{{ else }}
 		{{ replace .Params.original_price "$" "" }}
-		{{ end }}" data-item-url="{{ .Permalink }}" data-item-description="{{ .Description }}" data-item-image="{{ $resized_main.Permalink }}" data-item-name="{{ .Title }}" data-item-custom1-name="size" data-item-custom1-options="
+		{{ end }}" data-item-url="{{ .RelPermalink }}" data-item-description="{{ .Description }}" data-item-image="{{ $resized_main.Permalink }}" data-item-name="{{ .Title }}" data-item-custom1-name="size" data-item-custom1-options="
 		{{ range (where $size_var "stock" "gt" 0) }}
 		{{ $.Scratch.Add "s" (slice .size) }}
 		{{ if eq .size "adjustable" }}

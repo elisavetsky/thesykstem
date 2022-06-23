@@ -137,8 +137,6 @@ function display() {
 		'input[name="select-size"]:checked');
 	
 	if(checkRadio != null) {
-		// document.getElementById("disp").innerHTML
-		// 	= checkRadio.value
 		document.querySelector('#add-to-bag').disabled = false;
 		const user = document.querySelector("[data-item-custom1-value]");
 		user.setAttribute('data-item-custom1-value', checkRadio.value);
