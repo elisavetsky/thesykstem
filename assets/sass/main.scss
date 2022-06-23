@@ -552,7 +552,27 @@ input#account-drawer {
 	height: 1.6rem;
 }
 
-.snipcart__box {
+// .snipcart__box {
+// 	border-radius: 40px;
+// }
+
+.snipcart-order__box__header {
+	border-top-right-radius: 40px;
+	border-top-left-radius: 40px;
+}
+
+.snipcart-order__footer {
+	border-bottom-right-radius: 40px;
+	border-bottom-left-radius: 40px;
+}
+
+#snipcart-checkout-step-shipping {
+	.snipcart__box {
+		border-radius: 40px;
+	}
+}
+
+.snipcart-billing-completed {
 	border-radius: 40px;
 }
 
@@ -1439,7 +1459,7 @@ input#account-drawer {
 	background-color: $gray1;
 }
 
-.snipcart-form__select-wrapper .snipcart__icon {
+.snipcart__icon {
 	color: $almostblack !important;
 }
 

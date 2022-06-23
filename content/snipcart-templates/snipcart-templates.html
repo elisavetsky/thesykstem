@@ -88,6 +88,116 @@
 			</div>
 		</shipping-completed>
 
+		<!-- Order Receipt -->
+		<order>
+			<layout class="snipcart-layout--large snipcart-cart__order-container">
+				<overridable name="order" section="header">
+					<cart-header class="snipcart-checkout__header" :show-items-count="false" :show-summary="false" :show-account-menu="false">
+					</cart-header>
+				</overridable>
+
+				<overridable name="order" section="content">
+					<loading-screen message="order.loading" class="snipcart-layout__content">
+						<div v-if="cart">
+							<div class="snipcart-order__details">
+								<overridable name="order" section="content-header">
+									<div class="snipcart__box snipcart-order__box snipcart-order__box__header">
+										<div class="snipcart__box--title">
+											<div class="snipcart__box--badge snipcart__box--badge snipcart__box--badge-highlight snipcart__font--bold snipcart__font--secondary">
+												<span class="icon">
+													<span class="fa-solid fa-check"></span>
+												</span>
+											</div>
+											<div>
+												<h1 class="snipcart__font--subtitle">{{ $localize('confirmation.thank_you_for_your_order') }}</h1>
+											</div>
+										</div>
+										<div v-if="isConfirmationAsync" class="snipcart-order__async-confirmation-notice">
+											<flash-message type="success">
+												{{ $localize('confirmation.async_confirmation_notice') }}
+											</flash-message>
+										</div>
+										<div v-else class="snipcart-order__invoice-number">
+											{{ $localize('cart.invoice_number') }} : <em class="snipcart-order__invoice-number--highlight snipcart__font--black snipcart__font--secondary">{{ cart.invoiceNumber }}</em>
+										</div>
+									</div>
+								</overridable>
+
+								<overridable name="order" section="content-main">
+									<div class="snipcart-order__details__content">
+										<div class="snipcart__box snipcart-order__box">
+											<div class="snipcart-order__details-title snipcart__box--subtitle">
+												<span class="icon">
+													<span class="fa-solid fa-bag-shopping"></span>
+												</span>
+												<h1 class="snipcart__font--subtitle">{{ $localize('header.title_cart_summary') }}</h1>
+											</div>
+
+											<cart-summary-items-list item-template="cart-summary-expanded-item"></cart-summary-items-list>
+										</div>
+
+										<billing-completed context="invoice" class="snipcart-billing-completed--titled snipcart-order__box"></billing-completed>
+										<shipping-completed context="invoice" class="snipcart-shipping-completed--titled snipcart-order__box" v-if="cart.shippingDetails.method"></shipping-completed>
+										<order-payment-details v-if="showPayment"></order-payment-details>
+										<footer class="snipcart__box snipcart-order__box snipcart-order__footer">
+											<summary-fees class="snipcart-order__fees" :summary-data="summaryFeesProvider"></summary-fees>
+										</footer>
+									</div>
+								</overridable>
+							</div>
+						</div>
+					</loading-screen>
+				</overridable>
+			</layout>
+		</order>
+
+		<shipping-completed>
+			<div class="snipcart__box snipcart-shipping-completed">
+				<div class="snipcart-shipping-completed__header snipcart__box--header">
+					<div class="snipcart__box--title">
+						<div class="snipcart__box--badge snipcart__font--bold snipcart__font--secondary" v-if="checkout">
+							<span class="icon">
+								<span class="fa-solid fa-check"></span>
+							</span>
+						</div>
+						<h1 class="snipcart-shipping-completed__title snipcart__font--subtitle">
+							<span class="icon" v-if="!checkout">
+								<span class="fa-solid fa-box"></span>
+							</span>
+							{{ $localize('shipping.title') }}
+						</h1>
+					</div>
+					<button-link v-if="checkout" label="actions.edit" @click="edit"></button-link>
+				</div>
+
+				<div class="snipcart-checkout-step__cols snipcart__font--std">
+					<div class="snipcart-checkout-step__col">
+						<div class="snipcart-checkout-step__icon snipcart-shipping-completed__step-icon">
+							<span class="icon">
+								<span class="fa-solid fa-location-dot"></span>
+							</span>
+						</div>
+						<div class="snipcart__address__display">
+							<h3 class="snipcart-checkout-step__title snipcart-shipping-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('shipping.address') }}</h3>
+							<span class="snipcart-shipping-completed__information snipcart__font--std">{{ cart.shippingAddress | fullAddress }}</span>
+						</div>
+					</div>
+
+					<div class="snipcart-checkout-step__col">
+						<div class="snipcart-checkout-step__icon snipcart-shipping-completed__step-icon">
+							<span class="icon">
+								<span class="fa-solid fa-box"></span>
+							</span>
+						</div>
+						<div>
+							<h3 class="snipcart-checkout-step__title snipcart-shipping-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('shipping.method') }}</h3>
+							<span class="snipcart-shipping-completed__information">{{ methodName }}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</shipping-completed>
+
 		<!-- Empty Cart -->
 		<empty-cart>
 			<section class="snipcart-empty-cart content">
