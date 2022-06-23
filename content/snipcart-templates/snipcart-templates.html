@@ -33,15 +33,60 @@
 		</loading-screen>
 
 		<!-- Loading Component -->
-		
+
 
 		<!-- Register Form -->
-		
+
 
 		<!-- Account -->
 
 
+		<!-- Shipping -->
 
+		<shipping-completed context="completed">
+			<div class="snipcart__box snipcart-shipping-completed">
+				<div class="snipcart-shipping-completed__header snipcart__box--header">
+					<div class="snipcart__box--title">
+						<div class="snipcart__box--badge snipcart__font--bold snipcart__font--secondary" v-if="checkout">
+							<span class="icon">
+								<span class="fa-solid fa-check"></span>
+							</span>
+						</div>
+						<h1 class="snipcart-shipping-completed__title snipcart__font--subtitle">
+							<icon name="box" class="snipcart__icon--left" v-if="!checkout"></icon>
+							{{ $localize('shipping.title') }}
+						</h1>
+					</div>
+					<button-link v-if="checkout" label="actions.edit" @click="edit"></button-link>
+				</div>
+
+				<div class="snipcart-checkout-step__cols snipcart__font--std">
+					<div class="snipcart-checkout-step__col">
+						<div class="snipcart-checkout-step__icon snipcart-shipping-completed__step-icon">
+							<span class="icon">
+								<span class="fa-solid fa-location-dot"></span>
+							</span>
+						</div>
+						<div class="snipcart__address__display">
+							<h3 class="snipcart-checkout-step__title snipcart-shipping-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('shipping.address') }}</h3>
+							<span class="snipcart-shipping-completed__information snipcart__font--std">{{ cart.shippingAddress | fullAddress }}</span>
+						</div>
+					</div>
+
+					<div class="snipcart-checkout-step__col">
+						<div class="snipcart-checkout-step__icon snipcart-shipping-completed__step-icon">
+							<span class="icon">
+								<span class="fa-solid fa-box"></span>
+							</span>
+						</div>
+						<div>
+							<h3 class="snipcart-checkout-step__title snipcart-shipping-completed__step-title snipcart__font--secondary snipcart__font--bold">{{ $localize('shipping.method') }}</h3>
+							<span class="snipcart-shipping-completed__information">{{ methodName }}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</shipping-completed>
 
 		<!-- Empty Cart -->
 		<empty-cart>
@@ -207,13 +252,13 @@
 					<div class="snipcart-item-line__product">
 						<div class="snipcart-item-line__header">
 							<div class="columns m-0 is-variable is-1">
-								
-									<figure class="column is-3 snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
-										<a :href="item.customFields[3]['value']">
+
+								<figure class="column is-3 snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
+									<a :href="item.customFields[3]['value']">
 										<item-image class="snipcart-item-line__image--large"></item-image>
-										</a>
-									</figure>
-								
+									</a>
+								</figure>
+
 								<div class="column is-9 is-flex is-flex-direction-column content mr-auto">
 									<h6 class="mb-2">{{ item.customFields[2]['value'] }}</h6>
 									<a class="fit-content-w" :href="item.customFields[3]['value']">
@@ -267,10 +312,10 @@
 		</item-line>
 
 		<!-- Billing -->
-		
+
 
 		<!-- Address Fields -->
-		
+
 
 		<!-- Billing Complete -->
 		<billing-completed>

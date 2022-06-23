@@ -1488,11 +1488,12 @@ input#account-drawer {
 	background-color: $almostwhite;
 }
 
-.snipcart-billing-completed {
-	.snipcart-checkout-step__icon {
-		color: $blue;
+
+	.snipcart-checkout-step__icon,
+	 {
+		color: $almostblack !important;
 	}
-}
+
 
 
 .payment-icon {
