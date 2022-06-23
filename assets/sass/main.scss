@@ -20,6 +20,16 @@ input[type=text], .snipcart-input {
 	border-radius: 99999px !important;
 }
 
+a {
+	color: $starlight-dark;
+}
+
+a:focus-visible	 {
+	box-shadow: $b-box-shadow;
+	border-radius: $border-radius;
+	border: none !important;
+}
+
 * {
 	// border: 1px solid red;
 }
@@ -69,6 +79,10 @@ input[type=text], .snipcart-input {
 	min-height: 75vh;
 }
 
+.vh-90 {
+	min-height: 90vh;
+}
+
 .justify-self-flex-end {
 	justify-self: flex-end;
 }
@@ -96,6 +110,12 @@ input[type=text], .snipcart-input {
 
 .mb-7 {
 	margin-bottom: 5rem !important;
+}
+
+.invisible-checkbox {
+	position: absolute;
+	z-index: 0;
+	mix-blend-mode: lighten;
 }
 
 
@@ -126,15 +146,8 @@ input[type=text], .snipcart-input {
 	}
 }
 
-#materials-spotlight {
-	figure {
-		position: relative;
-		.icon-text {
-			position: absolute;
-			top: 1em;
-		}
-	}
-	
+#spotlight-sizes {
+	background-color: $danger-bg;
 }
 
 #unisex, .unisex {
@@ -175,6 +188,7 @@ input[type=text], .snipcart-input {
 #loved-products {
 	min-height: 50vh;
 }
+
 
 // Classes
 .price-group-on-sale {
@@ -507,6 +521,14 @@ input#account-drawer {
 	display: none;
 }
 
+// Content
+
+.content {
+	h1 {
+		font-stretch: ultra-expanded;
+	}
+}
+
 // Snipcart 
 
 .snipcart {
@@ -528,6 +550,32 @@ input#account-drawer {
 	width: 1.6rem;
 	border-radius: 2rem;
 	height: 1.6rem;
+}
+
+.snipcart__box {
+	border-radius: 40px;
+}
+
+.snipcart-customer-details {
+	border-radius: $border-radius;
+}
+
+.snipcart-tabs__slider {
+	border-radius: $border-radius;
+}
+
+.snipcart-tabs__toggle {
+	border: none !important;
+}
+
+.snipcart-tabs__slider.at-start {
+	border-top-right-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+}
+
+.snipcart-tabs__slider.at-end {
+	border-top-left-radius: $border-radius;
+	border-bottom-left-radius: $border-radius;
 }
 
 .menu-switch-pos {
@@ -1976,10 +2024,16 @@ input#account-drawer {
 	position: relative;
 	left: -1em;
 	scale: 1.05;
+	mix-blend-mode: multiply;
 }
 
-.is-float-left {
-	padding: 0 10px 10px 0;
+.images-have-tags {
+	figure {
+		.icon-text {
+			position: absolute;
+			top: 1em;
+		}
+	}
 }
 
 .snipcart-item-line__media--small {
@@ -2108,10 +2162,7 @@ a.box:hover {
 .is-privacy, .is-faq {
 	background: $almostwhite;
 	hr {
-		background-color: $blue2;
-	}
-	input {
-		display: none;
+		background-color: $starlight2;
 	}
 }
 
@@ -2127,6 +2178,10 @@ a.box:hover {
 
 .discount-tag {
 	background-color: $taupe !important;
+}
+
+.tag:not(body).is-rounded {
+	mix-blend-mode: luminosity;
 }
 
 // Prices
@@ -2147,6 +2202,7 @@ a.box:hover {
 
 .is-collapsable {
 	padding: 1em 0;
+	
 	label {
 		.icon-text {
 			width: fit-content;
@@ -2163,6 +2219,7 @@ a.box:hover {
 	.buttons {
 		margin-bottom: -1.5em;
 	}
+	
 }
 
 .is-collapsable .buttons {
@@ -2173,7 +2230,8 @@ a.box:hover {
 }
 
 .is-collapsable {
-	.tags {
+	.tags,
+	.job {
 		overflow: hidden;
 		min-height: 0;
 		max-height: 0;
@@ -2220,9 +2278,10 @@ a.box:hover {
 	transition: $transition-dropdown 0.35s;
 }
 
-.is-collapsable > input:checked ~ .tags {
+.is-collapsable > input:checked ~ .tags,
+.is-collapsable > input:checked ~ .job {
 	min-height: 20px;
-	max-height: 1000px;
+	max-height: 3000px;
 	transition: $transition-dropdown 0.35s;
 }
 
@@ -2261,29 +2320,7 @@ input#login-signup-dropdown {
 	display: none;
 }
 
-input#dropdown-1 {
-	display: none;
-}
 
-input#dropdown-2 {
-	display: none;
-}
-
-input#dropdown-3 {
-	display: none;
-}
-
-input#dropdown-4 {
-	display: none;
-}
-
-input#dropdown-5 {
-	display: none;
-}
-
-input#dropdown-6 {
-	display: none;
-}
 
 
 // Typography 

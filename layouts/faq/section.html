@@ -1,9 +1,6 @@
 {{ define "main" }}
 
 <body>
-
-	{{ partial "navbar" . }}
-
 	<section class="section is-medium vh-75">
 		<div class="container content">
 			<div class="columns is-variable is-6">
@@ -26,8 +23,8 @@
 					<div class="tile">
 						<div class="tile is-child box is-faq">
 							<div class="is-collapsable full-width">
-								<input type="checkbox" name="dropdown" id="faq-{{ $counter }}">
-								<label for="faq-{{ $counter }}">
+								<input hidden type="checkbox" name="dropdown" id="faq-{{ $counter }}">
+								<label tabindex="0" for="faq-{{ $counter }}">
 									<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
 										<span class="w-96">
 											<h4 id="{{ .File.BaseFileName }}">{{ .Title }}</h4>
@@ -47,10 +44,7 @@
 					{{ end }}
 				</div>
 			</div>
-
-
 		</div>
 	</section>
-	{{ partial "footer" . }}
 </body>
 {{ end }}

@@ -30,5 +30,5 @@ sizes:
 
 main_alt: "A snug garment, just waiting for the warmth of your body."
 description: "A snug garment, just waiting for the warmth of your body."
-material: "100% hemp"
+material: "100% bamboo"
 ---

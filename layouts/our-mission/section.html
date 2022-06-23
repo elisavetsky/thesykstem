@@ -1,19 +1,35 @@
 {{ define "main" }}
 
-{{ $team := .Resources.GetMatch "**.png" }}
-{{ $resized_team := $team.Resize "500x q80" }}
+{{ $our_mission_folder := .Site.GetPage "/our-mission/sections" }}
+{{ $our_mission_content := $our_mission_folder.Pages }}
 
-{{ partial "navbar" . }}
-	<section class="section is-large">
-		<div class="container">
-			<div class="content columns is-flex">
-				<div class="column is-mobile is-offset-one-fifth is-four-fifths-tablet is-four-fifths-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
-					<img class="is-float-left" src="{{ $resized_team.Permalink }}" alt="one of our hats, in white">
-					{{ .Content }}
-				</div>
-			</div>
+{{ range $our_mission_content }}
+
+{{ $team := (.Resources.GetMatch "**.jpg").Resize "900x q80" }}
+
+<section id="{{ .File.ContentBaseName }}" class="section is-medium images-have-tags">
+
+	<div class="content columns is-vcentered {{ .Params.style }}">
+		<div class="column is-full-mobile is-{{ .Params.content_size.tablet }}-tablet is-{{ .Params.content_size.desktop }}-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			{{ .Content }}
 		</div>
-	</section>
-	{{ partial "footer" . }}
+		<div class="column is-full-mobile is-{{ .Params.img_size.tablet }}-tablet is-{{ .Params.img_size.desktop }}-desktop">
+			<figure class="image is-flex is-justify-content-flex-end">
+				<img class="{{ .Params.img_style }} is-rounded" data-src="{{ $team.Permalink }}" src="{{ $team.Permalink }}" alt="one of our hats, in white">
+				<span class="icon-text">
+					<span class="tag is-rounded">
+						<span class="icon">
+							<span class="fa-solid fa-{{ .Params.img_description_icon }}"></span>
+						</span>
+						<span>{{ .Params.img_description }}</span>
+					</span>
+				</span>
+			</figure>
+		</div>
+	</div>
+
+</section>
+{{ end }}
+
 </section>
 {{ end }}

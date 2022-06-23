@@ -1,9 +1,10 @@
 <!DOCTYPE HTML>
 <html>
-	
 	{{ partial "template/head" . }}
+	{{ partial "navbar" . }}
 	{{ block "main" . }}
 	
 	{{ end }}
 	{{ partial "template/scripts" . }}
+	{{ partial "footer" . }}
 </html>

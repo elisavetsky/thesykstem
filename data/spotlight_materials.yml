@@ -1,5 +1,5 @@
 hero: "material sustainability matters"
-subtitle: "That is why we choose to use only earth's most sustainable materials."
+subtitle: "The Earth is our home. We use only its most future-proof materials."
 clothes_rack_image: "image/clothes-rack.jpg"
 clothes_rack_image_2: "image/clothes-rack-2.jpg"
 materials:
@@ -10,7 +10,7 @@ materials:
   fabric_image: "image/hemp-fabric.png"
 - material: "bamboo"
   icon: "seedling"
-  description: "blah blah blah"
+  description: ""
   plant_image: "image/bamboo-sun.jpg"
   fabric_image: "image/bamboo-fabric.webp"
   

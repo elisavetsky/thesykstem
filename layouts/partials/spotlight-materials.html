@@ -1,9 +1,9 @@
-{{ with .Site.Data.materials_spotlight }}
+{{ with .Site.Data.spotlight_materials }}
 
 {{ $images := newScratch }}
 {{ $clothes_rack := (resources.Get .clothes_rack_image).Resize "500x q80 jpg" }}
 {{ $clothes_rack_2 := (resources.Get .clothes_rack_image_2).Resize "500x q80 jpg" }}
-<section id="materials-spotlight" class="section is-small">
+<section id="spotlight-materials" class="section is-medium images-have-tags">
 	<div class="columns is-variable is-6 is-vcentered is-flex-direction-row-reverse">
 		<div class="column is-full-mobile is-4-tablet is-5-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 			<div class="columns is-multiline is-gapless is-mobile">
@@ -36,7 +36,7 @@
 			</div>
 		</div>
 
-		<div class="column content p-6 is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-6-tablet is-size-4-desktop">
+		<div class="column content pl-5 pr-6 is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-6-tablet is-size-5-desktop is-size-4-fullhd">
 			<div class="columns is-mobile is-multiline is-vcentered">
 				<div class="column is-full">
 					<span class="icon is-large">
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<div class="column is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+		<div class="column px-0 is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 			<div class="columns is-multiline is-gapless is-mobile is-vcentered">
 				{{ range .materials }}
 

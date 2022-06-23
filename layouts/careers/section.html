@@ -1,0 +1,93 @@
+{{ define "main" }}
+
+<section id="careers" class="section is-medium vh-75">
+<div class="container">
+	<div class="columns is-multiline is-variable is-6 content">
+		<div class="column is-12 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+			<h1>{{ .Section }}</h1>
+			{{ .Content }}
+			<hr>
+		</div>
+
+		<div class="column is-12">
+			<h2>current listings ({{ len (where .Pages "Section" "careers") }})</h2>
+			<div class="columns is-multiline">
+				{{ range where .Pages "Section" "careers" }}
+				
+
+				<div class="column is-12-mobile is-12-tablet is-12-desktop is-6-fullhd">
+					<div class="tile">
+						<div class="tile is-child box is-careers">
+							<span class="tags mb-2 has-addons">
+								<span class="tag has-background-grey-lighter is-rounded"><strong>posted:</strong></span>
+								<span class="tag is-rounded">{{ time.Format "Monday, Jan 2, 2006" .Date }}</span>
+
+							</span>
+							
+							<div class="is-collapsable full-width">
+								<input hidden type="checkbox" name="dropdown" id="{{ .Title }}">
+
+								<label for="{{ .Title }}">
+									<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
+										<span class="w-96">
+											<h3 id="{{ .File.BaseFileName }}">{{ .Title }}</h3>
+										</span>
+										<span class="icon">
+											<span class="fa-solid fa-chevron-down"></span>
+										</span>
+									</span>
+								</label>
+
+								<div class="job mt-3">
+
+									{{ .Content }}
+									<hr>
+									<div class="columns is-flex is-flex-direction-column-reverse is-variable is-6">
+										<div class="column">
+											<h4 class="">open positions</h4>
+											
+										</div>
+										{{ with .Site.Data.careers }}
+										<div class="column">
+											<div class="notification">
+												<div class="columns is-mobile is-vcentered">
+													<div class="column is-1 is-flex is-justify-content-center">
+														<span class="icon">
+															<span class="fa-solid fa-paper-plane"></span>
+														</span>
+													</div>
+													<div class="column is-11">
+														{{ .apply_now_text }}
+														<a href="mailto:{{ .email_to_apply }}">{{ .email_to_apply }}</a>
+													</div>
+												</div>
+
+
+											</div>
+										</div>
+										{{ end }}
+									</div>
+
+								</div>
+								<span class="tag is-dark is-rounded">
+								<span class="icon-text">
+									<span>{{ .Params.open_positions }}</span>
+									<span class="icon">
+										<span class="fa-solid fa-user-plus"></span>
+									</span>
+								</span>
+							</span>
+							</div>
+							
+						</div>
+					</div>
+				</div>
+
+				{{ end }}
+			</div>
+		</div>
+	</div></div>
+
+</section>
+
+{{ end }}

@@ -31,5 +31,5 @@ sizes:
 
 main_alt: "A casual touch to our favorite top style."
 description: "A casual touch to our favorite top style."
-material: "100% hemp"
+material: "100% bamboo"
 ---

@@ -38,11 +38,9 @@
 					<div class="tags is-align-items-flex-start">
 						{{ range .payment_icons }}
 						<div class="payment-icon">
-							<figure>
-								{{ if .icon }}
-								<img src="{{ .icon }}" alt="{{ .alt }}">
-								{{ end }}
-							</figure>
+							{{ if .icon }}
+							<img src="{{ .icon }}" alt="{{ .alt }}">
+							{{ end }}
 						</div>
 						{{ end }}
 					</div>
@@ -54,18 +52,16 @@
 							<a href="{{ .tos }}">terms of service</a>
 						</div>
 						<br>
-						<p class="is-size-7 mb-0">{{ .copyright }} | {{ .powered_by }}</p>
+						<p class="is-size-7 mb-0">©{{ now.Format "2006"}} {{ .copyright }} | {{ .powered_by }}</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-
 		<!-- Snipcart -->
 
 		<!-- <script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script> -->
 		
-
 	</footer>
 </body>
 {{ end }}

@@ -14,5 +14,5 @@ sizes:
 img: "1-the-sykstem-hat-white.png"
 main_alt: "our v1 company hat"
 description: "This is v2 of our company hat."
-material: "100% hemp"
+material: "100% bamboo"
 ---

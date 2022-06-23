@@ -31,6 +31,7 @@ const filterColors = Array.from(filterColorDropdownValues);
 const filterPricesContainer = document.getElementById("filter-prices");
 const filterPriceDropdownValues = document.querySelectorAll(".filter-option-price");
 const clearFiltersButton = document.getElementById("clear-filters-button");
+const resultCount = document.querySelector(".result-count");
 const productGrid = document.querySelector(".product-grid");
 
 const mainNavbar = document.getElementById("main-nav");
@@ -266,8 +267,6 @@ if (sortDropdown) {
 			// 		pFilter.high >= pItem.price && pFilter.low <= pItem.price))
 		}
 
-
-
 		// Add Products selected by price filters(s)
 		for (let i = 0; i < checkedPrices.length; i++) {
 			productGrid.appendChild(checkedPrices[i].container);
@@ -396,6 +395,7 @@ if (sortDropdown) {
 	function changeClearFiltersButtonState() {
 		if (colorFilterArray.length > 0 || currentPriceFilterArray.length > 0) {
 			clearFiltersButton.classList.remove("is-hidden");
+			resultCount.innerText = "results " + "(" + productsOnPage.length + ")"
 		} else {
 			clearFiltersButton.classList.add("is-hidden");
 		}

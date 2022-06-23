@@ -10,21 +10,18 @@ faq: "/faq/"
 
 ### Bottom Left Icons Column (mobile bottom left) ###
 payment_icons:
-- vendor: Apple Pay
-  icon: "/svg/Apple_Pay_Mark.svg"
-  alt: Apple Pay logo
 - vendor: Visa
-  icon:
+  icon: "/svg/Visa_Brandmark_Blue_RGB_2021.svg"
   alt: Visa logo
 - vendor: Mastercard
-  icon:
+  icon: /svg/mc_symbol.svg
   alt: Mastercard logo
 - vendor: American Express
-  icon:
+  icon: "/svg/Amex_logo_color.svg"
   alt: American Express logo
 
 ### Bottom Right Column (mobile bottom right) ###
 privacy_policy: "/privacy-policy/"
 tos: "/terms/"
-copyright: "©2022 the sykstem"
+copyright: "the sykstem"
 powered_by: "powered by Hugo"

@@ -3,7 +3,6 @@
 {{ $resized_herobackground := $herobackground.Resize "800x r180 q80" }}
 
 <body>
-	{{ partial "navbar" . }}
 	<section class="wrapper-hero vh-75">
 		<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="">
 
@@ -56,6 +55,5 @@
 			</div>
 		</section>
 	</section>
-	{{ partial "footer" . }}
 </body>
 {{ end }}

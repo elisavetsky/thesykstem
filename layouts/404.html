@@ -3,7 +3,6 @@
 {{ $logo := resources.Get "image/logo.png" }}
 {{ $logosvg := resources.Get "image/logo.svg" }}
 
-{{ partial "navbar" . }}
 <section class="hero is-fullheight-with-navbar">
 	<div class="hero-body">
 		<div class="container content">
@@ -20,7 +19,5 @@
 		</div>
 	</div>
 </section>
-
-{{ partial "footer" . }}
 
 {{ end }}

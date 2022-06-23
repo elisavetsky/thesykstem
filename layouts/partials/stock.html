@@ -28,14 +28,14 @@
 </div>
 {{ else }}
 <div class="buttons safari-reverse-only">
-	<div class="pb-0 full-width safari-only is-full">
+	<!-- <div class="pb-0 full-width safari-only is-full">
 		<button class="button box is-apple-pay is-medium full-width">
 			<div class="apple-pay-button-with-text apple-pay-button-black-with-text">
 				<span class="text">Buy with</span>
 				<span class="logo"></span>
 			</div>
 		</button>
-	</div>
+	</div> -->
 	<div class="pb-0 full-width is-full">
 		<button disabled autocomplete="off" onclick="display()" type="submit" id="add-to-bag" class="snipcart-add-item button box is-medium full-width is-black" data-item-id="{{ .File.ContentBaseName }}" data-item-price="
 		{{ if .Params.sale_price }}

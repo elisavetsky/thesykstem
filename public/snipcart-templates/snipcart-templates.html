@@ -53,46 +53,43 @@
 
 		<!-- Register Form -->
 		<signin-form>
-			
-				<authentication-view>
-    <overridable name="signin">
-        <div class="snipcart__box snipcart-signin snipcart-signin__box">
-            <h2 class="snipcart__font--subtitle snipcart-signin__title">{{ $localize('signin_form.signin')}}</h2>
-            <p class="snipcart__font snipcart-signin__register">
-                {{ $localize('signin_form.dont_have_an_account')}}
-                <router-link class="snipcart__font--black snipcart-signin__register-link" to="register">
-                    {{ $localize('register_form.register')}}
-                </router-link>
-            </p>
 
-            <snipcart-form @submit="save" class="snipcart-signin__form">
+			<authentication-view>
+				<overridable name="signin">
+					<div class="snipcart__box snipcart-signin snipcart-signin__box">
+						<h2 class="snipcart__font--subtitle snipcart-signin__title">{{ $localize('signin_form.signin')}}</h2>
+						<p class="snipcart__font snipcart-signin__register">
+							{{ $localize('signin_form.dont_have_an_account')}}
+							<router-link class="snipcart__font--black snipcart-signin__register-link" to="register">
+								{{ $localize('register_form.register')}}
+							</router-link>
+						</p>
 
-                <snipcart-form-error></snipcart-form-error>
+						<snipcart-form @submit="save" class="snipcart-signin__form">
 
-                <overridable name="signin" section="top"></overridable>
+							<snipcart-form-error></snipcart-form-error>
 
-                <div class="snipcart-form__field">
-                    <snipcart-label for="email">{{ $localize('signin_form.email')}}</snipcart-label>
-                    <snipcart-input name="email" type="email" icon="user"></snipcart-input>
-                </div>
-                
-                <div class="snipcart-form__field">
-                    <snipcart-label for="password">{{ $localize('signin_form.password')}}</snipcart-label>
-                    <snipcart-password name="password" icon="password"></snipcart-password>
-                    <router-link to="forgot-password" class="snipcart-signin__forgot-password snipcart__font--black">{{ $localize('signin_form.forgot_your_password') }}</router-link>
-                </div>
+							<overridable name="signin" section="top"></overridable>
 
-                <overridable name="signin" section="bottom"></overridable>
+							<div class="snipcart-form__field">
+								<snipcart-label for="email">{{ $localize('signin_form.email')}}</snipcart-label>
+								<snipcart-input name="email" type="email" icon="user"></snipcart-input>
+							</div>
 
-                <snipcart-submit
-                    label="signin_form.signin"
-                    icon="continue-arrow"
-                ></snipcart-submit>
-            </snipcart-form>
-        </div>
-    </overridable>
-</authentication-view>
-			
+							<div class="snipcart-form__field">
+								<snipcart-label for="password">{{ $localize('signin_form.password')}}</snipcart-label>
+								<snipcart-password name="password" icon="password"></snipcart-password>
+								<router-link to="forgot-password" class="snipcart-signin__forgot-password snipcart__font--black">{{ $localize('signin_form.forgot_your_password') }}</router-link>
+							</div>
+
+							<overridable name="signin" section="bottom"></overridable>
+
+							<snipcart-submit label="signin_form.signin" icon="continue-arrow"></snipcart-submit>
+						</snipcart-form>
+					</div>
+				</overridable>
+			</authentication-view>
+
 		</signin-form>
 
 		<register-form>
@@ -140,6 +137,11 @@
 				</authentication-view>
 			</div>
 		</register-form>
+
+		<!-- Account -->
+		
+		
+		
 
 		<!-- Empty Cart -->
 		<empty-cart>
@@ -308,18 +310,19 @@
 								<figure class="column is-3 snipcart-item-line__media snipcart-item-line__media--small" v-if="showSmallImage">
 									<item-image class="snipcart-item-line__image--large"></item-image>
 								</figure>
-							<div class="column is-9 is-flex is-flex-direction-column content mr-auto">
-								<h6 class="mb-2">{{ item.customFields[2]['value'] }}</h6>
-								<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
-									{{ item.name }}
-								</h2>
-								<span class="fit-content-w mb-2">
-									<span class="icon is-medium">
-										<span class="fa-solid fa-circle" :class="'icon-' + item.customFields[1]['displayValue']"></span>
+								<div class="column is-9 is-flex is-flex-direction-column content mr-auto">
+									<h6 class="mb-2">{{ item.customFields[2]['value'] }}</h6>
+									<h2 class="is-size-5-mobile is-size-4-tablet is-size-4-desktop mt-0 mb-2 snipcart-item-line__title ">
+										{{ item.name }}
+									</h2>
+									<span class="fit-content-w mb-2">
+										<span class="icon is-medium">
+											<span class="fa-solid fa-circle" :class="'icon-' + item.customFields[1]['displayValue']"></span>
+										</span>
+										{{ item.customFields[1]['value'] }}
 									</span>
-									{{ item.customFields[1]['value'] }}
-								</span>
-							</div></a>
+								</div>
+							</a>
 
 							<button-icon icon="trash" label="item.remove_item" styling="danger" @click="removeItem">
 								<span class="icon">
@@ -533,7 +536,7 @@
 		<cart-header name="cart" section="header">
 			<cart-header title="bag summary" :show-items-count="true" :show-account-menu="true" v-if="!editingCart"></cart-header>
 		</cart-header>
-		
+
 	</div>
 </body>
 

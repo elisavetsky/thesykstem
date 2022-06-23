@@ -15,7 +15,7 @@ sizes:
 img: "1-the-sykstem-hat-galaxy.png"
 main_alt: "our v1 company hat"
 description: "This is v2 of our company hat. In a striking 'galaxy' colorway."
-material: "100% hemp"
+material: "100% bamboo"
 ---
 
 {{ item.name }}

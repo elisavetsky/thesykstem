@@ -5,10 +5,11 @@
     <loc>/privacy-policy/</loc>
     <lastmod>2022-04-05T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/faq/you-guys-are-commie/</loc>
-  </url><url>
     <loc>/</loc>
-    <lastmod>2022-06-16T00:00:00+00:00</lastmod>
+    <lastmod>2022-06-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/terms/</loc>
+    <lastmod>2022-06-20T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/product/</loc>
     <lastmod>2022-06-16T00:00:00+00:00</lastmod>
@@ -18,6 +19,9 @@
   </url><url>
     <loc>/product/the-sykstem-knit-sweater-zucchini/</loc>
     <lastmod>2022-06-13T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/careers/</loc>
+    <lastmod>2022-06-12T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/product/shipital-bomber-jacket-black/</loc>
     <lastmod>2022-06-12T00:00:00+00:00</lastmod>
@@ -34,13 +38,9 @@
     <loc>/account/</loc>
     <priority>0</priority>
   </url><url>
-    <loc>/faq/can-i-return-a-gift/</loc>
-  </url><url>
-    <loc>/faq/can-i-work-here/</loc>
+    <loc>/our-mission/</loc>
   </url><url>
     <loc>/contact/</loc>
-  </url><url>
-    <loc>/faq/do-you-have-discounts/</loc>
   </url><url>
     <loc>/exchanges-and-returns/</loc>
   </url><url>
@@ -50,7 +50,7 @@
   </url><url>
     <loc>/men/</loc>
   </url><url>
-    <loc>/our-mission/</loc>
+    <loc>/pro-worker-resources/</loc>
   </url><url>
     <loc>/sale/</loc>
   </url><url>
@@ -109,10 +109,6 @@
     <loc>/product/the-sykstem-hoodie-starlight/</loc>
   </url><url>
     <loc>/unisex/</loc>
-  </url><url>
-    <loc>/faq/what-is-your-return-exchange-process/</loc>
-  </url><url>
-    <loc>/faq/why-do-you-use-hemp-and-bamboo-for-your-clothing/</loc>
   </url><url>
     <loc>/women/</loc>
   </url>

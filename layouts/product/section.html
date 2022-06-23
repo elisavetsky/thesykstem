@@ -1,8 +1,6 @@
 {{ define "main" }}
 
 <body>
-	{{ partial "navbar" . }}
-
 	{{ range sort (where .Site.Pages "Params.navbar_section" "eq" true) "Title" "desc" }}
 
 	{{ $banner := .Resources.GetMatch "banner.jpg" }}
@@ -88,7 +86,6 @@
 		</div>
 	</section>
 	{{ end }}
-	
-	{{ partial "footer" . }}
+
 </body>
 {{ end }}
