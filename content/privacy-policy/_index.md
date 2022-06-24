@@ -17,7 +17,7 @@ weight: -1
 
 ## TL;DR
 - We care very much about the privacy of your data.
-- Our website is tracker free.
+- Our website is tracker free except for a Sendgrid one in your order receipt.
 - A demo credit card will be shown to you at checkout so your payment details will never be seen by us.
 - Your loved items are stored locally and are never seen by us.
 
@@ -25,6 +25,7 @@ weight: -1
 
 1. Credit Card Information (**We provide you with one. Do not use yours**).
 2. Your email address (Should you provide yours).
+3. Your order(s).
 
 ## Third-Party Service Providers
 

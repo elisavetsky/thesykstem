@@ -17,6 +17,8 @@ payment_icons:
   icon: /svg/mc_symbol.svg
   alt: Mastercard logo
 
+newsletter: "https://5juolf.deta.dev/"
+
 ### Bottom Right Column (mobile bottom right) ###
 privacy_policy: "/privacy-policy/"
 tos: "/terms/"

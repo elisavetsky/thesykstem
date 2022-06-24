@@ -996,6 +996,14 @@ input#account-drawer {
 	border-radius: 40px;
 }
 
+.snipcart-cart-summary--small {
+	background-color: rgba(255, 255, 255, 0);
+}
+
+.snipcart-order {
+	border-radius: 40px;
+}
+
 .snipcart-cart-header {
 	min-height: 4.5rem;
 	padding: 1rem 16px;
@@ -2084,6 +2092,7 @@ input#account-drawer {
 		.icon-text {
 			position: absolute;
 			top: 1em;
+			right: 2em;
 		}
 	}
 }

@@ -88,68 +88,7 @@
 			</div>
 		</shipping-completed>
 
-		<!-- Order Receipt -->
-		<order>
-			<layout class="snipcart-layout--large snipcart-cart__order-container">
-				<overridable name="order" section="header">
-					<cart-header class="snipcart-checkout__header" :show-items-count="false" :show-summary="false" :show-account-menu="false">
-					</cart-header>
-				</overridable>
 
-				<overridable name="order" section="content">
-					<loading-screen message="order.loading" class="snipcart-layout__content">
-						<div v-if="cart">
-							<div class="snipcart-order__details">
-								<overridable name="order" section="content-header">
-									<div class="snipcart__box snipcart-order__box snipcart-order__box__header">
-										<div class="snipcart__box--title">
-											<div class="snipcart__box--badge snipcart__box--badge snipcart__box--badge-highlight snipcart__font--bold snipcart__font--secondary">
-												<span class="icon">
-													<span class="fa-solid fa-check"></span>
-												</span>
-											</div>
-											<div>
-												<h1 class="snipcart__font--subtitle">{{ $localize('confirmation.thank_you_for_your_order') }}</h1>
-											</div>
-										</div>
-										<div v-if="isConfirmationAsync" class="snipcart-order__async-confirmation-notice">
-											<flash-message type="success">
-												{{ $localize('confirmation.async_confirmation_notice') }}
-											</flash-message>
-										</div>
-										<div v-else class="snipcart-order__invoice-number">
-											{{ $localize('cart.invoice_number') }} : <em class="snipcart-order__invoice-number--highlight snipcart__font--black snipcart__font--secondary">{{ cart.invoiceNumber }}</em>
-										</div>
-									</div>
-								</overridable>
-
-								<overridable name="order" section="content-main">
-									<div class="snipcart-order__details__content">
-										<div class="snipcart__box snipcart-order__box">
-											<div class="snipcart-order__details-title snipcart__box--subtitle">
-												<span class="icon">
-													<span class="fa-solid fa-bag-shopping"></span>
-												</span>
-												<h1 class="snipcart__font--subtitle">{{ $localize('header.title_cart_summary') }}</h1>
-											</div>
-
-											<cart-summary-items-list item-template="cart-summary-expanded-item"></cart-summary-items-list>
-										</div>
-
-										<billing-completed context="invoice" class="snipcart-billing-completed--titled snipcart-order__box"></billing-completed>
-										<shipping-completed context="invoice" class="snipcart-shipping-completed--titled snipcart-order__box" v-if="cart.shippingDetails.method"></shipping-completed>
-										<order-payment-details v-if="showPayment"></order-payment-details>
-										<footer class="snipcart__box snipcart-order__box snipcart-order__footer">
-											<summary-fees class="snipcart-order__fees" :summary-data="summaryFeesProvider"></summary-fees>
-										</footer>
-									</div>
-								</overridable>
-							</div>
-						</div>
-					</loading-screen>
-				</overridable>
-			</layout>
-		</order>
 
 		<shipping-completed>
 			<div class="snipcart__box snipcart-shipping-completed">
@@ -251,12 +190,16 @@
 						</sign-in-action>
 
 						<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
-							<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
+							<span class="icon">
+								<span class="fa-solid fa-arrow-right-from-bracket"></span>
+							</span>
 							{{ $localize('customer_dashboard.sign_out').toLowerCase()}}
 						</sign-out-action>
 
 						<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
-							<icon name="user" class="snipcart-cart-header__icon"></icon>
+							<span class="icon">
+								<span class="fa-solid fa-user"></span>
+							</span>
 							{{ $localize('customer_dashboard.my_account').toLowerCase() }}
 						</customer-account-link>
 
@@ -489,6 +432,68 @@
 		<cart-header name="cart" section="header">
 			<cart-header title="bag summary" :show-items-count="true" :show-account-menu="true" v-if="!editingCart"></cart-header>
 		</cart-header>
+
+
+		<!-- Customer Details -->
+		<customer-details>
+			<div class="snipcart-customer-details snipcart__box">
+				<!-- Header -->
+				<div class="snipcart-customer-details__header snipcart__box--header">
+					<div class="snipcart__box--title">
+						<h1 class="snipcart-customer-details__title snipcart__font--subtitle">
+							{{ $localize('customer_details.title') }}
+						</h1>
+					</div>
+				</div>
+
+				<!-- Basic infos -->
+				<div class="snipcart-customer-details__infos snipcart__font--std">
+					{{ customer.billingAddress.name  }}
+					<br v-if="customer.billingAddress.name" />
+					{{ customer.email }}
+				</div>
+
+				<!-- Billing address -->
+				<customer-details-group v-if="customer.billingAddress.hasMinimalRequiredInfo" icon-name="" :title="$localize('billing.address').toLowerCase()" :handle-action-click="editBillingAddress" :action="billingAddressAction">
+					<span class="icon-text">
+						<span class="icon">
+							<span class="fa-solid fa-location-dot"></span>
+						</span>
+						<address-formatted :address="customer.billingAddress"></address-formatted>
+					</span>
+
+				</customer-details-group>
+
+				<!-- Shipping address -->
+				<customer-details-group v-if="customer.shippingAddress && customer.shippingAddress.hasMinimalRequiredInfo" icon-name="" :title="$localize('shipping.address')" :handle-action-click="editShippingAddress" :action="shippingAddressAction">
+					<span class="icon-text">
+						<span class="icon">
+							<span class="fa-solid fa-location-dot"></span>
+						</span>
+						<address-formatted :address="customer.shippingAddress"></address-formatted>
+					</span>
+				</customer-details-group>
+
+				<!-- Password -->
+				<customer-details-group iconName="lock" :title="$localize('signin_form.password')" :handle-action-click="editPassword" action="edit">
+					<span class="icon">
+						<span class="fa-solid fa-lock"></span>
+					</span>
+					•••••••••••••••••••
+				</customer-details-group>
+
+				<!-- Payment infos -->
+				<payment-info v-if="isDisplayCustomerDetails" :customer-details="customerDetails"></payment-info>
+			</div>
+		</customer-details>
+
+
+
+
+
+		<!-- Order Receipt -->
+
+
 
 	</div>
 </body>

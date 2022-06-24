@@ -2,20 +2,20 @@
 
 <section id="careers" class="section is-medium vh-75">
 <div class="container">
-	<div class="columns is-multiline is-variable is-6 content">
-		<div class="column is-12 is-size-6-mobile is-size-5-tablet is-size-4-desktop">
+	<div class="columns is-mobile is-multiline is-variable is-6 content">
+		<div class="column is-12-mobile is-12-tablet is-6-fullhd is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 			<h1>{{ .Section }}</h1>
 			{{ .Content }}
 			<hr>
 		</div>
 
-		<div class="column is-12">
+		<div class="column is-12-mobile is-12-tablet is-6-fullhd">
 			<h2>current listings ({{ len (where .Pages "Section" "careers") }})</h2>
 			<div class="columns is-multiline">
 				{{ range where .Pages "Section" "careers" }}
 				
 
-				<div class="column is-12-mobile is-12-tablet is-12-desktop is-6-fullhd">
+				<div class="column is-12">
 					<div class="tile">
 						<div class="tile is-child box is-careers">
 							<span class="tags mb-2 has-addons">
