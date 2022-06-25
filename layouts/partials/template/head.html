@@ -3,6 +3,9 @@
   <head>
 	<title>{{ .Site.Title }}</title>
 	<meta charset="UTF-8" />
+	<meta name="description" content="the sykstem clothing boutique">
+	<meta name="keywords" content="online shopping, brick-and-mortar, clothing boutique">
+	<meta name="author" content="the sykstem">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -22,7 +25,8 @@
 	{{ end }}
 	
 <!-- Snipcart  -->
-	<link href="/css/snipcart.css" rel="stylesheet">
+	{{- $snipcart_css := resources.Get "sass/snipcart.css" | resources.PostCSS (dict "config" "./assets/js/postcss.config.js") | minify | resources.PostProcess }}
+	<link href="{{ $snipcart_css.Permalink }}" rel="stylesheet">
 
 <!-- Font Awesome  -->
 	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
@@ -30,8 +34,8 @@
 	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
 	
 	<!--SCSS converted to CSS for website-->
-	{{ $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true)}}
-	<link rel="stylesheet" href="{{ ($style | minify).Permalink }}">
+	{{- $style := resources.Get "sass/main.scss" | resources.ExecuteAsTemplate "sass/main.scss" . | resources.ToCSS (dict "outputStyle" "compressed" "enableSourceMap" true) | resources.PostCSS (dict "config" "./assets/js/postcss.config.js") | minify | resources.PostProcess }}
+	<link rel="stylesheet" href="{{ $style.Permalink }}">
 	
 	
   </head>

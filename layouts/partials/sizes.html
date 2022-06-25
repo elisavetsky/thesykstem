@@ -2,7 +2,7 @@
 {{ $.Scratch.Set "product-name" .Title }}
 {{ $.Scratch.Set "product-url" .Permalink }}
 
-<h6>size:</h6>
+<h5>size:</h5>
 <div id="select-size" class="buttons">
 {{ if eq .Params.product_type "hat" }}
 {{ range $.Params.sizes }}

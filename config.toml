@@ -5,6 +5,9 @@ permalinks = ":slug"
 # enableGitInfo = true
 disableKinds = ["taxonomy", "taxonomyTerm", "term",]
 
+[build]
+  writeStats = true
+
 [outputFormats]
   [outputFormats.JSON]
     name = "JSON"

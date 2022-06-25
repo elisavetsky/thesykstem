@@ -5,6 +5,9 @@
   <head>
 	<title>the sykstem</title>
 	<meta charset="UTF-8" />
+	<meta name="description" content="the sykstem clothing boutique">
+	<meta name="keywords" content="online shopping, brick-and-mortar, clothing boutique">
+	<meta name="author" content="the sykstem">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -20,13 +23,12 @@
 	
 	
 
-	<link href="/css/snipcart.css" rel="stylesheet">
+	<link href="/sass/snipcart.min.css" rel="stylesheet">
 
 
 	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/brands.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
-	
 	
 	
 	<link rel="stylesheet" href="/sass/main.min.css">
@@ -57,7 +59,7 @@
 	<noscript>
 		<section class="section is-small py-0">
 			<div class="noscript-container container is-fluid translucent-dark-back py-2">
-				<div class="is-flex is-justify-content-center is-align-items-center">
+				<div class="is-flex p-5 is-justify-content-center is-align-items-center">
 					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
 				</div>
 			</div>
@@ -71,19 +73,26 @@
 		<div class="container is-fluid">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
-					<a class="is-flex" href="/">
-						<img class="logo" src="/image/logo.svg" alt="">
+					<a class="logo-image is-flex" href="/">
+						<img class="logo" src="/image/logo.svg" alt="our company logo, the sykstem">
 					</a>
 				</div>
 				<div class="menu-switch-pos">
 					<nav class="menu is-flex is-align-items-center">
-						<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+						<button id="nav-burger" class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
-
+							<div id="exit-main-nav" class="is-hidden">
+								<button class="button no-style-button">
+									<span class="sr-only">exit main menu</span>
+									<span class="icon m-0">
+										<span class="fa-solid fa-xmark"></span>
+									</span>
+								</button>
+							</div>
 							<div class="navbar-start">
 
 								
@@ -135,8 +144,8 @@
 										<nav class="search-drawer">
 	<div class="is-collapsible-search">
 		<input type="checkbox" name="site-search" id="site-search">
-		<label class="search-label p-3" for="site-search">
-
+		<label aria-label="open search" tabindex="0" class="search-label p-3" for="site-search">
+			<span class="sr-only">search products</span>
 			<span class="icon">
 				<span class="fa-solid fa-search"></span>
 			</span>
@@ -149,15 +158,17 @@
 					<div class="column p-0 is-flex is-flex-direction-column">
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
 							<p class="control">
-								<input checked type="checkbox" name="site-search" id="site-search">
-								<label id="exit-search" class="button is-medium" for="site-search">
-									<span class="icon is-medium is-left">
+								<input hidden checked type="checkbox" name="exit-search">
+								<label aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
+									<span class="icon is-medium is-left mr-0">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
+									<span class="sr-only">exit search</span>
 								</label>
 							</p>
 							<p id="fastSearch" class="control is-expanded">
 								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
+								<label class="sr-only" for="search-input">search input</label>
 							<ul id="searchResults">
 							</ul>
 							</p>
@@ -208,7 +219,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$45</h4>
-	<span class="product-page-color">cherrywood</span>
+	<span class="product-page-color"><strong>cherrywood</strong></span>
 </div>
 
 															<a href="/product/ryana-knit-sweater-cherrywood/">
@@ -284,7 +295,7 @@
 		</div>
 		<h4 class="price m-0">$45</h4>
 	</div>
-	<span class="product-page-color">zucchini</span>
+	<span class="product-page-color"><strong>zucchini</strong></span>
 </div>
 
 															<a href="/product/the-sykstem-knit-sweater-zucchini/">
@@ -360,7 +371,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 															<a href="/product/shipital-bomber-jacket-black/">
@@ -417,15 +428,15 @@
 		</div>
 	</div>
 </nav>
-										<a class="love-list-navbar-button button mr-0" href="/account/loved">
-											<span class="icon is-small p-5 mr-0">
-												<span class="fa-solid fa-heart"></span>
-											</span>
+										<div class="no-style-button button mr-0">
+											<a aria-label="love list" tabindex="0" class="love-list-navbar-button" href="/account/loved"><span class="icon is-small p-5 mr-0">
+													<span class="fa-solid fa-heart"></span>
+												</span></a>
 											<span class="loved-items-count"></span>
-										</a>
-										<button class="snipcart-customer-signin button loved p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+										</div>
+										<button class="snipcart-customer-signin button  is-rounded loved p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 											<span class="icon is-small">
-												<span class="fa-solid fa-user" aria-hidden="true"></span>
+												<span class="fa-solid fa-user"></span>
 											</span>
 											<span><strong>account</strong></span>
 
@@ -439,16 +450,14 @@
 					
 <nav class="shopping-bag">
 	<div class="is-collapsible-shopping-bag is-flex is-flex-direction-column is-align-item-center">
-		<button class="snipcart-checkout button shopping-bag-button">
-			<label class="shopping-bag-label" for="shopping-bag-menu">
-				<span class="icon-text is-inline-block">
-					<span class="icon">
-						<span class="fa-solid fa-bag-shopping"></span>
-					</span>
-					<span class="is-hidden-mobile"><strong>bag</strong></span>
-					<span id="bag-count" class="snipcart-items-count"></span>
+		<button aria-label="your shopping bag" aria-haspopup="true" class="snipcart-checkout button is-rounded shopping-bag-button">
+			<span class="icon-text is-inline-block">
+				<span class="icon">
+					<span class="fa-solid fa-bag-shopping"></span>
 				</span>
-			</label>
+				<span class="is-hidden-mobile"><strong>bag</strong></span>
+				<span id="bag-count" class="snipcart-items-count"></span>
+			</span>
 		</button>
 		
 		
@@ -458,184 +467,7 @@
 		data-api-key="MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3"
 		data-config-add-product-behavior="none">
 			
-			
-			<register-form>
-				<div class="root">
-					<authentication-view>
-						<overridable name="register">
-							<div class="snipcart__box snipcart-register__box snipcart-register">
-								<h2 class="snipcart__font--subtitle snipcart-register__title">{{ $localize(&#39;register_form.register&#39;)}}</h2>
-								<p class="snipcart__font snipcart-register__register">
-									{{ $localize(&#39;register_form.already_have_an_account&#39;)}}
-									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
-										{{ $localize(&#39;signin_form.signin&#39;)}}
-									</router-link>
-								</p>
-					
-								<snipcart-form @submit="save" class="snipcart-register__form">
-									<flash-message v-if="requiresConfirmation"
-										type="info"
-										:title="$localize('register_form.requires_action.title')"
-										:description="$localize('register_form.requires_action.description')">
-									</flash-message>
-					
-									<snipcart-form-error></snipcart-form-error>
-					
-									<overridable name="register" section="top"></overridable>
-									<div class="snipcart-form__field">
-										<snipcart-label for="email">{{ $localize(&#39;register_form.email&#39;)}}</snipcart-label>
-										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
-										<snipcart-field-error name="email"></snipcart-field-error>
-									</div>
-									<div class="snipcart-form__field">
-										<snipcart-label for="password">{{ $localize(&#39;register_form.password&#39;)}}</snipcart-label>
-										<snipcart-password name="password" icon="password"></snipcart-password>
-										<snipcart-field-error name="password"></snipcart-field-error>
-									</div>
-									<div class="snipcart-form__field">
-										<snipcart-label for="passwordConfirmation">{{ $localize(&#39;register_form.confirm_password&#39;)}}</snipcart-label>
-										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
-										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
-									</div>
-					
-									<overridable name="register" section="bottom"></overridable>
-					
-									<snipcart-submit
-										label="register_form.register"
-										icon="continue-arrow"
-									></snipcart-submit>
-								</snipcart-form>
-							</div>
-						</overridable>
-					</authentication-view>
-				</div>
-			</register-form>
-			
-			
-			<signin-form section="bottom">
-				<div class="root">
-					wow
-				</div>
-				
-			</signin-form>
-			
-			
-			
-			
-			
-			<cart section="snipcart-cart__secondary-header">
-				<div class="root">
-					<icon
-					alt="item.remove_item"
-					class="fa-solid fa-xmark"
-					></icon>
-				</div>
-			</cart>
-			
-			
-			
-			
-			
-			<wow>
-				<div class="">
-					<header class="snipcart-cart-header is-mobile" v-if="!loading">
-						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
-							<span class="icon">
-								<span class="fa-solid fa-arrow-left-long"></span>
-							</span>
-							<span class="snipcart-modal__close-title snipcart__font--std">
-								{{ backButtonTitle || $localize(&#39;actions.continue_shopping&#39;) }}
-							</span>
-						</close-cart-action>
-					
-						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-5-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
-							<div class="logo-cart image is-128x128">
-								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
-									<a class="is-flex" href="/">
-										
-									<img class="logo" src="" alt="">
-									</a>
-								</figure>
-							</div>
-						</media>
-					
-						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
-							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
-								<span class="icon-text is-inline-flex is-align-items-center">
-									
-									<span>{{ $localize(&#39;signin_form.signin&#39;)}}</span>
-								</span>
-								
-							</sign-in-action>
-					
-							<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
-								<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
-								{{ $localize(&#39;customer_dashboard.sign_out&#39;)}}
-							</sign-out-action>
-					
-							<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
-								<icon name="user" class="snipcart-cart-header__icon"></icon>
-								{{ $localize(&#39;customer_dashboard.my_account&#39;) }}
-							</customer-account-link>
-					
-							<show-detailed-cart-action class="snipcart-cart-header__option snipcart-cart-header__count snipcart__font--secondary snipcart__font--bold" v-if="showItemsCount">
-								<span class="icon-text is-inline-flex is-align-items-center">
-									<span class="icon">
-										<span class="fa-solid fa-bag-shopping"></span>
-									</span>
-									<span>
-										<template v-if="!hasSubscription">
-											{{ itemsCount }}
-										</template>
-									</span>
-								</span>
-								
-							</show-detailed-cart-action>
-						</div>
-					
-						<media name="mobile, tablet" class="snipcart-modal__header-summary column is-flex pr-0 is-4-mobile is-justify-content-right" v-if="showSummary && !loading">
-							<div class="snipcart-modal__header-summary-title snipcart__font--large snipcart__font--secondary snipcart__font--bold" @click.prevent="toggleSummary">
-								<span class="bag-total-dropdown icon-text is-inline-flex is-align-items-center">
-									<span class="icon">
-										<span class="fa-solid fa-user"></span>
-									</span>
-									<span>{{ cart.total | money(cart.currency) }}</span>
-								</span>
-								<icon :name="summaryIcon" class="snipcart-cart-header__icon snipcart__icon--medium"></icon>
-							</div>
-					
-							<cart-summary class="snipcart-cart-summary--small" v-if="summaryVisible" @close="closeSummary">
-							</cart-summary>
-						</media>
-					</header>
-					<header class="snipcart-cart-header" v-else>
-						<close-cart-action class="snipcart-modal__close">
-							<icon class="snipcart-modal__close-icon" name="back-arrow" />
-							<span class="snipcart-modal__close-title snipcart__font--std">
-								{{ $localize(&#39;actions.continue_shopping&#39;) }}
-							</span>
-						</close-cart-action>
-					</header>
-				</div>
-			</wow>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		
 		</div>
 	</div>
 </nav>
@@ -659,7 +491,7 @@
 			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
 				<div class="column is-4">
 					<figure class="image is-fullwidth">
-						<img class="is-rounded" src="/account/loved/banner_hud81d12c41e7571e6705cc2dc26686dad_1353885_900x0_resize_q85_box.jpg" alt="loved section image">
+						<img class="is-rounded" src="/account/loved/banner_hud81d12c41e7571e6705cc2dc26686dad_1353885_800x0_resize_q85_box.jpg" alt="loved section image">
 					</figure>
 				</div>
 				<div class="column content is-flex is-flex-direction-column is-align-items-center">
@@ -677,11 +509,14 @@
 		<div class="level-item">
 			<div class="control has-icons-left">
 				<div class="select is-normal">
-					<select id="sort-products">
+					<select id="sort-products" name="sort-products">
 						<option value="default">sort</option>
 						<option value="lowToHigh">low to high</option>
 						<option value="highToLow">high to low</option>
 					</select>
+					<label for="sort-products">
+						<span class="sr-only">sort by price</span>
+					</label>
 				</div>
 				<span class="icon is-left">
 					<span class="fa-solid fa-sort"></span>
@@ -690,8 +525,8 @@
 		</div>
 		<div class="level-item">
 			<div class="dropdown is-hoverable is-right">
-				<div class="dropdown-trigger">
-					<button class="button" aria-haspopup="true" aria-controls="filter-dropdown">
+				<div class="dropdown-trigger filter-trigger">
+					<button class="filter-button button" aria-haspopup="true" aria-controls="filter-dropdown">
 						<span>filter</span>
 						<span class="icon is-small">
 							<span class="fa-solid fa-filter" aria-hidden="true"></span>
@@ -700,7 +535,13 @@
 				</div>
 				<div class="dropdown-menu" id="filter-products" role="menu">
 					<div class="dropdown-content">
+						<button class="exit-filters no-style-button is-hidden">
+							<span class="icon">
+								<span class="fa-solid fa-xmark"></span>
+							</span>
+						</button>
 						<div id="clear-filters-button" class="dropdown-item is-hidden">
+
 							<button class="button is-small">
 								<span>reset filters</span>
 								<span class="icon">
@@ -715,7 +556,7 @@
 						<div class="columns px-4">
 							<div class="column is-collapsible">
 								<input hidden type="checkbox" name="dropdown" id="dropdown-1">
-								<label for="dropdown-1" class="py-2">
+								<label tabindex="0" for="dropdown-1" class="py-2">
 									<span class="icon-text full-width is-justify-content-space-between">
 										<div class="dropdown-item">
 											color
@@ -1029,7 +870,7 @@
 
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="cherrywood">
 												cherrywood
@@ -1042,7 +883,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="zucchini">
 												zucchini
@@ -1055,7 +896,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="black">
 												black
@@ -1068,7 +909,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="bay">
 												bay
@@ -1081,7 +922,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="white">
 												white
@@ -1094,7 +935,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="brass">
 												brass
@@ -1107,7 +948,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="galaxy">
 												galaxy
@@ -1120,7 +961,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="periwinkle">
 												periwinkle
@@ -1133,7 +974,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="grey">
 												grey
@@ -1146,7 +987,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="rose">
 												rose
@@ -1159,7 +1000,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="gold">
 												gold
@@ -1172,7 +1013,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="silver">
 												silver
@@ -1185,7 +1026,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="brick">
 												brick
@@ -1198,7 +1039,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="wine">
 												wine
@@ -1211,7 +1052,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="cocoa">
 												cocoa
@@ -1224,7 +1065,7 @@
 									</div>
 									
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="starlight">
 												starlight
@@ -1241,7 +1082,7 @@
 
 							<div class="column is-collapsible">
 								<input hidden type="checkbox" name="dropdown" id="dropdown-2">
-								<label for="dropdown-2" class="py-2">
+								<label tabindex="0" for="dropdown-2" class="py-2">
 									<span class="icon-text full-width is-justify-content-space-between">
 										<div class="dropdown-item ">
 											price
@@ -1342,10 +1183,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-knit-sweater-cherrywood">
-	<label for="love-button-ryana-knit-sweater-cherrywood">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-knit-sweater-cherrywood">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -1358,7 +1200,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This sweater will feel like a cozy hug.">
+											<img class="lazyload" data-src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This sweater will feel like a cozy hug.">
 										</figure>
 										
 										
@@ -1377,7 +1219,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$45</h4>
-	<span class="product-page-color">cherrywood</span>
+	<span class="product-page-color"><strong>cherrywood</strong></span>
 </div>
 
 									<a href="/product/ryana-knit-sweater-cherrywood/">
@@ -1403,10 +1245,11 @@
 		
 		
 		
-			<a href="/product/ryana-knit-sweater-cherrywood/" alt="cherrywood variant">
+			<a href="/product/ryana-knit-sweater-cherrywood/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-cherrywood fa-2x"></span>
 				</span>
+				<span class="sr-only">the snug ryana, cherrywood variant</span>
 			</a>
 			
 		
@@ -1556,10 +1399,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-knit-sweater-zucchini">
-	<label for="love-button-the-sykstem-knit-sweater-zucchini">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-knit-sweater-zucchini">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -1572,7 +1416,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
+											<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
 										</figure>
 										
 										
@@ -1602,7 +1446,7 @@
 		</div>
 		<h4 class="price m-0">$45</h4>
 	</div>
-	<span class="product-page-color">zucchini</span>
+	<span class="product-page-color"><strong>zucchini</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-knit-sweater-zucchini/">
@@ -1632,10 +1476,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-knit-sweater-zucchini/" alt="zucchini variant">
+			<a href="/product/the-sykstem-knit-sweater-zucchini/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-zucchini fa-2x"></span>
 				</span>
+				<span class="sr-only">the snug sykstem, zucchini variant</span>
 			</a>
 			
 		
@@ -1781,10 +1626,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-bomber-jacket-black">
-	<label for="love-button-shipital-bomber-jacket-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-bomber-jacket-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -1797,7 +1643,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
+											<img class="lazyload" data-src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
 										</figure>
 										
 										
@@ -1827,7 +1673,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/shipital-bomber-jacket-black/">
@@ -1861,10 +1707,11 @@
 		
 		
 		
-			<a href="/product/shipital-bomber-jacket-black/" alt="black variant">
+			<a href="/product/shipital-bomber-jacket-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the stylish shipital, black variant</span>
 			</a>
 			
 		
@@ -1968,10 +1815,11 @@
 		
 		
 		
-			<a href="/product/shipital-bomber-jacket-cocoa/" alt="cocoa variant">
+			<a href="/product/shipital-bomber-jacket-cocoa/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
 				</span>
+				<span class="sr-only">the stylish shipital, cocoa variant</span>
 			</a>
 			
 		
@@ -2013,10 +1861,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-rain-jacket-bay">
-	<label for="love-button-the-sykstem-rain-jacket-bay">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-rain-jacket-bay">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -2029,7 +1878,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The right article for when the weather takes over.">
+											<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The right article for when the weather takes over.">
 										</figure>
 										
 										
@@ -2059,7 +1908,7 @@
 		</div>
 		<h4 class="price m-0">$35</h4>
 	</div>
-	<span class="product-page-color">bay</span>
+	<span class="product-page-color"><strong>bay</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-rain-jacket-bay/">
@@ -2097,10 +1946,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-rain-jacket-bay/" alt="bay variant">
+			<a href="/product/the-sykstem-rain-jacket-bay/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-bay fa-2x"></span>
 				</span>
+				<span class="sr-only">the storm sykstem, bay variant</span>
 			</a>
 			
 		
@@ -2238,10 +2088,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-lantern-sleeve-blouse-white">
-	<label for="love-button-ryana-lantern-sleeve-blouse-white">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-lantern-sleeve-blouse-white">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -2254,7 +2105,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The blouse for those special occasions.">
+											<img class="lazyload" data-src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The blouse for those special occasions.">
 										</figure>
 										
 										
@@ -2284,7 +2135,7 @@
 		</div>
 		<h4 class="price m-0">$25</h4>
 	</div>
-	<span class="product-page-color">white</span>
+	<span class="product-page-color"><strong>white</strong></span>
 </div>
 
 									<a href="/product/ryana-lantern-sleeve-blouse-white/">
@@ -2326,10 +2177,11 @@
 		
 		
 		
-			<a href="/product/ryana-lantern-sleeve-blouse-white/" alt="white variant">
+			<a href="/product/ryana-lantern-sleeve-blouse-white/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
+				<span class="sr-only">the radiant ryana, white variant</span>
 			</a>
 			
 		
@@ -2463,10 +2315,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-bandeau-black">
-	<label for="love-button-ryana-bandeau-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-bandeau-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -2479,7 +2332,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
+											<img class="lazyload" data-src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
 										</figure>
 										
 										
@@ -2498,7 +2351,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$25</h4>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/ryana-bandeau-black/">
@@ -2544,10 +2397,11 @@
 		
 		
 		
-			<a href="/product/ryana-bandeau-black/" alt="black variant">
+			<a href="/product/ryana-bandeau-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the bare ryana, black variant</span>
 			</a>
 			
 		
@@ -2555,10 +2409,11 @@
 		
 		
 		
-			<a href="/product/ryana-bandeau-brass/" alt="brass variant">
+			<a href="/product/ryana-bandeau-brass/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
 				</span>
+				<span class="sr-only">the bare ryana, brass variant</span>
 			</a>
 			
 		
@@ -2684,10 +2539,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-bandeau-brass">
-	<label for="love-button-ryana-bandeau-brass">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-bandeau-brass">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -2700,7 +2556,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
+											<img class="lazyload" data-src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
 										</figure>
 										
 										
@@ -2730,7 +2586,7 @@
 		</div>
 		<h4 class="price m-0">$20</h4>
 	</div>
-	<span class="product-page-color">brass</span>
+	<span class="product-page-color"><strong>brass</strong></span>
 </div>
 
 									<a href="/product/ryana-bandeau-brass/">
@@ -2776,10 +2632,11 @@
 		
 		
 		
-			<a href="/product/ryana-bandeau-black/" alt="black variant">
+			<a href="/product/ryana-bandeau-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the bare ryana, black variant</span>
 			</a>
 			
 		
@@ -2787,10 +2644,11 @@
 		
 		
 		
-			<a href="/product/ryana-bandeau-brass/" alt="brass variant">
+			<a href="/product/ryana-bandeau-brass/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
 				</span>
+				<span class="sr-only">the bare ryana, brass variant</span>
 			</a>
 			
 		
@@ -2916,10 +2774,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-hat-galaxy">
-	<label for="love-button-the-sykstem-hat-galaxy">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-hat-galaxy">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -2932,7 +2791,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
+											<img class="lazyload" data-src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
 										</figure>
 										
 										
@@ -2951,7 +2810,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$15</h4>
-	<span class="product-page-color">galaxy</span>
+	<span class="product-page-color"><strong>galaxy</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-hat-galaxy/">
@@ -3005,10 +2864,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hat-galaxy/" alt="galaxy variant">
+			<a href="/product/the-sykstem-hat-galaxy/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
 				</span>
+				<span class="sr-only">the classic sykstem, galaxy variant</span>
 			</a>
 			
 		
@@ -3016,10 +2876,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hat-white/" alt="white variant">
+			<a href="/product/the-sykstem-hat-white/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
+				<span class="sr-only">the classic sykstem, white variant</span>
 			</a>
 			
 		
@@ -3137,10 +2998,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-hat-white">
-	<label for="love-button-the-sykstem-hat-white">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-hat-white">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -3153,7 +3015,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
+											<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="our v1 company hat">
 										</figure>
 										
 										
@@ -3183,7 +3045,7 @@
 		</div>
 		<h4 class="price m-0">$10</h4>
 	</div>
-	<span class="product-page-color">white</span>
+	<span class="product-page-color"><strong>white</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-hat-white/">
@@ -3237,10 +3099,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hat-galaxy/" alt="galaxy variant">
+			<a href="/product/the-sykstem-hat-galaxy/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
 				</span>
+				<span class="sr-only">the classic sykstem, galaxy variant</span>
 			</a>
 			
 		
@@ -3248,10 +3111,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hat-white/" alt="white variant">
+			<a href="/product/the-sykstem-hat-white/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
+				<span class="sr-only">the classic sykstem, white variant</span>
 			</a>
 			
 		
@@ -3369,10 +3233,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-jacket-black">
-	<label for="love-button-the-sykstem-jacket-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-jacket-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -3385,7 +3250,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The cool denim. It&#39;s for making you cool...with your hemp denim.">
+											<img class="lazyload" data-src="/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-jacket-black/1-the-sykstem-jacket-black_hu98395af25cd17d05a1fd3639a83ec66d_6816516_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The cool denim. It&#39;s for making you cool...with your hemp denim.">
 										</figure>
 										
 										
@@ -3404,7 +3269,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$50</h4>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-jacket-black/">
@@ -3466,10 +3331,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-jacket-black/" alt="black variant">
+			<a href="/product/the-sykstem-jacket-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the denim sykstem, black variant</span>
 			</a>
 			
 		
@@ -3477,10 +3343,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-jacket-periwinkle/" alt="periwinkle variant">
+			<a href="/product/the-sykstem-jacket-periwinkle/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-periwinkle fa-2x"></span>
 				</span>
+				<span class="sr-only">the denim sykstem, periwinkle variant</span>
 			</a>
 			
 		
@@ -3590,10 +3457,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-jacket-periwinkle">
-	<label for="love-button-the-sykstem-jacket-periwinkle">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-jacket-periwinkle">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -3606,7 +3474,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-jacket-periwinkle/1-the-sykstem-jacket-blue_hue7c07c8759818de4b4ffcf049587b1e7_2783926_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-jacket-periwinkle/1-the-sykstem-jacket-blue_hue7c07c8759818de4b4ffcf049587b1e7_2783926_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The cool denim. It&#39;s for making you cool...with your hemp denim.">
+											<img class="lazyload" data-src="/product/the-sykstem-jacket-periwinkle/1-the-sykstem-jacket-blue_hue7c07c8759818de4b4ffcf049587b1e7_2783926_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-jacket-periwinkle/1-the-sykstem-jacket-blue_hue7c07c8759818de4b4ffcf049587b1e7_2783926_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="The cool denim. It&#39;s for making you cool...with your hemp denim.">
 										</figure>
 										
 										
@@ -3625,7 +3493,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$50</h4>
-	<span class="product-page-color">periwinkle</span>
+	<span class="product-page-color"><strong>periwinkle</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-jacket-periwinkle/">
@@ -3687,10 +3555,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-jacket-black/" alt="black variant">
+			<a href="/product/the-sykstem-jacket-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the denim sykstem, black variant</span>
 			</a>
 			
 		
@@ -3698,10 +3567,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-jacket-periwinkle/" alt="periwinkle variant">
+			<a href="/product/the-sykstem-jacket-periwinkle/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-periwinkle fa-2x"></span>
 				</span>
+				<span class="sr-only">the denim sykstem, periwinkle variant</span>
 			</a>
 			
 		
@@ -3811,10 +3681,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-floral-lace-crop-top-black">
-	<label for="love-button-ryana-floral-lace-crop-top-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-floral-lace-crop-top-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -3827,7 +3698,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-floral-lace-crop-top-black/1-ryana-floral-lace-crop-top-black_hu053fedb7aeea3c8cb8e304d47d9b3362_2299812_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-floral-lace-crop-top-black/1-ryana-floral-lace-crop-top-black_hu053fedb7aeea3c8cb8e304d47d9b3362_2299812_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This garment is unbelievably soft and luxurious. Wear it just how you want.">
+											<img class="lazyload" data-src="/product/ryana-floral-lace-crop-top-black/1-ryana-floral-lace-crop-top-black_hu053fedb7aeea3c8cb8e304d47d9b3362_2299812_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-floral-lace-crop-top-black/1-ryana-floral-lace-crop-top-black_hu053fedb7aeea3c8cb8e304d47d9b3362_2299812_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This garment is unbelievably soft and luxurious. Wear it just how you want.">
 										</figure>
 										
 										
@@ -3846,7 +3717,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$38</h4>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/ryana-floral-lace-crop-top-black/">
@@ -3916,10 +3787,11 @@
 		
 		
 		
-			<a href="/product/ryana-floral-lace-crop-top-black/" alt="black variant">
+			<a href="/product/ryana-floral-lace-crop-top-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-ban icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the floral ryana, black variant</span>
 			</a>
 			
 		
@@ -3927,10 +3799,11 @@
 		
 		
 		
-			<a href="/product/ryana-floral-lace-crop-top-brass/" alt="brass variant">
+			<a href="/product/ryana-floral-lace-crop-top-brass/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
 				</span>
+				<span class="sr-only">the floral ryana, brass variant</span>
 			</a>
 			
 		
@@ -4032,10 +3905,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-floral-lace-crop-top-brass">
-	<label for="love-button-ryana-floral-lace-crop-top-brass">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-floral-lace-crop-top-brass">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -4048,7 +3922,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-floral-lace-crop-top-brass/1-ryana-floral-lace-crop-top-brass_hud3dca31c2305aa104add915567a488a4_5415253_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-floral-lace-crop-top-brass/1-ryana-floral-lace-crop-top-brass_hud3dca31c2305aa104add915567a488a4_5415253_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This garment is unbelievably soft and luxurious. Wear it just how you want.">
+											<img class="lazyload" data-src="/product/ryana-floral-lace-crop-top-brass/1-ryana-floral-lace-crop-top-brass_hud3dca31c2305aa104add915567a488a4_5415253_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-floral-lace-crop-top-brass/1-ryana-floral-lace-crop-top-brass_hud3dca31c2305aa104add915567a488a4_5415253_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="This garment is unbelievably soft and luxurious. Wear it just how you want.">
 										</figure>
 										
 										
@@ -4067,7 +3941,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$38</h4>
-	<span class="product-page-color">brass</span>
+	<span class="product-page-color"><strong>brass</strong></span>
 </div>
 
 									<a href="/product/ryana-floral-lace-crop-top-brass/">
@@ -4137,10 +4011,11 @@
 		
 		
 		
-			<a href="/product/ryana-floral-lace-crop-top-black/" alt="black variant">
+			<a href="/product/ryana-floral-lace-crop-top-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-ban icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the floral ryana, black variant</span>
 			</a>
 			
 		
@@ -4148,10 +4023,11 @@
 		
 		
 		
-			<a href="/product/ryana-floral-lace-crop-top-brass/" alt="brass variant">
+			<a href="/product/ryana-floral-lace-crop-top-brass/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
 				</span>
+				<span class="sr-only">the floral ryana, brass variant</span>
 			</a>
 			
 		
@@ -4253,10 +4129,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-plaid-shirt-black">
-	<label for="love-button-shipital-plaid-shirt-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-plaid-shirt-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -4269,7 +4146,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Our plaid is a modern take on the classic style.">
+											<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Our plaid is a modern take on the classic style.">
 										</figure>
 										
 										
@@ -4299,7 +4176,7 @@
 		</div>
 		<h4 class="price m-0">$25</h4>
 	</div>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/shipital-plaid-shirt-black/">
@@ -4377,10 +4254,11 @@
 		
 		
 		
-			<a href="/product/shipital-plaid-shirt-black/" alt="black variant">
+			<a href="/product/shipital-plaid-shirt-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the plaid shipital, black variant</span>
 			</a>
 			
 		
@@ -4478,10 +4356,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-jacket-white">
-	<label for="love-button-ryana-jacket-white">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-jacket-white">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -4494,7 +4373,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-jacket-white/1-ryana-jacket-white_hu1c972ff2453d7ad4af07d54c2d7f14e5_14224509_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-jacket-white/1-ryana-jacket-white_hu1c972ff2453d7ad4af07d54c2d7f14e5_14224509_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="It&#39;s a pretty rad jacket, right?">
+											<img class="lazyload" data-src="/product/ryana-jacket-white/1-ryana-jacket-white_hu1c972ff2453d7ad4af07d54c2d7f14e5_14224509_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-jacket-white/1-ryana-jacket-white_hu1c972ff2453d7ad4af07d54c2d7f14e5_14224509_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="It&#39;s a pretty rad jacket, right?">
 										</figure>
 										
 										
@@ -4524,7 +4403,7 @@
 		</div>
 		<h4 class="price m-0">$30</h4>
 	</div>
-	<span class="product-page-color">white</span>
+	<span class="product-page-color"><strong>white</strong></span>
 </div>
 
 									<a href="/product/ryana-jacket-white/">
@@ -4606,10 +4485,11 @@
 		
 		
 		
-			<a href="/product/ryana-jacket-white/" alt="white variant">
+			<a href="/product/ryana-jacket-white/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
+				<span class="sr-only">the rad ryana, white variant</span>
 			</a>
 			
 		
@@ -4703,10 +4583,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-long-sleeve-top-grey">
-	<label for="love-button-ryana-long-sleeve-top-grey">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-long-sleeve-top-grey">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -4719,7 +4600,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-long-sleeve-top-grey/1-ryana-long-sleeve-top-grey_hua5287e63bfe7a941f6e002140100451e_3221954_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-long-sleeve-top-grey/1-ryana-long-sleeve-top-grey_hua5287e63bfe7a941f6e002140100451e_3221954_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A snug garment, just waiting for the warmth of your body.">
+											<img class="lazyload" data-src="/product/ryana-long-sleeve-top-grey/1-ryana-long-sleeve-top-grey_hua5287e63bfe7a941f6e002140100451e_3221954_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-long-sleeve-top-grey/1-ryana-long-sleeve-top-grey_hua5287e63bfe7a941f6e002140100451e_3221954_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A snug garment, just waiting for the warmth of your body.">
 										</figure>
 										
 										
@@ -4738,7 +4619,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$32</h4>
-	<span class="product-page-color">grey</span>
+	<span class="product-page-color"><strong>grey</strong></span>
 </div>
 
 									<a href="/product/ryana-long-sleeve-top-grey/">
@@ -4824,10 +4705,11 @@
 		
 		
 		
-			<a href="/product/ryana-long-sleeve-top-grey/" alt="grey variant">
+			<a href="/product/ryana-long-sleeve-top-grey/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-grey fa-2x"></span>
 				</span>
+				<span class="sr-only">the relaxing ryana, grey variant</span>
 			</a>
 			
 		
@@ -4835,10 +4717,11 @@
 		
 		
 		
-			<a href="/product/ryana-long-sleeve-top-rose/" alt="rose variant">
+			<a href="/product/ryana-long-sleeve-top-rose/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-rose fa-2x"></span>
 				</span>
+				<span class="sr-only">the relaxing ryana, rose variant</span>
 			</a>
 			
 		
@@ -4924,10 +4807,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-long-sleeve-top-rose">
-	<label for="love-button-ryana-long-sleeve-top-rose">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-long-sleeve-top-rose">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -4940,7 +4824,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18528287_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18528287_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A snug garment, just waiting for the warmth of your body.">
+											<img class="lazyload" data-src="/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18528287_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-long-sleeve-top-rose/1-ryana-long-sleeve-top-rose_hu05042744aaabe1215946e148bf81c8e7_18528287_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A snug garment, just waiting for the warmth of your body.">
 										</figure>
 										
 										
@@ -4970,7 +4854,7 @@
 		</div>
 		<h4 class="price m-0">$28</h4>
 	</div>
-	<span class="product-page-color">rose</span>
+	<span class="product-page-color"><strong>rose</strong></span>
 </div>
 
 									<a href="/product/ryana-long-sleeve-top-rose/">
@@ -5056,10 +4940,11 @@
 		
 		
 		
-			<a href="/product/ryana-long-sleeve-top-grey/" alt="grey variant">
+			<a href="/product/ryana-long-sleeve-top-grey/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-grey fa-2x"></span>
 				</span>
+				<span class="sr-only">the relaxing ryana, grey variant</span>
 			</a>
 			
 		
@@ -5067,10 +4952,11 @@
 		
 		
 		
-			<a href="/product/ryana-long-sleeve-top-rose/" alt="rose variant">
+			<a href="/product/ryana-long-sleeve-top-rose/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-rose fa-2x"></span>
 				</span>
+				<span class="sr-only">the relaxing ryana, rose variant</span>
 			</a>
 			
 		
@@ -5156,10 +5042,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-cropped-top-gold">
-	<label for="love-button-the-sykstem-cropped-top-gold">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-cropped-top-gold">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -5172,7 +5059,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-cropped-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2762878_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2762878_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2762878_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-top-gold/1-the-sykstem-top-gold_hu6bd40577e792c28f0339cc77b948f97a_2762878_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
 										</figure>
 										
 										
@@ -5191,7 +5078,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$40</h4>
-	<span class="product-page-color">gold</span>
+	<span class="product-page-color"><strong>gold</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-cropped-top-gold/">
@@ -5285,10 +5172,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-top-gold/" alt="gold variant">
+			<a href="/product/the-sykstem-cropped-top-gold/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-gold fa-2x"></span>
 				</span>
+				<span class="sr-only">the solar sykstem, gold variant</span>
 			</a>
 			
 		
@@ -5296,10 +5184,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-top-silver/" alt="silver variant">
+			<a href="/product/the-sykstem-cropped-top-silver/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-silver fa-2x"></span>
 				</span>
+				<span class="sr-only">the solar sykstem, silver variant</span>
 			</a>
 			
 		
@@ -5377,10 +5266,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-cropped-top-silver">
-	<label for="love-button-the-sykstem-cropped-top-silver">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-cropped-top-silver">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -5393,7 +5283,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-cropped-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4510472_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4510472_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4510472_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-top-silver/1-the-sykstem-top-silver_hu32c9644f7b4ec81c10d9d72f0296202f_4510472_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="An out of this world, space-y kind of vibe.">
 										</figure>
 										
 										
@@ -5412,7 +5302,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$40</h4>
-	<span class="product-page-color">silver</span>
+	<span class="product-page-color"><strong>silver</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-cropped-top-silver/">
@@ -5506,10 +5396,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-top-gold/" alt="gold variant">
+			<a href="/product/the-sykstem-cropped-top-gold/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-gold fa-2x"></span>
 				</span>
+				<span class="sr-only">the solar sykstem, gold variant</span>
 			</a>
 			
 		
@@ -5517,10 +5408,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-top-silver/" alt="silver variant">
+			<a href="/product/the-sykstem-cropped-top-silver/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-silver fa-2x"></span>
 				</span>
+				<span class="sr-only">the solar sykstem, silver variant</span>
 			</a>
 			
 		
@@ -5598,10 +5490,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-topcoat-black">
-	<label for="love-button-shipital-topcoat-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-topcoat-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -5614,7 +5507,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-topcoat-black/1-shipital-topcoat-black_hucd88b64e2404e471bf12c9e7f4487461_2796002_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-topcoat-black/1-shipital-topcoat-black_hucd88b64e2404e471bf12c9e7f4487461_2796002_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A trailblazing, yet contemporary look for the modern self.">
+											<img class="lazyload" data-src="/product/shipital-topcoat-black/1-shipital-topcoat-black_hucd88b64e2404e471bf12c9e7f4487461_2796002_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-topcoat-black/1-shipital-topcoat-black_hucd88b64e2404e471bf12c9e7f4487461_2796002_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A trailblazing, yet contemporary look for the modern self.">
 										</figure>
 										
 										
@@ -5644,7 +5537,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/shipital-topcoat-black/">
@@ -5746,10 +5639,11 @@
 		
 		
 		
-			<a href="/product/shipital-topcoat-black/" alt="black variant">
+			<a href="/product/shipital-topcoat-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the sophisticated shipital, black variant</span>
 			</a>
 			
 		
@@ -5757,10 +5651,11 @@
 		
 		
 		
-			<a href="/product/shipital-topcoat-camel/" alt="camel variant">
+			<a href="/product/shipital-topcoat-camel/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-ban icon-camel fa-2x"></span>
 				</span>
+				<span class="sr-only">the sophisticated shipital, camel variant</span>
 			</a>
 			
 		
@@ -5830,10 +5725,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-topcoat-camel">
-	<label for="love-button-shipital-topcoat-camel">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-topcoat-camel">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -5846,7 +5742,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-topcoat-camel/1-shipital-topcoat-camel_hude95517dda68ae558e24784cca886e6d_3552368_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-topcoat-camel/1-shipital-topcoat-camel_hude95517dda68ae558e24784cca886e6d_3552368_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A trailblazing, yet contemporary look for the modern self.">
+											<img class="lazyload" data-src="/product/shipital-topcoat-camel/1-shipital-topcoat-camel_hude95517dda68ae558e24784cca886e6d_3552368_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-topcoat-camel/1-shipital-topcoat-camel_hude95517dda68ae558e24784cca886e6d_3552368_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A trailblazing, yet contemporary look for the modern self.">
 										</figure>
 										
 										
@@ -5876,7 +5772,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">camel</span>
+	<span class="product-page-color"><strong>camel</strong></span>
 </div>
 
 									<a href="/product/shipital-topcoat-camel/">
@@ -5978,10 +5874,11 @@
 		
 		
 		
-			<a href="/product/shipital-topcoat-black/" alt="black variant">
+			<a href="/product/shipital-topcoat-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the sophisticated shipital, black variant</span>
 			</a>
 			
 		
@@ -5989,10 +5886,11 @@
 		
 		
 		
-			<a href="/product/shipital-topcoat-camel/" alt="camel variant">
+			<a href="/product/shipital-topcoat-camel/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-ban icon-camel fa-2x"></span>
 				</span>
+				<span class="sr-only">the sophisticated shipital, camel variant</span>
 			</a>
 			
 		
@@ -6062,10 +5960,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-blazer-black">
-	<label for="love-button-shipital-blazer-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-blazer-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -6078,7 +5977,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
+											<img class="lazyload" data-src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
 										</figure>
 										
 										
@@ -6097,7 +5996,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$80</h4>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/shipital-blazer-black/">
@@ -6207,10 +6106,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-black/" alt="black variant">
+			<a href="/product/shipital-blazer-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, black variant</span>
 			</a>
 			
 		
@@ -6218,10 +6118,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-red/" alt="brick variant">
+			<a href="/product/shipital-blazer-red/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, brick variant</span>
 			</a>
 			
 		
@@ -6229,10 +6130,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-wine/" alt="wine variant">
+			<a href="/product/shipital-blazer-wine/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, wine variant</span>
 			</a>
 			
 		
@@ -6290,10 +6192,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-blazer-red">
-	<label for="love-button-shipital-blazer-red">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-blazer-red">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -6306,7 +6209,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
+											<img class="lazyload" data-src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
 										</figure>
 										
 										
@@ -6325,7 +6228,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$80</h4>
-	<span class="product-page-color">brick</span>
+	<span class="product-page-color"><strong>brick</strong></span>
 </div>
 
 									<a href="/product/shipital-blazer-red/">
@@ -6435,10 +6338,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-black/" alt="black variant">
+			<a href="/product/shipital-blazer-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, black variant</span>
 			</a>
 			
 		
@@ -6446,10 +6350,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-red/" alt="brick variant">
+			<a href="/product/shipital-blazer-red/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, brick variant</span>
 			</a>
 			
 		
@@ -6457,10 +6362,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-wine/" alt="wine variant">
+			<a href="/product/shipital-blazer-wine/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, wine variant</span>
 			</a>
 			
 		
@@ -6518,10 +6424,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-blazer-wine">
-	<label for="love-button-shipital-blazer-wine">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-blazer-wine">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -6534,7 +6441,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-blazer-wine/1-shipital-blazer-wine_hu8871916346ef57ff8df0d77b685119d7_3286719_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-wine/1-shipital-blazer-wine_hu8871916346ef57ff8df0d77b685119d7_3286719_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
+											<img class="lazyload" data-src="/product/shipital-blazer-wine/1-shipital-blazer-wine_hu8871916346ef57ff8df0d77b685119d7_3286719_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-blazer-wine/1-shipital-blazer-wine_hu8871916346ef57ff8df0d77b685119d7_3286719_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A stunning blazer with just the right touch.">
 										</figure>
 										
 										
@@ -6553,7 +6460,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$80</h4>
-	<span class="product-page-color">wine</span>
+	<span class="product-page-color"><strong>wine</strong></span>
 </div>
 
 									<a href="/product/shipital-blazer-wine/">
@@ -6663,10 +6570,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-black/" alt="black variant">
+			<a href="/product/shipital-blazer-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, black variant</span>
 			</a>
 			
 		
@@ -6674,10 +6582,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-red/" alt="brick variant">
+			<a href="/product/shipital-blazer-red/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, brick variant</span>
 			</a>
 			
 		
@@ -6685,10 +6594,11 @@
 		
 		
 		
-			<a href="/product/shipital-blazer-wine/" alt="wine variant">
+			<a href="/product/shipital-blazer-wine/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
 				</span>
+				<span class="sr-only">the spotlight shipital, wine variant</span>
 			</a>
 			
 		
@@ -6746,10 +6656,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-cropped-strapped-top-brass">
-	<label for="love-button-the-sykstem-cropped-strapped-top-brass">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-cropped-strapped-top-brass">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -6762,7 +6673,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12740322_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12740322_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12740322_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-brass/1-the-sykstem-cropped-strapped-top-brass_hu31392c3aec97d146dd5d4c2b07e0cc11_12740322_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
 										</figure>
 										
 										
@@ -6781,7 +6692,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$30</h4>
-	<span class="product-page-color">brass</span>
+	<span class="product-page-color"><strong>brass</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-cropped-strapped-top-brass/">
@@ -6903,10 +6814,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-strapped-top-brass/" alt="brass variant">
+			<a href="/product/the-sykstem-cropped-strapped-top-brass/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
 				</span>
+				<span class="sr-only">the square sykstem, brass variant</span>
 			</a>
 			
 		
@@ -6914,10 +6826,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-strapped-top-grey/" alt="grey variant">
+			<a href="/product/the-sykstem-cropped-strapped-top-grey/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-grey fa-2x"></span>
 				</span>
+				<span class="sr-only">the square sykstem, grey variant</span>
 			</a>
 			
 		
@@ -6967,10 +6880,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-cropped-strapped-top-grey">
-	<label for="love-button-the-sykstem-cropped-strapped-top-grey">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-cropped-strapped-top-grey">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -6983,7 +6897,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17616785_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17616785_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
+											<img class="lazyload" data-src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17616785_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-cropped-strapped-top-grey/1-the-sykstem-cropped-strapped-top-grey_hue4f90d7b0776e07c3e067e20bb919780_17616785_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="A casual touch to our favorite top style.">
 										</figure>
 										
 										
@@ -7002,7 +6916,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$30</h4>
-	<span class="product-page-color">grey</span>
+	<span class="product-page-color"><strong>grey</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-cropped-strapped-top-grey/">
@@ -7124,10 +7038,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-strapped-top-brass/" alt="brass variant">
+			<a href="/product/the-sykstem-cropped-strapped-top-brass/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
 				</span>
+				<span class="sr-only">the square sykstem, brass variant</span>
 			</a>
 			
 		
@@ -7135,10 +7050,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-cropped-strapped-top-grey/" alt="grey variant">
+			<a href="/product/the-sykstem-cropped-strapped-top-grey/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-grey fa-2x"></span>
 				</span>
+				<span class="sr-only">the square sykstem, grey variant</span>
 			</a>
 			
 		
@@ -7188,10 +7104,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-ryana-pencil-dress-brick">
-	<label for="love-button-ryana-pencil-dress-brick">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-ryana-pencil-dress-brick">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -7204,7 +7121,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/ryana-pencil-dress-brick/1-ryana-pencil-dress-brick_hu928778e3802035fe478a25d71668ae41_3163892_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-pencil-dress-brick/1-ryana-pencil-dress-brick_hu928778e3802035fe478a25d71668ae41_3163892_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Wear this to a formal event, or anywhere you can think of. The possibilities are endless with this dress.">
+											<img class="lazyload" data-src="/product/ryana-pencil-dress-brick/1-ryana-pencil-dress-brick_hu928778e3802035fe478a25d71668ae41_3163892_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/ryana-pencil-dress-brick/1-ryana-pencil-dress-brick_hu928778e3802035fe478a25d71668ae41_3163892_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Wear this to a formal event, or anywhere you can think of. The possibilities are endless with this dress.">
 										</figure>
 										
 										
@@ -7234,7 +7151,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">brick</span>
+	<span class="product-page-color"><strong>brick</strong></span>
 </div>
 
 									<a href="/product/ryana-pencil-dress-brick/">
@@ -7364,10 +7281,11 @@
 		
 		
 		
-			<a href="/product/ryana-pencil-dress-brick/" alt="brick variant">
+			<a href="/product/ryana-pencil-dress-brick/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
 				</span>
+				<span class="sr-only">the squared ryana, brick variant</span>
 			</a>
 			
 		
@@ -7413,10 +7331,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-shipital-bomber-jacket-cocoa">
-	<label for="love-button-shipital-bomber-jacket-cocoa">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-shipital-bomber-jacket-cocoa">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -7429,7 +7348,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/shipital-bomber-jacket-cocoa/1-shipital-bomber-jacket-cocoa_hufa8effd05281ed08b8a3dd52b608f1a1_3186934_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-bomber-jacket-cocoa/1-shipital-bomber-jacket-cocoa_hufa8effd05281ed08b8a3dd52b608f1a1_3186934_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
+											<img class="lazyload" data-src="/product/shipital-bomber-jacket-cocoa/1-shipital-bomber-jacket-cocoa_hufa8effd05281ed08b8a3dd52b608f1a1_3186934_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/shipital-bomber-jacket-cocoa/1-shipital-bomber-jacket-cocoa_hufa8effd05281ed08b8a3dd52b608f1a1_3186934_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
 										</figure>
 										
 										
@@ -7459,7 +7378,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">cocoa</span>
+	<span class="product-page-color"><strong>cocoa</strong></span>
 </div>
 
 									<a href="/product/shipital-bomber-jacket-cocoa/">
@@ -7493,10 +7412,11 @@
 		
 		
 		
-			<a href="/product/shipital-bomber-jacket-black/" alt="black variant">
+			<a href="/product/shipital-bomber-jacket-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the stylish shipital, black variant</span>
 			</a>
 			
 		
@@ -7600,10 +7520,11 @@
 		
 		
 		
-			<a href="/product/shipital-bomber-jacket-cocoa/" alt="cocoa variant">
+			<a href="/product/shipital-bomber-jacket-cocoa/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
 				</span>
+				<span class="sr-only">the stylish shipital, cocoa variant</span>
 			</a>
 			
 		
@@ -7645,10 +7566,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-shirt-galaxy">
-	<label for="love-button-the-sykstem-shirt-galaxy">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-shirt-galaxy">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -7661,7 +7583,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_21104514_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_21104514_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem shirt with &#39;the system&#39; written on the bottom">
+											<img class="lazyload" data-src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_21104514_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-shirt-galaxy/1-the-sykstem-shirt-galaxy_huc50d2297f308d6077997472712e7518a_21104514_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem shirt with &#39;the system&#39; written on the bottom">
 										</figure>
 										
 										
@@ -7680,7 +7602,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$25</h4>
-	<span class="product-page-color">galaxy</span>
+	<span class="product-page-color"><strong>galaxy</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-shirt-galaxy/">
@@ -7818,10 +7740,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-shirt-galaxy/" alt="galaxy variant">
+			<a href="/product/the-sykstem-shirt-galaxy/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
 				</span>
+				<span class="sr-only">the sykstem, galaxy variant</span>
 			</a>
 			
 		
@@ -7829,10 +7752,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-shirt-white/" alt="white variant">
+			<a href="/product/the-sykstem-shirt-white/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
+				<span class="sr-only">the sykstem, white variant</span>
 			</a>
 			
 		
@@ -7866,10 +7790,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-shirt-white">
-	<label for="love-button-the-sykstem-shirt-white">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-shirt-white">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -7882,7 +7807,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem shirt with &#34;the system&#34; written on the bottom">
+											<img class="lazyload" data-src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-shirt-white/1-the-sykstem-shirt-white_hu038ffcf6836ea9e13515319d1ff5478d_13706719_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem shirt with &#34;the system&#34; written on the bottom">
 										</figure>
 										
 										
@@ -7912,7 +7837,7 @@
 		</div>
 		<h4 class="price m-0">$20</h4>
 	</div>
-	<span class="product-page-color">white</span>
+	<span class="product-page-color"><strong>white</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-shirt-white/">
@@ -8050,10 +7975,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-shirt-galaxy/" alt="galaxy variant">
+			<a href="/product/the-sykstem-shirt-galaxy/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
 				</span>
+				<span class="sr-only">the sykstem, galaxy variant</span>
 			</a>
 			
 		
@@ -8061,10 +7987,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-shirt-white/" alt="white variant">
+			<a href="/product/the-sykstem-shirt-white/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-white fa-2x"></span>
 				</span>
+				<span class="sr-only">the sykstem, white variant</span>
 			</a>
 			
 		
@@ -8098,10 +8025,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-hoodie-black">
-	<label for="love-button-the-sykstem-hoodie-black">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-hoodie-black">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -8114,7 +8042,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4774282_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4774282_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem hoodie with our logo turned on its side">
+											<img class="lazyload" data-src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4774282_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hoodie-black/1-the-sykstem-hoodie-black_hu9f4751bf0b91a4f00f2810e6d08530a9_4774282_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem hoodie with our logo turned on its side">
 										</figure>
 										
 										
@@ -8133,7 +8061,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$35</h4>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-hoodie-black/">
@@ -8279,10 +8207,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hoodie-black/" alt="black variant">
+			<a href="/product/the-sykstem-hoodie-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the warming sykstem, black variant</span>
 			</a>
 			
 		
@@ -8290,10 +8219,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hoodie-starlight/" alt="starlight variant">
+			<a href="/product/the-sykstem-hoodie-starlight/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-starlight fa-2x"></span>
 				</span>
+				<span class="sr-only">the warming sykstem, starlight variant</span>
 			</a>
 			
 		
@@ -8319,10 +8249,11 @@
 									<div class="is-flex is-justify-content-flex-end">
 										<div class="love-container">
 	<input type="checkbox" name="love" id="love-button-the-sykstem-hoodie-starlight">
-	<label for="love-button-the-sykstem-hoodie-starlight">
-		<a class="p-4 button love-button icon">
+	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-the-sykstem-hoodie-starlight">
+		<span class="sr-only">save item to love list</span>
+		<div class="p-4 button love-button icon">
 			<span class="fa-solid fa-heart"></span>
-		</a>
+		</div>
 	</label>
 </div>
 									</div>
@@ -8335,7 +8266,7 @@
 										
 										
 										<figure class="image">
-											<img class="lazyload" data-src="/product/the-sykstem-hoodie-starlight/1-the-sykstem-hoodie-starlight_hudd7da7c190f826b983416da116648f9b_13734341_500x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hoodie-starlight/1-the-sykstem-hoodie-starlight_hudd7da7c190f826b983416da116648f9b_13734341_500x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem hoodie with our logo turned on its side. In &#39;starlight&#39;">
+											<img class="lazyload" data-src="/product/the-sykstem-hoodie-starlight/1-the-sykstem-hoodie-starlight_hudd7da7c190f826b983416da116648f9b_13734341_450x0_resize_q65_bgf5f5f5_box_3.jpg" src="/product/the-sykstem-hoodie-starlight/1-the-sykstem-hoodie-starlight_hudd7da7c190f826b983416da116648f9b_13734341_450x0_resize_q65_bgf5f5f5_box_3.jpg" alt="the classic the-sykstem hoodie with our logo turned on its side. In &#39;starlight&#39;">
 										</figure>
 										
 										
@@ -8354,7 +8285,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$35</h4>
-	<span class="product-page-color">starlight</span>
+	<span class="product-page-color"><strong>starlight</strong></span>
 </div>
 
 									<a href="/product/the-sykstem-hoodie-starlight/">
@@ -8500,10 +8431,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hoodie-black/" alt="black variant">
+			<a href="/product/the-sykstem-hoodie-black/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-black fa-2x"></span>
 				</span>
+				<span class="sr-only">the warming sykstem, black variant</span>
 			</a>
 			
 		
@@ -8511,10 +8443,11 @@
 		
 		
 		
-			<a href="/product/the-sykstem-hoodie-starlight/" alt="starlight variant">
+			<a href="/product/the-sykstem-hoodie-starlight/">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-starlight fa-2x"></span>
 				</span>
+				<span class="sr-only">the warming sykstem, starlight variant</span>
 			</a>
 			
 		

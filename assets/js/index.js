@@ -58,6 +58,8 @@ const sizeButtons = document.querySelectorAll('.size-button');
 const filterButton = document.querySelector('.filter-button');
 const exitFilter = document.querySelector('.exit-filters');
 const filterContents = document.getElementById('filter-products');
+const gridProductContainers = document.querySelectorAll(".grid-product-container");
+const loveButtonLabels = document.querySelectorAll(".love-button-label");
 
 sizeButtons.forEach((i) => {
 	i.addEventListener('keyup', (e) => {
@@ -120,6 +122,18 @@ exitSearch.addEventListener('keyup', (e) => {
 	}
 }, false);
 
+if (gridProductContainers) {
+	loveButtonLabels.forEach((i) => {
+		i.addEventListener('keyup', (e) => {
+			if (e.repeat) { return }
+			if (e.key === 'Enter') {
+				i.previousElementSibling.click();
+				e.preventDefault();
+				return false;
+			}
+		}, false);
+	})
+}
 
 
 
@@ -174,6 +188,7 @@ if (sortDropdown) {
 	filterButton.addEventListener('keyup', (e) => {
 		if (e.repeat) { return }
 		if (e.key === 'Enter') {
+			exitFilter.classList.remove("is-hidden");
 			filterContents.classList.remove("is-hidden");
 			filterContents.style.display = "unset";
 			e.preventDefault();
@@ -184,7 +199,7 @@ if (sortDropdown) {
 	exitFilter.addEventListener('keyup', (e) => {
 		if (e.repeat) { return }
 		if (e.key === 'Enter') {
-			filterContents.style.display = "none !important";
+			exitFilter.classList.add("is-hidden");
 			filterContents.removeAttribute("style");
 			e.preventDefault();
 			return false;

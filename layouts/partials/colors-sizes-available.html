@@ -18,16 +18,18 @@
 			{{- $fix_stock_status := int (index (chomp (replace $stock_status "\t" "" )) 0 ) -}}
 
 			{{ if eq ($fix_stock_status) 10 }}
-			<a href="{{ .Permalink }}" alt="{{ $color }} variant">
+			<a href="{{ .Permalink }}">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-ban icon-{{ $color }} fa-2x"></span>
 				</span>
+				<span class="sr-only">{{ $title }}, {{ $color }} variant</span>
 			</a>
 			{{ else }}
-			<a href="{{ .Permalink }}" alt="{{ $color }} variant">
+			<a href="{{ .Permalink }}">
 				<span class="icon is-medium">
 					<span class="fa-solid fa-circle icon-{{ $color }} fa-2x"></span>
 				</span>
+				<span class="sr-only">{{ $title }}, {{ $color }} variant</span>
 			</a>
 			{{ end }}
 		{{ end }}

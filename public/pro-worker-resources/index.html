@@ -5,6 +5,9 @@
   <head>
 	<title>the sykstem</title>
 	<meta charset="UTF-8" />
+	<meta name="description" content="the sykstem clothing boutique">
+	<meta name="keywords" content="online shopping, brick-and-mortar, clothing boutique">
+	<meta name="author" content="the sykstem">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
@@ -20,13 +23,12 @@
 	
 	
 
-	<link href="/css/snipcart.css" rel="stylesheet">
+	<link href="/sass/snipcart.min.css" rel="stylesheet">
 
 
 	<link href="/fontawesome/free/css/fontawesome.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/brands.min.css" rel="stylesheet">
 	<link href="/fontawesome/free/css/solid.min.css" rel="stylesheet">
-	
 	
 	
 	<link rel="stylesheet" href="/sass/main.min.css">
@@ -57,7 +59,7 @@
 	<noscript>
 		<section class="section is-small py-0">
 			<div class="noscript-container container is-fluid translucent-dark-back py-2">
-				<div class="is-flex is-justify-content-center is-align-items-center">
+				<div class="is-flex p-5 is-justify-content-center is-align-items-center">
 					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
 				</div>
 			</div>
@@ -71,19 +73,26 @@
 		<div class="container is-fluid">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
-					<a class="is-flex" href="/">
-						<img class="logo" src="/image/logo.svg" alt="">
+					<a class="logo-image is-flex" href="/">
+						<img class="logo" src="/image/logo.svg" alt="our company logo, the sykstem">
 					</a>
 				</div>
 				<div class="menu-switch-pos">
 					<nav class="menu is-flex is-align-items-center">
-						<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+						<button id="nav-burger" class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
-
+							<div id="exit-main-nav" class="is-hidden">
+								<button class="button no-style-button">
+									<span class="sr-only">exit main menu</span>
+									<span class="icon m-0">
+										<span class="fa-solid fa-xmark"></span>
+									</span>
+								</button>
+							</div>
 							<div class="navbar-start">
 
 								
@@ -135,8 +144,8 @@
 										<nav class="search-drawer">
 	<div class="is-collapsible-search">
 		<input type="checkbox" name="site-search" id="site-search">
-		<label class="search-label p-3" for="site-search">
-
+		<label aria-label="open search" tabindex="0" class="search-label p-3" for="site-search">
+			<span class="sr-only">search products</span>
 			<span class="icon">
 				<span class="fa-solid fa-search"></span>
 			</span>
@@ -149,15 +158,17 @@
 					<div class="column p-0 is-flex is-flex-direction-column">
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
 							<p class="control">
-								<input checked type="checkbox" name="site-search" id="site-search">
-								<label id="exit-search" class="button is-medium" for="site-search">
-									<span class="icon is-medium is-left">
+								<input hidden checked type="checkbox" name="exit-search">
+								<label aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
+									<span class="icon is-medium is-left mr-0">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
+									<span class="sr-only">exit search</span>
 								</label>
 							</p>
 							<p id="fastSearch" class="control is-expanded">
 								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
+								<label class="sr-only" for="search-input">search input</label>
 							<ul id="searchResults">
 							</ul>
 							</p>
@@ -208,7 +219,7 @@
 
 <div class="price-group tags is-justify-content-space-between">
 	<h4 class="price m-0">$45</h4>
-	<span class="product-page-color">cherrywood</span>
+	<span class="product-page-color"><strong>cherrywood</strong></span>
 </div>
 
 															<a href="/product/ryana-knit-sweater-cherrywood/">
@@ -284,7 +295,7 @@
 		</div>
 		<h4 class="price m-0">$45</h4>
 	</div>
-	<span class="product-page-color">zucchini</span>
+	<span class="product-page-color"><strong>zucchini</strong></span>
 </div>
 
 															<a href="/product/the-sykstem-knit-sweater-zucchini/">
@@ -360,7 +371,7 @@
 		</div>
 		<h4 class="price m-0">$60</h4>
 	</div>
-	<span class="product-page-color">black</span>
+	<span class="product-page-color"><strong>black</strong></span>
 </div>
 
 															<a href="/product/shipital-bomber-jacket-black/">
@@ -417,15 +428,15 @@
 		</div>
 	</div>
 </nav>
-										<a class="love-list-navbar-button button mr-0" href="/account/loved">
-											<span class="icon is-small p-5 mr-0">
-												<span class="fa-solid fa-heart"></span>
-											</span>
+										<div class="no-style-button button mr-0">
+											<a aria-label="love list" tabindex="0" class="love-list-navbar-button" href="/account/loved"><span class="icon is-small p-5 mr-0">
+													<span class="fa-solid fa-heart"></span>
+												</span></a>
 											<span class="loved-items-count"></span>
-										</a>
-										<button class="snipcart-customer-signin button pro-worker resources p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+										</div>
+										<button class="snipcart-customer-signin button  is-rounded pro-worker resources p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 											<span class="icon is-small">
-												<span class="fa-solid fa-user" aria-hidden="true"></span>
+												<span class="fa-solid fa-user"></span>
 											</span>
 											<span><strong>account</strong></span>
 
@@ -439,16 +450,14 @@
 					
 <nav class="shopping-bag">
 	<div class="is-collapsible-shopping-bag is-flex is-flex-direction-column is-align-item-center">
-		<button class="snipcart-checkout button shopping-bag-button">
-			<label class="shopping-bag-label" for="shopping-bag-menu">
-				<span class="icon-text is-inline-block">
-					<span class="icon">
-						<span class="fa-solid fa-bag-shopping"></span>
-					</span>
-					<span class="is-hidden-mobile"><strong>bag</strong></span>
-					<span id="bag-count" class="snipcart-items-count"></span>
+		<button aria-label="your shopping bag" aria-haspopup="true" class="snipcart-checkout button is-rounded shopping-bag-button">
+			<span class="icon-text is-inline-block">
+				<span class="icon">
+					<span class="fa-solid fa-bag-shopping"></span>
 				</span>
-			</label>
+				<span class="is-hidden-mobile"><strong>bag</strong></span>
+				<span id="bag-count" class="snipcart-items-count"></span>
+			</span>
 		</button>
 		
 		
@@ -458,184 +467,7 @@
 		data-api-key="MTQ5MzIxYzUtYzY0MC00MTg5LTg1ZWQtYzlmZTljYTQ5MzUwNjM3ODU2MzY5MTUzMTI4NTQ3"
 		data-config-add-product-behavior="none">
 			
-			
-			<register-form>
-				<div class="root">
-					<authentication-view>
-						<overridable name="register">
-							<div class="snipcart__box snipcart-register__box snipcart-register">
-								<h2 class="snipcart__font--subtitle snipcart-register__title">{{ $localize(&#39;register_form.register&#39;)}}</h2>
-								<p class="snipcart__font snipcart-register__register">
-									{{ $localize(&#39;register_form.already_have_an_account&#39;)}}
-									<router-link class="snipcart__font--black snipcart-register__register-link" to="signin">
-										{{ $localize(&#39;signin_form.signin&#39;)}}
-									</router-link>
-								</p>
-					
-								<snipcart-form @submit="save" class="snipcart-register__form">
-									<flash-message v-if="requiresConfirmation"
-										type="info"
-										:title="$localize('register_form.requires_action.title')"
-										:description="$localize('register_form.requires_action.description')">
-									</flash-message>
-					
-									<snipcart-form-error></snipcart-form-error>
-					
-									<overridable name="register" section="top"></overridable>
-									<div class="snipcart-form__field">
-										<snipcart-label for="email">{{ $localize(&#39;register_form.email&#39;)}}</snipcart-label>
-										<snipcart-input name="email" type="email" icon="user"></snipcart-input>
-										<snipcart-field-error name="email"></snipcart-field-error>
-									</div>
-									<div class="snipcart-form__field">
-										<snipcart-label for="password">{{ $localize(&#39;register_form.password&#39;)}}</snipcart-label>
-										<snipcart-password name="password" icon="password"></snipcart-password>
-										<snipcart-field-error name="password"></snipcart-field-error>
-									</div>
-									<div class="snipcart-form__field">
-										<snipcart-label for="passwordConfirmation">{{ $localize(&#39;register_form.confirm_password&#39;)}}</snipcart-label>
-										<snipcart-password name="passwordConfirmation" icon="password"></snipcart-password>
-										<snipcart-field-error name="passwordConfirmation"></snipcart-field-error>
-									</div>
-					
-									<overridable name="register" section="bottom"></overridable>
-					
-									<snipcart-submit
-										label="register_form.register"
-										icon="continue-arrow"
-									></snipcart-submit>
-								</snipcart-form>
-							</div>
-						</overridable>
-					</authentication-view>
-				</div>
-			</register-form>
-			
-			
-			<signin-form section="bottom">
-				<div class="root">
-					wow
-				</div>
-				
-			</signin-form>
-			
-			
-			
-			
-			
-			<cart section="snipcart-cart__secondary-header">
-				<div class="root">
-					<icon
-					alt="item.remove_item"
-					class="fa-solid fa-xmark"
-					></icon>
-				</div>
-			</cart>
-			
-			
-			
-			
-			
-			<wow>
-				<div class="">
-					<header class="snipcart-cart-header is-mobile" v-if="!loading">
-						<close-cart-action class="column pl-0 is-1-mobile is-4-tablet is-4-desktop has-text-left snipcart-cart-header__close-button snipcart-modal__close">
-							<span class="icon">
-								<span class="fa-solid fa-arrow-left-long"></span>
-							</span>
-							<span class="snipcart-modal__close-title snipcart__font--std">
-								{{ backButtonTitle || $localize(&#39;actions.continue_shopping&#39;) }}
-							</span>
-						</close-cart-action>
-					
-						<media class="column is-flex is-flex-direction-column is-align-items-center is-justify-content-center pt-0 pb-0 is-5-mobile is-4-desktop" name="mobile, tablet, large" v-if="title">
-							<div class="logo-cart image is-128x128">
-								<figure class="p-5 m-0 full-height is-flex is-flex-direction-column is-align-items-center is-justify-content-center">
-									<a class="is-flex" href="/">
-										
-									<img class="logo" src="" alt="">
-									</a>
-								</figure>
-							</div>
-						</media>
-					
-						<div class="column is-flex is-6-mobile snipcart-cart-header__options">
-							<sign-in-action tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__sign-in" v-if="showAccountMenu">
-								<span class="icon-text is-inline-flex is-align-items-center">
-									
-									<span>{{ $localize(&#39;signin_form.signin&#39;)}}</span>
-								</span>
-								
-							</sign-in-action>
-					
-							<sign-out-action class="snipcart-cart-header__option snipcart-cart-header__sign-out" v-if="showAccountMenu">
-								<icon name="sign-out" class="snipcart-cart-header__icon"></icon>
-								{{ $localize(&#39;customer_dashboard.sign_out&#39;)}}
-							</sign-out-action>
-					
-							<customer-account-link tag="a" href="#/dashboard" class="snipcart-cart-header__option snipcart-cart-header__customer-account" v-if="showAccountMenu && showAccountLink">
-								<icon name="user" class="snipcart-cart-header__icon"></icon>
-								{{ $localize(&#39;customer_dashboard.my_account&#39;) }}
-							</customer-account-link>
-					
-							<show-detailed-cart-action class="snipcart-cart-header__option snipcart-cart-header__count snipcart__font--secondary snipcart__font--bold" v-if="showItemsCount">
-								<span class="icon-text is-inline-flex is-align-items-center">
-									<span class="icon">
-										<span class="fa-solid fa-bag-shopping"></span>
-									</span>
-									<span>
-										<template v-if="!hasSubscription">
-											{{ itemsCount }}
-										</template>
-									</span>
-								</span>
-								
-							</show-detailed-cart-action>
-						</div>
-					
-						<media name="mobile, tablet" class="snipcart-modal__header-summary column is-flex pr-0 is-4-mobile is-justify-content-right" v-if="showSummary && !loading">
-							<div class="snipcart-modal__header-summary-title snipcart__font--large snipcart__font--secondary snipcart__font--bold" @click.prevent="toggleSummary">
-								<span class="bag-total-dropdown icon-text is-inline-flex is-align-items-center">
-									<span class="icon">
-										<span class="fa-solid fa-user"></span>
-									</span>
-									<span>{{ cart.total | money(cart.currency) }}</span>
-								</span>
-								<icon :name="summaryIcon" class="snipcart-cart-header__icon snipcart__icon--medium"></icon>
-							</div>
-					
-							<cart-summary class="snipcart-cart-summary--small" v-if="summaryVisible" @close="closeSummary">
-							</cart-summary>
-						</media>
-					</header>
-					<header class="snipcart-cart-header" v-else>
-						<close-cart-action class="snipcart-modal__close">
-							<icon class="snipcart-modal__close-icon" name="back-arrow" />
-							<span class="snipcart-modal__close-title snipcart__font--std">
-								{{ $localize(&#39;actions.continue_shopping&#39;) }}
-							</span>
-						</close-cart-action>
-					</header>
-				</div>
-			</wow>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+		
 		</div>
 	</div>
 </nav>

@@ -34,6 +34,24 @@ a:focus-visible	 {
 	// border: 1px solid red;
 }
 
+// Assistive Tech
+.sr-only { 
+    border: 0;
+    padding: 0;
+    margin: 0;
+    position: absolute !important;
+    height: 1px; 
+    width: 1px;
+    overflow: hidden;
+    clip: rect(1px 1px 1px 1px);
+	/*maybe deprecated, legacy support */
+    clip: rect(1px, 1px, 1px, 1px); 
+	/*modern browsers, clip-path works inwards from each corner*/
+    clip-path: inset(50%);
+	/* added line to stop words getting smushed together (as they go onto separate lines and some screen readers do not understand line feeds as a space */ 
+    white-space: nowrap;
+}
+
 
 // Customizing Classes
 
@@ -458,6 +476,7 @@ a:focus-visible	 {
 	color: #363636;
 	justify-content: center;
 	.shopping-bag-button {
+		display: inline-block;
 		background-color: rgba(255, 255, 255, 0);
 		color: $almostblack;
 		width: 100%;
@@ -466,17 +485,11 @@ a:focus-visible	 {
 		cursor: pointer;
 		border: none;
 		margin-right: 0 !important;
-		
-	}
-	.shopping-bag-label {
-		display: inline-block;
 		text-align: center;
-		width: 100%;
 		padding-bottom: calc(.5em - 1px);
 		padding-left: 1em;
 		padding-right: 1em;
 		padding-top: calc(.5em - 1px);
-		cursor: pointer;
 		.icon-text {
 			align-items: baseline;
 		}
@@ -484,6 +497,7 @@ a:focus-visible	 {
 			font-size: 1rem;
 			margin-bottom: 1.75em;
 		}
+		
 	}
 	.shopping-bag-container {
 		cursor: default;
@@ -797,7 +811,7 @@ input#account-drawer {
 	border-radius: 999px;
 }
 
-.dropdown .button {
+.dropdown .button:not(:focus) {
 	border: none;
 }
 
@@ -810,7 +824,7 @@ input#account-drawer {
 }
 
 .button.is-focused:not(:active), .button:focus:not(:active), .select select:focus {
-	border-color: #000000;
+	border: 1px solid #000000;
 	box-shadow: 0 0 0 .125em rgba(0, 0, 0, 0.25);
 }
 

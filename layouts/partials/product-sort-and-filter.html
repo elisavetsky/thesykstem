@@ -3,11 +3,14 @@
 		<div class="level-item">
 			<div class="control has-icons-left">
 				<div class="select is-normal">
-					<select id="sort-products">
+					<select id="sort-products" name="sort-products">
 						<option value="default">sort</option>
 						<option value="lowToHigh">low to high</option>
 						<option value="highToLow">high to low</option>
 					</select>
+					<label for="sort-products">
+						<span class="sr-only">sort by price</span>
+					</label>
 				</div>
 				<span class="icon is-left">
 					<span class="fa-solid fa-sort"></span>
@@ -26,12 +29,13 @@
 				</div>
 				<div class="dropdown-menu" id="filter-products" role="menu">
 					<div class="dropdown-content">
+						<button class="exit-filters no-style-button is-hidden">
+							<span class="icon">
+								<span class="fa-solid fa-xmark"></span>
+							</span>
+						</button>
 						<div id="clear-filters-button" class="dropdown-item is-hidden">
-							<button class="exit-filters no-style-button">
-								<span class="icon">
-									<span class="fa-solid fa-xmark"></span>
-								</span>
-							</button>
+
 							<button class="button is-small">
 								<span>reset filters</span>
 								<span class="icon">

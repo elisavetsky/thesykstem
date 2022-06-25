@@ -15,7 +15,7 @@
 					<div class="columns">
 						<div class="column is-full-mobile is-6-tablet is-7-desktop">
 							<figure class="image m-0 is-fullwidth">
-								<img class="is-rounded hero-feature hero-image invert-navbar" src="{{ $hero1_resized.Permalink }}" alt="a selection of our products">
+								<img class="is-rounded hero-feature hero-image invert-navbar" src="{{ $hero1_resized.Permalink }}" alt="{{ with site.Data.hero }}{{ .hero_alt }}{{ end }}">
 							</figure>
 						</div>
 						<div class="content column p-6 fit-content-h brown-dark-back is-full-mobile is-6-tablet is-5-desktop  is-justify-content-center">
