@@ -136,7 +136,7 @@
 
 	.shopping-bag {
 
-		.is-collapsable-shopping-bag > input:checked ~ .shopping-bag-container {
+		.is-collapsible-shopping-bag > input:checked ~ .shopping-bag-container {
 			height: 100vh;
 			width: 100vw;
 			right: 0;
@@ -146,12 +146,12 @@
 
 		}
 
-		.is-collapsable-shopping-bag .shopping-bag-label {
+		.is-collapsible-shopping-bag .shopping-bag-label {
 			padding-right: 0.2em;
 		}
 	}
 
-	.is-collapsable-search > input:checked ~ .search-container {
+	.is-collapsible-search > input:checked ~ .search-container {
 		height: 100vh;
 		width: 100vw;
 		right: 0;
@@ -161,7 +161,7 @@
 
 	}
 
-	.is-collapsable-account-drawer > input:checked ~ .account-container {
+	.is-collapsible-account-drawer > input:checked ~ .account-container {
 		height: 100vh;
 		width: 100vw;
 		right: 0;
@@ -264,7 +264,7 @@
 	.shopping-bag {
 		display: flex;
 
-		.is-collapsable-shopping-bag > input:checked ~ .shopping-bag-container {
+		.is-collapsible-shopping-bag > input:checked ~ .shopping-bag-container {
 			height: 100vh;
 			width: 100vw;
 			right: 0;
@@ -428,7 +428,7 @@
 		}
 	}
 
-	.is-collapsable-shopping-bag {
+	.is-collapsible-shopping-bag {
 		padding: 0.5rem 5px 0.5rem 0;
 	}
 
@@ -499,7 +499,7 @@
 		flex-direction: row;
 	}
 
-	.is-collapsable-shopping-bag {
+	.is-collapsible-shopping-bag {
 		padding: 0.5rem .75rem 0.5rem 0;
 	}
 

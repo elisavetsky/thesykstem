@@ -19,7 +19,7 @@
 		name="select-size"
 		id="{{ $size }}"
 		class="is-hidden">
-			<label class="button box fit-content is-flex is-flex-direction-column" value="{{ $size }}" for="{{ $size }}">
+			<label tabindex="0" class="button size-button box fit-content is-flex is-flex-direction-column" value="{{ $size }}" for="{{ $size }}">
 			{{ $size }}
 			</label>
 		{{ else }}
@@ -50,7 +50,7 @@
 			name="select-size"
 			id="{{ $size }}"
 			class="is-hidden">
-				<label class="button box fit-content is-flex is-flex-direction-column" value="{{ $size }}" for="{{ $size }}">
+				<label tabindex="0" class="button size-button box fit-content is-flex is-flex-direction-column" value="{{ $size }}" for="{{ $size }}">
 				{{ if eq "xxxs" $size }}
 					<p>{{ index $size_catalog "xxxs" }}</p>
 				{{ $size }}

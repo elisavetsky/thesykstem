@@ -32,13 +32,15 @@
 .snipcart__font--subtitle-small,
 .snipcart__font--tiny,
 .snipcart__font--large,
+.snipcart__font--std,
 .snipcart-button-link,
 .snipcart-base-button__label,
 .snipcart-tabs__tab-button,
 .snipcart-customer-details-group__title,
 .snipcart-form__label,
 .snipcart-signin__forgot-password,
-.snipcart-summary-fees__title {
+.snipcart-summary-fees__title,
+.snipcart-modal__close-title {
     text-transform: lowercase;
 }
 
@@ -1564,7 +1566,8 @@
 }
 
 .snipcart-orders-link .snipcart-modal__close-label {
-    margin-left:.4em
+    margin-left:.4em;
+	color: rgba(54, 54, 54, 1);
 }
 
 .snipcart-edit-customer-address__form {

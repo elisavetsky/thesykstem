@@ -19,7 +19,7 @@
 	<noscript>
 		<section class="section is-small py-0">
 			<div class="noscript-container container is-fluid translucent-dark-back py-2">
-				<div class="is-flex is-justify-content-center is-align-items-center">
+				<div class="is-flex p-5 is-justify-content-center is-align-items-center">
 					<span>{{ .Site.Data.noscript.no_script_message }}</span>
 				</div>
 			</div>
@@ -45,19 +45,25 @@
 		<div class="container is-fluid">
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
-					<a class="is-flex" href="/">
-						<img class="logo" src="{{ $logosvg.Permalink }}" alt="">
+					<a class="logo-image is-flex" href="/">
+						<img class="logo" src="{{ $logosvg.Permalink }}" alt="our company logo, the sykstem">
 					</a>
 				</div>
 				<div class="menu-switch-pos">
 					<nav class="menu is-flex is-align-items-center">
-						<button class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
+						<button id="nav-burger" class="navbar-burger" aria-label="main menu" aria-expanded="false" data-target="main-drop-menu">
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 							<span aria-hidden="true"></span>
 						</button>
 						<div id="res-main-menu" class="navbar-menu">
-
+							<div id="exit-main-nav" class="is-hidden">
+								<button class="button no-style-button">
+									<span class="icon">
+										<span class="fa-solid fa-xmark"></span>
+									</span>
+								</button>
+							</div>
 							<div class="navbar-start">
 
 								{{ $.Scratch.Set "cs" .Section }}
@@ -81,13 +87,13 @@
 								<div class="navbar-item">
 									<div class="buttons is-flex is-align-items-center is-justify-content-center">
 										{{ partial "search-drawer" . }}
-										<a class="love-list-navbar-button button mr-0" href="/account/loved">
-											<span class="icon is-small p-5 mr-0">
-												<span class="fa-solid fa-heart"></span>
-											</span>
+										<div class="no-style-button button mr-0">
+											<a aria-label="love list" tabindex="0" class="love-list-navbar-button" href="/account/loved"><span class="icon is-small p-5 mr-0">
+													<span class="fa-solid fa-heart"></span>
+												</span></a>
 											<span class="loved-items-count"></span>
-										</a>
-										<button class="snipcart-customer-signin button {{ .Title }} p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
+										</div>
+										<button class="snipcart-customer-signin button  is-rounded {{ .Title }} p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 											<span class="icon is-small">
 												<span class="fa-solid fa-user" aria-hidden="true"></span>
 											</span>

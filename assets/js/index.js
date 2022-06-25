@@ -46,32 +46,110 @@ let productsOnPageList = [];
 let lovedProductsOnPageArray = [];
 const lovedCountNavbarContainer = document.querySelector(".loved-items-count");
 
+// Accessibility
+const isCollapsible = document.querySelectorAll('.is-collapsible label');
+const isCollapsibleInput = document.querySelectorAll('.is-collapsible input');
+const navBurger = document.getElementById('nav-burger');
+const navMenu = document.getElementById('res-main-menu');
+const exitMainNav = document.getElementById('exit-main-nav');
+const exitSearch = document.getElementById('exit-search');
+const openSearch = document.querySelector('.search-label');
+const sizeButtons = document.querySelectorAll('.size-button');
+const filterButton = document.querySelector('.filter-button');
+const exitFilter = document.querySelector('.exit-filters');
+const filterContents = document.getElementById('filter-products');
+
+sizeButtons.forEach((i) => {
+	i.addEventListener('keyup', (e) => {
+		if (e.repeat) { return }
+		if (e.key === 'Enter') {
+			i.click();
+			e.preventDefault();
+			return false;
+		}
+	}, false);
+})
+
+
+isCollapsible.forEach((i) => {
+	i.addEventListener('keyup', (e) => {
+		if (e.repeat) { return }
+		if (e.key === 'Enter') {
+			i.previousElementSibling.click();
+			e.preventDefault();
+			return false;
+		}
+	}, false);
+})
+
+navBurger.addEventListener('keydown', (e) => {
+	if (e.repeat) { return }
+	if (e.key === 'Enter') {
+		exitMainNav.classList.remove("is-hidden");
+		navMenu.style.opacity = 1;
+		navMenu.style.visibility = "visible";
+		e.preventDefault();
+		return false;
+	}
+}, false);
+
+exitMainNav.addEventListener('keydown', (e) => {
+	if (e.repeat) { return }
+	if (e.key === 'Enter') {
+		navMenu.removeAttribute("style");
+		e.preventDefault();
+		return false;
+	}
+}, false);
+
+openSearch.addEventListener('keyup', (e) => {
+	if (e.repeat) { return }
+	if (e.key === 'Enter') {
+		openSearch.click();
+		e.preventDefault();
+		return false;
+	}
+}, false);
+
+exitSearch.addEventListener('keyup', (e) => {
+	if (e.repeat) { return }
+	if (e.key === 'Enter') {
+		exitSearch.click();
+		e.preventDefault();
+		return false;
+	}
+}, false);
+
+
+
+
+
 // Hide/Show Navbar Background
 window.addEventListener("load", () => {
 	var invertedHeader = new Observer({
-	root: '#main-nav', // don't set to have the viewport as root
-	targets: '.landing-wrapper',
-	rootMargin: '10px',
-	thres: [0, 0.2],
-	inCb: applyInversion,
-	outCb: removeInversion,
-});
+		root: '#main-nav', // don't set to have the viewport as root
+		targets: '.landing-wrapper',
+		rootMargin: '10px',
+		thres: [0, 0.2],
+		inCb: applyInversion,
+		outCb: removeInversion,
+	});
 
-function applyInversion() {
-	mainNavStyle.classList.add("blurring");
-	setTimeout(() => {
-		mainNavStyle.classList.remove("blurring");
-		mainNavStyle.classList.add("navbar-blur");
-	}, 100)
-}
+	function applyInversion() {
+		mainNavStyle.classList.add("blurring");
+		setTimeout(() => {
+			mainNavStyle.classList.remove("blurring");
+			mainNavStyle.classList.add("navbar-blur");
+		}, 100)
+	}
 
-function removeInversion() {
-	mainNavStyle.classList.add("unblurring");
-	setTimeout(() => {
-		mainNavStyle.classList.remove("unblurring");
-		mainNavStyle.classList.remove("navbar-blur");
-	}, 300)
-}
+	function removeInversion() {
+		mainNavStyle.classList.add("unblurring");
+		setTimeout(() => {
+			mainNavStyle.classList.remove("unblurring");
+			mainNavStyle.classList.remove("navbar-blur");
+		}, 300)
+	}
 
 });
 
@@ -91,6 +169,27 @@ if (sortDropdown) {
 
 	sortDropdown.addEventListener("change", handleSortDropdownValue);
 	clearFiltersButton.addEventListener("click", clearFilters);
+
+	// Accessibility
+	filterButton.addEventListener('keyup', (e) => {
+		if (e.repeat) { return }
+		if (e.key === 'Enter') {
+			filterContents.classList.remove("is-hidden");
+			filterContents.style.display = "unset";
+			e.preventDefault();
+			return false;
+		}
+	}, false);
+
+	exitFilter.addEventListener('keyup', (e) => {
+		if (e.repeat) { return }
+		if (e.key === 'Enter') {
+			filterContents.style.display = "none !important";
+			filterContents.removeAttribute("style");
+			e.preventDefault();
+			return false;
+		}
+	}, false);
 
 	// Create Product Object
 	function createProductObjects() {
@@ -524,7 +623,7 @@ if (sortDropdown) {
 }
 
 // Product Zoom In
-if ((currentURL.indexOf("product") >= 0) && currentURL !== baseURL + "/product/") {
+if ((currentURL.indexOf("product") >= 0) && currentURL !== baseURL + "/product/" && !currentURL.includes("/product/#")) {
 
 	const activeCollection = document.querySelector(".active-image");
 	var activeNormal = document.querySelector(".active-image .image-normal");

@@ -26,7 +26,7 @@ a {
 
 a:focus-visible	 {
 	box-shadow: $b-box-shadow;
-	border-radius: $border-radius;
+	border-radius: 40px;
 	border: none !important;
 }
 
@@ -39,6 +39,15 @@ a:focus-visible	 {
 
 .noscript-container {
 	border-radius: 99999px;
+}
+
+.no-style-button {
+	background-color: rgba(255, 255, 255, 0);
+	border: none;
+	cursor: default;
+	&:hover {
+		opacity: initial !important;
+	}
 }
 
 .no-margin {
@@ -106,6 +115,11 @@ a:focus-visible	 {
 
 .w-96 {
 	width: 97%;
+}
+
+.is-48x64 {
+	height: 48px;
+	width: 64px;
 }
 
 .mb-7 {
@@ -273,7 +287,7 @@ a:focus-visible	 {
 	margin: 0 0.5rem 0.5rem 0;
 }
 
-.is-collapsable-search {
+.is-collapsible-search {
 	color: #363636;
 	width: 100%;
 	.search-button {
@@ -349,7 +363,7 @@ a:focus-visible	 {
 	}
 }
 
-.is-collapsable-search > input:checked ~ .search-container {
+.is-collapsible-search > input:checked ~ .search-container {
 	opacity: 1;
 	visibility: visible;
 	transition: $transition-bag-menu;
@@ -369,18 +383,16 @@ a:focus-visible	 {
 	background-color: rgba(255, 255, 255, 0);
 	border: none;
 	margin: 0;
+	cursor: pointer;
+	border-radius: 9999px;
 	&:hover {
 		text-decoration: none !important;
-	}
-	&:focus {
-		box-shadow: none !important;
-		border: none;
 	}
 }
 
 
 
-.is-collapsable-account-drawer {
+.is-collapsible-account-drawer {
 	color: #363636;
 	width: 100%;
 	
@@ -431,7 +443,7 @@ a:focus-visible	 {
 	}
 }
 
-.is-collapsable-account-drawer > input:checked ~ .account-container {
+.is-collapsible-account-drawer > input:checked ~ .account-container {
 	opacity: 1;
 	visibility: visible;
 	transition: $transition-bag-menu;
@@ -441,7 +453,7 @@ a:focus-visible	 {
 	display: flex;
 }
 
-.is-collapsable-shopping-bag {
+.is-collapsible-shopping-bag {
 	width: 100%;
 	color: #363636;
 	justify-content: center;
@@ -450,7 +462,6 @@ a:focus-visible	 {
 		color: $almostblack;
 		width: 100%;
 		padding: 0;
-		border-radius: $border-radius;
 		height: 2.5rem;
 		cursor: pointer;
 		border: none;
@@ -502,12 +513,12 @@ a:focus-visible	 {
 	}
 }
 
-.is-collapsable-shopping-bag > input:checked ~ .shopping-bag-container {
+.is-collapsible-shopping-bag > input:checked ~ .shopping-bag-container {
 	opacity: 1;
 	visibility: visible;
 	transition: $transition-bag-menu;
 }
-.is-collapsable-shopping-bag > input:checked ~ .continue-checkout {
+.is-collapsible-shopping-bag > input:checked ~ .continue-checkout {
 	opacity: 1 !important;
 	visibility: visible !important;
 	transition: $transition-bag-menu;
@@ -552,10 +563,6 @@ input#account-drawer {
 	height: 1.6rem;
 }
 
-// .snipcart__box {
-// 	border-radius: 40px;
-// }
-
 .snipcart-order__box__header {
 	border-top-right-radius: 40px;
 	border-top-left-radius: 40px;
@@ -566,7 +573,8 @@ input#account-drawer {
 	border-bottom-left-radius: 40px;
 }
 
-#snipcart-checkout-step-shipping {
+#snipcart-checkout-step-shipping,
+.snipcart-edit-customer-address__box {
 	.snipcart__box {
 		border-radius: 40px;
 	}
@@ -604,6 +612,24 @@ input#account-drawer {
 .snipcart-payment-form__column  {
 	border-radius: 9999px !important;
 }
+#exit-search {
+	border-radius: 40px;
+}
+
+#exit-main-nav {
+	position: fixed;
+	right: 0;
+	top: 0;
+}
+
+.exit-filters {
+	position: absolute;
+	right: 1rem;
+	top: 0;
+	&:focus-visible {
+		border-color: $gray6 !important;
+	}
+}
 
 .menu-switch-pos {
 	display: flex;
@@ -629,14 +655,12 @@ input#account-drawer {
 		#res-main-menu {
 			opacity: 1;
 			visibility: visible;
-			}
-			
-			.navbar-item {
-				color: $almostblack;
-			}
 		}
-	
-	
+			
+		.navbar-item {
+			color: $almostblack;
+		}
+	}
 }
 
 .navbar .box {
@@ -658,7 +682,7 @@ input#account-drawer {
 	width: 2.5rem;
 	// background: $red;
 	border: none;
-	border-radius: $border-radius;
+	border-radius: 40px;
 	margin-left: 0;
 	span {
 		background: $almostblack;
@@ -1189,7 +1213,7 @@ input#account-drawer {
 	.icon-text {
 		color: $almostblack;
 	}
-	.search-buttons .is-collapsable {
+	.search-buttons .is-collapsible {
 		min-width: 150px;
 		max-width: 350px;
 	}
@@ -1230,7 +1254,7 @@ input#account-drawer {
 	.icon-text {
 		color: white;
 	}
-	.account-buttons .is-collapsable {
+	.account-buttons .is-collapsible {
 		min-width: 150px;
 		max-width: 350px;
 	}
@@ -2034,6 +2058,10 @@ input#account-drawer {
 
 // Images & Graphics
 
+.logo-image {
+	border-radius: 40px;
+}
+
 .logo-cart {
 	min-width: 150px;
 	height: 2rem !important;
@@ -2261,7 +2289,7 @@ a.box:hover {
 	z-index: 5;
 }
 
-.is-collapsable {
+.is-collapsible {
 	padding: 1em 0;
 	
 	label {
@@ -2283,14 +2311,14 @@ a.box:hover {
 	
 }
 
-.is-collapsable .buttons {
+.is-collapsible .buttons {
 	overflow: hidden;
 	min-height: 0;
 	max-height: 0;
 	transition: $transition-dropdown;
 }
 
-.is-collapsable {
+.is-collapsible {
 	.tags,
 	.job {
 		overflow: hidden;
@@ -2327,43 +2355,43 @@ a.box:hover {
 	}
 }
 	
-.is-collapsable > input:checked ~ label .fa-chevron-down {
+.is-collapsible > input:checked ~ label .fa-chevron-down {
 	transform: rotate(180deg);
 	transform-origin: center;
 	transition: $transition-dropdown;
 }
 
-.is-collapsable > input:checked ~ .buttons {
+.is-collapsible > input:checked ~ .buttons {
 	min-height: 20px;
 	max-height: 1000px;
 	transition: $transition-dropdown 0.35s;
 }
 
-.is-collapsable > input:checked ~ .tags,
-.is-collapsable > input:checked ~ .job {
+.is-collapsible > input:checked ~ .tags,
+.is-collapsible > input:checked ~ .job {
 	min-height: 20px;
 	max-height: 3000px;
 	transition: $transition-dropdown 0.35s;
 }
 
-.is-collapsable > input:checked ~ #filter-colors {
+.is-collapsible > input:checked ~ #filter-colors {
 	min-height: 20px;
 	max-height: 1000px;
 	transition: $transition-dropdown 0.35s;
 }
 
-.is-collapsable > input:checked ~ #filter-prices {
+.is-collapsible > input:checked ~ #filter-prices {
 	min-height: 20px;
 	max-height: 1000px;
 	transition: $transition-dropdown 0.35s;
 }
 
-.is-collapsable > input:checked ~ .table {
+.is-collapsible > input:checked ~ .table {
 	font-size: 1rem !important;
 	transition: $transition-table-dropdown 0.35s;
 }
 
-.is-collapsable > #login-signup-dropdown:checked ~ .login-label {
+.is-collapsible > #login-signup-dropdown:checked ~ .login-label {
 	opacity: 0;
 	visibility: hidden;
 	transition: $transition-dropdown;

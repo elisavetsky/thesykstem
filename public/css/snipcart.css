@@ -17,15 +17,31 @@
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing:grayscale;
-	text-transform: lowercase;
 }
 
 .snipcart * a:hover {
 	text-decoration: none !important;
 }
 
-.snipcart__font--secondary, .snipcart__font--subtitle, .snipcart__font--subtitle-small {
-    
+.snipcart__font * {
+	
+}
+
+
+.snipcart__font--subtitle,
+.snipcart__font--subtitle-small,
+.snipcart__font--tiny,
+.snipcart__font--large,
+.snipcart__font--std,
+.snipcart-button-link,
+.snipcart-base-button__label,
+.snipcart-tabs__tab-button,
+.snipcart-customer-details-group__title,
+.snipcart-form__label,
+.snipcart-signin__forgot-password,
+.snipcart-summary-fees__title,
+.snipcart-modal__close-title {
+    text-transform: lowercase;
 }
 
 .snipcart__font--small {
@@ -1550,7 +1566,8 @@
 }
 
 .snipcart-orders-link .snipcart-modal__close-label {
-    margin-left:.4em
+    margin-left:.4em;
+	color: rgba(54, 54, 54, 1);
 }
 
 .snipcart-edit-customer-address__form {

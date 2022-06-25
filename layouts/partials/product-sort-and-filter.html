@@ -16,8 +16,8 @@
 		</div>
 		<div class="level-item">
 			<div class="dropdown is-hoverable is-right">
-				<div class="dropdown-trigger">
-					<button class="button" aria-haspopup="true" aria-controls="filter-dropdown">
+				<div class="dropdown-trigger filter-trigger">
+					<button class="filter-button button" aria-haspopup="true" aria-controls="filter-dropdown">
 						<span>filter</span>
 						<span class="icon is-small">
 							<span class="fa-solid fa-filter" aria-hidden="true"></span>
@@ -27,6 +27,11 @@
 				<div class="dropdown-menu" id="filter-products" role="menu">
 					<div class="dropdown-content">
 						<div id="clear-filters-button" class="dropdown-item is-hidden">
+							<button class="exit-filters no-style-button">
+								<span class="icon">
+									<span class="fa-solid fa-xmark"></span>
+								</span>
+							</button>
 							<button class="button is-small">
 								<span>reset filters</span>
 								<span class="icon">
@@ -39,9 +44,9 @@
 							<hr>
 						</div>
 						<div class="columns px-4">
-							<div class="column is-collapsable">
+							<div class="column is-collapsible">
 								<input hidden type="checkbox" name="dropdown" id="dropdown-1">
-								<label for="dropdown-1" class="py-2">
+								<label tabindex="0" for="dropdown-1" class="py-2">
 									<span class="icon-text full-width is-justify-content-space-between">
 										<div class="dropdown-item">
 											color
@@ -78,7 +83,7 @@
 
 									{{ range $.Scratch.Get "filter_colors" | uniq }}
 									<div class="dropdown-item is-flex is-justify-content-space-between is-align-items-center">
-										<label class="checkbox full-width py-2">
+										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="{{ . }}">
 												{{ . }}
@@ -93,9 +98,9 @@
 								</div>
 							</div>
 
-							<div class="column is-collapsable">
+							<div class="column is-collapsible">
 								<input hidden type="checkbox" name="dropdown" id="dropdown-2">
-								<label for="dropdown-2" class="py-2">
+								<label tabindex="0" for="dropdown-2" class="py-2">
 									<span class="icon-text full-width is-justify-content-space-between">
 										<div class="dropdown-item ">
 											price
