@@ -6,6 +6,7 @@
 {{ range first 1 $home_content }}
 {{ $hero1 := $home_folder.Resources.GetMatch "**.jpg" }}
 {{ $hero1_resized := $hero1.Resize "900x q75" }}
+{{ $hero1_resized_webp := $hero1.Resize "900x webp q75" }}
 <section class="wrapper-hero">
 	<img class="background-cover" src="{{ $resized_herobackground.Permalink }}" alt="the site background">
 	<div class="hero is-medium">
@@ -15,7 +16,11 @@
 					<div class="columns">
 						<div class="column is-full-mobile is-6-tablet is-7-desktop">
 							<figure class="image m-0 is-fullwidth">
-								<img class="is-rounded hero-feature hero-image invert-navbar" src="{{ $hero1_resized.Permalink }}" alt="{{ with site.Data.hero }}{{ .hero_alt }}{{ end }}">
+								<picture>
+									<source srcset="{{ $hero1_resized_webp.Permalink }}" type="image/webp">
+									<source srcset="{{ $hero1_resized.Permalink }}" type="image/jpg">
+									<img class="is-rounded hero-feature hero-image invert-navbar" src="{{ $hero1_resized.Permalink }}" alt="{{ with site.Data.hero }}{{ .hero_alt }}{{ end }}">
+								</picture>
 							</figure>
 						</div>
 						<div class="content column p-6 fit-content-h brown-dark-back is-full-mobile is-6-tablet is-5-desktop  is-justify-content-center">

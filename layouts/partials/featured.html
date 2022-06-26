@@ -1,9 +1,11 @@
 {{ $feature := resources.Get .Site.Data.featured.image }}
 {{ $resized_feature := $feature.Resize "800x q80" }}
+{{ $resized_feature_webp := $feature.Resize "800x webp q80" }}
 
 
 {{ $feature2 := resources.Get .Site.Data.featured.image_2 }}
 {{ $resized_feature2 := $feature2.Resize "800x q80" }}
+{{ $resized_feature2_webp := $feature2.Resize "800x webp q80" }}
 
 {{ with .Site.Data.featured }}
 
@@ -12,7 +14,11 @@
 		<div class="columns is-vcentered is-flex-direction-row-reverse">
 			<div class="column is-full-mobile is-4-tablet is-4-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 				<figure class="image left-hero-feature is-fullwidth">
-					<img class="is-rounded lazyload" data-src="{{ $resized_feature2.Permalink }}" src="{{ $resized_feature2.Permalink }}" alt="{{ .alt_2 }}">
+					<picture>
+						<source srcset="{{ $resized_feature2_webp.Permalink }}" type="image/webp">
+						<source srcset="{{ $resized_feature2.Permalink }}" type="image/jpg">
+						<img class="is-rounded lazyload" data-src="{{ $resized_feature2.Permalink }}" src="{{ $resized_feature2.Permalink }}" alt="{{ .alt_2 }}">
+					</picture>
 				</figure>
 			</div>
 			<div class="content p-5 column is-full-mobile is-4-tablet is-3-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
@@ -21,7 +27,11 @@
 			</div>
 			<div class="column is-full-mobile is-4-tablet is-5-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
 				<figure class="image right-hero-feature is-fullwidth">
-					<img class="is-rounded lazyload" data-src="{{ $resized_feature.Permalink }}" src="{{ $resized_feature.Permalink }}" alt="{{ .alt }}">
+					<picture>
+						<source srcset="{{ $resized_feature_webp.Permalink }}" type="image/webp">
+						<source srcset="{{ $resized_feature.Permalink }}" type="image/jpg">
+						<img class="is-rounded lazyload" data-src="{{ $resized_feature.Permalink }}" src="{{ $resized_feature.Permalink }}" alt="{{ .alt_2 }}">
+					</picture>
 				</figure>
 			</div>
 		</div>

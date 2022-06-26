@@ -2,11 +2,11 @@
 	{{ $more_photos := .Resources.ByType "image" }}
 	{{ range $more_photos }}
 	{{ $resized := .Resize "100x jpg #f5f5f5 center q50" }}
-	<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector"/>
+	<input aria-hidden="true" type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector"/>
 	
 		<div class="gallery__thumb">
 			<figure class="box image is-64x64">
-				<label for="{{ .RelPermalink }}">
+				<label role="button" aria-label="select this image angle" for="{{ .RelPermalink }}">
 					<img class="lazyload" src="{{ $resized.Permalink }}" data-src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 				</label>
 			</figure>

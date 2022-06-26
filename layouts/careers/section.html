@@ -27,13 +27,13 @@
 							<div class="is-collapsible full-width">
 								<input hidden type="checkbox" name="dropdown" id="{{ .Title }}">
 
-								<label tabindex="0" for="{{ .Title }}">
+								<label role="button" aria-label="expand the {{ .Title }} job" tabindex="0" for="{{ .Title }}">
 									<span class="icon-text is-flex is-flex-wrap-nowrap full-width">
 										<span class="w-96">
 											<h3 id="{{ .File.BaseFileName }}">{{ .Title }}</h3>
 										</span>
 										<span class="icon">
-											<span class="fa-solid fa-chevron-down"></span>
+											<span class="fa-solid fa-chevron-down" aria-hidden="true"></span>
 										</span>
 									</span>
 								</label>

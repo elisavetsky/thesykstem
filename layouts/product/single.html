@@ -10,36 +10,41 @@
 			</div>
 			<div class="content columns is-variable is-4 is-justify-content-center is-size-6-mobile is-size-5-tablet is-size-5-desktop">
 				<div class="column is-full-mobile is-half-tablet is-half-desktop">
-					
+
 					{{ $article := .Resources.GetMatch "**.png" }}
 					{{ $article_zoomed_resized := $article.Resize "1000x jpg #f5f5f5 center q90" }}
 					{{ $main_alt := .Params.main_alt }}
 					{{ .Scratch.Set "alt" $main_alt }}
 					{{ $more_photos := .Resources.ByType "image" }}
 					{{ $resized_main := $article.Resize "700x jpg #f5f5f5 center q70" }}
+					{{ $resized_main_webp := $article.Resize "700x webp center q70" }}
 					{{ .Scratch.Set "resized_main" $resized_main }}
+					{{ .Scratch.Set "resized_main_webp" $resized_main_webp }}
 					<div class="product-on-page box">
 						<div class="is-flex is-justify-content-flex-end">
 							{{ partial "love-button" . }}
 						</div>
-						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
+						<input aria-hidden="true" type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" checked />
 						<figure class="gallery__img active-image">
 							<img style="opacity: 1" class="image-normal lazyload" data-src="{{ $resized_main.Permalink }}" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 							<noscript>
 								<img style="opacity: 1" class="image-normal" src="{{ $resized_main.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 							</noscript>
+							<figcaption class="sr-only">{{ $.Scratch.Get "alt" }}</figcaption>
 							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ $article_zoomed_resized.Permalink }}" src="{{ $article_zoomed_resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 						</figure>
 						{{ range $more_photos }}
 						{{ $resized_zoomed := .Resize "1000x jpg #f5f5f5 center q80" }}
 						{{ $resized := .Resize "700x jpg #f5f5f5 center q70" }}
-						<input type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" />
+						<input hidden="true" aria-hidden="true" type="radio" id="{{ .RelPermalink }}" name="gallery" autocomplete="off" class="gallery__selector" />
 						<figure class="gallery__img">
 							<img style="opacity: 1" class="image-normal lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 							<noscript>
 								<img style="opacity: 1" class="image-normal" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
 							</noscript>
+							<figcaption class="sr-only">{{ $.Scratch.Get "alt" }}</figcaption>
 							<img style="opacity: 0; z-index: -1; left: 0; top: 0" class="image-zoomed lazyload" data-src="{{ $resized_zoomed.Permalink }}" src="{{ $resized_zoomed.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+
 						</figure>
 						{{ end }}
 					</div>

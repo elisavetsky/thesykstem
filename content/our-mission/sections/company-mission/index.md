@@ -1,7 +1,7 @@
 ---
 style: "is-flex-direction-row-reverse"
 img_style: "left-hero-feature"
-img_description: "some of our lovely workers"
+img_description: "some of the lovely sewing / stitching team"
 img_description_icon: "users"
 img_size:
   tablet: 6

@@ -1,6 +1,7 @@
 {{- $.Scratch.Add "index" slice -}}
 {{- range where .Site.RegularPages "Section" "product" -}}
 	{{ $resized_main := .Scratch.Get "resized_main" }}
+	{{ $resized_main_webp := .Scratch.Get "resized_main_webp" }}
 	{{ $.Scratch.Set "price" .Params.original_price }}
 	{{ with .Param "sale_price" }}
 		{{ $.Scratch.Set "price" . }}
@@ -11,7 +12,7 @@
 	{{- $stock_status := (partial "functions/get-stock-status" (dict "page_range" $page_range "product_title" .Title "product_sizes" .Params.sizes )) -}}
 	{{- $fix_stock_status := int (index (chomp (replace $stock_status "\t" "" )) 0 ) -}}
 	
-	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "stock_status" $fix_stock_status "description" .Params.description "material" .Params.material "img" $resized_main.Permalink "contents" .Plain "permalink" .Permalink) -}}
+	{{- $.Scratch.Add "index" (dict "title" .Title "tags" .Params.categories "type" .Params.product_type "color" .Params.color "price" $price "stock_status" $fix_stock_status "description" .Params.description "material" .Params.material "img" $resized_main.Permalink "img_webp" $resized_main_webp.Permalink "contents" .Plain "permalink" .Permalink) -}}
 	
 {{- end -}}
 {{- $.Scratch.Get "index" | jsonify -}}  

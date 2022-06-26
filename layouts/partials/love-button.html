@@ -1,9 +1,9 @@
 <div class="love-container">
 	<input type="checkbox" name="love" id="love-button-{{ .File.ContentBaseName }}">
-	<label aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-{{ .File.ContentBaseName }}">
+	<label role="button" aria-label="save item to love list" class="love-button-label" tabindex="0" for="love-button-{{ .File.ContentBaseName }}">
 		<span class="sr-only">save item to love list</span>
 		<div class="p-4 button love-button icon">
-			<span class="fa-solid fa-heart"></span>
+			<span class="fa-solid fa-heart" aria-hidden="true"></span>
 		</div>
 	</label>
 </div>

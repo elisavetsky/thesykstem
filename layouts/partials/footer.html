@@ -7,33 +7,22 @@
 				<div class="columns content">
 					<div class="column is-flex is-flex-direction-column">
 						<h3>customer support</h3>
-						<div>
-							<a href="{{ .contact_us }}">contact us</a>
-						</div>
-						<div>
-							<a href="{{ .exchanges_returns }}">exchange or return</a>
-						</div>
+						<a href="{{ .contact_us }}">contact us</a>
+						<a href="{{ .exchanges_returns }}">exchange or return</a>
+
 					</div>
 					<div class="column is-flex is-flex-direction-column">
 						<h3>about us</h3>
-						<div>
-							<a href="{{ .mission }}">our mission</a>
-						</div>
-						<div>
-							<a href="{{ .careers }}">careers</a>
-						</div>
-						<div>
-							<a href="{{ .worker_resources }}">pro-worker resources</a>
-						</div>
-						<div>
-							<a href="{{ .faq }}">faq</a>
-						</div>
+						
+						<a href="{{ .mission }}">our mission</a>
+						<a href="{{ .careers }}">careers</a>
+						<a href="{{ .worker_resources }}">pro-worker resources</a>
+						<a href="{{ .faq }}">faq</a>
+					
 					</div>
 					<div class="column is-flex is-flex-direction-column">
 						<h3>connect with us</h3>
-						<div>
 							<a class="has-text-black" href="{{ .newsletter }}">join our <strong>newsletter!</strong></a>
-						</div>
 					</div>
 				</div>
 			</div>
@@ -49,14 +38,11 @@
 						{{ end }}
 					</div>
 					<div class="content is-flex is-flex-direction-column has-text-right is-align-items-flex-end">
-						<div>
-							<a href="{{ .privacy_policy }}">privacy policy</a>
-						</div>
-						<div>
-							<a href="{{ .tos }}">terms of service</a>
-						</div>
+						<a href="{{ .privacy_policy }}">privacy policy</a>
+						<a href="{{ .tos }}">terms of service</a>
+						
 						<br>
-						<p class="is-size-7 mb-0">©{{ now.Format "2006"}} {{ .copyright }} | {{ .powered_by }}</p>
+						<p class="is-size-7 mt-2 mb-0">©{{ now.Format "2006"}} {{ .copyright }} | {{ .powered_by }}</p>
 					</div>
 				</div>
 			</div>
@@ -65,7 +51,7 @@
 		<!-- Snipcart -->
 
 		<!-- <script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script> -->
-		
+
 	</footer>
 </body>
 {{ end }}

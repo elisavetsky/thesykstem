@@ -20,14 +20,14 @@
 			{{ if eq ($fix_stock_status) 10 }}
 			<a href="{{ .Permalink }}">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-ban icon-{{ $color }} fa-2x"></span>
+					<span class="fa-solid fa-ban icon-{{ $color }} fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">{{ $title }}, {{ $color }} variant</span>
 			</a>
 			{{ else }}
 			<a href="{{ .Permalink }}">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-{{ $color }} fa-2x"></span>
+					<span class="fa-solid fa-circle icon-{{ $color }} fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">{{ $title }}, {{ $color }} variant</span>
 			</a>

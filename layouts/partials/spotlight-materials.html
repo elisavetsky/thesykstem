@@ -2,7 +2,9 @@
 
 {{ $images := newScratch }}
 {{ $clothes_rack := (resources.Get .clothes_rack_image).Resize "500x q80 jpg" }}
+{{ $clothes_rack_webp := (resources.Get .clothes_rack_image).Resize "500x q80 webp" }}
 {{ $clothes_rack_2 := (resources.Get .clothes_rack_image_2).Resize "500x q80 jpg" }}
+{{ $clothes_rack_2_webp := (resources.Get .clothes_rack_image_2).Resize "500x q80 webp" }}
 <section id="spotlight-materials" class="section is-medium images-have-tags">
 	<div class="columns is-variable is-6 is-vcentered is-flex-direction-row-reverse">
 		<div class="column is-full-mobile is-4-tablet is-5-desktop is-size-6-mobile is-size-5-tablet is-size-4-desktop">
@@ -10,11 +12,17 @@
 				{{ range .materials }}
 
 				{{ $images.Set "fabric" ((resources.Get .fabric_image).Resize "500x q80 jpg") }}
+				{{ $images.Set "fabric_webp" ((resources.Get .fabric_image).Resize "500x q80 webp") }}
 
 				{{ $fabric := $images.Get "fabric" }}
+				{{ $fabric_webp := $images.Get "fabric_webp" }}
 				<div class="column is-half-mobile is-full-tablet is-full-desktop is-6-widescreen is-7-fullhd">
 					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
-						<img class="is-rounded lazyload" data-src="{{ $fabric.Permalink }}" src="{{ $fabric.Permalink }}" alt="">
+						<picture>
+							<source srcset="{{ $fabric_webp.Permalink }}" type="image/webp">
+							<source srcset="{{ $fabric.Permalink }}" type="image/jpg">
+							<img class="is-rounded lazyload" data-src="{{ $fabric.Permalink }}" src="{{ $fabric.Permalink }}" alt="our {{ .material }} fabric" loading="lazy">
+						</picture>
 						<span class="icon-text">
 							<span class="tag is-rounded">
 								<span>our {{ .material }} fabric</span>
@@ -25,12 +33,20 @@
 				{{ end }}
 				<div class="column is-7-mobile is-full-tablet is-full-desktop is-7-widescreen is-5-fullhd">
 					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
-						<img class="is-rounded lazyload" data-src="{{ $clothes_rack.Permalink }}" src="{{ $clothes_rack.Permalink }}" alt="">
+						<picture>
+							<source srcset="{{ $clothes_rack_webp.Permalink }}" type="image/webp">
+							<source srcset="{{ $clothes_rack.Permalink }}" type="image/jpg">
+							<img class="is-rounded lazyload" data-src="{{ $clothes_rack.Permalink }}" src="{{ $clothes_rack.Permalink }}" alt="one of our clothing racks" loading="lazy">
+						</picture>
 					</figure>
 				</div>
 				<div class="column is-5-mobile is-full-tablet is-full-desktop is-5-widescreen is-5-fullhd">
 					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
-						<img class="is-rounded lazyload" data-src="{{ $clothes_rack_2.Permalink }}" src="{{ $clothes_rack_2.Permalink }}" alt="">
+						<picture>
+							<source srcset="{{ $clothes_rack_2_webp.Permalink }}" type="image/webp">
+							<source srcset="{{ $clothes_rack_2.Permalink }}" type="image/jpg">
+							<img class="is-rounded lazyload" data-src="{{ $clothes_rack_2.Permalink }}" src="{{ $clothes_rack_2.Permalink }}" alt="another one of our clothing racks" loading="lazy">
+						</picture>
 					</figure>
 				</div>
 			</div>
@@ -55,11 +71,17 @@
 				{{ range .materials }}
 
 				{{ $images.Set "plant" ((resources.Get .plant_image).Resize "800x q80 jpg") }}
+				{{ $images.Set "plant_webp" ((resources.Get .plant_image).Resize "800x q80 webp") }}
 
 				{{ $plant := $images.Get "plant" }}
+				{{ $plant_webp := $images.Get "plant_webp" }}
 				<div class="column is-full-mobile is-full-tablet is-full-desktop is-full-fullhd">
 					<figure class="image is-flex is-justify-content-flex-end right-hero-feature is-fullwidth">
-						<img class="is-rounded lazyload" data-src="{{ $plant.Permalink }}" src="{{ $plant.Permalink }}" alt="">
+						<picture>
+							<source srcset="{{ $plant_webp.Permalink }}" type="image/webp">
+							<source srcset="{{ $plant.Permalink }}" type="image/jpg">
+							<img class="is-rounded lazyload" data-src="{{ $plant.Permalink }}" src="{{ $plant.Permalink }}" alt="our {{ .material }} plants" loading="lazy">
+						</picture>
 						<span class="icon-text">
 							<span class="tag is-rounded">
 								<span class="icon">

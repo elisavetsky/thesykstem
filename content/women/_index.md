@@ -1,6 +1,7 @@
 ---
 navbar_section: true
 title: "women"
+img_alt: "women wearing our line"
 draft: false
 ---
 

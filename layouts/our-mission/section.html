@@ -6,6 +6,7 @@
 {{ range $our_mission_content }}
 
 {{ $team := (.Resources.GetMatch "**.jpg").Resize "900x q80" }}
+{{ $team_webp := (.Resources.GetMatch "**.jpg").Resize "900x webp q80" }}
 
 <section id="{{ .File.ContentBaseName }}" class="section is-medium images-have-tags">
 
@@ -15,7 +16,12 @@
 		</div>
 		<div class="column is-full-mobile is-{{ .Params.img_size.tablet }}-tablet is-{{ .Params.img_size.desktop }}-desktop">
 			<figure class="image is-flex is-justify-content-flex-end">
-				<img class="{{ .Params.img_style }} is-rounded" data-src="{{ $team.Permalink }}" src="{{ $team.Permalink }}" alt="one of our hats, in white">
+				<picture>
+					<source srcset="{{ $team_webp.Permalink }}" type="image/webp">
+					<source srcset="{{ $team.Permalink }}" type="image/jpg">
+					<img class="{{ .Params.img_style }} is-rounded" data-src="{{ $team.Permalink }}" src="{{ $team.Permalink }}" alt="{{ .Params.img_description }}">
+					<figcaption class="sr-only">{{ .Params.img_description }}</figcaption>
+				</picture>
 				<span class="icon-text">
 					<span class="tag is-rounded">
 						<span class="icon">

@@ -6,6 +6,7 @@
 	{{ $banner := .Resources.GetMatch "banner.jpg" }}
 	{{ with $banner }}
 	{{ $.Scratch.Set "banner" ($banner.Resize "900x q85") }}
+	{{ $.Scratch.Set "banner_webp" ($banner.Resize "900x webp q85") }}
 	{{ end }}
 
 	<section id="{{ .Title }}" class="hero is-fullheight">
@@ -13,7 +14,13 @@
 			<div class="columns is-vcentered is-flex-direction-row-reverse section-header content is-size-5-mobile is-size-5-tablet is-size-4-desktop mb-6">
 				<div class="column is-4">
 					<figure class="image is-fullwidth">
-						<img class="is-rounded" src="{{ with $.Scratch.Get "banner" }}{{ .Permalink }}{{ end }}" alt="{{ .Title }} section image">
+						<picture>
+							<source srcset="{{ with $.Scratch.Get "banner_webp" }}{{ .Permalink }}{{ end }}" type="image/webp">
+							<source srcset="{{ with $.Scratch.Get "banner" }}{{ .Permalink }}{{ end }}" type="image/jpg">
+							<img class="is-rounded" src="{{ with $.Scratch.Get "banner" }}{{ .Permalink }}{{ end }}" alt="{{ .Title }} section image">
+						</picture>
+						<figcaption class="sr-only">{{ .Title }} section image. {{ .Params.img_alt }}</figcaption>
+							</source>
 					</figure>
 				</div>
 				<div class="column content is-flex is-flex-direction-column is-align-items-center">
@@ -36,7 +43,7 @@
 										<div class="is-flex is-justify-content-flex-end">
 											{{ partial "love-button" . }}
 										</div>
-										<a href="{{ .Permalink }}">
+										<a aria-label="link to {{ .Title }}" href="{{ .Permalink }}">
 
 											{{ $image_color := "#753232" }}
 											{{ $article := .Resources.GetMatch "**.png" }}
@@ -44,8 +51,15 @@
 											{{ $.Scratch.Set "alt" $main_alt }}
 											{{ with $article }}
 											{{ $resized := $article.Resize "300x center q70" }}
+											{{ $resized_webp := $article.Resize "300x webp q65" }}
 											<figure>
-												<img class="lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+												<picture>
+													<source srcset="{{ $resized_webp.Permalink }}" type="image/webp">
+													<source srcset="{{ $resized.Permalink }}" type="image/jpg">
+													<img class="lazyload" data-src="{{ $resized.Permalink }}" src="{{ $resized.Permalink }}" alt="{{ $.Scratch.Get "alt" }}">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the {{ .Title }}.</figcaption>
 											</figure>
 											{{ end }}
 										</a>
@@ -68,17 +82,17 @@
 				<div class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 					<div class="tile is-ancestor">
 						<div class="tile is-parent">
-							
-								<a href="/{{ .Title }}" class="box tile is-child is-article">
-									<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-6">
-										<span class="icon is-medium">
-											<span class="fa-solid fa-arrow-right fa-2x"></span>
-										</span>
-										<h2 class="mb-1">continue to {{ .Title }}</h2>
-										
-									</div>
-								</a>
-							
+
+							<a href="/{{ .Title }}" class="box tile is-child is-article">
+								<div class="content-container content no-h1-mt is-flex is-flex-direction-column is-justify-content-flex-end is-size-6">
+									<span class="icon is-medium">
+										<span class="fa-solid fa-arrow-right fa-2x"></span>
+									</span>
+									<h2 class="mb-1">continue to {{ .Title }}</h2>
+
+								</div>
+							</a>
+
 						</div>
 					</div>
 				</div>

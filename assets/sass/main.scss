@@ -2125,7 +2125,7 @@ input#account-drawer {
 .right-hero-feature {
 	position: relative;
 	left: -1em;
-	scale: 1.05;
+	transform: scale(1.05);
 	mix-blend-mode: multiply;
 }
 
@@ -2444,6 +2444,9 @@ input#login-signup-dropdown {
 	}
 	h3 {
 		color: $gray9;
+	}
+	a {
+		padding: 3px 0;
 	}
 	a:hover {
 		opacity: 0.8;

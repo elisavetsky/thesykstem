@@ -119,7 +119,7 @@
 
 @media only screen and (max-width: 768px) {
 	.hero-feature {
-		scale: 1.1;
+		transform: scale(1.1);
 	}
 
 	.is-offset-1 {
@@ -203,7 +203,7 @@
 		background-color: initial;
 	}
 	.hero-feature {
-		scale: 1.3;
+		transform: scale(1.3);
 	}
 
 	.is-offset-1 {
