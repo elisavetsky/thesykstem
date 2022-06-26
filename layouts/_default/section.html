@@ -31,16 +31,16 @@
 
 		{{ partial "product-sort-and-filter" . }}
 
-		<div class="product-grid columns is-variable is-2-mobile is-2-tablet is-3-desktop is-multiline">
+		<div class="{{ if eq .Section "account" }}is-hidden {{ end }}product-grid columns is-variable is-2-mobile is-2-tablet is-3-desktop is-multiline">
 
 			{{ partial "functions/get-page-range" . }}
 
 			{{ $page_range := $.Scratch.Get "page_range" }}
-
+			
 			{{ if ne $page_range nil }}
 
 			{{ range $page_range }}
-
+			
 			<div id="{{ .File.ContentBaseName }}" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 

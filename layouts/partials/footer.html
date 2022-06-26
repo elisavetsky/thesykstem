@@ -6,29 +6,29 @@
 			<div class="mt-5 mb-5">
 				<div class="columns content">
 					<div class="column is-flex is-flex-direction-column">
-						<h3>customer support</h3>
+						<h3 class="p-1">customer support</h3>
 						<a href="{{ .contact_us }}">contact us</a>
 						<a href="{{ .exchanges_returns }}">exchange or return</a>
 
 					</div>
 					<div class="column is-flex is-flex-direction-column">
-						<h3>about us</h3>
-						
-						<a href="{{ .mission }}">our mission</a>
+						<h3 class="p-1">about us</h3>
+						<a href="{{ .mission }}"><span>our mission</span></a>
 						<a href="{{ .careers }}">careers</a>
 						<a href="{{ .worker_resources }}">pro-worker resources</a>
+
 						<a href="{{ .faq }}">faq</a>
-					
 					</div>
 					<div class="column is-flex is-flex-direction-column">
-						<h3>connect with us</h3>
-							<a class="has-text-black" href="{{ .newsletter }}">join our <strong>newsletter!</strong></a>
+						<h3 class="p-1">connect with us</h3>
+						<a class="has-text-black" href="{{ .newsletter }}">join our <strong>newsletter!</strong></a>
 					</div>
 				</div>
 			</div>
 			<div class="columns">
 				<div class="column is-flex is-flex-direction-row is-justify-content-space-between">
-					<div class="tags is-align-items-flex-start">
+					<div class="tags m-0 is-align-items-flex-start
+					">
 						{{ range .payment_icons }}
 						<div class="payment-icon">
 							{{ if .icon }}
@@ -40,7 +40,7 @@
 					<div class="content is-flex is-flex-direction-column has-text-right is-align-items-flex-end">
 						<a href="{{ .privacy_policy }}">privacy policy</a>
 						<a href="{{ .tos }}">terms of service</a>
-						
+
 						<br>
 						<p class="is-size-7 mt-2 mb-0">©{{ now.Format "2006"}} {{ .copyright }} | {{ .powered_by }}</p>
 					</div>

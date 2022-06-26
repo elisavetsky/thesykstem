@@ -4,8 +4,8 @@
 @import 'libs/supports.scss';
 @import 'libs/hugofastsearch.scss';
 
-:root, body, .content, .snipcart, .snipcart-base-button__label, .snipcart-form__label, .snipcart__font--subtitle {
-	font-family: BlinkMacSystemFont, -apple-system, Helvetica Neue, Helvetica, Dejavu Sans, sans-serif !important;
+body, .snipcart, .snipcart-base-button__label, .snipcart-form__label, .snipcart__font--subtitle {
+	font-family: 'Inter', BlinkMacSystemFont, -apple-system, system-ui, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Dejavu Sans', sans-serif;
 }
 
 :root, body {
@@ -214,11 +214,11 @@ a:focus-visible	 {
 }
 
 #loved + .section {
-	min-height: 50vh;	
+	min-height: 75vh;	
 }
 
 #loved-products {
-	min-height: 50vh;
+	min-height: 75vh;
 }
 
 
@@ -550,6 +550,7 @@ input#account-drawer {
 
 .content {
 	h1 {
+		font-family: "system-ui";
 		font-stretch: ultra-expanded;
 	}
 }
@@ -1402,7 +1403,8 @@ input#account-drawer {
 	width: 100%;
 }
 
-.dropdown-content label[disabled] {
+.dropdown-content label[disabled],
+.dropdown-content span[disabled] {
 	text-decoration: line-through;
 	&::after {
 		content: "(0)"
@@ -2281,6 +2283,7 @@ a.box:hover {
 
 .discount-tag {
 	background-color: $taupe !important;
+	mix-blend-mode: luminosity;
 }
 
 .tag:not(body).is-rounded {
@@ -2446,7 +2449,9 @@ input#login-signup-dropdown {
 		color: $gray9;
 	}
 	a {
-		padding: 3px 0;
+		padding: .25rem;
+		margin-bottom: 5px;
+		width: fit-content;
 	}
 	a:hover {
 		opacity: 0.8;

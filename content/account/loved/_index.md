@@ -5,4 +5,4 @@ type: "loved"
 
 # my love list
 
-Quite a list you got there...
+No items yet! Try **enabling javascript** to check out this feature.

@@ -178,7 +178,7 @@ if (sortDropdown) {
 		createPriceFilterObjects();
 		loadAvailablePriceFilters();
 		loadAvailableColorsInLoveList();
-		findProductsOnPage()
+		findProductsOnPage();
 	});
 
 	sortDropdown.addEventListener("change", handleSortDropdownValue);

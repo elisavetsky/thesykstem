@@ -2,7 +2,7 @@
 	<div class="is-collapsible-search">
 		<input type="checkbox" name="site-search" id="site-search">
 		<label aria-label="open search" tabindex="0" class="search-label p-3" for="site-search">
-			<span class="sr-only">search products</span>
+			
 			<span class="icon">
 				<span class="fa-solid fa-search" aria-hidden="true"></span>
 			</span>
@@ -21,7 +21,7 @@
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
 							<p class="control">
 								<input hidden checked type="checkbox" name="exit-search">
-								<label aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
+								<label role="button" aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
 									<span class="icon is-medium is-left mr-0">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
@@ -29,7 +29,7 @@
 								</label>
 							</p>
 							<p id="fastSearch" class="control is-expanded">
-								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
+								<input aria-label="search input" id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
 								<label class="sr-only" for="search-input">search input</label>
 							<ul id="searchResults">
 							</ul>

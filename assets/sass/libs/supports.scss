@@ -1,3 +1,9 @@
+@supports (font-variation-settings: normal) {
+	:root, body, .snipcart, .snipcart-base-button__label, .snipcart-form__label, .snipcart__font--subtitle {
+		font-family: 'Inter var', BlinkMacSystemFont, -apple-system, system-ui, 'Segoe UI', 'Helvetica Neue', Helvetica, 'Dejavu Sans', sans-serif !important;
+	}
+}
+
 // Safari 11+ Only (seems to be temporary)
 // Apple Pay supports 
 
