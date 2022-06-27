@@ -60,6 +60,7 @@ const exitFilter = document.querySelector('.exit-filters');
 const filterContents = document.getElementById('filter-products');
 const gridProductContainers = document.querySelectorAll(".grid-product-container");
 const loveButtonLabels = document.querySelectorAll(".love-button-label");
+const galleryButtons = document.querySelectorAll('.select-picture');
 
 sizeButtons.forEach((i) => {
 	i.addEventListener('keyup', (e) => {
@@ -72,6 +73,16 @@ sizeButtons.forEach((i) => {
 	}, false);
 })
 
+galleryButtons.forEach((i) => {
+	i.addEventListener('keyup', (e) => {
+		if (e.repeat) { return }
+		if (e.key === 'Enter') {
+			i.click();												
+			e.preventDefault();
+			return false;
+		}
+	}, false);
+})
 
 isCollapsible.forEach((i) => {
 	i.addEventListener('keyup', (e) => {
@@ -732,17 +743,21 @@ function loveUnloveProduct(productID) {
 }
 
 function loadLovedProducts() {
-
+	
 	productsOnPageList = Array.from(document.querySelectorAll(".grid-product-container"));
-
+	
 	const sortFilterProductsContainer = document.querySelector("#sort-filter-products-container");
 	const checkLovedProdExists = JSON.parse(localStorage.getItem("lovedProd"));
-
+	
 	if (checkLovedProdExists) {
+		const loveListSubtitle = document.querySelector("#loved p");
 		if (checkLovedProdExists.length > 0) {
 			currentLoved = JSON.parse(localStorage.getItem("lovedProd"));
 			if (currentURL.indexOf("/account/loved") >= 0) {
-
+				
+				loveListSubtitle.innerText = "Quite a bit you got there...";
+				productGrid.classList.remove("is-hidden");
+				
 				for (let i = 0; i < currentLoved.length; i++) {
 					const gridProductLovedContainer = document.querySelectorAll("#" + currentLoved[i]);
 					if (currentLoved.indexOf(gridProductLovedContainer[0].id) >= 0) {
@@ -770,7 +785,7 @@ function loadLovedProducts() {
 
 				sortFilterProductsContainer.classList.add("is-hidden");
 
-				const loveListSubtitle = document.querySelector("#loved p");
+				
 				loveListSubtitle.innerText = "No items yet! Try adding some and check back here.";
 				for (let i = 0; i < productsOnPageList.length; i++) {
 					productsOnPageList[i].remove();

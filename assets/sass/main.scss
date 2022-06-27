@@ -140,6 +140,10 @@ a:focus-visible	 {
 	width: 64px;
 }
 
+.is-64x {
+	width: 64px;
+}
+
 .mb-7 {
 	margin-bottom: 5rem !important;
 }
@@ -263,6 +267,10 @@ a:focus-visible	 {
 	height: 100%;
 	width: 100%;
 	z-index: -1;
+}
+
+.navbar-start {
+	margin-left: 0.75rem;
 }
 
 .navbar {

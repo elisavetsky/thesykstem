@@ -1,4 +1,4 @@
-baseURL = ""
+baseURL = "thesykstem.netlify.app"
 languageCode = "en-us"
 title = "the sykstem"
 permalinks = ":slug"
