@@ -8,10 +8,21 @@
 	<meta name="description" content="the sykstem clothing boutique">
 	<meta name="keywords" content="online shopping, brick-and-mortar, clothing boutique">
 	<meta name="author" content="the sykstem">
+	
+	
+	
+		
+	
+	<meta property="og:title" content="iPhone" />
+	<meta property="og:image" content="/image/models-5_hu0e8237203507294e5d179ebaebf784e1_821585_900x0_resize_q75_h2_box.webp" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="icon" href="/favicon.ico" type="image/ico"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 
 
+	<link rel="preconnect" href="https://app.snipcart.com" />
+	<link rel="preconnect" href="https://cdn.snipcart.com" />
 	
 
 
@@ -60,7 +71,7 @@
 		<section class="section is-small py-0">
 			<div class="noscript-container container is-fluid translucent-dark-back py-2">
 				<div class="is-flex p-5 is-justify-content-center is-align-items-center">
-					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
+					<span>Hello there! This site works a little better with javascript turned on, but you can still browse with it off. You&#39;re welcome!</span>
 				</div>
 			</div>
 		</section>
@@ -74,7 +85,9 @@
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
 					<a class="logo-image is-flex" href="/">
-						<img class="logo" src="/image/logo.svg" alt="our company logo, the sykstem">
+						<figure class="image is-64x">
+							<img class="logo" src="/image/logo.svg" alt="our company logo, the sykstem">
+						</figure>
 					</a>
 				</div>
 				<div class="menu-switch-pos">
@@ -145,9 +158,9 @@
 	<div class="is-collapsible-search">
 		<input type="checkbox" name="site-search" id="site-search">
 		<label aria-label="open search" tabindex="0" class="search-label p-3" for="site-search">
-			<span class="sr-only">search products</span>
+			
 			<span class="icon">
-				<span class="fa-solid fa-search"></span>
+				<span class="fa-solid fa-search" aria-hidden="true"></span>
 			</span>
 
 		</label>
@@ -159,7 +172,7 @@
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
 							<p class="control">
 								<input hidden checked type="checkbox" name="exit-search">
-								<label aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
+								<label role="button" aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
 									<span class="icon is-medium is-left mr-0">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
@@ -167,7 +180,7 @@
 								</label>
 							</p>
 							<p id="fastSearch" class="control is-expanded">
-								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
+								<input aria-label="search input" id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
 								<label class="sr-only" for="search-input">search input</label>
 							<ul id="searchResults">
 							</ul>
@@ -454,7 +467,7 @@
 										</div>
 										<button class="snipcart-customer-signin button  is-rounded  p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 											<span class="icon is-small">
-												<span class="fa-solid fa-user"></span>
+												<span class="fa-solid fa-user" aria-hidden="true"></span>
 											</span>
 											<span><strong>account</strong></span>
 
@@ -471,7 +484,7 @@
 		<button aria-label="your shopping bag" aria-haspopup="true" class="snipcart-checkout button is-rounded shopping-bag-button">
 			<span class="icon-text is-inline-block">
 				<span class="icon">
-					<span class="fa-solid fa-bag-shopping"></span>
+					<span class="fa-solid fa-bag-shopping" aria-hidden="true"></span>
 				</span>
 				<span class="is-hidden-mobile"><strong>bag</strong></span>
 				<span id="bag-count" class="snipcart-items-count"></span>
@@ -515,9 +528,9 @@
 							<source srcset="/women/banner_hu0af1b1b93c79bcc1d2a47ce2783fb91b_1001362_900x0_resize_q85_h2_box.webp" type="image/webp">
 							<source srcset="/women/banner_hu0af1b1b93c79bcc1d2a47ce2783fb91b_1001362_900x0_resize_q85_box.jpg" type="image/jpg">
 							<img class="is-rounded" src="/women/banner_hu0af1b1b93c79bcc1d2a47ce2783fb91b_1001362_900x0_resize_q85_box.jpg" alt="women section image">
-							<figcaption class="sr-only">women section image. women wearing our line</figcaption>
-							</source>
 						</picture>
+						<figcaption class="sr-only">women section image. women wearing our line</figcaption>
+							</source>
 					</figure>
 				</div>
 				<div class="column content is-flex is-flex-direction-column is-align-items-center">
@@ -569,9 +582,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" alt="This sweater will feel like a cozy hug.">
-												<figcaption class="sr-only">This sweater will feel like a cozy hug.</figcaption>
+												<picture>
+													<source srcset="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" src="/product/ryana-knit-sweater-cherrywood/1-ryana-knit-sweater-cherrywood_hu3e73420557c65eba7af4271aa49a2b02_4217992_300x0_resize_q70_box_3.png" alt="This sweater will feel like a cozy hug.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-ryana-knit-sweater-cherrywood.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -616,7 +635,7 @@
 		
 			<a href="/product/ryana-knit-sweater-cherrywood/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-cherrywood fa-2x"></span>
+					<span class="fa-solid fa-circle icon-cherrywood fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the snug ryana, cherrywood variant</span>
 			</a>
@@ -690,9 +709,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_300x0_resize_q70_box_3.png" src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_300x0_resize_q70_box_3.png" alt="The blouse for those special occasions.">
-												<figcaption class="sr-only">The blouse for those special occasions.</figcaption>
+												<picture>
+													<source srcset="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_300x0_resize_q70_box_3.png" src="/product/ryana-lantern-sleeve-blouse-white/1-ryana-lantern-sleeve-blouse-white_hu2632564073b0cf0f7b477535cf753108_2680745_300x0_resize_q70_box_3.png" alt="The blouse for those special occasions.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-ryana-lantern-sleeve-blouse-white.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -752,7 +777,7 @@
 		
 			<a href="/product/ryana-lantern-sleeve-blouse-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the radiant ryana, white variant</span>
 			</a>
@@ -822,9 +847,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_300x0_resize_q70_box_3.png" src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_300x0_resize_q70_box_3.png" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
-												<figcaption class="sr-only">A simply undemanding bandeau that&#39;s got your back, and your support.</figcaption>
+												<picture>
+													<source srcset="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_300x0_resize_q70_box_3.png" src="/product/ryana-bandeau-black/1-ryana-bandeau-black_hu7c220586cf4911dcc90b2d2510329bc2_4932578_300x0_resize_q70_box_3.png" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-ryana-bandeau-black.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -877,7 +908,7 @@
 		
 			<a href="/product/ryana-bandeau-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the bare ryana, black variant</span>
 			</a>
@@ -889,7 +920,7 @@
 		
 			<a href="/product/ryana-bandeau-brass/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
+					<span class="fa-solid fa-circle icon-brass fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the bare ryana, brass variant</span>
 			</a>
@@ -951,9 +982,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_300x0_resize_q70_box_3.png" src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_300x0_resize_q70_box_3.png" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
-												<figcaption class="sr-only">A simply undemanding bandeau that&#39;s got your back, and your support.</figcaption>
+												<picture>
+													<source srcset="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_300x0_resize_q70_box_3.png" src="/product/ryana-bandeau-brass/1-ryana-bandeau-brass_hu7c18313d1276dc0d6555b155392dd19f_8700853_300x0_resize_q70_box_3.png" alt="A simply undemanding bandeau that&#39;s got your back, and your support.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-ryana-bandeau-brass.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -1017,7 +1054,7 @@
 		
 			<a href="/product/ryana-bandeau-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the bare ryana, black variant</span>
 			</a>
@@ -1029,7 +1066,7 @@
 		
 			<a href="/product/ryana-bandeau-brass/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
+					<span class="fa-solid fa-circle icon-brass fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the bare ryana, brass variant</span>
 			</a>
@@ -1102,9 +1139,9 @@
 							<source srcset="/unisex/banner_hud81d12c41e7571e6705cc2dc26686dad_363879_900x0_resize_q85_h2_box.webp" type="image/webp">
 							<source srcset="/unisex/banner_hud81d12c41e7571e6705cc2dc26686dad_363879_900x0_resize_q85_box.jpg" type="image/jpg">
 							<img class="is-rounded" src="/unisex/banner_hud81d12c41e7571e6705cc2dc26686dad_363879_900x0_resize_q85_box.jpg" alt="unisex section image">
-							<figcaption class="sr-only">unisex section image. </figcaption>
-							</source>
 						</picture>
+						<figcaption class="sr-only">unisex section image. </figcaption>
+							</source>
 					</figure>
 				</div>
 				<div class="column content is-flex is-flex-direction-column is-align-items-center">
@@ -1156,9 +1193,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
-												<figcaption class="sr-only">This is the most snug blanket of a sweater around. Just feel for yourself.</figcaption>
+												<picture>
+													<source srcset="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" src="/product/the-sykstem-knit-sweater-zucchini/1-the-sykstem-knit-sweater-zucchini_hu5bc9eab293af64cc01fe8ff589c633ce_3061482_300x0_resize_q70_box_3.png" alt="This is the most snug blanket of a sweater around. Just feel for yourself.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-the-sykstem-knit-sweater-zucchini.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -1214,7 +1257,7 @@
 		
 			<a href="/product/the-sykstem-knit-sweater-zucchini/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-zucchini fa-2x"></span>
+					<span class="fa-solid fa-circle icon-zucchini fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the snug sykstem, zucchini variant</span>
 			</a>
@@ -1324,9 +1367,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
-												<figcaption class="sr-only">Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.</figcaption>
+												<picture>
+													<source srcset="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" src="/product/shipital-bomber-jacket-black/1-shipital-bomber-jacket-black_hu5b0c89c2b8b3a17cbc66c79c78ac6f4f_7383317_300x0_resize_q70_box_3.png" alt="Made for an an extravagant night out on the town. You&#39;re at the right place at the right time.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-shipital-bomber-jacket-black.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -1386,7 +1435,7 @@
 		
 			<a href="/product/shipital-bomber-jacket-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the stylish shipital, black variant</span>
 			</a>
@@ -1442,7 +1491,7 @@
 		
 			<a href="/product/shipital-bomber-jacket-cocoa/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
+					<span class="fa-solid fa-circle icon-cocoa fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the stylish shipital, cocoa variant</span>
 			</a>
@@ -1500,9 +1549,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_300x0_resize_q70_box_3.png" src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_300x0_resize_q70_box_3.png" alt="our v1 company hat">
-												<figcaption class="sr-only">our v1 company hat</figcaption>
+												<picture>
+													<source srcset="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_300x0_resize_q70_box_3.png" src="/product/the-sykstem-hat-galaxy/1-the-sykstem-hat-galaxy_hu6071f8c524d0604fa8de7a5773dffbef_2564808_300x0_resize_q70_box_3.png" alt="our v1 company hat">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-the-sykstem-hat-galaxy.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -1555,7 +1610,7 @@
 		
 			<a href="/product/the-sykstem-hat-galaxy/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
+					<span class="fa-solid fa-circle icon-galaxy fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the classic sykstem, galaxy variant</span>
 			</a>
@@ -1567,7 +1622,7 @@
 		
 			<a href="/product/the-sykstem-hat-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the classic sykstem, white variant</span>
 			</a>
@@ -1665,9 +1720,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_300x0_resize_q70_box_3.png" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_300x0_resize_q70_box_3.png" alt="our v1 company hat">
-												<figcaption class="sr-only">our v1 company hat</figcaption>
+												<picture>
+													<source srcset="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_300x0_resize_q70_box_3.png" src="/product/the-sykstem-hat-white/1-the-sykstem-hat-white_hu6071f8c524d0604fa8de7a5773dffbef_1795622_300x0_resize_q70_box_3.png" alt="our v1 company hat">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-the-sykstem-hat-white.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -1731,7 +1792,7 @@
 		
 			<a href="/product/the-sykstem-hat-galaxy/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-galaxy fa-2x"></span>
+					<span class="fa-solid fa-circle icon-galaxy fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the classic sykstem, galaxy variant</span>
 			</a>
@@ -1743,7 +1804,7 @@
 		
 			<a href="/product/the-sykstem-hat-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the classic sykstem, white variant</span>
 			</a>
@@ -1852,9 +1913,9 @@
 							<source srcset="/men/banner_hud81d12c41e7571e6705cc2dc26686dad_470384_900x0_resize_q85_h2_box.webp" type="image/webp">
 							<source srcset="/men/banner_hud81d12c41e7571e6705cc2dc26686dad_470384_900x0_resize_q85_box.jpg" type="image/jpg">
 							<img class="is-rounded" src="/men/banner_hud81d12c41e7571e6705cc2dc26686dad_470384_900x0_resize_q85_box.jpg" alt="men section image">
-							<figcaption class="sr-only">men section image. </figcaption>
-							</source>
 						</picture>
+						<figcaption class="sr-only">men section image. </figcaption>
+							</source>
 					</figure>
 				</div>
 				<div class="column content is-flex is-flex-direction-column is-align-items-center">
@@ -1906,9 +1967,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_300x0_resize_q70_box_3.png" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_300x0_resize_q70_box_3.png" alt="The right article for when the weather takes over.">
-												<figcaption class="sr-only">The right article for when the weather takes over.</figcaption>
+												<picture>
+													<source srcset="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_300x0_resize_q70_box_3.png" src="/product/the-sykstem-rain-jacket-bay/1-the-sykstem-rain-jacket-bay_hu2f6de0f65fa899fd078a7f099c78adbf_5297806_300x0_resize_q70_box_3.png" alt="The right article for when the weather takes over.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-the-sykstem-rain-jacket-bay.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -1964,7 +2031,7 @@
 		
 			<a href="/product/the-sykstem-rain-jacket-bay/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-bay fa-2x"></span>
+					<span class="fa-solid fa-circle icon-bay fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the storm sykstem, bay variant</span>
 			</a>
@@ -2022,9 +2089,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" alt="Our plaid is a modern take on the classic style.">
-												<figcaption class="sr-only">Our plaid is a modern take on the classic style.</figcaption>
+												<picture>
+													<source srcset="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" src="/product/shipital-plaid-shirt-black/1-shipital-plaid-shirt-black_hucf176508adc8e66b76dec8be37af563e_5571720_300x0_resize_q70_box_3.png" alt="Our plaid is a modern take on the classic style.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-shipital-plaid-shirt-black.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -2084,7 +2157,7 @@
 		
 			<a href="/product/shipital-plaid-shirt-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the plaid shipital, black variant</span>
 			</a>
@@ -2138,9 +2211,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_300x0_resize_q70_box_3.png" src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_300x0_resize_q70_box_3.png" alt="A stunning blazer with just the right touch.">
-												<figcaption class="sr-only">A stunning blazer with just the right touch.</figcaption>
+												<picture>
+													<source srcset="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_300x0_resize_q70_box_3.png" src="/product/shipital-blazer-black/1-shipital-blazer-black_hue9abc040521ce8219cbca93662c60b1b_4830579_300x0_resize_q70_box_3.png" alt="A stunning blazer with just the right touch.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-shipital-blazer-black.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -2193,7 +2272,7 @@
 		
 			<a href="/product/shipital-blazer-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the spotlight shipital, black variant</span>
 			</a>
@@ -2205,7 +2284,7 @@
 		
 			<a href="/product/shipital-blazer-red/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
+					<span class="fa-solid fa-circle icon-brick fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the spotlight shipital, brick variant</span>
 			</a>
@@ -2217,7 +2296,7 @@
 		
 			<a href="/product/shipital-blazer-wine/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
+					<span class="fa-solid fa-circle icon-wine fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the spotlight shipital, wine variant</span>
 			</a>
@@ -2259,9 +2338,15 @@
 											
 											
 											
+											
 											<figure>
-												<img class="lazyload" data-src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_300x0_resize_q70_box_3.png" src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_300x0_resize_q70_box_3.png" alt="A stunning blazer with just the right touch.">
-												<figcaption class="sr-only">A stunning blazer with just the right touch.</figcaption>
+												<picture>
+													<source srcset="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_300x0_resize_q65_h2_box_3.webp" type="image/webp">
+													<source srcset="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_300x0_resize_q70_box_3.png" type="image/jpg">
+													<img class="lazyload" data-src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_300x0_resize_q70_box_3.png" src="/product/shipital-blazer-red/1-shipital-blazer-red_hub59bffc5c30b2ac1b53d993a48b5aae2_11633705_300x0_resize_q70_box_3.png" alt="A stunning blazer with just the right touch.">
+													</source>
+												</picture>
+												<figcaption class="sr-only">our model wearing the 1-shipital-blazer-red.png.</figcaption>
 											</figure>
 											
 										</a>
@@ -2314,7 +2399,7 @@
 		
 			<a href="/product/shipital-blazer-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the spotlight shipital, black variant</span>
 			</a>
@@ -2326,7 +2411,7 @@
 		
 			<a href="/product/shipital-blazer-red/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
+					<span class="fa-solid fa-circle icon-brick fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the spotlight shipital, brick variant</span>
 			</a>
@@ -2338,7 +2423,7 @@
 		
 			<a href="/product/shipital-blazer-wine/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-wine fa-2x"></span>
+					<span class="fa-solid fa-circle icon-wine fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the spotlight shipital, wine variant</span>
 			</a>
@@ -2437,40 +2522,29 @@
 			<div class="mt-5 mb-5">
 				<div class="columns content">
 					<div class="column is-flex is-flex-direction-column">
-						<h3>customer support</h3>
-						<div>
-							<a href="/contact/">contact us</a>
-						</div>
-						<div>
-							<a href="/exchanges-and-returns/">exchange or return</a>
-						</div>
+						<h3 class="p-1">customer support</h3>
+						<a href="/contact/">contact us</a>
+						<a href="/exchanges-and-returns/">exchange or return</a>
+
 					</div>
 					<div class="column is-flex is-flex-direction-column">
-						<h3>about us</h3>
-						<div>
-							<a href="/our-mission/">our mission</a>
-						</div>
-						<div>
-							<a href="/careers/">careers</a>
-						</div>
-						<div>
-							<a href="/pro-worker-resources/">pro-worker resources</a>
-						</div>
-						<div>
-							<a href="/faq/">faq</a>
-						</div>
+						<h3 class="p-1">about us</h3>
+						<a href="/our-mission/"><span>our mission</span></a>
+						<a href="/careers/">careers</a>
+						<a href="/pro-worker-resources/">pro-worker resources</a>
+
+						<a href="/faq/">faq</a>
 					</div>
 					<div class="column is-flex is-flex-direction-column">
-						<h3>connect with us</h3>
-						<div>
-							<a class="has-text-black" href="https://5juolf.deta.dev/">join our <strong>newsletter!</strong></a>
-						</div>
+						<h3 class="p-1">connect with us</h3>
+						<a class="has-text-black" href="https://5juolf.deta.dev/">join our <strong>newsletter!</strong></a>
 					</div>
 				</div>
 			</div>
 			<div class="columns">
 				<div class="column is-flex is-flex-direction-row is-justify-content-space-between">
-					<div class="tags is-align-items-flex-start">
+					<div class="tags m-0 is-align-items-flex-start
+					">
 						
 						<div class="payment-icon">
 							
@@ -2486,14 +2560,11 @@
 						
 					</div>
 					<div class="content is-flex is-flex-direction-column has-text-right is-align-items-flex-end">
-						<div>
-							<a href="/privacy-policy/">privacy policy</a>
-						</div>
-						<div>
-							<a href="/terms/">terms of service</a>
-						</div>
+						<a href="/privacy-policy/">privacy policy</a>
+						<a href="/terms/">terms of service</a>
+
 						<br>
-						<p class="is-size-7 mb-0">©2022 the sykstem | powered by Hugo</p>
+						<p class="is-size-7 mt-2 mb-0">©2022 the sykstem | powered by Hugo</p>
 					</div>
 				</div>
 			</div>
@@ -2502,7 +2573,7 @@
 		
 
 		
-		
+
 	</footer>
 </body>
 

@@ -8,10 +8,19 @@
 	<meta name="description" content="the sykstem clothing boutique">
 	<meta name="keywords" content="online shopping, brick-and-mortar, clothing boutique">
 	<meta name="author" content="the sykstem">
+	
+	
+	
+	<meta property="og:title" content="iPhone" />
+	<meta property="og:image" content="/sale/banner.jpg" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<link rel="icon" href="/favicon.ico" type="image/ico"/>
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"/>
 
 
+	<link rel="preconnect" href="https://app.snipcart.com" />
+	<link rel="preconnect" href="https://cdn.snipcart.com" />
 	
 
 
@@ -60,7 +69,7 @@
 		<section class="section is-small py-0">
 			<div class="noscript-container container is-fluid translucent-dark-back py-2">
 				<div class="is-flex p-5 is-justify-content-center is-align-items-center">
-					<span>hello there! this site works a little better with javascript turned on, but you can still browse with it off. you&#39;re welcome!</span>
+					<span>Hello there! This site works a little better with javascript turned on, but you can still browse with it off. You&#39;re welcome!</span>
 				</div>
 			</div>
 		</section>
@@ -74,7 +83,9 @@
 			<div class="navbar-brand is-flex is-flex-direction-row">
 				<div class="navbar-item">
 					<a class="logo-image is-flex" href="/">
-						<img class="logo" src="/image/logo.svg" alt="our company logo, the sykstem">
+						<figure class="image is-64x">
+							<img class="logo" src="/image/logo.svg" alt="our company logo, the sykstem">
+						</figure>
 					</a>
 				</div>
 				<div class="menu-switch-pos">
@@ -145,9 +156,9 @@
 	<div class="is-collapsible-search">
 		<input type="checkbox" name="site-search" id="site-search">
 		<label aria-label="open search" tabindex="0" class="search-label p-3" for="site-search">
-			<span class="sr-only">search products</span>
+			
 			<span class="icon">
-				<span class="fa-solid fa-search"></span>
+				<span class="fa-solid fa-search" aria-hidden="true"></span>
 			</span>
 
 		</label>
@@ -159,7 +170,7 @@
 						<div class="search-field-group is-flex is-flex-direction-column field is-grouped is-grouped-left">
 							<p class="control">
 								<input hidden checked type="checkbox" name="exit-search">
-								<label aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
+								<label role="button" aria-label="exit search" tabindex="0" id="exit-search" class="button is-medium" for="site-search">
 									<span class="icon is-medium is-left mr-0">
 										<span class="fa-solid fa-xmark"></span>
 									</span>
@@ -167,7 +178,7 @@
 								</label>
 							</p>
 							<p id="fastSearch" class="control is-expanded">
-								<input id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
+								<input aria-label="search input" id="searchInput" class="input is-medium" name="search-input" placeholder="search products" tabindex="0">
 								<label class="sr-only" for="search-input">search input</label>
 							<ul id="searchResults">
 							</ul>
@@ -454,7 +465,7 @@
 										</div>
 										<button class="snipcart-customer-signin button  is-rounded sale p-4 account-button" aria-haspopup="true" aria-controls="account-drawer">
 											<span class="icon is-small">
-												<span class="fa-solid fa-user"></span>
+												<span class="fa-solid fa-user" aria-hidden="true"></span>
 											</span>
 											<span><strong>account</strong></span>
 
@@ -471,7 +482,7 @@
 		<button aria-label="your shopping bag" aria-haspopup="true" class="snipcart-checkout button is-rounded shopping-bag-button">
 			<span class="icon-text is-inline-block">
 				<span class="icon">
-					<span class="fa-solid fa-bag-shopping"></span>
+					<span class="fa-solid fa-bag-shopping" aria-hidden="true"></span>
 				</span>
 				<span class="is-hidden-mobile"><strong>bag</strong></span>
 				<span id="bag-count" class="snipcart-items-count"></span>
@@ -737,7 +748,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="zucchini">
-												zucchini
+												<span>zucchini</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-zucchini"></span>
@@ -750,7 +761,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="black">
-												black
+												<span>black</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-black"></span>
@@ -763,7 +774,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="bay">
-												bay
+												<span>bay</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-bay"></span>
@@ -776,7 +787,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="white">
-												white
+												<span>white</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-white"></span>
@@ -789,7 +800,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="brass">
-												brass
+												<span>brass</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-brass"></span>
@@ -802,7 +813,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="rose">
-												rose
+												<span>rose</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-rose"></span>
@@ -815,7 +826,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="brick">
-												brick
+												<span>brick</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-brick"></span>
@@ -828,7 +839,7 @@
 										<label tabindex="0" class="checkbox full-width py-2">
 											<span>
 												<input class="filter-option-color" type="checkbox" value="cocoa">
-												cocoa
+												<span>cocoa</span>
 											</span>
 											<span class="icon is-medium">
 												<span class="fa-solid fa-circle icon-cocoa"></span>
@@ -927,11 +938,11 @@
 
 
 			
-
+			
 			
 
 			
-
+			
 			<div id="the-sykstem-knit-sweater-zucchini" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -1024,7 +1035,7 @@
 		
 			<a href="/product/the-sykstem-knit-sweater-zucchini/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-zucchini fa-2x"></span>
+					<span class="fa-solid fa-circle icon-zucchini fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the snug sykstem, zucchini variant</span>
 			</a>
@@ -1092,7 +1103,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="shipital-bomber-jacket-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -1189,7 +1200,7 @@
 		
 			<a href="/product/shipital-bomber-jacket-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the stylish shipital, black variant</span>
 			</a>
@@ -1241,7 +1252,7 @@
 		
 			<a href="/product/shipital-bomber-jacket-cocoa/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
+					<span class="fa-solid fa-circle icon-cocoa fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the stylish shipital, cocoa variant</span>
 			</a>
@@ -1261,7 +1272,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="the-sykstem-rain-jacket-bay" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -1362,7 +1373,7 @@
 		
 			<a href="/product/the-sykstem-rain-jacket-bay/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-bay fa-2x"></span>
+					<span class="fa-solid fa-circle icon-bay fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the storm sykstem, bay variant</span>
 			</a>
@@ -1422,7 +1433,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="ryana-lantern-sleeve-blouse-white" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -1527,7 +1538,7 @@
 		
 			<a href="/product/ryana-lantern-sleeve-blouse-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the radiant ryana, white variant</span>
 			</a>
@@ -1583,7 +1594,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="ryana-bandeau-brass" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -1692,7 +1703,7 @@
 		
 			<a href="/product/ryana-bandeau-brass/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-brass fa-2x"></span>
+					<span class="fa-solid fa-circle icon-brass fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the bare ryana, brass variant</span>
 			</a>
@@ -1744,7 +1755,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="the-sykstem-hat-white" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -1857,7 +1868,7 @@
 		
 			<a href="/product/the-sykstem-hat-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the classic sykstem, white variant</span>
 			</a>
@@ -1905,7 +1916,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="shipital-plaid-shirt-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2022,7 +2033,7 @@
 		
 			<a href="/product/shipital-plaid-shirt-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the plaid shipital, black variant</span>
 			</a>
@@ -2066,7 +2077,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="ryana-jacket-white" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2187,7 +2198,7 @@
 		
 			<a href="/product/ryana-jacket-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the rad ryana, white variant</span>
 			</a>
@@ -2227,7 +2238,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="ryana-long-sleeve-top-rose" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2352,7 +2363,7 @@
 		
 			<a href="/product/ryana-long-sleeve-top-rose/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-rose fa-2x"></span>
+					<span class="fa-solid fa-circle icon-rose fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the relaxing ryana, rose variant</span>
 			</a>
@@ -2388,7 +2399,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="shipital-topcoat-black" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2517,7 +2528,7 @@
 		
 			<a href="/product/shipital-topcoat-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the sophisticated shipital, black variant</span>
 			</a>
@@ -2529,7 +2540,7 @@
 		
 			<a href="/product/shipital-topcoat-camel/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-ban icon-camel fa-2x"></span>
+					<span class="fa-solid fa-ban icon-camel fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the sophisticated shipital, camel variant</span>
 			</a>
@@ -2557,7 +2568,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="shipital-topcoat-camel" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2686,7 +2697,7 @@
 		
 			<a href="/product/shipital-topcoat-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the sophisticated shipital, black variant</span>
 			</a>
@@ -2698,7 +2709,7 @@
 		
 			<a href="/product/shipital-topcoat-camel/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-ban icon-camel fa-2x"></span>
+					<span class="fa-solid fa-ban icon-camel fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the sophisticated shipital, camel variant</span>
 			</a>
@@ -2726,7 +2737,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="ryana-pencil-dress-brick" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2863,7 +2874,7 @@
 		
 			<a href="/product/ryana-pencil-dress-brick/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-brick fa-2x"></span>
+					<span class="fa-solid fa-circle icon-brick fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the squared ryana, brick variant</span>
 			</a>
@@ -2887,7 +2898,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="shipital-bomber-jacket-cocoa" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -2984,7 +2995,7 @@
 		
 			<a href="/product/shipital-bomber-jacket-black/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-black fa-2x"></span>
+					<span class="fa-solid fa-circle icon-black fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the stylish shipital, black variant</span>
 			</a>
@@ -3036,7 +3047,7 @@
 		
 			<a href="/product/shipital-bomber-jacket-cocoa/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-cocoa fa-2x"></span>
+					<span class="fa-solid fa-circle icon-cocoa fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the stylish shipital, cocoa variant</span>
 			</a>
@@ -3056,7 +3067,7 @@
 				</div>
 			</div>
 			
-
+			
 			<div id="the-sykstem-shirt-white" class="grid-product-container column is-half-mobile is-one-third-tablet is-3-desktop">
 				<div class="tile is-ancestor">
 
@@ -3201,7 +3212,7 @@
 		
 			<a href="/product/the-sykstem-shirt-white/">
 				<span class="icon is-medium">
-					<span class="fa-solid fa-circle icon-white fa-2x"></span>
+					<span class="fa-solid fa-circle icon-white fa-2x" aria-hidden="true"></span>
 				</span>
 				<span class="sr-only">the sykstem, white variant</span>
 			</a>
@@ -3284,40 +3295,29 @@
 			<div class="mt-5 mb-5">
 				<div class="columns content">
 					<div class="column is-flex is-flex-direction-column">
-						<h3>customer support</h3>
-						<div>
-							<a href="/contact/">contact us</a>
-						</div>
-						<div>
-							<a href="/exchanges-and-returns/">exchange or return</a>
-						</div>
+						<h3 class="p-1">customer support</h3>
+						<a href="/contact/">contact us</a>
+						<a href="/exchanges-and-returns/">exchange or return</a>
+
 					</div>
 					<div class="column is-flex is-flex-direction-column">
-						<h3>about us</h3>
-						<div>
-							<a href="/our-mission/">our mission</a>
-						</div>
-						<div>
-							<a href="/careers/">careers</a>
-						</div>
-						<div>
-							<a href="/pro-worker-resources/">pro-worker resources</a>
-						</div>
-						<div>
-							<a href="/faq/">faq</a>
-						</div>
+						<h3 class="p-1">about us</h3>
+						<a href="/our-mission/"><span>our mission</span></a>
+						<a href="/careers/">careers</a>
+						<a href="/pro-worker-resources/">pro-worker resources</a>
+
+						<a href="/faq/">faq</a>
 					</div>
 					<div class="column is-flex is-flex-direction-column">
-						<h3>connect with us</h3>
-						<div>
-							<a class="has-text-black" href="https://5juolf.deta.dev/">join our <strong>newsletter!</strong></a>
-						</div>
+						<h3 class="p-1">connect with us</h3>
+						<a class="has-text-black" href="https://5juolf.deta.dev/">join our <strong>newsletter!</strong></a>
 					</div>
 				</div>
 			</div>
 			<div class="columns">
 				<div class="column is-flex is-flex-direction-row is-justify-content-space-between">
-					<div class="tags is-align-items-flex-start">
+					<div class="tags m-0 is-align-items-flex-start
+					">
 						
 						<div class="payment-icon">
 							
@@ -3333,14 +3333,11 @@
 						
 					</div>
 					<div class="content is-flex is-flex-direction-column has-text-right is-align-items-flex-end">
-						<div>
-							<a href="/privacy-policy/">privacy policy</a>
-						</div>
-						<div>
-							<a href="/terms/">terms of service</a>
-						</div>
+						<a href="/privacy-policy/">privacy policy</a>
+						<a href="/terms/">terms of service</a>
+
 						<br>
-						<p class="is-size-7 mb-0">©2022 the sykstem | powered by Hugo</p>
+						<p class="is-size-7 mt-2 mb-0">©2022 the sykstem | powered by Hugo</p>
 					</div>
 				</div>
 			</div>
@@ -3349,7 +3346,7 @@
 		
 
 		
-		
+
 	</footer>
 </body>
 

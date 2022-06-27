@@ -6,6 +6,13 @@
 	<meta name="description" content="the sykstem clothing boutique">
 	<meta name="keywords" content="online shopping, brick-and-mortar, clothing boutique">
 	<meta name="author" content="the sykstem">
+	
+	{{ $link_preview := .Resources.GetMatch "banner.jpg" }}
+	{{ if eq $link_preview nil }}
+		{{ $link_preview = (resources.Get "/image/models-5.jpg").Resize "900x webp q75" }}
+	{{ end }}
+	<meta property="og:title" content="iPhone" />
+	<meta property="og:image" content="{{ $link_preview.Permalink }}" />
 	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
 	<link rel="icon" href="/favicon.ico" type="image/ico"/>
